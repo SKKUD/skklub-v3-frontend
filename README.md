@@ -1,8 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SKKLUB v.3 Frontend
 
-For more information, contact ___
+![GitHub issues](https://img.shields.io/github/issues/SKKU-TSC/skklub-v3-frontend?style=for-the-badge&logo=github)
+![Code size](https://img.shields.io/github/languages/code-size/SKKU-TSC/skklub-v3-frontend?style=for-the-badge&logo=github
+)
+![Commit activity](https://img.shields.io/github/commit-activity/w/SKKU-TSC/skklub-v3-frontend?style=for-the-badge&logo=github
+)
+![Last commit](https://img.shields.io/github/last-commit/SKKU-TSC/skklub-v3-frontend?style=for-the-badge&logo=github
+)
 
-## Getting Started
+This is the official repository of SKKLUB v.3, which is due to be released on 2021. SKKLUB is the official platform for SungKyunKwan University's student clubs.
+
+---
+## Getting Started ⚙️
 
 First, run the development server:
 
@@ -14,15 +23,9 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Documentation 📚
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
+To learn more about this project, check out our wiki: 
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
