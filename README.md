@@ -1,3 +1,13 @@
+# SKKLUB v.3 official repository 🎓
+
+![Commit activity](https://img.shields.io/github/commit-activity/w/SKKU-TSC/skklub-v3-frontend?style=for-the-badge&logo=github
+)
+![Last commit](https://img.shields.io/github/last-commit/SKKU-TSC/skklub-v3-frontend?style=for-the-badge&logo=github
+)
+![Languages](https://img.shields.io/github/languages/count/SKKU-TSC/skklub-v3-frontend?style=for-the-badge)
+![Issues](https://img.shields.io/bitbucket/issues/SKKU-TSC/skklub-v3-frontend?style=for-the-badge)
+![Version](https://img.shields.io/github/package-json/v/SKKU-TSC/skklub-v3-frontend?style=for-the-badge)
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
