@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <div>
-      <h1>Testing Nextjs</h1>
+      <h1>Testing CICD</h1>
     </div>
   )
 }
