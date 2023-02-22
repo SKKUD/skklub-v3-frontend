@@ -33,3 +33,11 @@ As Next.js released a newer version (12 -> 13), the `pages` directory will be up
 ## Learn More
 
 To learn more about this project, please check out our wiki over here: [Wiki link](https://github.com/SKKU-TSC/skklub-v3-full/wiki)
+
+## Contributing
+
+The entire SKKU.D frontend team will be working on this project. If you are interested in contributing, please contact the project lead for more information.
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
