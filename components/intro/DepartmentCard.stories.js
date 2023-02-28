@@ -8,8 +8,8 @@ export default {
 const Template = (args) => <DepartmentCard {...args} />;
 
 export const Primary = Template.bind({});
-LoggedIn.args = {
-  //   user: {
+Primary.args = {
+  //constuser: {
   //     name: "Jane Doe",
   //   },
 };

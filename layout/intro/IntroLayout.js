@@ -1,33 +1,22 @@
-import DepartmentCard from "../../components/intro/DepartmentCard";
-import { useTheme } from '@emotion/react';
+import { useTheme } from "@emotion/react";
+import styled from "@emotion/styled";
 
-const dongyeon = {
-  title: "for:동",
-  section: ["Who we are 내용", "What we do 내용", "How we work 내용"],
-  department: [
-    {
-      name: "사무국",
-      emoji: "✏️",
-      description: "부서 소개 내용 .... ",
-    },
-    {
-      name: "홍보국",
-      emoji: "🔊",
-      description: "부서 소개 내용 .... ",
-    },
-  ],
-};
+const LayoutBackground = styled.div`
+  background-color: ${(props) => props.theme.palette.background.default};
+  color: ${(props) => props.theme.palette.text.primary};
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 export default function IntroLayout(props) {
   const theme = useTheme();
   return (
-    <div className="wrap" style={{ margin: "0 auto" }}>
+    <LayoutBackground>
       <h1>This is {props.campus}</h1>
-      <div style={{ width: "60%" }}>
-        {dongyeon.department.map((dept) => (
-          <DepartmentCard dept={dept} key={dept.name} />
-        ))}
-      </div>
-    </div>
+      {props.children}
+    </LayoutBackground>
   );
 }
