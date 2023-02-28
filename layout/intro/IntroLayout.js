@@ -19,9 +19,13 @@ const dongyeon = {
 
 export default function IntroLayout(props) {
   return (
-    <div>
+    <div className="wrap" style={{ margin: "0 auto" }}>
       <h1>This is {props.campus}</h1>
-      <DepartmentCard dy={dongyeon} />
+      <div style={{ width: "60%" }}>
+        {dongyeon.department.map((dept) => (
+          <DepartmentCard dept={dept} key={dept.name} />
+        ))}
+      </div>
     </div>
   );
 }
