@@ -1,7 +1,7 @@
-import DepartmentCard from "../../../components/intro/DepartmentSection";
 import IntroLayout from "../../../layout/intro/IntroLayout";
 import IntroSection from "../../../components/intro/IntroSection";
 import DepartmentSection from "../../../components/intro/DepartmentSection";
+import Footer from "../../../components/common/Footer";
 
 const data = {
   name: "for:동",
@@ -33,6 +33,7 @@ export default function SeoulDY() {
         <IntroSection data={data} />
         <DepartmentSection data={data} />
       </IntroLayout>
+      <Footer />
     </div>
   );
 }
