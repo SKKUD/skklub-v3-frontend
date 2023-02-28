@@ -9,14 +9,18 @@ const LayoutBackground = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 20rem;
+
+  @media (max-width: 1024px) {
+    padding: 0 5rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
 
 export default function IntroLayout(props) {
   const theme = useTheme();
-  return (
-    <LayoutBackground>
-      <h1>This is {props.campus}</h1>
-      {props.children}
-    </LayoutBackground>
-  );
+  return <LayoutBackground>{props.children}</LayoutBackground>;
 }
