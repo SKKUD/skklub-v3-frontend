@@ -1,4 +1,5 @@
 import DepartmentCard from "../../components/intro/DepartmentCard";
+import { useTheme } from '@emotion/react';
 
 const dongyeon = {
   title: "for:동",
@@ -18,6 +19,7 @@ const dongyeon = {
 };
 
 export default function IntroLayout(props) {
+  const theme = useTheme();
   return (
     <div className="wrap" style={{ margin: "0 auto" }}>
       <h1>This is {props.campus}</h1>
