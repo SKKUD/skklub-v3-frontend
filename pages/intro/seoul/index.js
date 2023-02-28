@@ -1,12 +1,36 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Image from 'next/image';
 
-import IntroLayout from '../../../layout/intro/IntroLayout'
+import IntroLayout from '../../../layout/intro/IntroLayout';
+import IntroSection from '../../../components/intro/IntroSection';
+
+const data = {
+	name: 'for:동',
+	section: [
+		'성균관대학교 동아리연합회는 민주적인 절차를 통해 우리 대학 캠퍼스 문화의 건전한 발전을 위한 기틀을 마련하며, 동아리 관련 행정처리 및 행사 추진을 담당합니다. 동아리연합회는 중앙동아리 소속 학우들의 활동을 장려하고 지원하는 것을 넘어서, 교내 모든 동아리, 소모임, 학회 등이 이용할 수 있는 공간을 제공하고, 중앙동아리 관련 정보를 신입생에게 가장 먼저 제공하는 등 성균인 전체의 동아리 문화생활을 장려합니다.',
+		'민주적 의견 수렴을 위해 상시로 운영위원회와 전체동아리대표자회의를 개최하여 상호 정보를 공유하고, 의결사항을 결정하고, 건의 및 논의안건에 대해 의견을 나눕니다. 소통창구를 통해 항상 학내 구성원의 목소리에 귀를 기울이고 있습니다. 동아리연합회는 특별기구로 중앙운영위원회를 구성하고, 학생자치활동에 적극적으로 참여합니다. 학내 모든 동아리인의 목소리를 대변하고, 서로 다른 목소리와 의견을 한데 모아 함께 논의하는 과정을 통해 최선을 향해 나아가려 노력합니다. 동아리연합회는 성균관대학교 전체 학생사회의 발전을 위해 불철주야 노력하고 있습니다.',
+		'동아리연합회는 원활한 업무수행을 위해 5개의 집행국과 2개의 특별사무팀으로 구성됩니다. 대내사업국, 비서소통국, 사무국, 행사기획국, 홍보국의 5국과 총무팀, 디자인팀의 2팀이 서로 소통하며 업무를 함께 추진하고 있습니다. 이렇게 진행되는 상시사업과 공약사업의 이행과정은 학우들에게 투명하게 공개됩니다. 각 국의 업무는 아래와 같습니다.',
+	],
+	department: [
+		{
+			name: '사무국',
+			emoji: '✏️',
+			description: '부서 소개 내용 .... ',
+		},
+		{
+			name: '홍보국',
+			emoji: '✏️',
+			description: '부서 소개 내용 .... ',
+		},
+	],
+};
 
 export default function SeoulDY() {
-  return (
-    <div>
-        <IntroLayout campus="Seoul" />
-    </div>
-  )
+	return (
+		<div>
+			<IntroLayout campus="Seoul">
+				<IntroSection data={data} />
+			</IntroLayout>
+		</div>
+	);
 }
