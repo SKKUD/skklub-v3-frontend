@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import styled from "@emotion/styled";
@@ -6,7 +6,9 @@ import Link from "next/link";
 import Sidebar from "./Sidebar";
 
 const HeaderWrap = styled.div`
-  position: static;
+  position: sticky;
+  top: 0;
+  background-color: #151717;
   width: 100%;
   height: 80px;
   padding: 20px;
