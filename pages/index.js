@@ -33,6 +33,8 @@ const BtnContainer = styled.div`
   background-color: blue;
 `;
 
+const LocationBtn = styled.button``;
+
 export default function Home() {
   return (
     <HomePageContainer>
@@ -40,7 +42,10 @@ export default function Home() {
         <Logo></Logo>
         <PhraseBtnContainer>
           <Phrase></Phrase>
-          <LocationBtnContainer />
+          <BtnContainer>
+            <LocationBtn></LocationBtn>
+            <LocationBtn></LocationBtn>
+          </BtnContainer>
         </PhraseBtnContainer>
       </ItemContainer>
     </HomePageContainer>
