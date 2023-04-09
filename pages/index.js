@@ -37,17 +37,22 @@ const Phrase = styled.h2`
 
 const BtnContainer = styled.div`
   width: 100%;
-  height: 100px;
+
   display: flex;
   justify-content: space-around;
+  gap: 8%;
 `;
 
 const LocationBtn = styled.button`
   border: none;
-  background-color: transparent;
-  color: grey;
-  width: 48%;
-  background-color: beige;
+  color: black;
+  width: 100%;
+  background-color: white;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 3rem;
+  font-weight: 900;
 `;
 
 export default function Home() {
