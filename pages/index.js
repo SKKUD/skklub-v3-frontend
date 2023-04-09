@@ -21,11 +21,7 @@ const ItemContainer = styled.div`
   align-items: center;
 `;
 
-const Logo = styled.div`
-  position: relative;
-  width: 70vw;
-  height: 50vh;
-`;
+const Logo = styled.div``;
 
 const PhraseBtnContainer = styled.div`
   display: flex;
@@ -63,10 +59,11 @@ export default function Home() {
             src={logoImg}
             alt="SKKLUB LOGO"
             placeholder="blur"
-            fill
-            // objectFit="contain"
+            // fill
             style={{
               objectFit: "contain",
+              height: "auto",
+              width: "70vw",
             }}
             //   sizes="(max-width: 768px) 100vw,
             // (max-width: 1200px) 50vw,
