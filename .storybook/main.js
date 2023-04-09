@@ -1,9 +1,13 @@
 module.exports = {
+<<<<<<< HEAD
   stories: [
     "../stories/**/*.stories.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)",
     "../components/**/**/*.stories.js",
   ],
+=======
+  stories: ["../components/**/*.stories.js"],
+>>>>>>> 8e22d05bdcf5110acb964def437f8742fd034e72
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",

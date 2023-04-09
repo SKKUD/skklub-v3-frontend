@@ -2,9 +2,9 @@ import styled from "@emotion/styled";
 
 const FooterWrap = styled.div`
   width: 100%;
-  height: 300px;
+  height: 200px;
   font-size: 20px;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.5);
   font-weight: 600;
   text-align: center;
   background-color: #262626;
@@ -15,8 +15,8 @@ const FooterWrap = styled.div`
   word-break: keep-all;
 
   @media (max-width: 768px) {
-    height: 200px;
-    font-size: 14px;
+    height: 68px;
+    font-size: 0.65rem;
   }
 `;
 
