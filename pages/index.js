@@ -53,6 +53,11 @@ const LocationBtn = styled.button`
   padding-bottom: 1rem;
   border-radius: 3rem;
   font-weight: 900;
+
+  &:hover {
+    background-color: ${(props) => props.hoverColor};
+    color: white;
+  }
 `;
 
 export default function Home() {
@@ -79,8 +84,8 @@ export default function Home() {
         <PhraseBtnContainer>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnContainer>
-            <LocationBtn>명륜</LocationBtn>
-            <LocationBtn>율전</LocationBtn>
+            <LocationBtn hoverColor="#80A4FF">명륜</LocationBtn>
+            <LocationBtn hoverColor="#50CFB1">율전</LocationBtn>
           </BtnContainer>
         </PhraseBtnContainer>
       </ItemContainer>
