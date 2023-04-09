@@ -21,7 +21,11 @@ const ItemContainer = styled.div`
   align-items: center;
 `;
 
-const Logo = styled.div``;
+const Logo = styled.div`
+  position: relative;
+  width: 70vw;
+  height: 50vh;
+`;
 
 const PhraseBtnContainer = styled.div`
   display: flex;
@@ -38,17 +42,37 @@ const Phrase = styled.h2`
 const BtnContainer = styled.div`
   width: 100%;
   height: 100px;
-  background-color: blue;
+  display: flex;
+  justify-content: space-around;
 `;
 
-const LocationBtn = styled.button``;
+const LocationBtn = styled.button`
+  border: none;
+  background-color: transparent;
+  color: grey;
+  width: 48%;
+  background-color: beige;
+`;
 
 export default function Home() {
   return (
     <HomePageContainer>
       <ItemContainer>
         <Logo>
-          <Image src={logoImg} alt="SKKLUB LOGO" placeholder="blur"></Image>
+          <Image
+            src={logoImg}
+            alt="SKKLUB LOGO"
+            placeholder="blur"
+            fill
+            // objectFit="contain"
+            style={{
+              objectFit: "contain",
+            }}
+            //   sizes="(max-width: 768px) 100vw,
+            // (max-width: 1200px) 50vw,
+            // 33vw"
+            // style={he}
+          ></Image>
         </Logo>
         <PhraseBtnContainer>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
