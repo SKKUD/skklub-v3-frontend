@@ -69,16 +69,15 @@ export default function Home() {
             src={logoImg}
             alt="SKKLUB LOGO"
             placeholder="blur"
-            // fill
             style={{
-              objectFit: "contain",
+              // objectFit: "contain",
               height: "auto",
               width: "70vw",
+              maxWidth: "1430px",
             }}
-            //   sizes="(max-width: 768px) 100vw,
+            // sizes="(max-width: 768px) 100vw,
             // (max-width: 1200px) 50vw,
             // 33vw"
-            // style={he}
           ></Image>
         </Logo>
         <PhraseBtnContainer>
