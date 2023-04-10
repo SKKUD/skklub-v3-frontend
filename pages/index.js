@@ -3,12 +3,15 @@ import Image from "next/image";
 import Footer from "../components/common/Footer";
 import IntroLayout from "../layout/intro/IntroLayout";
 import styled from "@emotion/styled";
-import logoImg from "../assets/images/skklub_logo_m.png";
+import logoImg from "../public/assets/images/skklub_logo_m.png";
 
 const HomePageContainer = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
+  background-image: url("/assets/animations/web_loading.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const ItemContainer = styled.div`
@@ -27,33 +30,48 @@ const PhraseBtnContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
 `;
 
 const Phrase = styled.h2`
   display: inline-block;
   text-align: center;
   font-size: 2rem;
+  @media (max-width: 425px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const BtnContainer = styled.div`
   width: 100%;
-
   display: flex;
   justify-content: space-around;
   gap: 8%;
+  @media (max-width: 375px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
 `;
 
 const LocationBtn = styled.button`
   border: none;
-  color: black;
+  color: #434c4f;
   width: 100%;
   background-color: white;
   font-size: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  /* padding-top: 1rem;
+  padding-bottom: 1rem; */
+  height: 68px;
   border-radius: 3rem;
   font-weight: 900;
+
+  @media (max-width: 375px) {
+    width: 115px;
+    font-size: 1.25rem;
+    height: 40px;
+    padding: 0;
+    margin-bottom: 0.75rem;
+  }
 
   &:hover {
     background-color: ${(props) => props.hoverColor};
@@ -63,7 +81,9 @@ const LocationBtn = styled.button`
 
 export default function Home() {
   return (
-    <HomePageContainer>
+    <HomePageContainer
+    // style={{ backgroundImage: `url(../assets/animations/web_loading.gif)` }}
+    >
       <ItemContainer>
         <Logo>
           <Image
@@ -71,10 +91,10 @@ export default function Home() {
             alt="SKKLUB LOGO"
             placeholder="blur"
             style={{
-              // objectFit: "contain",
               height: "auto",
               width: "70vw",
               maxWidth: "1430px",
+              minWidth: "310px",
             }}
             // sizes="(max-width: 768px) 100vw,
             // (max-width: 1200px) 50vw,
