@@ -4,6 +4,7 @@ import Footer from "../components/common/Footer";
 import IntroLayout from "../layout/intro/IntroLayout";
 import styled from "@emotion/styled";
 import logoImg from "../public/assets/images/skklub_logo_m.png";
+import { useRouter } from "next/router";
 
 const HomePageContainer = styled.div`
   width: 100vw;
@@ -80,6 +81,11 @@ const LocationBtn = styled.button`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const onLocationBtnClick = (location) => {
+    router.push(`/${location}`);
+  };
+
   return (
     <HomePageContainer
     // style={{ backgroundImage: `url(../assets/animations/web_loading.gif)` }}
@@ -104,8 +110,18 @@ export default function Home() {
         <PhraseBtnContainer>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnContainer>
-            <LocationBtn hoverColor="#80A4FF">명륜</LocationBtn>
-            <LocationBtn hoverColor="#50CFB1">율전</LocationBtn>
+            <LocationBtn
+              hoverColor="#80A4FF"
+              onClick={() => onLocationBtnClick("seoul")}
+            >
+              명륜
+            </LocationBtn>
+            <LocationBtn
+              hoverColor="#50CFB1"
+              onClick={() => onLocationBtnClick("suwon")}
+            >
+              율전
+            </LocationBtn>
           </BtnContainer>
         </PhraseBtnContainer>
       </ItemContainer>
