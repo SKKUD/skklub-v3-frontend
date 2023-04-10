@@ -4,6 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import Sidebar from "./Sidebar";
+import styles from "../../styles/hamburger.module.css";
 
 const HeaderWrap = styled.div`
   position: sticky;
@@ -116,7 +117,7 @@ const navItems = [
 
 export default function Header() {
   const [isOpen, setOpen] = useState(false);
-  const toggleSide = () => {
+  const toggleSide = (e) => {
     setOpen(true);
   };
 
@@ -131,8 +132,15 @@ export default function Header() {
             ))}
           </NavWrap>
           <HamburgerWrap>
-            <IconButton onClick={toggleSide}>
-              <MenuIcon />
+            <IconButton
+              className={`${styles.menutrigger} ${styles.type7} ${
+                isOpen ? styles.active7 : ""
+              }`}
+              onClick={toggleSide}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
             </IconButton>
           </HamburgerWrap>
         </HeaderInner>

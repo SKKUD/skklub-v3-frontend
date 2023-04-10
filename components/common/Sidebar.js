@@ -3,6 +3,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import styled from "@emotion/styled";
 import Link from "next/link";
+import styles from "../../styles/hamburger.module.css";
 
 const NavWrap = styled.div`
   display: flex;
@@ -54,9 +55,18 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
   return (
     <>
       <SidebarInner ref={outside} className={isOpen ? "open" : ""}>
-        <IconButton onClick={toggleSide} onKeyDown={toggleSide}>
-          <CloseIcon />
+        <IconButton
+          className={`${styles.menutrigger} ${styles.type7} ${
+            isOpen ? styles.active7 : ""
+          }`}
+          onClick={toggleSide}
+          onKeyDown={toggleSide}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </IconButton>
+
         <NavWrap onClick={toggleSide}>
           {navItems.map((item) => (
             <Link href={item.path}>{item.name}</Link>
