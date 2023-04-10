@@ -16,6 +16,7 @@ const HeaderWrap = styled.div`
 
   @media (max-width: 480px) {
     padding-right: 10px;
+    height: 48px;
   }
 `;
 

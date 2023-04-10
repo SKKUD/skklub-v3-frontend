@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
+
 import CloseIcon from "@mui/icons-material/Close";
 import styled from "@emotion/styled";
 import Link from "next/link";
