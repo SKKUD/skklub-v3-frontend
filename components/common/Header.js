@@ -108,7 +108,7 @@ function NavButton({ item }) {
 }
 
 const navItems = [
-  { name: "동아리연합회", path: "academic-clubs" },
+  { name: "동아리연합회", path: "intro" },
   { name: "중앙동아리", path: "academic-clubs" },
   { name: "기타동아리", path: "academic-clubs" },
   { name: "소모임", path: "academic-clubs" },

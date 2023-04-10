@@ -1,8 +1,7 @@
-import IntroLayout from "../../../layout/intro/IntroLayout";
-import IntroSection from "../../../components/intro/IntroSection";
-import DepartmentSection from "../../../components/intro/DepartmentSection";
-import Footer from "../../../components/common/Footer";
-import ClubCard from "../../../components/cardGallery/ClubCard";
+import IntroLayout from "../../layout/intro/IntroLayout";
+import IntroSection from "../../components/intro/IntroSection";
+import DepartmentSection from "../../components/intro/DepartmentSection";
+import Footer from "../../components/common/Footer";
 
 const data = {
   name: "for:동",
@@ -29,13 +28,12 @@ const data = {
 
 export default function SeoulDY() {
   return (
-    <div>
+    <>
       <IntroLayout campus="Seoul">
         <IntroSection data={data} />
         <DepartmentSection data={data} />
       </IntroLayout>
-      <ClubCard />
       <Footer />
-    </div>
+    </>
   );
 }

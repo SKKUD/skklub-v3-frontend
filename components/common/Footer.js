@@ -2,8 +2,9 @@ import styled from "@emotion/styled";
 
 const FooterWrap = styled.div`
   width: 100%;
-  height: 200px;
-  font-size: 20px;
+  height: 300px;
+  font-size: 1rem;
+  font-family: pretendard;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 600;
   text-align: center;
