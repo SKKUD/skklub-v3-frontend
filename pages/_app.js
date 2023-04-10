@@ -5,6 +5,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme } from "@mui/material/styles";
 import createEmotionCache from "../utils/createEmotionCache";
 import getDesignTokens from "../utils/getDesignTokens";
+import Header from "../components/common/Header";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -19,6 +20,7 @@ function MyApp({
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={darkModeTheme}>
         <CssBaseline />
+        <Header />
         <Component {...pageProps} />
       </ThemeProvider>
     </CacheProvider>
