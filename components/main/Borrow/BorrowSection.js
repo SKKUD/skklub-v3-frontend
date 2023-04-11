@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const BorrowContent = styled.div`
+const BorrowWrapper = styled.div`
   background-color: #50cfb1;
   width: 100%;
   max-width: 1182px;
@@ -58,9 +58,9 @@ const ComingSoon = styled.div`
 
 export default function BorrowSection() {
   return (
-    <BorrowContent>
+    <BorrowWrapper>
       <BorrowPhrase>공간대관 필요하세요?</BorrowPhrase>
       <ComingSoon>Coming Soon</ComingSoon>
-    </BorrowContent>
+    </BorrowWrapper>
   );
 }

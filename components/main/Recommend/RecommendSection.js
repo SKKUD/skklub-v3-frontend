@@ -1,5 +1,10 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
+import Phrase from "../Common/Phrase";
+import RecommendTheme from "./RecommendTheme";
+import RecommendSubTheme from "./RecommendSubThem";
+import Hashtag from "./Hashtag";
+import HashtagWrapper from "./HashtagWrapper";
 
 const RecommendWrapper = styled.div`
   width: 1100px;
@@ -7,16 +12,6 @@ const RecommendWrapper = styled.div`
   margin-top: 120px;
   @media (max-width: 1400px) {
     width: 100%;
-  }
-`;
-
-const Phrase = styled.div`
-  font-size: 2rem;
-  font-weight: 500;
-
-  @media (max-width: 425px) {
-    font-weight: 500;
-    font-size: 1.25rem;
   }
 `;
 
@@ -40,47 +35,6 @@ const IntroCircle = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-left: 68px;
-`;
-
-const IntroTitle = styled.div`
-  color: white;
-  font-weight: 500;
-  font-size: 1.5rem;
-  line-height: 150%;
-  @media (max-width: 425px) {
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 151.5%;
-  }
-`;
-const IntroDetail = styled.div`
-  color: #000000;
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 150%;
-
-  @media (max-width: 425px) {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 151.5%;
-  }
-`;
-const HashTagContainer = styled.div`
-  display: flex;
-  /* width: 80%; */
-  gap: 0.75rem;
-  margin-top: 15px;
-`;
-const HashTag = styled.div`
-  padding: 3px 15px;
-  height: 30px;
-  font-size: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: #303030;
-  border-radius: 100px;
 `;
 
 const ClubCircle = styled.div`
@@ -110,14 +64,16 @@ export default function RecommendSection() {
       <Phrase>오늘의 추천동아리</Phrase>
       <CircleContainer>
         <IntroCircle>
-          <IntroTitle>인성품과 보람 동시에 잡기</IntroTitle>
-          <IntroDetail>"뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"</IntroDetail>
-          <HashTagContainer>
-            <HashTag>#대학생활</HashTag>
-            <HashTag>#봉사</HashTag>
-            <HashTag>#친구</HashTag>
-            {!matches_950 && <HashTag>#사회공헌</HashTag>}
-          </HashTagContainer>
+          <RecommendTheme>인성품과 보람 동시에 잡기</RecommendTheme>
+          <RecommendSubTheme>
+            "뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"
+          </RecommendSubTheme>
+          <HashtagWrapper>
+            <Hashtag>#대학생활</Hashtag>
+            <Hashtag>#봉사</Hashtag>
+            <Hashtag>#친구</Hashtag>
+            {!matches_950 && <Hashtag>#사회공헌</Hashtag>}
+          </HashtagWrapper>
         </IntroCircle>
         <ClubCircle>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>

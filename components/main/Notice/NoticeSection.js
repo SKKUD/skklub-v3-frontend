@@ -3,8 +3,9 @@ import Carousel from "react-material-ui-carousel";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useMediaQuery } from "@mui/material";
+import Phrase from "../Common/Phrase";
 
-const NoticeContent = styled.div`
+const NoticeWrapper = styled.div`
   position: relative;
   margin: 0 auto;
   margin-top: 10rem;
@@ -116,21 +117,11 @@ const CardClubName = styled.div`
   margin-bottom: 17px;
 `;
 
-const Phrase = styled.div`
-  font-size: 2rem;
-  font-weight: 500;
-
-  @media (max-width: 425px) {
-    font-weight: 500;
-    font-size: 1.25rem;
-  }
-`;
-
 export default function NoticeSection() {
   const matches_1400 = useMediaQuery("(max-width:1400px)");
   const matches_950 = useMediaQuery("(max-width:950px)");
   return (
-    <NoticeContent>
+    <NoticeWrapper>
       <NoticeHeader>
         <Phrase>공지사항</Phrase>
         <MoreBtn>MORE</MoreBtn>
@@ -225,6 +216,6 @@ export default function NoticeSection() {
           </CardRow>
         </Carousel>
       </CarouselContainer>
-    </NoticeContent>
+    </NoticeWrapper>
   );
 }
