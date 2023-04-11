@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import css from "styled-jsx/css";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import styled from "@emotion/styled";
@@ -116,20 +118,35 @@ const navItems = [
   { name: "학생단체", path: "academic-clubs" },
 ];
 
+const style = css`
+  .startPage {
+    display: none;
+  }
+`;
+
 export default function Header() {
   const [isOpen, setOpen] = useState(false);
   const toggleSide = (e) => {
     setOpen(true);
   };
+  const router = useRouter();
 
   return (
-    <>
+    <div
+      className={
+        router.pathname === "/"
+          ? "startPage"
+          : router.pathname === "/seoul" || router.pathname === "/suwon"
+          ? "main"
+          : ""
+      }
+    >
       <HeaderWrap>
         <HeaderInner>
           <HomeButton />
           <NavWrap>
             {navItems.map((item) => (
-              <NavButton item={item} key={item[0]} />
+              <NavButton item={item} key={item.name} />
             ))}
           </NavWrap>
           <HamburgerWrap>
@@ -147,6 +164,7 @@ export default function Header() {
         </HeaderInner>
       </HeaderWrap>
       <Sidebar isOpen={isOpen} setOpen={setOpen} navItems={navItems} />
-    </>
+      <style jsx>{style}</style>
+    </div>
   );
 }

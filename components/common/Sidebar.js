@@ -71,7 +71,9 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
 
         <NavWrap onClick={toggleSide}>
           {navItems.map((item) => (
-            <Link href={item.path}>{item.name}</Link>
+            <Link href={item.path} key={item.name}>
+              {item.name}
+            </Link>
           ))}
         </NavWrap>
       </SidebarInner>

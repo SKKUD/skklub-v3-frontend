@@ -33,6 +33,7 @@ const Phrase = styled.h2`
   display: inline-block;
   text-align: center;
   font-size: 2rem;
+  word-break: keep-all;
 `;
 
 const BtnContainer = styled.div`
