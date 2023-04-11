@@ -70,13 +70,16 @@ const NavButtonFont = styled.div`
   font-weight: bold;
   line-height: 1.25rem;
   color: #fff;
+  &:hover {
+    color: #80a4ff;
+  }
 
   @media (max-width: 1024px) {
     font-size: 1rem;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 `;
 
@@ -137,7 +140,7 @@ export default function Header() {
   };
 
   const router = useRouter();
-  const campus = router.pathname.slice(0, 6);
+  const campus = router.pathname.slice(1, 6);
   const navItems = [
     { name: "동아리연합회", path: campus + "/intro" },
     { name: "중앙동아리", path: campus + "/central-clubs" },
