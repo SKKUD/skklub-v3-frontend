@@ -33,14 +33,13 @@ const PromotionBanner = styled.div`
 const ContentContainer = styled.div`
   width: 100%;
   height: 1440px;
-  max-width: 1300px;
+  /* max-width: 1300px; */
   margin: 0 auto;
   /* background-color: grey; */
 `;
 
 const RecommendationContent = styled.div`
-  width: 1200px;
-  padding: 0px 20px;
+  width: 1100px;
   margin: 0 auto;
   margin-top: 120px;
 `;
@@ -59,14 +58,14 @@ const CircleContainer = styled.div`
 `;
 
 const IntroCircle = styled.div`
-  height: 160px;
+  height: 153px;
   flex: 1;
   background-color: #fc7b95;
   border-radius: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 80px;
+  padding-left: 68px;
 `;
 
 const IntroTitle = styled.div`
@@ -83,7 +82,7 @@ const IntroDetail = styled.div`
 `;
 const HashTagContainer = styled.div`
   display: flex;
-  width: 80%;
+  /* width: 80%; */
   gap: 0.75rem;
   margin-top: 15px;
 `;
@@ -100,8 +99,8 @@ const HashTag = styled.div`
 `;
 
 const ClubCircle = styled.div`
-  width: 160px;
-  height: 160px;
+  width: 153px;
+  height: 153px;
   background-color: #50cfb1;
   border-radius: 80px;
   font-size: 1.75rem;
@@ -119,8 +118,10 @@ const ClubTitle = styled.div`
 `;
 
 const NoticeContent = styled.div`
-  margin-top: 10rem;
   position: relative;
+  width: 1182px;
+  margin: 0 auto;
+  margin-top: 10rem;
 `;
 
 const MoreBtn = styled.button`
@@ -134,7 +135,7 @@ const MoreBtn = styled.button`
   align-items: center;
   position: absolute;
   top: 0;
-  right: 120px;
+  right: 60px;
   border: none;
   border-radius: 104px;
   color: white;
@@ -149,7 +150,7 @@ const CarouselContainer = styled.div`
 `;
 
 const DefaultSettingsT = {
-  autoPlay: true,
+  autoPlay: false,
   animation: "slide",
   indicators: false,
   duration: 500,
@@ -214,7 +215,7 @@ const CardClubName = styled.div`
 
 const BorrowContent = styled.div`
   background-color: #50cfb1;
-  width: 1160px;
+  width: 1182px;
   height: 160px;
   margin: 0 auto;
   margin-top: 10rem;
@@ -280,7 +281,7 @@ export default function Seoul() {
           </CircleContainer>
         </RecommendationContent>
         <NoticeContent>
-          <Phrase style={{ marginLeft: "90px" }}>공지사항</Phrase>
+          <Phrase style={{ marginLeft: "60px" }}>공지사항</Phrase>
           <MoreBtn>MORE</MoreBtn>
           <CarouselContainer>
             <Carousel
