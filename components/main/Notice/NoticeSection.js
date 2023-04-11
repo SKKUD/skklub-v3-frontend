@@ -8,13 +8,16 @@ const NoticeContent = styled.div`
   position: relative;
   margin: 0 auto;
   margin-top: 10rem;
-  /* width: 1182px;
+`;
+
+const NoticeHeader = styled.div`
+  width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
   @media (max-width: 1400px) {
-    width: 910px;
+    width: 100%;
   }
-  @media (max-width: 950px) {
-    width: 638px;
-  } */
 `;
 
 const MoreBtn = styled.button`
@@ -26,9 +29,7 @@ const MoreBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 0;
-  right: 60px;
+
   border: none;
   border-radius: 104px;
   color: white;
@@ -121,8 +122,7 @@ const Phrase = styled.div`
 
   @media (max-width: 425px) {
     font-weight: 500;
-    font-size: 1rem;
-    line-height: 151.5%;
+    font-size: 1.25rem;
   }
 `;
 
@@ -131,8 +131,10 @@ export default function NoticeSection() {
   const matches_950 = useMediaQuery("(max-width:950px)");
   return (
     <NoticeContent>
-      <Phrase style={{ marginLeft: "120px" }}>공지사항</Phrase>
-      <MoreBtn>MORE</MoreBtn>
+      <NoticeHeader>
+        <Phrase>공지사항</Phrase>
+        <MoreBtn>MORE</MoreBtn>
+      </NoticeHeader>
       <CarouselContainer>
         <Carousel
           {...DefaultSettingsT}

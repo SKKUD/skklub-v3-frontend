@@ -32,9 +32,13 @@ const PromotionBanner = styled.div`
 
 const ContentContainer = styled.div`
   width: 100%;
-  height: 1440px;
+  /* height: 1440px; */
   padding: 0 1rem;
   margin: 0 auto;
+  padding-bottom: 14rem;
+  @media (max-width: 425px) {
+    padding-bottom: 4rem;
+  }
   /* background-color: grey; */
 `;
 
@@ -64,9 +68,9 @@ const SmallContentContainer = styled.div`
 `;
 
 const SmallHashTag = styled.div`
-  padding: 3px 15px;
+  padding: 1px 5px;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,6 +78,7 @@ const SmallHashTag = styled.div`
   background-color: #303030;
   border-radius: 100px;
   border: 1px solid white;
+  line-height: 151.5%;
 `;
 
 const SmallCircleContainer = styled.div`
@@ -121,6 +126,11 @@ const IntroTitle = styled.div`
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 150%;
+  @media (max-width: 425px) {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 151.5%;
+  }
 `;
 const IntroDetail = styled.div`
   color: #000000;
