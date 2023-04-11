@@ -216,8 +216,28 @@ const SmallMoreBtn = styled.div`
   border-radius: 40px;
   color: white;
 `;
-const SmallCardContainer = styled.div``;
-const SmallCard = styled.div``;
+const SmallCardContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+const SmallCard = styled.div`
+  width: 163px;
+  height: 231px;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(${(props) => props.imageUrl});
+  border-radius: 1rem;
+  box-shadow: inset 0 1em 40px rgba(0, 0, 0, 0.5),
+    inset 0 -1em 40px rgba(0, 0, 0, 0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  align-items: start;
+`;
 
 const NoticeContent = styled.div`
   position: relative;
@@ -289,7 +309,7 @@ const CardRow = styled.div`
 const ClubCard = styled.div`
   width: 244px;
   height: 346px;
-  /* background-image: url(${(props) => props.imageUrl}); */
+
   background-repeat: no-repeat;
   background-size: cover;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
@@ -414,6 +434,7 @@ export default function Seoul() {
   const matches_950 = useMediaQuery("(max-width:950px)");
   const matches_768 = useMediaQuery("(max-width:768px)");
   const matches_680 = useMediaQuery("(max-width:680px)");
+  const matches_560 = useMediaQuery("(max-width:560px)");
   return (
     <>
       <TempContainer>오하은 화이팅</TempContainer>
@@ -475,6 +496,13 @@ export default function Seoul() {
           <SmallNoticeContent>
             <SmallPhrase>공지사항</SmallPhrase>
             <SmallMoreBtn>More</SmallMoreBtn>
+            <SmallCardContainer>
+              <SmallCard imageUrl="/assets/images/one.png"></SmallCard>
+              <SmallCard imageUrl="/assets/images/one.png"></SmallCard>
+              {!matches_560 && (
+                <SmallCard imageUrl="/assets/images/one.png"></SmallCard>
+              )}
+            </SmallCardContainer>
           </SmallNoticeContent>
         ) : (
           <NoticeContent>
