@@ -4,6 +4,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useMediaQuery } from "@mui/material";
 import Phrase from "../Common/Phrase";
+import NoticeCard from "./NoticeCard";
 
 const NoticeWrapper = styled.div`
   position: relative;
@@ -73,25 +74,6 @@ const CardRow = styled.div`
   gap: 28px;
 `;
 
-const ClubCard = styled.div`
-  width: 244px;
-  height: 346px;
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url(${(props) => props.imageUrl});
-  border-radius: 1rem;
-  box-shadow: inset 0 1em 40px rgba(0, 0, 0, 0.5),
-    inset 0 -1em 40px rgba(0, 0, 0, 0.5);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  padding-left: 0.75rem;
-  align-items: start;
-`;
-
 const CardDate = styled.div`
   position: absolute;
   top: 14px;
@@ -134,84 +116,84 @@ export default function NoticeSection() {
           fullHeightHover={false}
         >
           <CardRow>
-            <ClubCard imageUrl="/assets/images/one.png">
+            <NoticeCard imageUrl="/assets/images/one.png">
               <CardDate>JAN 9, 2021</CardDate>
               <CardTitle>하반기 수선관 운동장 예약어쩌구</CardTitle>
-            </ClubCard>
-            <ClubCard imageUrl="/assets/images/two.png">
+            </NoticeCard>
+            <NoticeCard imageUrl="/assets/images/two.png">
               <CardDate>JAN 9, 2021</CardDate>
               <CardTitle>
                 [스포츠] 산악 바이크 취미로 타실 분들 모집합니다.
               </CardTitle>
               <CardClubName>스꾸모터</CardClubName>
-            </ClubCard>
+            </NoticeCard>
             {!matches_950 && (
-              <ClubCard imageUrl="/assets/images/three.png">
+              <NoticeCard imageUrl="/assets/images/three.png">
                 <CardDate>JAN 9, 2021</CardDate>
                 <CardTitle>[스포츠] 성균관배 골프대회 개최안내</CardTitle>
                 <CardClubName>성골퍼</CardClubName>
-              </ClubCard>
+              </NoticeCard>
             )}
             {!matches_1400 && (
-              <ClubCard imageUrl="/assets/images/four.png">
+              <NoticeCard imageUrl="/assets/images/four.png">
                 <CardDate>JAN 9, 2021</CardDate>
                 <CardTitle>[밴드] 제 22회 초청공연</CardTitle>
                 <CardClubName>못갖춘 마디</CardClubName>
-              </ClubCard>
+              </NoticeCard>
             )}
           </CardRow>
           <CardRow>
-            <ClubCard imageUrl="/assets/images/one.png">
+            <NoticeCard imageUrl="/assets/images/one.png">
               <CardDate>JAN 9, 2021</CardDate>
               <CardTitle>하반기 수선관 운동장 예약어쩌구</CardTitle>
-            </ClubCard>
-            <ClubCard imageUrl="/assets/images/two.png">
+            </NoticeCard>
+            <NoticeCard imageUrl="/assets/images/two.png">
               <CardDate>JAN 9, 2021</CardDate>
               <CardTitle>
                 [스포츠] 산악 바이크 취미로 타실 분들 모집합니다.
               </CardTitle>
               <CardClubName>스꾸모터</CardClubName>
-            </ClubCard>
+            </NoticeCard>
             {!matches_950 && (
-              <ClubCard imageUrl="/assets/images/three.png">
+              <NoticeCard imageUrl="/assets/images/three.png">
                 <CardDate>JAN 9, 2021</CardDate>
                 <CardTitle>[스포츠] 성균관배 골프대회 개최안내</CardTitle>
                 <CardClubName>성골퍼</CardClubName>
-              </ClubCard>
+              </NoticeCard>
             )}
             {!matches_1400 && (
-              <ClubCard imageUrl="/assets/images/four.png">
+              <NoticeCard imageUrl="/assets/images/four.png">
                 <CardDate>JAN 9, 2021</CardDate>
                 <CardTitle>[밴드] 제 22회 초청공연</CardTitle>
                 <CardClubName>못갖춘 마디</CardClubName>
-              </ClubCard>
+              </NoticeCard>
             )}
           </CardRow>
           <CardRow>
-            <ClubCard imageUrl="/assets/images/one.png">
+            <NoticeCard imageUrl="/assets/images/one.png">
               <CardDate>JAN 9, 2021</CardDate>
               <CardTitle>하반기 수선관 운동장 예약어쩌구</CardTitle>
-            </ClubCard>
-            <ClubCard imageUrl="/assets/images/two.png">
+            </NoticeCard>
+            <NoticeCard imageUrl="/assets/images/two.png">
               <CardDate>JAN 9, 2021</CardDate>
               <CardTitle>
                 [스포츠] 산악 바이크 취미로 타실 분들 모집합니다.
               </CardTitle>
               <CardClubName>스꾸모터</CardClubName>
-            </ClubCard>
+            </NoticeCard>
             {!matches_950 && (
-              <ClubCard imageUrl="/assets/images/three.png">
+              <NoticeCard imageUrl="/assets/images/three.png">
                 <CardDate>JAN 9, 2021</CardDate>
                 <CardTitle>[스포츠] 성균관배 골프대회 개최안내</CardTitle>
                 <CardClubName>성골퍼</CardClubName>
-              </ClubCard>
+              </NoticeCard>
             )}
             {!matches_1400 && (
-              <ClubCard imageUrl="/assets/images/four.png">
+              <NoticeCard imageUrl="/assets/images/four.png">
                 <CardDate>JAN 9, 2021</CardDate>
                 <CardTitle>[밴드] 제 22회 초청공연</CardTitle>
                 <CardClubName>못갖춘 마디</CardClubName>
-              </ClubCard>
+              </NoticeCard>
             )}
           </CardRow>
         </Carousel>

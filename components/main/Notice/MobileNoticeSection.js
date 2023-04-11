@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import Phrase from "../Common/Phrase";
+import NoticeCard from "./NoticeCard";
 
 const MobileNoticeWrapper = styled.div`
   width: 100%;
@@ -29,24 +30,6 @@ const SmallCardContainer = styled.div`
   justify-content: space-around;
   margin-top: 1rem;
 `;
-const SmallCard = styled.div`
-  width: 163px;
-  height: 231px;
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url(${(props) => props.imageUrl});
-  border-radius: 1rem;
-  box-shadow: inset 0 1em 40px rgba(0, 0, 0, 0.5),
-    inset 0 -1em 40px rgba(0, 0, 0, 0.5);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-
-  align-items: start;
-`;
 
 export default function MobileNoticeSection() {
   const matches_560 = useMediaQuery("(max-width:560px)");
@@ -55,10 +38,10 @@ export default function MobileNoticeSection() {
       <Phrase>공지사항</Phrase>
       <SmallMoreBtn>More</SmallMoreBtn>
       <SmallCardContainer>
-        <SmallCard imageUrl="/assets/images/one.png"></SmallCard>
-        <SmallCard imageUrl="/assets/images/one.png"></SmallCard>
+        <NoticeCard imageUrl="/assets/images/one.png"></NoticeCard>
+        <NoticeCard imageUrl="/assets/images/one.png"></NoticeCard>
         {!matches_560 && (
-          <SmallCard imageUrl="/assets/images/one.png"></SmallCard>
+          <NoticeCard imageUrl="/assets/images/one.png"></NoticeCard>
         )}
       </SmallCardContainer>
     </MobileNoticeWrapper>
