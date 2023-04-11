@@ -106,9 +106,9 @@ const HamburgerWrap = styled.div`
   }
 `;
 
-function HomeButton() {
+function HomeButton({ campus }) {
   return (
-    <Link href="/">
+    <Link href={`/${campus}`}>
       <HomeImgWrap>
         <img src="/assets/images/skklub_명륜.png" />
       </HomeImgWrap>
@@ -171,7 +171,7 @@ export default function Header() {
     >
       <HeaderWrap>
         <HeaderInner>
-          <HomeButton />
+          <HomeButton campus={campus} />
           <NavWrap>
             {navItems.map((item) => (
               <NavButton item={item} key={item.name} />
