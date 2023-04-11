@@ -17,7 +17,7 @@ const NavWrap = styled.div`
 `;
 
 const SidebarInner = styled.div`
-  z-index: 5;
+  z-index: 1000;
   padding: 12px;
   border-radius: 15px 0 0 15px;
   border: 1px solid #222;
