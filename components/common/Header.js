@@ -9,6 +9,20 @@ import Link from "next/link";
 import Sidebar from "./Sidebar";
 import styles from "../../styles/hamburger.module.css";
 
+const LogoWrap = styled.div`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+`;
+
+const SkklubLogo = styled.img`
+  width: 300px;
+  margin: 60px;
+`;
+
 const HeaderWrap = styled.div`
   position: fixed;
   top: 0;
@@ -159,46 +173,46 @@ export default function Header() {
   });
 
   return (
-    <div
-      className={
-        router.pathname === "/"
-          ? "startPage"
-          : (router.pathname === "/seoul" || router.pathname === "/suwon") &&
-            scrollPosition === 0
-          ? "hide_header"
-          : ""
-      }
-    >
-      <HeaderWrap>
-        <HeaderInner>
-          <HomeButton campus={campus} />
-          <NavWrap>
-            {navItems.map((item) => (
-              <NavButton item={item} key={item.name} />
-            ))}
-          </NavWrap>
-          <IconButtonsWrap>
-            <IconButton>
-              <SearchIcon />
-            </IconButton>
+    <>
+      {router.pathname === "/" ? null : (router.pathname === "/seoul" ||
+          router.pathname === "/suwon") &&
+        scrollPosition <= 30 ? (
+        <LogoWrap>
+          <SkklubLogo src="/assets/images/skklub_율전.png" />
+        </LogoWrap>
+      ) : (
+        <>
+          <HeaderWrap>
+            <HeaderInner>
+              <HomeButton campus={campus} />
+              <NavWrap>
+                {navItems.map((item) => (
+                  <NavButton item={item} key={item.name} />
+                ))}
+              </NavWrap>
+              <IconButtonsWrap>
+                <IconButton>
+                  <SearchIcon />
+                </IconButton>
 
-            <HamburgerWrap>
-              <IconButton
-                className={`${styles.menutrigger} ${styles.type7} ${
-                  isOpen ? styles.active7 : ""
-                }`}
-                onClick={toggleSide}
-              >
-                <span></span>
-                <span></span>
-                <span></span>
-              </IconButton>
-            </HamburgerWrap>
-          </IconButtonsWrap>
-        </HeaderInner>
-      </HeaderWrap>
-      <Sidebar isOpen={isOpen} setOpen={setOpen} navItems={navItems} />
-      <style jsx>{style}</style>
-    </div>
+                <HamburgerWrap>
+                  <IconButton
+                    className={`${styles.menutrigger} ${styles.type7} ${
+                      isOpen ? styles.active7 : ""
+                    }`}
+                    onClick={toggleSide}
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </IconButton>
+                </HamburgerWrap>
+              </IconButtonsWrap>
+            </HeaderInner>
+          </HeaderWrap>
+          <Sidebar isOpen={isOpen} setOpen={setOpen} navItems={navItems} />
+        </>
+      )}
+    </>
   );
 }
