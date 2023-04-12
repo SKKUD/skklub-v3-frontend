@@ -27,6 +27,12 @@ const PromotionBanner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 425px) {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
 `;
 
 const ContentContainer = styled.div`

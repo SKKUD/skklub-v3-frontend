@@ -21,7 +21,7 @@ const NoticeCard = styled.div`
   @media (max-width: 680px) {
     width: 163px;
     height: 231px;
-    padding-left: 0;
+    padding-left: 7px;
   }
 `;
 
