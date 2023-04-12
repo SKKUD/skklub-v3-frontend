@@ -19,11 +19,6 @@ const HomeContainer = styled.div`
   align-items: center;
 `;
 
-const ClubCarouselContainer = styled.div`
-  margin-top: 200px;
-  width: 50%;
-`;
-
 const PromotionBanner = styled.div`
   width: 100%;
   height: 160px;
@@ -443,9 +438,7 @@ export default function Seoul() {
   return (
     <>
       <HomeContainer>
-        <ClubCarouselContainer>
-          <ClubCarousel />
-        </ClubCarouselContainer>
+        <ClubCarousel />
       </HomeContainer>
       <PromotionBanner>동아리 홍보배너</PromotionBanner>
       <ContentContainer>

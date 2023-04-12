@@ -11,44 +11,51 @@ import { ClubCarouselInfo } from "../../utils/ClubCarouselInfo";
 
 export default function ClubCarousel() {
   return (
-    <Swiper
-      style={{
-        "--swiper-navigation-color": "#fff",
-        "--swiper-pagination-color": "#fff",
-      }}
-      slidesPerView={1.9}
-      loop={true}
-      autoHeight={true}
-      effect={"coverflow"}
-      grabCursor={true}
-      centeredSlides
-      spaceBetween={20}
-      // initialSlide={1}
-      centerInsufficientSlides={false}
-      coverflowEffect={{
-        rotate: 0, // 회전각도
-        stretch: 0,
-        depth: 250, // 깊이감도
-        modifier: 3, //
-        slideShadows: true, //선택한 부분 밝게 나머지는 그늘지게
-      }}
-      navigation={true} // 네비게이션 버튼
-      pagination={{ clickable: true }}
-      modules={[EffectCoverflow, Navigation, Pagination]} // 모듈추가
-      className="mySwiper"
-    >
-      {ClubCarouselInfo.map((info) => (
-        <SwiperSlide>
-          <ClubCarouselCard
-            name={info.name}
-            content={info.content}
-            img={info.img}
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <ClubCarouselContainer>
+      <Swiper
+        style={{
+          "--swiper-navigation-color": "#fff",
+          "--swiper-pagination-color": "#fff",
+        }}
+        slidesPerView={1.9}
+        loop={true}
+        autoHeight={true}
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides
+        spaceBetween={20}
+        // initialSlide={1}
+        centerInsufficientSlides={false}
+        coverflowEffect={{
+          rotate: 0, // 회전각도
+          stretch: 0,
+          depth: 250, // 깊이감도
+          modifier: 3, //
+          slideShadows: true, //선택한 부분 밝게 나머지는 그늘지게
+        }}
+        navigation={true} // 네비게이션 버튼
+        pagination={{ clickable: true }}
+        modules={[EffectCoverflow, Navigation, Pagination]} // 모듈추가
+        className="mySwiper"
+      >
+        {ClubCarouselInfo.map((info) => (
+          <SwiperSlide>
+            <ClubCarouselCard
+              name={info.name}
+              content={info.content}
+              img={info.img}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </ClubCarouselContainer>
   );
 }
+
+const ClubCarouselContainer = styled.div`
+  margin-top: 200px;
+  width: 50%;
+`;
 
 const CardWrap = styled.div`
   width: 100%;
