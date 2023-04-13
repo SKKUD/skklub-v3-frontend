@@ -11,8 +11,6 @@ const ClubsBanner = styled.div`
 `;
 
 const SubTitle = styled.div`
-  /* width: 204px;
-  height: 40px; */
   font-weight: 400;
   font-size: 2.5rem;
   line-height: 2.5rem;
@@ -21,19 +19,22 @@ const SubTitle = styled.div`
 `;
 
 const Title = styled.div`
-  /* width: 231px;
-  height: 48px; */
   font-weight: 500;
   font-size: 3rem;
   line-height: 3rem;
   text-align: center;
 `;
 
+const MainSection = styled.div`
+  padding-left: 1rem;
+  padding-right: 1rem;
+`;
+
 const CategoryContainer = styled.div`
-  width: 100%;
   max-width: 1200px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
   margin-bottom: 2.5rem;
   margin-top: 5.25rem;
@@ -52,6 +53,13 @@ const Category = styled.button`
   line-height: 1.5rem;
   background-color: transparent;
   color: whitesmoke;
+
+  @media (max-width: 1024px) {
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 17px;
+    padding: 8px 25px;
+  }
 `;
 
 const CardsContainer = styled.div`
@@ -72,6 +80,10 @@ const ClubCard = styled.div`
   padding-bottom: 18px;
   display: flex;
   align-items: end;
+  @media (max-width: 930px) {
+    width: 163px;
+    height: 163px;
+  }
 `;
 
 const ClubCardName = styled.div`
@@ -102,6 +114,21 @@ const Heart = styled.div`
   background-color: red;
 `;
 
+const CardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 1200px;
+  row-gap: 30px;
+  column-gap: 30px;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
+
 export default function central_clubs() {
   const TEMP_ROW = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   return (
@@ -112,21 +139,38 @@ export default function central_clubs() {
           <Title>중앙동아리</Title>
         </div>
       </ClubsBanner>
-      <CategoryContainer>
-        <Category>전체</Category>
-        <Category>평면예술</Category>
-        <Category>연행예술</Category>
-        <Category>봉사</Category>
-        <Category>취미교양</Category>
-        <Category>스포츠</Category>
-        <Category>종교</Category>
-        <Category>학술</Category>
-        <Category>인문사회</Category>
-      </CategoryContainer>
-      <CardsContainer>
-        <Grid container spacing={4} sx={{ marginTop: 0 }}>
-          {TEMP_ROW.map((e) => (
-            <Grid item xs={3}>
+      <MainSection>
+        <CategoryContainer>
+          <Category>전체</Category>
+          <Category>평면예술</Category>
+          <Category>연행예술</Category>
+          <Category>봉사</Category>
+          <Category>취미교양</Category>
+          <Category>스포츠</Category>
+          <Category>종교</Category>
+          <Category>학술</Category>
+          <Category>인문사회</Category>
+        </CategoryContainer>
+        <CardsContainer>
+          {/* <Grid
+            container
+            spacing={4}
+            sx={{ marginTop: 0, justifyItems: "stretch" }}
+          >
+            {TEMP_ROW.map((e) => (
+              <Grid item lg={4} xl={3}>
+                <ClubCard>
+                  <ClubCardName>꾼</ClubCardName>
+                  <ClubCardFooter>
+                    <ClubCardType>평면예술/서예</ClubCardType>
+                    <Heart />
+                  </ClubCardFooter>
+                </ClubCard>
+              </Grid>
+            ))}
+          </Grid> */}
+          <CardGrid>
+            {TEMP_ROW.map((e) => (
               <ClubCard>
                 <ClubCardName>꾼</ClubCardName>
                 <ClubCardFooter>
@@ -134,10 +178,10 @@ export default function central_clubs() {
                   <Heart />
                 </ClubCardFooter>
               </ClubCard>
-            </Grid>
-          ))}
-        </Grid>
-      </CardsContainer>
+            ))}
+          </CardGrid>
+        </CardsContainer>
+      </MainSection>
     </>
   );
 }
