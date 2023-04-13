@@ -22,7 +22,19 @@ const ClubCard = styled.div`
   height: 276px;
   background-color: #303030eb;
   border-radius: 1rem;
+  position: relative;
 `;
+
+const ClubCardName = styled.div`
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 120%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+`;
+
+const ClubCardFooter = styled.div``;
 
 export default function central_clubs() {
   return (
@@ -31,7 +43,9 @@ export default function central_clubs() {
       <CardsContainer>
         <Grid container spacing={1} sx={{ marginTop: 0 }}>
           <Grid item xs={3}>
-            <ClubCard />
+            <ClubCard>
+              <ClubCardName>꾼</ClubCardName>
+            </ClubCard>
           </Grid>
           <Grid item xs={3}>
             <ClubCard />
