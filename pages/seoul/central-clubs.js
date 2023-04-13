@@ -23,6 +23,11 @@ const ClubCard = styled.div`
   background-color: #303030eb;
   border-radius: 1rem;
   position: relative;
+  padding-left: 22px;
+  padding-right: 20px;
+  padding-bottom: 18px;
+  display: flex;
+  align-items: end;
 `;
 
 const ClubCardName = styled.div`
@@ -34,7 +39,24 @@ const ClubCardName = styled.div`
   left: 20px;
 `;
 
-const ClubCardFooter = styled.div``;
+const ClubCardFooter = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ClubCardType = styled.div`
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 160%;
+`;
+
+const Heart = styled.div`
+  width: 22px;
+  height: 20px;
+  background-color: red;
+`;
 
 export default function central_clubs() {
   return (
@@ -45,6 +67,10 @@ export default function central_clubs() {
           <Grid item xs={3}>
             <ClubCard>
               <ClubCardName>꾼</ClubCardName>
+              <ClubCardFooter>
+                <ClubCardType>평면예술/서예</ClubCardType>
+                <Heart />
+              </ClubCardFooter>
             </ClubCard>
           </Grid>
           <Grid item xs={3}>
