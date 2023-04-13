@@ -39,8 +39,12 @@ const CategoryContainer = styled.div`
   margin: 0 auto;
   margin-bottom: 2.5rem;
   margin-top: 5.25rem;
-  overflow-x: scroll;
+  overflow-x: auto;
   gap: 8px;
+  /* &::-webkit-scrollbar-thumb {
+    background: beige;
+    border-radius: 10px;
+  } */
 `;
 
 const Category = styled.button`
