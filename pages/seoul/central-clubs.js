@@ -10,6 +10,25 @@ const ClubsBanner = styled.div`
   align-items: center;
 `;
 
+const SubTitle = styled.div`
+  /* width: 204px;
+  height: 40px; */
+  font-weight: 400;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.25rem;
+`;
+
+const Title = styled.div`
+  /* width: 231px;
+  height: 48px; */
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 3rem;
+  text-align: center;
+`;
+
 const CategoryContainer = styled.div`
   width: 100%;
   max-width: 1200px;
@@ -87,7 +106,12 @@ export default function central_clubs() {
   const TEMP_ROW = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   return (
     <>
-      <ClubsBanner />
+      <ClubsBanner>
+        <div>
+          <SubTitle>명륜 캠퍼스</SubTitle>
+          <Title>중앙동아리</Title>
+        </div>
+      </ClubsBanner>
       <CategoryContainer>
         <Category>전체</Category>
         <Category>평면예술</Category>
