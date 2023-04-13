@@ -32,16 +32,19 @@ const MainSection = styled.div`
 
 const CategoryContainer = styled.div`
   max-width: 1200px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
   margin-bottom: 2.5rem;
   margin-top: 5.25rem;
+  overflow-x: scroll;
+  gap: 8px;
 `;
 
 const Category = styled.button`
-  height: 44px;
+  /* height: 44px; */
   padding: 10px 30px;
   display: flex;
   justify-content: center;
@@ -53,6 +56,7 @@ const Category = styled.button`
   line-height: 1.5rem;
   background-color: transparent;
   color: whitesmoke;
+  white-space: nowrap;
 
   @media (max-width: 1024px) {
     font-weight: 600;
