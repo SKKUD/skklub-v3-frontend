@@ -5,14 +5,39 @@ const ClubsBanner = styled.div`
   width: 100vw;
   height: 378px;
   background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CategoryContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-bottom: 2.5rem;
+  margin-top: 5.25rem;
+`;
+
+const Category = styled.button`
+  height: 44px;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #303030eb;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+  background-color: transparent;
+  color: whitesmoke;
 `;
 
 const CardsContainer = styled.div`
-  /* width: 100%; */
   max-width: 1200px;
   margin: 0 auto;
-  /* height: 1000px; */
-  /* background-color: aliceblue; */
   display: flex;
   justify-content: center;
 `;
@@ -63,13 +88,19 @@ export default function central_clubs() {
   return (
     <>
       <ClubsBanner />
+      <CategoryContainer>
+        <Category>전체</Category>
+        <Category>평면예술</Category>
+        <Category>연행예술</Category>
+        <Category>봉사</Category>
+        <Category>취미교양</Category>
+        <Category>스포츠</Category>
+        <Category>종교</Category>
+        <Category>학술</Category>
+        <Category>인문사회</Category>
+      </CategoryContainer>
       <CardsContainer>
-        <Grid
-          container
-          spacing={4}
-          // columnSpacing={{ xs: 6 }}
-          sx={{ marginTop: 0 }}
-        >
+        <Grid container spacing={4} sx={{ marginTop: 0 }}>
           {TEMP_ROW.map((e) => (
             <Grid item xs={3}>
               <ClubCard>
@@ -81,16 +112,6 @@ export default function central_clubs() {
               </ClubCard>
             </Grid>
           ))}
-
-          {/* <Grid item xs={3}>
-            <ClubCard />
-          </Grid>
-          <Grid item xs={3}>
-            <ClubCard />
-          </Grid>
-          <Grid item xs={3}>
-            <ClubCard />
-          </Grid> */}
         </Grid>
       </CardsContainer>
     </>
