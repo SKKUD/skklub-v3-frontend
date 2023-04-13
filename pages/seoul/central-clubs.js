@@ -11,7 +11,7 @@ const CardsContainer = styled.div`
   /* width: 100%; */
   max-width: 1200px;
   margin: 0 auto;
-  height: 1000px;
+  /* height: 1000px; */
   /* background-color: aliceblue; */
   display: flex;
   justify-content: center;
@@ -59,21 +59,30 @@ const Heart = styled.div`
 `;
 
 export default function central_clubs() {
+  const TEMP_ROW = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   return (
     <>
       <ClubsBanner />
       <CardsContainer>
-        <Grid container spacing={1} sx={{ marginTop: 0 }}>
-          <Grid item xs={3}>
-            <ClubCard>
-              <ClubCardName>꾼</ClubCardName>
-              <ClubCardFooter>
-                <ClubCardType>평면예술/서예</ClubCardType>
-                <Heart />
-              </ClubCardFooter>
-            </ClubCard>
-          </Grid>
-          <Grid item xs={3}>
+        <Grid
+          container
+          spacing={4}
+          // columnSpacing={{ xs: 6 }}
+          sx={{ marginTop: 0 }}
+        >
+          {TEMP_ROW.map((e) => (
+            <Grid item xs={3}>
+              <ClubCard>
+                <ClubCardName>꾼</ClubCardName>
+                <ClubCardFooter>
+                  <ClubCardType>평면예술/서예</ClubCardType>
+                  <Heart />
+                </ClubCardFooter>
+              </ClubCard>
+            </Grid>
+          ))}
+
+          {/* <Grid item xs={3}>
             <ClubCard />
           </Grid>
           <Grid item xs={3}>
@@ -81,7 +90,7 @@ export default function central_clubs() {
           </Grid>
           <Grid item xs={3}>
             <ClubCard />
-          </Grid>
+          </Grid> */}
         </Grid>
       </CardsContainer>
     </>
