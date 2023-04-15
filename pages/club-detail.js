@@ -5,6 +5,27 @@ const ClubDetailBanner = styled.div`
   width: 100%;
   height: 378px;
   background-color: #a0211d33;
+  padding: 1rem;
+`;
+
+const BannerContent = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  background-color: aliceblue;
+`;
+
+const BannerMainContent = styled.div`
+  margin-bottom: 1.5rem;
+  display: flex;
+`;
+
+const ClubSubInfo = styled.div``;
+const ClubName = styled.div``;
+
+const BannerClubSubTitle = styled.div`
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 20px;
 `;
 
 const ClubDetailWrapper = styled.div`
@@ -153,7 +174,9 @@ export default function ClubDetail() {
   const match760 = useMediaQuery("(max-width:760px)");
   return (
     <>
-      <ClubDetailBanner></ClubDetailBanner>
+      <ClubDetailBanner>
+        <BannerContent></BannerContent>
+      </ClubDetailBanner>
       <ClubDetailWrapper>
         <ClubDetailContent>
           <ClubDetailCard
