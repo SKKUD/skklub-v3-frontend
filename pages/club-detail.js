@@ -65,6 +65,30 @@ const RecruitInfoBox = styled.div`
   align-items: center;
 `;
 
+const InfoContentWrapper = styled.div`
+  margin-top: 1.5rem;
+  width: 100%;
+`;
+
+const InfoContentRow = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+`;
+
+const InfoCategory = styled.div`
+  font-weight: 700;
+  font-size: 1rem;
+  /* line-height: 160%; */
+`;
+
+const Info = styled.div`
+  font-weight: 300;
+  font-size: 1rem;
+  /* line-height: 107.5%; */
+`;
+
 export default function ClubDetail() {
   return (
     <>
@@ -101,7 +125,44 @@ export default function ClubDetail() {
           style={{
             height: "403px",
           }}
-        ></ClubDetailCard>
+        >
+          <ClubDetailCardTitle>Info</ClubDetailCardTitle>
+          <ClubDetailCardHr />
+          <InfoContentWrapper>
+            <InfoContentRow>
+              <InfoCategory>중분류</InfoCategory>
+              <Info>중앙동아리</Info>
+            </InfoContentRow>
+            <InfoContentRow>
+              <InfoCategory>중분류</InfoCategory>
+              <Info>중앙동아리</Info>
+            </InfoContentRow>
+            <InfoContentRow>
+              <InfoCategory>중분류</InfoCategory>
+              <Info>중앙동아리</Info>
+            </InfoContentRow>
+            <InfoContentRow>
+              <InfoCategory>중분류</InfoCategory>
+              <Info>중앙동아리</Info>
+            </InfoContentRow>
+            <InfoContentRow>
+              <InfoCategory>중분류</InfoCategory>
+              <Info>중앙동아리</Info>
+            </InfoContentRow>
+            <InfoContentRow>
+              <InfoCategory>중분류</InfoCategory>
+              <Info>중앙동아리</Info>
+            </InfoContentRow>
+            <InfoContentRow>
+              <InfoCategory>중분류</InfoCategory>
+              <Info>중앙동아리</Info>
+            </InfoContentRow>
+            <InfoContentRow>
+              <InfoCategory>중분류</InfoCategory>
+              <Info>중앙동아리</Info>
+            </InfoContentRow>
+          </InfoContentWrapper>
+        </ClubDetailCard>
         <ClubDetailCard
           style={{
             gridColumnStart: 2,
