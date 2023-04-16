@@ -2,12 +2,11 @@ import styled from "@emotion/styled";
 import {
   FormControl,
   FormControlLabel,
-  FormLabel,
   Pagination,
   PaginationItem,
   Radio,
   RadioGroup,
-  makeStyles,
+  useMediaQuery,
 } from "@mui/material";
 import { useState } from "react";
 
@@ -20,17 +19,30 @@ const NoticesBanner = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #262626;
+  @media (max-width: 768px) {
+    gap: 30px;
+  }
 `;
 
 const SubTitle = styled.div`
   font-weight: 400;
   font-size: 2rem;
   line-height: 2rem;
+  @media (max-width: 768px) {
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 72%;
+  }
 `;
 const Title = styled.div`
   font-weight: 600;
   font-size: 3rem;
   line-height: 2rem;
+  @media (max-width: 768px) {
+    font-weight: 900;
+    font-size: 2.5rem;
+    line-height: 72%;
+  }
 `;
 
 const NoticesContentWrapper = styled.div`
@@ -41,6 +53,9 @@ const NoticesContentWrapper = styled.div`
   @media (max-width: 1200px) {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  @media (max-width: 768px) {
+    margin-top: 0;
   }
 `;
 
@@ -53,6 +68,7 @@ const AttributeRow = styled.div`
   gap: 20px;
   padding: 0 44px;
   justify-content: space-between;
+  margin-top: 1.5rem;
 `;
 
 const AttributeRowItem = styled.div`
@@ -70,6 +86,10 @@ const NoticesTable = styled.div`
   background-color: #2c2c2c;
   margin-top: 18px;
   border-radius: 12px;
+  @media (max-width: 768px) {
+    padding: 19px 13px;
+    margin-top: 0;
+  }
 `;
 
 const NoticeRow = styled.div`
@@ -78,6 +98,11 @@ const NoticeRow = styled.div`
   justify-content: space-between;
   height: 56px;
   gap: 20px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
 `;
 const NoticeRowItem = styled.div`
   font-weight: 400;
@@ -86,6 +111,21 @@ const NoticeRowItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    font-size: 1.125rem;
+    line-height: 21px;
+  }
+`;
+
+const MobileItemWrapper = styled.div`
+  display: flex;
+  gap: 0.25rem;
+`;
+
+const MobileItem = styled.div`
+  font-weight: 400;
+  font-size: 0.75px;
+  line-height: 14px;
 `;
 
 const NoticeDivider = styled.hr`
@@ -105,10 +145,10 @@ const DUMMY_ARRAY = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 export default function Notices() {
   const [page, setPage] = useState(1);
+  const match768 = useMediaQuery("(max-width:768px)");
   const handlePageChange = (e, value) => {
     e.preventDefault();
     setPage(value);
-    // console.log(value);
   };
 
   return (
@@ -119,78 +159,98 @@ export default function Notices() {
       </NoticesBanner>
       <NoticesContentWrapper>
         <FormControl>
-          <RadioGroup
-            row
-            aria-labelledby="demo-row-radio-buttons-group-label"
-            name="row-radio-buttons-group"
-          >
-            <FormControlLabel
-              value="all"
-              control={
-                <Radio
-                  sx={{
-                    "&.Mui-checked": {
-                      color: "white",
-                    },
-                  }}
-                />
-              }
-              label="전체"
-            />
-            <FormControlLabel
-              value="seoul"
-              control={
-                <Radio
-                  sx={{
-                    "&.Mui-checked": {
-                      color: "white",
-                    },
-                    marginLeft: "60px",
-                  }}
-                />
-              }
-              label="명륜 동아리"
-            />
-            <FormControlLabel
-              value="suwon"
-              control={
-                <Radio
-                  sx={{
-                    "&.Mui-checked": {
-                      color: "white",
-                    },
-                    marginLeft: "60px",
-                  }}
-                />
-              }
-              label="율전 동아리"
-            />
-          </RadioGroup>
+          {!match768 && (
+            <RadioGroup
+              row
+              aria-labelledby="demo-row-radio-buttons-group-label"
+              name="row-radio-buttons-group"
+              sx={{ marginLeft: "30px" }}
+            >
+              <FormControlLabel
+                value="all"
+                control={
+                  <Radio
+                    sx={{
+                      "&.Mui-checked": {
+                        color: "white",
+                      },
+                    }}
+                  />
+                }
+                label="전체"
+              />
+              <FormControlLabel
+                value="seoul"
+                control={
+                  <Radio
+                    sx={{
+                      "&.Mui-checked": {
+                        color: "white",
+                      },
+                      marginLeft: "60px",
+                    }}
+                  />
+                }
+                label="명륜 동아리"
+              />
+              <FormControlLabel
+                value="suwon"
+                control={
+                  <Radio
+                    sx={{
+                      "&.Mui-checked": {
+                        color: "white",
+                      },
+                      marginLeft: "60px",
+                    }}
+                  />
+                }
+                label="율전 동아리"
+              />
+            </RadioGroup>
+          )}
         </FormControl>
 
-        <AttributeRow>
-          <AttributeRowItem style={{ width: "80px" }}>NO.</AttributeRowItem>
-          <AttributeRowItem style={{ flex: 1 }}>제목</AttributeRowItem>
-          <AttributeRowItem style={{ width: "200px" }}>글쓴이</AttributeRowItem>
-          <AttributeRowItem style={{ width: "150px" }}>
-            작성일지
-          </AttributeRowItem>
-        </AttributeRow>
+        {match768 ? (
+          <div></div>
+        ) : (
+          <AttributeRow>
+            <AttributeRowItem style={{ width: "80px" }}>NO.</AttributeRowItem>
+            <AttributeRowItem style={{ flex: 1 }}>제목</AttributeRowItem>
+            <AttributeRowItem style={{ width: "200px" }}>
+              글쓴이
+            </AttributeRowItem>
+            <AttributeRowItem style={{ width: "150px" }}>
+              작성일지
+            </AttributeRowItem>
+          </AttributeRow>
+        )}
 
         <NoticesTable>
           {DUMMY_ARRAY.map((ele) => (
             <>
               <NoticeRow>
-                <NoticeRowItem style={{ width: "80px" }}>34</NoticeRowItem>
+                {!match768 && (
+                  <NoticeRowItem style={{ width: "80px" }}>34</NoticeRowItem>
+                )}
                 <NoticeRowItem style={{ flex: 1, justifyContent: "start" }}>
                   [밴드] 제 22회 못갖춘마디 정기공연 초청
                 </NoticeRowItem>
-                <NoticeRowItem style={{ width: "200px" }}>
-                  못갖춘 마디
-                </NoticeRowItem>
-                <NoticeRowItem style={{ width: "150px" }}>
-                  2023-04-25
-                </NoticeRowItem>
+                {match768 ? (
+                  <MobileItemWrapper>
+                    <MobileItem>못갖춘마디</MobileItem>
+                    <MobileItem>2023-04-25</MobileItem>
+                  </MobileItemWrapper>
+                ) : (
+                  <>
+                    <NoticeRowItem style={{ width: "200px" }}>
+                      못갖춘 마디
+                    </NoticeRowItem>
+                    <NoticeRowItem style={{ width: "150px" }}>
+                      2023-04-25
+                    </NoticeRowItem>
+                  </>
+                )}
               </NoticeRow>
               <NoticeDivider />
             </>
