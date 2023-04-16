@@ -202,17 +202,6 @@ export default function Notices() {
             defaultPage={1}
             page={page}
             onChange={handlePageChange}
-            sx={
-              {
-                // "& .MuiPaginationItem-root": {
-                //   "&.Mui-selected": {
-                //     background: "red",
-                //     color: "white",
-                //     // borderRadius: '50%',
-                //   },
-                // },
-              }
-            }
             renderItem={(item) => (
               <PaginationItem
                 sx={{
