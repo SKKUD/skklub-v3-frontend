@@ -75,7 +75,7 @@ export default function ClubCarousel() {
   const match760 = useMediaQuery("(max-width:760px)");
   const match1024 = useMediaQuery("(max-width:1024px)");
 
-  const width = match760 ? "80%" : match1024 ? "85%" : "60%";
+  const width = match760 ? "90%" : match1024 ? "85%" : "60%";
   return (
     <ClubCarouselContainer width={width}>
       {match760 ? (
