@@ -1,7 +1,4 @@
-import Head from "next/head";
 import Image from "next/image";
-import Footer from "../components/common/Footer";
-import IntroLayout from "../layout/intro/IntroLayout";
 import styled from "@emotion/styled";
 import logoImg from "../public/assets/images/skklub_logo_m.png";
 import { useRouter } from "next/router";
@@ -13,6 +10,10 @@ const HomePageContainer = styled.div`
   background-image: url("/assets/animations/web_loading.gif");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  @media (max-width: 425px) {
+    background-image: url("/assets/animations/mobile-loading.gif");
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -88,9 +89,7 @@ export default function Home() {
   };
 
   return (
-    <HomePageContainer
-    // style={{ backgroundImage: `url(../assets/animations/web_loading.gif)` }}
-    >
+    <HomePageContainer>
       <ItemContainer>
         <Logo>
           <Image
@@ -103,9 +102,6 @@ export default function Home() {
               maxWidth: "1430px",
               minWidth: "310px",
             }}
-            // sizes="(max-width: 768px) 100vw,
-            // (max-width: 1200px) 50vw,
-            // 33vw"
           ></Image>
         </Logo>
         <PhraseBtnContainer>
