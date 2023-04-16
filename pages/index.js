@@ -38,6 +38,7 @@ const Phrase = styled.h2`
   display: inline-block;
   text-align: center;
   font-size: 2rem;
+  word-break: keep-all;
   @media (max-width: 425px) {
     font-size: 1.25rem;
   }

@@ -1,4 +1,10 @@
 import styled from "@emotion/styled";
+import Head from "next/head";
+import Image from "next/image";
+import ClubCarousel from "../../components/index/ClubCarousel";
+import Carousel from "react-material-ui-carousel";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useCallback, useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import RecommendSection from "../../components/main/Recommend/RecommendSection";
@@ -7,17 +13,17 @@ import BorrowSection from "../../components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "../../components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "../../components/main/Notice/MobileNoticeSection";
 
-const TempContainer = styled.div`
-  width: 100vw;
-  height: calc(100vh - 80px); //모바일 적용해야함
-  background-color: grey;
+const HomeContainer = styled.div`
+  width: 100%;
+  height: 100vh; //모바일 적용해야함
   text-align: center;
-  line-height: 50vh;
-  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const PromotionBanner = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 160px;
   background-color: #50cfb1;
   color: #ffe195;
@@ -76,7 +82,9 @@ export default function Seoul() {
 
   return (
     <>
-      <TempContainer>오하은 화이팅</TempContainer>
+      <HomeContainer>
+        <ClubCarousel />
+      </HomeContainer>
       <PromotionBanner>동아리 홍보배너</PromotionBanner>
       <ContentContainer>
         {matches_768 ? <MobileRecommendSection /> : <RecommendSection />}

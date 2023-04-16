@@ -1,20 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import css from "styled-jsx/css";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import Sidebar from "./Sidebar";
+import styles from "../../styles/hamburger.module.css";
+
+const LogoWrap = styled.div`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+`;
+
+const SkklubLogo = styled.img`
+  width: 300px;
+  margin: 60px;
+`;
 
 const HeaderWrap = styled.div`
-  position: sticky;
+  position: fixed;
   top: 0;
+  z-index: 999;
   background-color: #151717;
   width: 100%;
   height: 80px;
   padding: 20px;
-
+  @media (max-width: 769px) {
+    height: 60px;
+  }
   @media (max-width: 480px) {
     padding-right: 10px;
+    height: 48px;
   }
 `;
 
@@ -27,17 +49,18 @@ const HeaderInner = styled.div`
   align-items: center;
 
   @media (max-width: 1024px) {
-    width: 80%;
+    width: 90%;
   }
 
-  @media (max-width: 768px) {
-    width: 95%;
+  @media (max-width: 480px) {
+    justify-content: space-between;
+    width: 100%;
   }
 `;
 
 const HomeImgWrap = styled.div`
   margin-right: 80px;
-  width: 110px;
+  width: 132px;
   display: flex;
   align-items: center;
 
@@ -48,37 +71,47 @@ const HomeImgWrap = styled.div`
 
   @media (max-width: 1024px) {
     margin-right: 60px;
-    width: 90px;
+    width: 110px;
   }
 
   @media (max-width: 768px) {
     margin-right: 40px;
-    width: 70px;
+    width: 90px;
   }
 `;
 
 const NavButtonFont = styled.div`
   font-weight: bold;
-  font-size: 1.1rem;
+  line-height: 1.25rem;
   color: #fff;
+  &:hover {
+    color: #80a4ff;
+  }
 
   @media (max-width: 1024px) {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   @media (max-width: 768px) {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 `;
 
 const NavWrap = styled.div`
   display: flex;
-  width: 100%;
+  width: 65%;
   justify-content: space-between;
 
   @media (max-width: 480px) {
     display: none;
   }
+`;
+
+const IconButtonsWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  font-size: 1.25rem;
 `;
 
 const HamburgerWrap = styled.div`
@@ -87,11 +120,11 @@ const HamburgerWrap = styled.div`
   }
 `;
 
-function HomeButton() {
+function HomeButton({ campus }) {
   return (
-    <Link href="/">
+    <Link href={`/${campus}`}>
       <HomeImgWrap>
-        <img src="/BI.png" />
+        <img src="/assets/images/skklub_명륜.png" />
       </HomeImgWrap>
     </Link>
   );
@@ -105,39 +138,81 @@ function NavButton({ item }) {
   );
 }
 
-const navItems = [
-  { name: "동아리연합회", path: "intro" },
-  { name: "중앙동아리", path: "academic-clubs" },
-  { name: "기타동아리", path: "academic-clubs" },
-  { name: "소모임", path: "academic-clubs" },
-  { name: "학회", path: "academic-clubs" },
-  { name: "학생단체", path: "academic-clubs" },
-];
+const style = css`
+  .startPage,
+  .hide_header {
+    display:none;
+  },
+  
+
+`;
 
 export default function Header() {
   const [isOpen, setOpen] = useState(false);
-  const toggleSide = () => {
+  const toggleSide = (e) => {
     setOpen(true);
   };
 
+  const router = useRouter();
+  const campus = router.pathname.slice(1, 6);
+  const navItems = [
+    { name: "동아리연합회", path: campus + "/intro" },
+    { name: "중앙동아리", path: campus + "/central-clubs" },
+    { name: "기타동아리", path: campus + "/independent-clubs" },
+    { name: "소모임", path: campus + "/groups" },
+    { name: "학회", path: campus + "/academic-clubs" },
+    { name: "학생단체", path: campus + "/student-org" },
+  ];
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const updateScroll = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", updateScroll);
+  });
+
   return (
     <>
-      <HeaderWrap>
-        <HeaderInner>
-          <HomeButton />
-          <NavWrap>
-            {navItems.map((item) => (
-              <NavButton item={item} key={item[0]} />
-            ))}
-          </NavWrap>
-          <HamburgerWrap>
-            <IconButton onClick={toggleSide}>
-              <MenuIcon />
-            </IconButton>
-          </HamburgerWrap>
-        </HeaderInner>
-      </HeaderWrap>
-      <Sidebar isOpen={isOpen} setOpen={setOpen} navItems={navItems} />
+      {router.pathname === "/" ? null : (router.pathname === "/seoul" ||
+          router.pathname === "/suwon") &&
+        scrollPosition <= 30 ? (
+        <LogoWrap>
+          <SkklubLogo src="/assets/images/skklub_율전.png" />
+        </LogoWrap>
+      ) : (
+        <>
+          <HeaderWrap>
+            <HeaderInner>
+              <HomeButton campus={campus} />
+              <NavWrap>
+                {navItems.map((item) => (
+                  <NavButton item={item} key={item.name} />
+                ))}
+              </NavWrap>
+              <IconButtonsWrap>
+                <IconButton>
+                  <SearchIcon />
+                </IconButton>
+
+                <HamburgerWrap>
+                  <IconButton
+                    className={`${styles.menutrigger} ${styles.type7} ${
+                      isOpen ? styles.active7 : ""
+                    }`}
+                    onClick={toggleSide}
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </IconButton>
+                </HamburgerWrap>
+              </IconButtonsWrap>
+            </HeaderInner>
+          </HeaderWrap>
+          <Sidebar isOpen={isOpen} setOpen={setOpen} navItems={navItems} />
+        </>
+      )}
     </>
   );
 }
