@@ -1,9 +1,7 @@
-import Head from "next/head";
 import Image from "next/image";
-import Footer from "../components/common/Footer";
-import IntroLayout from "../layout/intro/IntroLayout";
 import styled from "@emotion/styled";
 import logoImg from "../public/assets/images/skklub_logo_m.png";
+import { useRouter } from "next/router";
 
 const HomePageContainer = styled.div`
   width: 100vw;
@@ -12,6 +10,10 @@ const HomePageContainer = styled.div`
   background-image: url("/assets/animations/web_loading.gif");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  @media (max-width: 425px) {
+    background-image: url("/assets/animations/mobile-loading.gif");
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -80,10 +82,13 @@ const LocationBtn = styled.button`
 `;
 
 export default function Home() {
+  const router = useRouter();
+  const onLocationBtnClick = (location) => {
+    router.push(`/${location}`);
+  };
+
   return (
-    <HomePageContainer
-    // style={{ backgroundImage: `url(../assets/animations/web_loading.gif)` }}
-    >
+    <HomePageContainer>
       <ItemContainer>
         <Logo>
           <Image
@@ -96,16 +101,23 @@ export default function Home() {
               maxWidth: "1430px",
               minWidth: "310px",
             }}
-            // sizes="(max-width: 768px) 100vw,
-            // (max-width: 1200px) 50vw,
-            // 33vw"
           ></Image>
         </Logo>
         <PhraseBtnContainer>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnContainer>
-            <LocationBtn hoverColor="#80A4FF">명륜</LocationBtn>
-            <LocationBtn hoverColor="#50CFB1">율전</LocationBtn>
+            <LocationBtn
+              hoverColor="#80A4FF"
+              onClick={() => onLocationBtnClick("seoul")}
+            >
+              명륜
+            </LocationBtn>
+            <LocationBtn
+              hoverColor="#50CFB1"
+              onClick={() => onLocationBtnClick("suwon")}
+            >
+              율전
+            </LocationBtn>
           </BtnContainer>
         </PhraseBtnContainer>
       </ItemContainer>
