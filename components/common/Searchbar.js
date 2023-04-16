@@ -7,12 +7,21 @@ import styled from "@emotion/styled";
 
 const SearchbarWrap = styled.div`
   position: sticky;
-  top: 80px;
-  width: 100%;
+  top: 70px;
+  width: 70%;
   height: 70px;
+  margin: 0 auto;
   background-color: #151717;
   z-index: 50;
   padding: 0 30px;
+
+  @media (max-width: 1024px) {
+    width: 90%;
+  }
+  @media (max-width: 480px) {
+    top: 80px;
+    width: 100%;
+  }
 `;
 
 const StyledInput = styled(Input)`

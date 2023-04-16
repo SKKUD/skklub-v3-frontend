@@ -32,9 +32,7 @@ const HeaderWrap = styled.div`
   width: 100%;
   height: 70px;
   padding: 20px 30px;
-  @media (max-width: 769px) {
-    height: 70px;
-  }
+  
   @media (max-width: 480px) {
     height: 80px;
   }
