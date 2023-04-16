@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/core";
+import { useMediaQuery } from "@mui/material";
 import { EffectCoverflow, Navigation, Mousewheel } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -9,52 +10,9 @@ import "swiper/css/navigation";
 import "swiper/swiper.min.css";
 import { ClubCarouselInfo } from "../../utils/ClubCarouselInfo";
 
-export default function ClubCarousel() {
-  return (
-    <ClubCarouselContainer>
-      <Swiper
-        style={{
-          "--swiper-navigation-color": "#fff",
-          "--swiper-pagination-color": "#fff",
-        }}
-        slidesPerView={1.9}
-        loop={true}
-        autoHeight={true}
-        effect={"coverflow"}
-        grabCursor={true}
-        centeredSlides
-        spaceBetween={20}
-        // initialSlide={1}
-        centerInsufficientSlides={false}
-        coverflowEffect={{
-          rotate: 0, // 회전각도
-          stretch: 0,
-          depth: 250, // 깊이감도
-          modifier: 3, //
-          slideShadows: true, //선택한 부분 밝게 나머지는 그늘지게
-        }}
-        navigation={true} // 네비게이션 버튼
-        pagination={{ clickable: true }}
-        modules={[EffectCoverflow, Navigation, Pagination]} // 모듈추가
-        className="mySwiper"
-      >
-        {ClubCarouselInfo.map((info) => (
-          <SwiperSlide>
-            <ClubCarouselCard
-              name={info.name}
-              content={info.content}
-              img={info.img}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </ClubCarouselContainer>
-  );
-}
-
 const ClubCarouselContainer = styled.div`
   margin-top: 200px;
-  width: 50%;
+  width: ${(props) => props.width || "50%"};
 `;
 
 const CardWrap = styled.div`
@@ -64,7 +22,7 @@ const CardWrap = styled.div`
 `;
 
 const GifImg = styled.img`
-  width: 46vw;
+  width: calc(100% + 300px);
   position: absolute;
   top: 0;
   left: 50%;
@@ -110,5 +68,78 @@ function ClubCarouselCard({ name, content, img }) {
         </ContentWrap>
       </StyledCard>
     </CardWrap>
+  );
+}
+
+export default function ClubCarousel() {
+  const match760 = useMediaQuery("(max-width:760px)");
+  const match1024 = useMediaQuery("(max-width:1024px)");
+
+  const width = match760 ? "80%" : match1024 ? "85%" : "60%";
+  return (
+    <ClubCarouselContainer width={width}>
+      {match760 ? (
+        <Swiper
+          style={{
+            "--swiper-navigation-color": "#fff",
+            "--swiper-pagination-color": "#fff",
+          }}
+          slidesPerView={1}
+          loop={true}
+          autoHeight={true}
+          grabCursor={true}
+          centeredSlides
+          pagination={{ clickable: true }}
+          modules={[Pagination]} // 모듈추가
+          className="mySwiper"
+        >
+          {ClubCarouselInfo.map((info) => (
+            <SwiperSlide>
+              <ClubCarouselCard
+                name={info.name}
+                content={info.content}
+                img={info.img}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      ) : (
+        <Swiper
+          style={{
+            "--swiper-navigation-color": "#fff",
+            "--swiper-pagination-color": "#fff",
+          }}
+          slidesPerView={1.9}
+          loop={true}
+          autoHeight={true}
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides
+          spaceBetween={20}
+          centerInsufficientSlides={false}
+          coverflowEffect={{
+            rotate: 0, // 회전각도
+            stretch: 0,
+            depth: 250, // 깊이감도
+            modifier: 3, //
+            slideShadows: true, //선택한 부분 밝게 나머지는 그늘지게
+          }}
+          navigation={true} // 네비게이션 버튼
+          pagination={{ clickable: true }}
+          modules={[EffectCoverflow, Navigation, Pagination]} // 모듈추가
+          className="mySwiper"
+        >
+          {ClubCarouselInfo.map((info) => (
+            <SwiperSlide>
+              <ClubCarouselCard
+                name={info.name}
+                content={info.content}
+                img={info.img}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
+    </ClubCarouselContainer>
   );
 }
