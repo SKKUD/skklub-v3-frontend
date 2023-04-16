@@ -2,16 +2,17 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import css from "styled-jsx/css";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
+import CloseIcon from "@mui/icons-material/Close";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import Sidebar from "./Sidebar";
+import Searchbar from "./Searchbar";
 import styles from "../../styles/hamburger.module.css";
 
 const LogoWrap = styled.div`
   width: 100%;
-  position: fixed;
+
   top: 0;
   z-index: 999;
   display: flex;
@@ -29,14 +30,13 @@ const HeaderWrap = styled.div`
   z-index: 999;
   background-color: #151717;
   width: 100%;
-  height: 80px;
-  padding: 20px;
+  height: 70px;
+  padding: 20px 30px;
   @media (max-width: 769px) {
-    height: 60px;
+    height: 70px;
   }
   @media (max-width: 480px) {
-    padding-right: 10px;
-    height: 48px;
+    height: 80px;
   }
 `;
 
@@ -78,6 +78,9 @@ const HomeImgWrap = styled.div`
     margin-right: 40px;
     width: 90px;
   }
+  @media (max-width: 480px) {
+    width: 120px;
+  }
 `;
 
 const NavButtonFont = styled.div`
@@ -114,7 +117,13 @@ const IconButtonsWrap = styled.div`
   font-size: 1.25rem;
 `;
 
+const ResponsiveMargin = styled.div`
+  width: 100%;
+  height: 200px;
+`;
+
 const HamburgerWrap = styled.div`
+  margin-left: 15px;
   @media (min-width: 480px) {
     display: none;
   }
@@ -138,19 +147,15 @@ function NavButton({ item }) {
   );
 }
 
-const style = css`
-  .startPage,
-  .hide_header {
-    display:none;
-  },
-  
-
-`;
-
 export default function Header() {
   const [isOpen, setOpen] = useState(false);
   const toggleSide = (e) => {
     setOpen(true);
+  };
+
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const handleSearchClick = () => {
+    setIsSearchVisible(!isSearchVisible);
   };
 
   const router = useRouter();
@@ -176,7 +181,7 @@ export default function Header() {
     <>
       {router.pathname === "/" ? null : (router.pathname === "/seoul" ||
           router.pathname === "/suwon") &&
-        scrollPosition <= 30 ? (
+        scrollPosition < 60 ? (
         <LogoWrap>
           <SkklubLogo src="/assets/images/skklub_율전.png" />
         </LogoWrap>
@@ -191,8 +196,12 @@ export default function Header() {
                 ))}
               </NavWrap>
               <IconButtonsWrap>
-                <IconButton>
-                  <SearchIcon />
+                <IconButton onClick={handleSearchClick}>
+                  {isSearchVisible ? (
+                    <CloseIcon sx={{ fontSize: "35px", color: "#666" }} />
+                  ) : (
+                    <SearchIcon sx={{ fontSize: "35px" }} />
+                  )}
                 </IconButton>
 
                 <HamburgerWrap>
@@ -210,6 +219,10 @@ export default function Header() {
               </IconButtonsWrap>
             </HeaderInner>
           </HeaderWrap>
+          {isSearchVisible && (
+            <Searchbar setIsSearchVisible={setIsSearchVisible} />
+          )}
+          <ResponsiveMargin />
           <Sidebar isOpen={isOpen} setOpen={setOpen} navItems={navItems} />
         </>
       )}

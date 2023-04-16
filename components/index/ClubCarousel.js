@@ -11,7 +11,6 @@ import "swiper/swiper.min.css";
 import { ClubCarouselInfo } from "../../utils/ClubCarouselInfo";
 
 const ClubCarouselContainer = styled.div`
-  margin-top: 200px;
   width: ${(props) => props.width || "50%"};
 `;
 
