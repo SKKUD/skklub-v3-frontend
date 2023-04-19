@@ -1,10 +1,9 @@
 import { Card } from "@mui/material";
-import ClubCard from "../cardGallery/ClubCard";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
 const DeptTitle = styled.div`
-  font-size: 32px;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 25px;
 `;
@@ -31,14 +30,14 @@ const DeptLeftSection = styled.div`
   }
 `;
 const DeptEmoji = styled.div`
-  font-size: 30px;
+  font-size: 2rem;
   line-height: 30px;
   margin-right: 30px;
 `;
 const DeptName = styled.div`
-  font-size: 18px;
-  line-height: 30px;
-  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: 600;
 `;
 
 const DeptDescription = styled(Card)`
@@ -73,7 +72,6 @@ export default function DepartmentSection({ data }) {
       {data.department.map((dept) => (
         <DepartmentCard dept={dept} key={dept.name} />
       ))}
-      <Card />
     </>
   );
 }

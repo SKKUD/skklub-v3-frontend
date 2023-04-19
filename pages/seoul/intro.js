@@ -31,6 +31,8 @@ export default function SeoulDY() {
     <>
       <IntroLayout campus="Seoul">
         <IntroSection data={data} />
+      </IntroLayout>
+      <IntroLayout campus="Seoul" color="#222525">
         <DepartmentSection data={data} />
       </IntroLayout>
       <Footer />

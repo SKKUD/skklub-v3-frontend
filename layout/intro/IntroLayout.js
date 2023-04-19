@@ -2,8 +2,7 @@ import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 
 const LayoutBackground = styled.div`
-  background-color: ${(props) => props.theme.palette.background.default};
-  color: ${(props) => props.theme.palette.text.primary};
+  background-color: ${(props) => props.color};
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,5 +21,5 @@ const LayoutBackground = styled.div`
 
 export default function IntroLayout(props) {
   const theme = useTheme();
-  return <LayoutBackground>{props.children}</LayoutBackground>;
+  return <LayoutBackground color={props.color}>{props.children}</LayoutBackground>;
 }
