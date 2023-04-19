@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/core";
 import { useMediaQuery } from "@mui/material";
-import { EffectCoverflow, Navigation, Mousewheel } from "swiper";
+import { EffectCoverflow, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";

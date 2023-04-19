@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import css from "styled-jsx/css";
+import { useMediaQuery } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import CloseIcon from "@mui/icons-material/Close";
@@ -32,7 +32,7 @@ const HeaderWrap = styled.div`
   width: 100%;
   height: 70px;
   padding: 20px 30px;
-  
+
   @media (max-width: 480px) {
     height: 80px;
   }
@@ -103,7 +103,7 @@ const NavWrap = styled.div`
   width: 65%;
   justify-content: space-between;
 
-  @media (max-width: 480px) {
+  @media (max-width: 760px) {
     display: none;
   }
 `;
@@ -117,12 +117,12 @@ const IconButtonsWrap = styled.div`
 
 const ResponsiveMargin = styled.div`
   width: 100%;
-  height: 200px;
+  height: ${(props) => props.height}px;
 `;
 
 const HamburgerWrap = styled.div`
   margin-left: 15px;
-  @media (min-width: 480px) {
+  @media (min-width: 760px) {
     display: none;
   }
 `;
@@ -157,7 +157,14 @@ export default function Header() {
   };
 
   const router = useRouter();
-  const campus = router.pathname.slice(1, 6);
+  const campusDetect = router.pathname.slice(1, 6);
+  const [campus, setCampus] = useState("/seoul");
+  useEffect(() => {
+    if (campusDetect === "/suwon" || campusDetect === "/seoul") {
+      setCampus(campusDetect);
+    }
+  }, [campusDetect]);
+
   const navItems = [
     { name: "동아리연합회", path: campus + "/intro" },
     { name: "중앙동아리", path: campus + "/central-clubs" },
@@ -174,6 +181,8 @@ export default function Header() {
   useEffect(() => {
     window.addEventListener("scroll", updateScroll);
   });
+
+  const match760 = useMediaQuery("(max-width:760px)");
 
   return (
     <>
@@ -220,7 +229,13 @@ export default function Header() {
           {isSearchVisible && (
             <Searchbar setIsSearchVisible={setIsSearchVisible} />
           )}
-          <ResponsiveMargin />
+          {router.pathname === "/seoul" || router.pathname === "/suwon" ? (
+            <ResponsiveMargin height={200} />
+          ) : match760 ? (
+            <ResponsiveMargin height={80} />
+          ) : (
+            <ResponsiveMargin height={70} />
+          )}
           <Sidebar isOpen={isOpen} setOpen={setOpen} navItems={navItems} />
         </>
       )}
