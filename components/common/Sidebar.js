@@ -1,23 +1,23 @@
 import { useEffect, useRef } from "react";
 import IconButton from "@mui/material/IconButton";
-import CloseIcon from "@mui/icons-material/Close";
 import styled from "@emotion/styled";
 import Link from "next/link";
+import styles from "../../styles/hamburger.module.css";
 
 const NavWrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 300px;
+  align-items: end;
+  height: 400px;
+  font-size: 1.1rem;
   font-weight: 500;
-  margin-left: 10px;
+  margin-top: 30px;
 `;
 
 const SidebarInner = styled.div`
-  z-index: 5;
-  padding: 12px;
-  border-radius: 15px 0 0 15px;
-  border: 1px solid #222;
+  z-index: 1000;
+  padding: 20px 30px 20px 20px;
   background-color: #151717;
   height: 100%;
   width: 50%;
@@ -29,6 +29,18 @@ const SidebarInner = styled.div`
     right: 0;
     transition: 0.5s ease;
   }
+`;
+
+const Line = styled.div`
+  width: 90%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+`;
+
+const CampusWrap = styled.div`
+  color: rgba(80, 207, 177, 1);
+  font-size: 1.1rem;
+  font-weight: 500;
 `;
 
 export default function Sidebar({ isOpen, setOpen, navItems }) {
@@ -54,13 +66,28 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
   return (
     <>
       <SidebarInner ref={outside} className={isOpen ? "open" : ""}>
-        <IconButton onClick={toggleSide} onKeyDown={toggleSide}>
-          <CloseIcon />
+        <IconButton
+          className={`${styles.menutrigger} ${styles.type7} ${
+            isOpen ? styles.active7 : ""
+          }`}
+          onClick={toggleSide}
+          onKeyDown={toggleSide}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </IconButton>
+
         <NavWrap onClick={toggleSide}>
           {navItems.map((item) => (
-            <Link href={item.path}>{item.name}</Link>
+            <Link href={item.path} key={item.name}>
+              {item.name}
+            </Link>
           ))}
+          <Line />
+          <CampusWrap>
+            <Link href={"/"}>명륜 캠퍼스</Link>
+          </CampusWrap>
         </NavWrap>
       </SidebarInner>
     </>
