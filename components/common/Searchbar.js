@@ -10,7 +10,8 @@ const SearchbarWrap = styled.div`
   top: 70px;
   width: 70%;
   height: 70px;
-  margin: 0 auto;
+  margin: 0px auto;
+  margin-top: -70px;
   background-color: #151717;
   z-index: 50;
   padding: 0 30px;

@@ -8,18 +8,24 @@ const LayoutBackground = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 20rem;
+  padding: 100px 20rem;
+
+  @media (max-width: 1440px) {
+    padding: 70px 10rem;
+  }
 
   @media (max-width: 1024px) {
-    padding: 0 5rem;
+    padding: 70px 5rem;
   }
 
   @media (max-width: 768px) {
-    padding: 0 1rem;
+    padding: 30px 1rem;
   }
 `;
 
 export default function IntroLayout(props) {
   const theme = useTheme();
-  return <LayoutBackground color={props.color}>{props.children}</LayoutBackground>;
+  return (
+    <LayoutBackground color={props.color}>{props.children}</LayoutBackground>
+  );
 }

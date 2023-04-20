@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useMediaQuery } from "@mui/material";
 
 const IntroSectionLayout = styled.div`
   display: flex;
@@ -12,23 +13,29 @@ const IntroSectionLayout = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
+    position: relative;
+    width: 100%;
+    margin: 2rem 0;
   }
 `;
 
 const IntroPill = styled.div`
   background-color: ${(props) => props.theme.palette.primary.main};
   color: ${(props) => props.theme.palette.text.primary};
-  padding: 0.7em 1.6rem;
+  padding: 1.5rem 1rem;
   border-radius: 50px;
   margin: 0.5rem;
   font-size: 1.5rem;
   font-weight: 600;
-  width: 20%;
+  min-width: 20%;
   text-align: center;
 
   @media (max-width: 768px) {
-    width: 100%;
-    text-align: left;
+    min-width: 50%;
+    font-size: 1.2rem;
+    padding: 0.7rem 1rem;
+    position: absolute;
+    top: -2rem;
   }
 `;
 
@@ -38,41 +45,52 @@ const IntroCard = styled.div`
   padding: 1.5rem 2.5rem;
   border-radius: 1rem;
   margin: 0.5rem;
-  width: 76%;
-
+  width: 70%;
   margin-left: 3rem;
 
   @media (max-width: 768px) {
     width: 100%;
     margin: 0;
+    padding: 1.5rem 1.5rem;
   }
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+  }
 `;
 
 const RedSpan = styled.span`
-  color: ${(props) => props.theme.palette.secondary.main};
+  color: ${(props) => props.theme.palette.primary.main};
+  word-break: keep-all;
 `;
 
 const Body = styled.p`
+  font-family: pretendard;
   font-size: 1.3rem;
-  font-weight: 200;
-  line-height: 30px;
+  line-height: 2rem;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 export default function IntroSection(props) {
+  const match480 = useMediaQuery("(max-width:480px)");
+
   return (
     <>
       <IntroSectionLayout>
         <IntroPill>Who we are</IntroPill>
         <IntroCard>
           <Title>
-            안녕하세요, 동아리연합회 <RedSpan>{props.data.name}</RedSpan>{" "}
-            입니다!
+            안녕하세요, 동아리연합회 {match480 && <br />}
+            <RedSpan>{props.data.name}</RedSpan>입니다!
           </Title>
           <Body>{props.data.section[0]}</Body>
         </IntroCard>
@@ -80,14 +98,16 @@ export default function IntroSection(props) {
       <IntroSectionLayout>
         <IntroPill>What we do</IntroPill>
         <IntroCard>
-          <Title>저희는 이런 활동을 해요!</Title>
+          <Title>저희는 {match480 && <br />}이런 활동을 해요!</Title>
           <Body>{props.data.section[1]}</Body>
         </IntroCard>
       </IntroSectionLayout>
       <IntroSectionLayout>
         <IntroPill>How we work</IntroPill>
         <IntroCard>
-          <Title>동아리연합회는 이렇게 구성되어 있어요!</Title>
+          <Title>
+            동아리연합회는 {match480 && <br />}이렇게 구성되어 있어요!
+          </Title>
           <Body>{props.data.section[2]}</Body>
         </IntroCard>
       </IntroSectionLayout>

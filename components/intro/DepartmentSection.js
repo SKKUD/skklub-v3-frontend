@@ -3,18 +3,25 @@ import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
 const DeptTitle = styled.div`
-  font-size: 3rem;
+  font-size: 2.5rem;
+  color: ${(props) => props.theme.palette.primary.main};
   font-weight: 700;
-  margin-bottom: 25px;
+  margin-bottom: 4rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const DeptWrap = styled.div`
   display: flex;
   width: 100%;
   margin-bottom: 15px;
+  padding: 0 2rem;
 
   @media (max-width: 768px) {
     flex-direction: column;
+    padding: 0;
   }
 `;
 
@@ -25,31 +32,45 @@ const DeptLeftSection = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     padding-top: 0;
   }
 `;
 const DeptEmoji = styled.div`
-  font-size: 2rem;
+  font-size: 1.7rem;
   line-height: 30px;
   margin-right: 30px;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin: 0 20px;
+  }
 `;
 const DeptName = styled.div`
-  font-size: 1.5rem;
-  line-height: 1.5rem;
+  font-size: 1.7rem;
+  line-height: 1.7rem;
   font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
 `;
 
 const DeptDescription = styled(Card)`
   width: 70%;
+  margin: 8px;
   padding: 21px 38px;
-  font-size: 14px;
-  line-height: 30px;
+  font-family: pretendard;
   border-radius: 12px;
+  font-size: 1.3rem;
+  line-height: 2rem;
   word-break: keep-all;
 
   @media (max-width: 768px) {
+    font-size: 1rem;
     width: 100%;
+    padding: 20px;
+    margin: 0px;
   }
 `;
 
