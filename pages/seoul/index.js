@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import Head from "next/head";
 import Image from "next/image";
 import ClubCarousel from "../../components/index/ClubCarousel";
-import Carousel from "react-material-ui-carousel";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useCallback, useEffect, useState } from "react";

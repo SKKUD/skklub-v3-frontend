@@ -129,7 +129,7 @@ const HamburgerWrap = styled.div`
 
 function HomeButton({ campus }) {
   return (
-    <Link href={`/${campus}`}>
+    <Link href={`${campus}`}>
       <HomeImgWrap>
         <img src="/assets/images/skklub_명륜.png" />
       </HomeImgWrap>
