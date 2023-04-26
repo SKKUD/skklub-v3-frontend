@@ -1,10 +1,5 @@
 import styled from "@emotion/styled";
-import Head from "next/head";
-import Image from "next/image";
 import ClubCarousel from "../../components/index/ClubCarousel";
-import Carousel from "react-material-ui-carousel";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useCallback, useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import RecommendSection from "../../components/main/Recommend/RecommendSection";
@@ -12,6 +7,7 @@ import NoticeSection from "../../components/main/Notice/NoticeSection";
 import BorrowSection from "../../components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "../../components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "../../components/main/Notice/MobileNoticeSection";
+import CampusSwitch from "../../components/common/CampusSwitch";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -85,6 +81,7 @@ export default function Seoul() {
       <HomeContainer>
         <ClubCarousel />
       </HomeContainer>
+      <CampusSwitch />
       <PromotionBanner>동아리 홍보배너</PromotionBanner>
       <ContentContainer>
         {matches_768 ? <MobileRecommendSection /> : <RecommendSection />}
