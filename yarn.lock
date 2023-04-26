@@ -11452,6 +11452,14 @@
     "ansi-colors" "^3.0.0"
     "uuid" "^3.3.2"
 
+"webpack-merge@^5.8.0":
+  "integrity" "sha512-/SaI7xY0831XwP6kzuwhKWVKDP9t1QY1h65lAFLbZqMPIuYcD9QAW4u9STIbU9kaJbPBB/geU/gLr1wDjOhQ+Q=="
+  "resolved" "https://registry.npmjs.org/webpack-merge/-/webpack-merge-5.8.0.tgz"
+  "version" "5.8.0"
+  dependencies:
+    "clone-deep" "^4.0.1"
+    "wildcard" "^2.0.0"
+
 "webpack-sources@^1.4.0", "webpack-sources@^1.4.1", "webpack-sources@^1.4.3":
   "integrity" "sha512-lgTS3Xhv1lCOKo7SA5TjKXMjpSM4sBjNV5+q2bqesbSPs5FjGmU6jjtBSkX9b4qW87vDIsCIlUPOEhbZrMdjeQ=="
   "resolved" "https://registry.npmjs.org/webpack-sources/-/webpack-sources-1.4.3.tgz"
@@ -11604,6 +11612,11 @@
   "version" "3.1.0"
   dependencies:
     "string-width" "^4.0.0"
+
+"wildcard@^2.0.0":
+  "integrity" "sha512-CC1bOL87PIWSBhDcTrdeLo6eGT7mCFtrg0uIJtqJUFyK+eJnzl8A1niH56uu7KMa5XFrtiV+AQuHO3n7DsHnLQ=="
+  "resolved" "https://registry.npmjs.org/wildcard/-/wildcard-2.0.1.tgz"
+  "version" "2.0.1"
 
 "word-wrap@^1.2.3", "word-wrap@~1.2.3":
   "integrity" "sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ=="
