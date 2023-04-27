@@ -30,8 +30,6 @@ const ItemContainer = styled.div`
   align-items: center;
 `;
 
-const Logo = styled.div``;
-
 const PhraseBtnContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -60,30 +58,6 @@ const BtnContainer = styled.div`
   }
 `;
 
-const LocationBtn = styled.button`
-  border: none;
-  color: #434c4f;
-  width: 100%;
-  background-color: white;
-  font-size: 1.5rem;
-  height: 68px;
-  border-radius: 3rem;
-  font-weight: 900;
-
-  @media (max-width: 375px) {
-    width: 115px;
-    font-size: 1.25rem;
-    height: 40px;
-    padding: 0;
-    margin-bottom: 0.75rem;
-  }
-
-  &:hover {
-    background-color: ${(props) => props.hoverColor};
-    color: white;
-  }
-`;
-
 export default function Home() {
   const router = useRouter();
   const onLocationBtnClick = (location) => {
@@ -93,19 +67,17 @@ export default function Home() {
   return (
     <HomePageContainer>
       <ItemContainer>
-        <Logo>
-          <Image
-            src={logoImg}
-            alt="SKKLUB LOGO"
-            placeholder="blur"
-            style={{
-              height: "auto",
-              width: "70vw",
-              maxWidth: "1430px",
-              minWidth: "310px",
-            }}
-          ></Image>
-        </Logo>
+        <Image
+          src={logoImg}
+          alt="SKKLUB LOGO"
+          placeholder="blur"
+          style={{
+            height: "auto",
+            width: "70vw",
+            maxWidth: "1430px",
+            minWidth: "310px",
+          }}
+        ></Image>
         <PhraseBtnContainer>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnContainer>
