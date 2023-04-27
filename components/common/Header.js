@@ -103,7 +103,7 @@ const NavWrap = styled.div`
   width: 65%;
   justify-content: space-between;
 
-  @media (max-width: 760px) {
+  @media (max-width: 1023px) {
     display: none;
   }
 `;
@@ -122,7 +122,7 @@ const ResponsiveMargin = styled.div`
 
 const HamburgerWrap = styled.div`
   margin-left: 15px;
-  @media (min-width: 760px) {
+  @media (min-width: 1024px) {
     display: none;
   }
 `;

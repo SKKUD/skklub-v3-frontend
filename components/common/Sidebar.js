@@ -21,6 +21,7 @@ const SidebarInner = styled.div`
   background-color: #151717;
   height: 100%;
   width: 50%;
+  max-width: 250px;
   right: -50%;
   top: 0;
   position: fixed;
