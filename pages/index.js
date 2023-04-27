@@ -2,7 +2,10 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import logoImg from "../public/assets/images/skklub_logo_m.png";
 import { useRouter } from "next/router";
-import { SeoulSelectBtn } from "../components/start/LocationSelectBtn.stories";
+import {
+  SeoulSelectBtn,
+  SuwonSelectBtn,
+} from "../components/start/LocationSelectBtn.stories";
 
 const HomePageContainer = styled.div`
   width: 100vw;
@@ -106,13 +109,12 @@ export default function Home() {
         <PhraseBtnContainer>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnContainer>
-            <SeoulSelectBtn />
-            <LocationBtn
-              hoverColor="#50CFB1"
-              onClick={() => onLocationBtnClick("suwon")}
-            >
+            <SeoulSelectBtn handleClick={() => onLocationBtnClick("seoul")}>
+              명륜
+            </SeoulSelectBtn>
+            <SuwonSelectBtn handleClick={() => onLocationBtnClick("suwon")}>
               율전
-            </LocationBtn>
+            </SuwonSelectBtn>
           </BtnContainer>
         </PhraseBtnContainer>
       </ItemContainer>

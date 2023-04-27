@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 const LocationBtn = styled.button`
   border: none;
@@ -25,17 +26,18 @@ const LocationBtn = styled.button`
 `;
 
 export default function LocationSelectBtn({
-  label,
+  children,
   hoverColor = "#80A4FF",
   handleClick,
 }) {
   return (
     <LocationBtn hoverColor={hoverColor} onClick={handleClick}>
-      {label}
+      {children}
     </LocationBtn>
   );
 }
 
-// LocationSelectBtn.propTypes = {
-//   PropT
-// }
+LocationSelectBtn.propTypes = {
+  hoverColor: PropTypes.string,
+  handleClick: PropTypes.func,
+};
