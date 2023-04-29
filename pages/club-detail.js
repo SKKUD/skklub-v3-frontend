@@ -2,6 +2,9 @@ import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import clubLogoImg from "../public/assets/images/club_logo.png";
 import Image from "next/image";
+import RecruitingSection from "../components/club-detail/RecruitingSection";
+import InfoSection from "../components/club-detail/InfoSection";
+import AboutSection from "../components/club-detail/AboutSection";
 
 const ClubDetailBanner = styled.div`
   width: 100%;
@@ -249,7 +252,6 @@ const DetailContent = styled.div`
 `;
 
 export default function ClubDetail() {
-  const match760 = useMediaQuery("(max-width:760px)");
   const match425 = useMediaQuery("(max-width:425px)");
   return (
     <>
@@ -280,7 +282,7 @@ export default function ClubDetail() {
       </ClubDetailBanner>
       <ClubDetailWrapper>
         <ClubDetailContent>
-          <ClubDetailCard
+          {/* <ClubDetailCard
             style={{
               gridColumnStart: 1,
               gridColumnEnd: 4,
@@ -306,8 +308,9 @@ export default function ClubDetail() {
                 <RecruitInfoBox>3.13(월) ~ 3.27(월)</RecruitInfoBox>
               </RecruitContent>
             </RecruitContentWrapper>
-          </ClubDetailCard>
-          <ClubDetailCard
+          </ClubDetailCard> */}
+          <RecruitingSection />
+          {/* <ClubDetailCard
             style={{
               height: "403px",
             }}
@@ -348,8 +351,9 @@ export default function ClubDetail() {
                 <Info>중앙동아리</Info>
               </InfoContentRow>
             </InfoContentWrapper>
-          </ClubDetailCard>
-          <ClubDetailCard
+          </ClubDetailCard> */}
+          <InfoSection />
+          {/* <ClubDetailCard
             style={{
               gridColumnStart: match760 ? 1 : 2,
               gridColumnEnd: 4,
@@ -371,7 +375,8 @@ export default function ClubDetail() {
               없어도, 학번이 높아도 괜찮습니다. 편한 마음으로 가볍게 놀러오세요!
             </AboutContent>
             <ClubPageNaviagateBtn>동아리 페이지</ClubPageNaviagateBtn>
-          </ClubDetailCard>
+          </ClubDetailCard> */}
+          <AboutSection />
           <ClubDetailCard
             style={{
               gridColumnStart: 1,
