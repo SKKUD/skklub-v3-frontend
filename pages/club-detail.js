@@ -18,20 +18,21 @@ const ClubDetailContent = styled.div`
   margin-top: 3rem;
   gap: 30px;
   margin-bottom: 300px;
+  padding: 0 1rem;
 `;
 
 export default function ClubDetail() {
   return (
     <>
       <ClubDetailBanner />
-      <ClubDetailWrapper>
-        <ClubDetailContent>
-          <RecruitingSection />
-          <InfoSection />
-          <AboutSection />
-          <ActivitySection />
-        </ClubDetailContent>
-      </ClubDetailWrapper>
+      {/* <ClubDetailWrapper> */}
+      <ClubDetailContent>
+        <RecruitingSection />
+        <InfoSection />
+        <AboutSection />
+        <ActivitySection />
+      </ClubDetailContent>
+      {/* </ClubDetailWrapper> */}
     </>
   );
 }
