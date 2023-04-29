@@ -1,18 +1,7 @@
 import styled from "@emotion/styled";
 import SectionWrapper from "./SectionWrapper";
 import { useMediaQuery } from "@mui/material";
-
-const ClubDetailCardTitle = styled.div`
-  font-weight: 500;
-  font-size: 1.25rem;
-  line-height: 107.5%;
-  margin-bottom: 0.5rem;
-`;
-
-const ClubDetailCardHr = styled.hr`
-  border: 0px;
-  border-top: 1px solid #737d81;
-`;
+import { SectionDivider, SectionTitle } from "./common";
 
 const AboutContent = styled.div`
   font-weight: 300;
@@ -62,8 +51,8 @@ export default function AboutSection() {
         height: match760 ? "auto" : "403px",
       }}
     >
-      <ClubDetailCardTitle>About</ClubDetailCardTitle>
-      <ClubDetailCardHr />
+      <SectionTitle>About</SectionTitle>
+      <SectionDivider />
       <AboutContent>
         성균합창단은 54년의 전통을 잇는 중앙 합창 동아리입니다. 매주 화, 목요일
         7시 정기 연습과 뒤풀이로 단원간 화합을 도모하고, 매 학기 정기 공연을
