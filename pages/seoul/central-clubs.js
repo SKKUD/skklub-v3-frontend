@@ -1,74 +1,11 @@
 import styled from "@emotion/styled";
-import { Grid } from "@mui/material";
-
-const ClubsBanner = styled.div`
-  width: 100vw;
-  height: 378px;
-  background-color: green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const SubTitle = styled.div`
-  font-weight: 400;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  text-align: center;
-  margin-bottom: 1.25rem;
-`;
-
-const Title = styled.div`
-  font-weight: 500;
-  font-size: 3rem;
-  line-height: 3rem;
-  text-align: center;
-`;
+import Categories from "../../components/common/Categories";
+import UpperBanner from "../../components/common/UpperBanner";
 
 const MainSection = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 200px;
-`;
-
-const CategoryContainer = styled.div`
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  margin-bottom: 2.5rem;
-  margin-top: 5.25rem;
-  overflow-x: auto;
-  gap: 8px;
-  /* &::-webkit-scrollbar-thumb {
-    background: beige;
-    border-radius: 10px;
-  } */
-`;
-
-const Category = styled.button`
-  /* height: 44px; */
-  padding: 10px 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #303030eb;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
-  background-color: transparent;
-  color: whitesmoke;
-  white-space: nowrap;
-
-  @media (max-width: 1024px) {
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 17px;
-    padding: 8px 25px;
-  }
 `;
 
 const CardsContainer = styled.div`
@@ -146,42 +83,10 @@ export default function central_clubs() {
   const TEMP_ROW = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   return (
     <>
-      <ClubsBanner>
-        <div>
-          <SubTitle>명륜 캠퍼스</SubTitle>
-          <Title>중앙동아리</Title>
-        </div>
-      </ClubsBanner>
+      <UpperBanner />
       <MainSection>
-        <CategoryContainer>
-          <Category>전체</Category>
-          <Category>평면예술</Category>
-          <Category>연행예술</Category>
-          <Category>봉사</Category>
-          <Category>취미교양</Category>
-          <Category>스포츠</Category>
-          <Category>종교</Category>
-          <Category>학술</Category>
-          <Category>인문사회</Category>
-        </CategoryContainer>
+        <Categories />
         <CardsContainer>
-          {/* <Grid
-            container
-            spacing={4}
-            sx={{ marginTop: 0, justifyItems: "stretch" }}
-          >
-            {TEMP_ROW.map((e) => (
-              <Grid item lg={4} xl={3}>
-                <ClubCard>
-                  <ClubCardName>꾼</ClubCardName>
-                  <ClubCardFooter>
-                    <ClubCardType>평면예술/서예</ClubCardType>
-                    <Heart />
-                  </ClubCardFooter>
-                </ClubCard>
-              </Grid>
-            ))}
-          </Grid> */}
           <CardGrid>
             {TEMP_ROW.map((e) => (
               <ClubCard>
