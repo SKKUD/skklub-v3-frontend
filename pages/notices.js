@@ -9,6 +9,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import { useState } from "react";
+import NoticeRadioBtns from "../components/notices/NoticeRadioBtns";
 
 const NoticesBanner = styled.div`
   width: 100%;
@@ -158,7 +159,7 @@ export default function Notices() {
         <Title>공지사항</Title>
       </NoticesBanner>
       <NoticesContentWrapper>
-        <FormControl>
+        {/* <FormControl>
           {!match768 && (
             <RadioGroup
               row
@@ -209,7 +210,8 @@ export default function Notices() {
               />
             </RadioGroup>
           )}
-        </FormControl>
+        </FormControl> */}
+        <NoticeRadioBtns />
 
         {match768 ? (
           <div></div>
