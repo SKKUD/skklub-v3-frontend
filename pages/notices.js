@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Pagination, PaginationItem, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import NoticeRadioBtns from "../components/notices/NoticeRadioBtns";
 import NoticeTableHeader from "../components/notices/NoticeTableHeader";
@@ -71,11 +71,8 @@ export default function Notices() {
       </NoticesBanner>
       <NoticesContentWrapper>
         <NoticeRadioBtns />
-
         {!match768 && <NoticeTableHeader />}
-
         <NoticeTableBody />
-
         <NoticeTablePagination
           page={page}
           handlePageChange={handlePageChange}
