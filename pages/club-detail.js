@@ -6,10 +6,6 @@ import AboutSection from "../components/club-detail/AboutSection";
 import ActivitySection from "../components/club-detail/ActivitySection";
 import ClubDetailBanner from "../components/club-detail/ClubDetailBanner";
 
-const ClubDetailWrapper = styled.div`
-  padding: 0 1rem;
-`;
-
 const ClubDetailContent = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -25,14 +21,12 @@ export default function ClubDetail() {
   return (
     <>
       <ClubDetailBanner />
-      {/* <ClubDetailWrapper> */}
       <ClubDetailContent>
         <RecruitingSection />
         <InfoSection />
         <AboutSection />
         <ActivitySection />
       </ClubDetailContent>
-      {/* </ClubDetailWrapper> */}
     </>
   );
 }
