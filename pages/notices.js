@@ -4,6 +4,7 @@ import { useState } from "react";
 import NoticeRadioBtns from "../components/notices/NoticeRadioBtns";
 import NoticeTableHeader from "../components/notices/NoticeTableHeader";
 import NoticeTableBody from "../components/notices/NoticeTableBody";
+import NoticeTablePagination from "../components/notices/NoticeTablePagination";
 
 const NoticesBanner = styled.div`
   width: 100%;
@@ -54,14 +55,6 @@ const NoticesContentWrapper = styled.div`
   }
 `;
 
-const PaginationWrapper = styled.div`
-  width: 100%;
-  height: 15px;
-  margin-top: 3rem;
-  display: flex;
-  justify-content: center;
-`;
-
 export default function Notices() {
   const [page, setPage] = useState(1);
   const match768 = useMediaQuery("(max-width:768px)");
@@ -82,26 +75,11 @@ export default function Notices() {
         {!match768 && <NoticeTableHeader />}
 
         <NoticeTableBody />
-        <PaginationWrapper>
-          <Pagination
-            count={5}
-            defaultPage={1}
-            page={page}
-            onChange={handlePageChange}
-            renderItem={(item) => (
-              <PaginationItem
-                sx={{
-                  backgroundColor: "transparent !important",
-                  fontSize: "1.25rem",
-                  lineHeight: "1.25rem",
-                  fontWeight: "400",
-                  color: item.selected ? "#50CFB1" : "rgba(255, 255, 255, 0.5)",
-                }}
-                {...item}
-              />
-            )}
-          />
-        </PaginationWrapper>
+
+        <NoticeTablePagination
+          page={page}
+          handlePageChange={handlePageChange}
+        />
       </NoticesContentWrapper>
     </>
   );

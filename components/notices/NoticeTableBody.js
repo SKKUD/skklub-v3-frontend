@@ -60,8 +60,8 @@ export default function NoticeTableBody() {
   const match768 = useMediaQuery("(max-width:768px)");
   return (
     <TableWrapper>
-      {DUMMY_ARRAY.map((ele) => (
-        <>
+      {DUMMY_ARRAY.map((ele, idx) => (
+        <div key={idx}>
           <NoticeRow>
             {!match768 && (
               <NoticeRowItem style={{ width: "80px" }}>34</NoticeRowItem>
@@ -86,7 +86,7 @@ export default function NoticeTableBody() {
             )}
           </NoticeRow>
           <NoticeDivider />
-        </>
+        </div>
       ))}
     </TableWrapper>
   );
