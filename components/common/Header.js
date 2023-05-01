@@ -139,7 +139,7 @@ function HomeButton({ campus }) {
 
 function NavButton({ item }) {
   return (
-    <Link href={`/${item.path}`}>
+    <Link href={`${item.path}`}>
       <NavButtonFont>{item.name}</NavButtonFont>
     </Link>
   );
