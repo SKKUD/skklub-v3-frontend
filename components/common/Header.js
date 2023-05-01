@@ -161,7 +161,6 @@ export default function Header() {
     setIsSearchVisible(!isSearchVisible);
   };
   const { campusName } = useCampusDetect();
-  console.log(campusName);
 
   const navItems = [
     { name: "동아리연합회", path: campusName + "/intro" },
