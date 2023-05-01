@@ -51,7 +51,7 @@ const ToggleContainer = styled.div`
 export default function CampusSwitch() {
   const router = useRouter();
   const params = router.pathname.slice(6);
-  const campus = useCampusDetect();
+  const { campus } = useCampusDetect();
   const [isOn, setisOn] = useState(campus); // false일때 명, true일때 율
 
   const toggleHandler = () => {

@@ -9,6 +9,7 @@ import Link from "next/link";
 import Sidebar from "./Sidebar";
 import Searchbar from "./Searchbar";
 import styles from "../../styles/hamburger.module.css";
+import useCampusDetect from "../../hooks/useCampusDetect";
 
 const LogoWrap = styled.div`
   width: 100%;
@@ -127,11 +128,15 @@ const HamburgerWrap = styled.div`
   }
 `;
 
-function HomeButton({ campus }) {
+function HomeButton({ campusName }) {
   return (
-    <Link href={`${campus}`}>
+    <Link href={`/${campusName}`}>
       <HomeImgWrap>
-        <img src="/assets/images/skklub_명륜.png" />
+        {campusName === "seoul" ? (
+          <img src="/assets/images/skklub_명륜.png" />
+        ) : (
+          <img src="/assets/images/skklub_율전.png" />
+        )}
       </HomeImgWrap>
     </Link>
   );
@@ -155,15 +160,15 @@ export default function Header() {
   const handleSearchClick = () => {
     setIsSearchVisible(!isSearchVisible);
   };
-
-  const router = useRouter();
-  const campusDetect = router.pathname.slice(1, 6);
-  const [campus, setCampus] = useState("/seoul");
-  useEffect(() => {
-    if (campusDetect === "/suwon" || campusDetect === "/seoul") {
-      setCampus(campusDetect);
-    }
-  }, [campusDetect]);
+  const { campus, campusName } = useCampusDetect();
+  // const router = useRouter();
+  // const campusDetect = router.pathname.slice(1, 6);
+  // const [campus, setCampus] = useState("/seoul");
+  // useEffect(() => {
+  //   if (campusDetect === "/suwon" || campusDetect === "/seoul") {
+  //     setCampus(campusDetect);
+  //   }
+  // }, [campusDetect]);
 
   const navItems = [
     { name: "동아리연합회", path: campus + "/intro" },
@@ -186,11 +191,11 @@ export default function Header() {
 
   return (
     <>
-      {router.pathname === "/" ? null : (router.pathname === "/seoul" ||
-          router.pathname === "/suwon") &&
+      {campusName === "" ? null : (campusName === "seoul" ||
+          campusName === "suwon") &&
         scrollPosition < 60 ? (
         <LogoWrap>
-          {campus === "/seoul" ? (
+          {campusName === "seoul" ? (
             <SkklubLogo src="/assets/images/skklub_명륜.png" />
           ) : (
             <SkklubLogo src="/assets/images/skklub_율전.png" />
@@ -200,7 +205,7 @@ export default function Header() {
         <>
           <HeaderWrap>
             <HeaderInner>
-              <HomeButton campus={campus} />
+              <HomeButton campusName={campusName} />
               <NavWrap>
                 {navItems.map((item) => (
                   <NavButton item={item} key={item.name} />
@@ -233,7 +238,7 @@ export default function Header() {
           {isSearchVisible && (
             <Searchbar setIsSearchVisible={setIsSearchVisible} />
           )}
-          {router.pathname === "/seoul" || router.pathname === "/suwon" ? (
+          {campusName === "seoul" || campusName === "suwon" ? (
             <ResponsiveMargin height={200} />
           ) : match760 ? (
             <ResponsiveMargin height={80} />
