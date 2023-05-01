@@ -59,11 +59,11 @@ export default function CampusSwitch() {
     if (isOn) {
       setTimeout(() => {
         router.push(`/seoul${params}`);
-      }, 900);
+      }, 750);
     } else {
       setTimeout(() => {
         router.push(`/suwon${params}`);
-      }, 900);
+      }, 750);
     }
   };
 
