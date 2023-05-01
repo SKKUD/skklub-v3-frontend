@@ -144,7 +144,7 @@ function HomeButton({ campusName }) {
 
 function NavButton({ item }) {
   return (
-    <Link href={`${item.path}`}>
+    <Link href={`/${item.path}`}>
       <NavButtonFont>{item.name}</NavButtonFont>
     </Link>
   );
@@ -160,23 +160,16 @@ export default function Header() {
   const handleSearchClick = () => {
     setIsSearchVisible(!isSearchVisible);
   };
-  const { campus, campusName } = useCampusDetect();
-  // const router = useRouter();
-  // const campusDetect = router.pathname.slice(1, 6);
-  // const [campus, setCampus] = useState("/seoul");
-  // useEffect(() => {
-  //   if (campusDetect === "/suwon" || campusDetect === "/seoul") {
-  //     setCampus(campusDetect);
-  //   }
-  // }, [campusDetect]);
+  const { campusName } = useCampusDetect();
+  console.log(campusName);
 
   const navItems = [
-    { name: "동아리연합회", path: campus + "/intro" },
-    { name: "중앙동아리", path: campus + "/central-clubs" },
-    { name: "기타동아리", path: campus + "/independent-clubs" },
-    { name: "소모임", path: campus + "/groups" },
-    { name: "학회", path: campus + "/academic-clubs" },
-    { name: "학생단체", path: campus + "/student-org" },
+    { name: "동아리연합회", path: campusName + "/intro" },
+    { name: "중앙동아리", path: campusName + "/central-clubs" },
+    { name: "기타동아리", path: campusName + "/independent-clubs" },
+    { name: "소모임", path: campusName + "/groups" },
+    { name: "학회", path: campusName + "/academic-clubs" },
+    { name: "학생단체", path: campusName + "/student-org" },
   ];
 
   const [scrollPosition, setScrollPosition] = useState(0);
