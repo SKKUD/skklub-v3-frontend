@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
+import useCampusDetect from "../../hooks/useCampusDetect";
 
 const ToggleContainer = styled.div`
   position: fixed;
@@ -47,9 +49,22 @@ const ToggleContainer = styled.div`
 `;
 
 export default function CampusSwitch() {
-  const [isOn, setisOn] = useState(false); // false일때 명, true일때 율
+  const router = useRouter();
+  const params = router.pathname.slice(6);
+  const campus = useCampusDetect();
+  const [isOn, setisOn] = useState(campus); // false일때 명, true일때 율
+
   const toggleHandler = () => {
     setisOn(!isOn);
+    if (isOn) {
+      setTimeout(() => {
+        router.push(`/seoul${params}`);
+      }, 900);
+    } else {
+      setTimeout(() => {
+        router.push(`/suwon${params}`);
+      }, 900);
+    }
   };
 
   const matches_1024 = useMediaQuery("(min-width:1024px)");
