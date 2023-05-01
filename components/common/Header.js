@@ -190,7 +190,11 @@ export default function Header() {
           router.pathname === "/suwon") &&
         scrollPosition < 60 ? (
         <LogoWrap>
-          <SkklubLogo src="/assets/images/skklub_율전.png" />
+          {campus === "/seoul" ? (
+            <SkklubLogo src="/assets/images/skklub_명륜.png" />
+          ) : (
+            <SkklubLogo src="/assets/images/skklub_율전.png" />
+          )}
         </LogoWrap>
       ) : (
         <>

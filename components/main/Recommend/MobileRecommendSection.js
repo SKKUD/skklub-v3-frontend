@@ -43,7 +43,7 @@ const SmallCircleContainer = styled.div`
 const SmallClubCircle = styled.div`
   width: 180px;
   height: 180px;
-  background-color: #fc7b95;
+  background-color: ${({ theme }) => theme.palette.primary.main};
   border-radius: 90px;
   font-weight: 500;
   font-size: 14px;

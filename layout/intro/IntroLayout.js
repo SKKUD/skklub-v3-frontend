@@ -1,4 +1,3 @@
-import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 
 const LayoutBackground = styled.div`
@@ -24,7 +23,6 @@ const LayoutBackground = styled.div`
 `;
 
 export default function IntroLayout(props) {
-  const theme = useTheme();
   return (
     <LayoutBackground color={props.color}>{props.children}</LayoutBackground>
   );

@@ -21,7 +21,7 @@ const HomeContainer = styled.div`
 const PromotionBanner = styled.div`
   width: 100%;
   height: 160px;
-  background-color: #50cfb1;
+  background-color: ${({ theme }) => theme.palette.primary.main};
   color: #ffe195;
   font-size: 4rem;
   font-weight: 500;
