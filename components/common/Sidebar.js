@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
+import useCampusDetect from "../../hooks/useCampusDetect";
 import IconButton from "@mui/material/IconButton";
 import styled from "@emotion/styled";
 import Link from "next/link";
@@ -45,6 +47,9 @@ const CampusWrap = styled.div`
 `;
 
 export default function Sidebar({ isOpen, setOpen, navItems }) {
+  const router = useRouter();
+  const params = router.pathname.slice(6);
+  const { isSuwon } = useCampusDetect();
   const outside = useRef();
   const toggleSide = () => {
     setOpen(false);
@@ -81,13 +86,17 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
 
         <NavWrap onClick={toggleSide}>
           {navItems.map((item) => (
-            <Link href={item.path} key={item.name}>
+            <Link href={`/${item.path}`} key={item.name}>
               {item.name}
             </Link>
           ))}
           <Line />
           <CampusWrap>
-            <Link href={"/"}>명륜 캠퍼스</Link>
+            {isSuwon ? (
+              <Link href={`/seoul${params}`}>명륜 캠퍼스</Link>
+            ) : (
+              <Link href={`/suwon${params}`}>율전 캠퍼스</Link>
+            )}
           </CampusWrap>
         </NavWrap>
       </SidebarInner>
