@@ -4,6 +4,29 @@ import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import useCampusDetect from "../../hooks/useCampusDetect";
 
+const SwitchWrap = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 998;
+  background-color: #222;
+  animation: fade-in-out 0.7s ease-in-out forwards;
+
+  @keyframes fade-in-out {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+`;
+
 const ToggleContainer = styled.div`
   position: fixed;
   left: 88%;
@@ -21,7 +44,7 @@ const ToggleContainer = styled.div`
   //.suwon 클래스가 활성화 되었을 경우의 CSS를 구현
   > .suwon {
     /* color: rgba(80, 207, 177, 1); */
-    transition: 0.5s;
+    transition: 0.7s;
   }
 
   > .toggle-circle {
@@ -72,12 +95,15 @@ export default function CampusSwitch() {
   return (
     <>
       {matches_1024 && (
-        <ToggleContainer onClick={toggleHandler}>
-          <div className={`toggle-container ${isOn ? "suwon" : null}`} />
-          <div className={`toggle-circle ${isOn ? "suwon-circle" : null}`}>
-            {isOn ? "율" : "명"}
-          </div>
-        </ToggleContainer>
+        <>
+          <SwitchWrap />
+          <ToggleContainer onClick={toggleHandler}>
+            <div className={`toggle-container ${isOn ? "suwon" : null}`} />
+            <div className={`toggle-circle ${isOn ? "suwon-circle" : null}`}>
+              {isOn ? "율" : "명"}
+            </div>
+          </ToggleContainer>
+        </>
       )}
     </>
   );
