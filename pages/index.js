@@ -2,6 +2,10 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import logoImg from "../public/assets/images/skklub_logo_m.png";
 import { useRouter } from "next/router";
+import {
+  SeoulSelectBtn,
+  SuwonSelectBtn,
+} from "../components/start/LocationSelectBtn.stories";
 
 const HomePageContainer = styled.div`
   width: 100vw;
@@ -25,8 +29,6 @@ const ItemContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-
-const Logo = styled.div``;
 
 const PhraseBtnContainer = styled.div`
   display: flex;
@@ -56,32 +58,6 @@ const BtnContainer = styled.div`
   }
 `;
 
-const LocationBtn = styled.button`
-  border: none;
-  color: #434c4f;
-  width: 100%;
-  background-color: white;
-  font-size: 1.5rem;
-  /* padding-top: 1rem;
-  padding-bottom: 1rem; */
-  height: 68px;
-  border-radius: 3rem;
-  font-weight: 900;
-
-  @media (max-width: 375px) {
-    width: 115px;
-    font-size: 1.25rem;
-    height: 40px;
-    padding: 0;
-    margin-bottom: 0.75rem;
-  }
-
-  &:hover {
-    background-color: ${(props) => props.hoverColor};
-    color: white;
-  }
-`;
-
 export default function Home() {
   const router = useRouter();
   const onLocationBtnClick = (location) => {
@@ -91,34 +67,26 @@ export default function Home() {
   return (
     <HomePageContainer>
       <ItemContainer>
-        <Logo>
-          <Image
-            src={logoImg}
-            alt="SKKLUB LOGO"
-            placeholder="blur"
-            style={{
-              height: "auto",
-              width: "70vw",
-              maxWidth: "1430px",
-              minWidth: "310px",
-            }}
-          ></Image>
-        </Logo>
+        <Image
+          src={logoImg}
+          alt="SKKLUB LOGO"
+          placeholder="blur"
+          style={{
+            height: "auto",
+            width: "70vw",
+            maxWidth: "1430px",
+            minWidth: "310px",
+          }}
+        ></Image>
         <PhraseBtnContainer>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnContainer>
-            <LocationBtn
-              hoverColor="#80A4FF"
-              onClick={() => onLocationBtnClick("seoul")}
-            >
+            <SeoulSelectBtn handleClick={() => onLocationBtnClick("seoul")}>
               명륜
-            </LocationBtn>
-            <LocationBtn
-              hoverColor="#50CFB1"
-              onClick={() => onLocationBtnClick("suwon")}
-            >
+            </SeoulSelectBtn>
+            <SuwonSelectBtn handleClick={() => onLocationBtnClick("suwon")}>
               율전
-            </LocationBtn>
+            </SuwonSelectBtn>
           </BtnContainer>
         </PhraseBtnContainer>
       </ItemContainer>

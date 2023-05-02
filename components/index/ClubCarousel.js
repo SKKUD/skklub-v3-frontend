@@ -93,7 +93,7 @@ export default function ClubCarousel() {
           className="mySwiper"
         >
           {ClubCarouselInfo.map((info) => (
-            <SwiperSlide>
+            <SwiperSlide key={info.name}>
               <ClubCarouselCard
                 name={info.name}
                 content={info.content}
@@ -129,7 +129,7 @@ export default function ClubCarousel() {
           className="mySwiper"
         >
           {ClubCarouselInfo.map((info) => (
-            <SwiperSlide>
+            <SwiperSlide key={info.name}>
               <ClubCarouselCard
                 name={info.name}
                 content={info.content}

@@ -1,3 +1,7 @@
+const path = require("path");
+const fs = require("fs");
+const { merge } = require("webpack-merge");
+
 module.exports = {
   stories: ["../components/**/*.stories.js"],
   addons: [
