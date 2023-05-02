@@ -20,7 +20,7 @@ const useCampusDetect = () => {
     }
   }, [campusName, updateCampus]);
 
-  return { campus, campusName };
+  return [campus, campusName];
 };
 
 export default useCampusDetect;
