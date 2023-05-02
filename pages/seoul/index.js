@@ -1,9 +1,5 @@
 import styled from "@emotion/styled";
-import Head from "next/head";
-import Image from "next/image";
 import ClubCarousel from "../../components/index/ClubCarousel";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useCallback, useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import RecommendSection from "../../components/main/Recommend/RecommendSection";
@@ -11,6 +7,7 @@ import NoticeSection from "../../components/main/Notice/NoticeSection";
 import BorrowSection from "../../components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "../../components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "../../components/main/Notice/MobileNoticeSection";
+import CampusSwitch from "../../components/common/CampusSwitch";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -24,7 +21,7 @@ const HomeContainer = styled.div`
 const PromotionBanner = styled.div`
   width: 100%;
   height: 160px;
-  background-color: #50cfb1;
+  background-color: ${({ theme }) => theme.palette.primary.main};
   color: #ffe195;
   font-size: 4rem;
   font-weight: 500;
@@ -84,6 +81,7 @@ export default function Seoul() {
       <HomeContainer>
         <ClubCarousel />
       </HomeContainer>
+      <CampusSwitch />
       <PromotionBanner>동아리 홍보배너</PromotionBanner>
       <ContentContainer>
         {matches_768 ? <MobileRecommendSection /> : <RecommendSection />}

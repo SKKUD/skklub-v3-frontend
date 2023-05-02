@@ -3,6 +3,7 @@ import IntroLayout from "../../layout/intro/IntroLayout";
 import IntroSection from "../../components/intro/IntroSection";
 import DepartmentSection from "../../components/intro/DepartmentSection";
 import Footer from "../../components/common/Footer";
+import CampusSwitch from "../../components/common/CampusSwitch";
 
 const data = {
   name: "for:동",
@@ -23,7 +24,8 @@ const data = {
       emoji: "🔊",
       description:
         "사무국 소속 총무팀은 성균관대학교 중앙동아리의 원활한 활동을 보조하기 위해 동아리연합회 전반의 재정 관련 업무를 수행합니다. 경상보조금, 회장장학금, 행사지원금의 지급 관련 행정을 전담합니다. 또한 동아리연합회 사업 운영을 위한 학생회비 예산 수립, 집행, 학기별 결산을 전문적으로 담당합니다.",
-    },{
+    },
+    {
       name: "사무국",
       emoji: "✏️",
       description:
@@ -34,7 +36,8 @@ const data = {
       emoji: "🔊",
       description:
         "사무국 소속 총무팀은 성균관대학교 중앙동아리의 원활한 활동을 보조하기 위해 동아리연합회 전반의 재정 관련 업무를 수행합니다. 경상보조금, 회장장학금, 행사지원금의 지급 관련 행정을 전담합니다. 또한 동아리연합회 사업 운영을 위한 학생회비 예산 수립, 집행, 학기별 결산을 전문적으로 담당합니다.",
-    },{
+    },
+    {
       name: "사무국",
       emoji: "✏️",
       description:
@@ -60,6 +63,7 @@ export default function SeoulDY() {
         <DepartmentSection data={data} />
       </IntroLayout>
       <Footer />
+      <CampusSwitch />
     </>
   );
 }

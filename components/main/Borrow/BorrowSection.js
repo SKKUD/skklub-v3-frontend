@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 const BorrowWrapper = styled.div`
-  background-color: #50cfb1;
+  background-color: ${({ theme }) => theme.palette.primary.main};
   width: 100%;
   max-width: 1182px;
   height: 160px;

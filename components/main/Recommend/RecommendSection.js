@@ -40,7 +40,7 @@ const IntroCircle = styled.div`
 const ClubCircle = styled.div`
   width: 153px;
   height: 153px;
-  background-color: #50cfb1;
+  background-color: ${({ theme }) => theme.palette.primary.main};
   border-radius: 80px;
   font-size: 1.75rem;
   font-weight: 500;
