@@ -4,6 +4,8 @@ import RecommendTheme from "./RecommendTheme";
 import RecommendSubTheme from "./RecommendSubThem";
 import HashtagWrapper from "./HashtagWrapper";
 import Hashtag from "./Hashtag";
+import ClubCircle from "./ClubCircle";
+import useCampusDetect from "../../../hooks/useCampusDetect";
 
 const MobileRecommendWrapper = styled.div`
   width: 100%;
@@ -40,25 +42,8 @@ const SmallCircleContainer = styled.div`
   }
 `;
 
-const SmallClubCircle = styled.div`
-  width: 180px;
-  height: 180px;
-  background-color: ${({ theme }) => theme.palette.primary.main};
-  border-radius: 90px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 120%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media (max-width: 425px) {
-    width: 98px;
-    height: 98px;
-    border-radius: 50px;
-  }
-`;
-
 export default function MobileRecommendSection() {
+  const { isSuwon } = useCampusDetect();
   return (
     <MobileRecommendWrapper>
       <Phrase>오늘의 추천동아리</Phrase>
@@ -75,9 +60,9 @@ export default function MobileRecommendSection() {
             <Hashtag>#사회공헌</Hashtag>
           </HashtagWrapper>
           <SmallCircleContainer>
-            <SmallClubCircle>성균 민속 연구반 탈</SmallClubCircle>
-            <SmallClubCircle>성균 민속 연구반 탈</SmallClubCircle>
-            <SmallClubCircle>성균 민속 연구반 탈</SmallClubCircle>
+            <ClubCircle isSuwon={isSuwon}>성균 민속 연구반 탈</ClubCircle>
+            <ClubCircle isSuwon={isSuwon}>성균 민속 연구반 탈</ClubCircle>
+            <ClubCircle isSuwon={isSuwon}>성균 민속 연구반 탈</ClubCircle>
           </SmallCircleContainer>
         </div>
       </SmallContentContainer>
