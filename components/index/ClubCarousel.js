@@ -26,6 +26,10 @@ const GifImg = styled.img`
   top: 0;
   left: 50%;
   transform: translate(-50%, 0);
+
+  @media (min-width: 1024px) {
+    top: -40px;
+  }
 `;
 const StyledCard = styled.div`
   position: relative;
