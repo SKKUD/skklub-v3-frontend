@@ -5,6 +5,7 @@ import RecommendTheme from "./RecommendTheme";
 import RecommendSubTheme from "./RecommendSubThem";
 import Hashtag from "./Hashtag";
 import HashtagWrapper from "./HashtagWrapper";
+import ClubCircle from "./ClubCircle";
 
 const RecommendWrapper = styled.div`
   width: 1100px;
@@ -37,17 +38,17 @@ const IntroCircle = styled.div`
   padding-left: 68px;
 `;
 
-const ClubCircle = styled.div`
-  width: 153px;
-  height: 153px;
-  background-color: ${({ theme }) => theme.palette.primary.main};
-  border-radius: 80px;
-  font-size: 1.75rem;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+// const ClubCircle = styled.div`
+//   width: 153px;
+//   height: 153px;
+//   background-color: ${({ theme }) => theme.palette.primary.main};
+//   border-radius: 80px;
+//   font-weight: 500;
+//   font-size: 1.75rem;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// `;
 
 const ClubTitle = styled.div`
   width: 135px;
