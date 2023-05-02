@@ -5,7 +5,7 @@ const useCampusDetect = () => {
   const router = useRouter();
   const campusName = router.pathname.slice(1, 6);
   const [campus, setCampus] = useState(campusName === "suwon"); // suwon === true, seoul === false
-  const isSeoul = campusName === "seoul";
+  const isSuwon = campusName === "suwon";
   // const isSeoul = campusName === "seoul";
 
   // const updateCampus = useCallback(() => {
@@ -22,7 +22,7 @@ const useCampusDetect = () => {
   //   }
   // }, [campusName, updateCampus]);
 
-  return { isSeoul, campus, campusName };
+  return { isSuwon, campus, campusName };
 };
 
 export default useCampusDetect;

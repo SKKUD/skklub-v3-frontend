@@ -7,8 +7,8 @@ import styled from "@emotion/styled";
 const PromotionBanner = styled.div`
   width: 100%;
   height: 160px;
-  background-color: ${({ isSeoul, theme }) =>
-    isSeoul ? theme.palette.primary.main : theme.palette.secondary.main};
+  background-color: ${({ isSuwon, theme }) =>
+    isSuwon ? theme.palette.secondary.main : theme.palette.primary.main};
   color: #ffe195;
   font-size: 4rem;
   font-weight: 500;
@@ -24,10 +24,10 @@ const PromotionBanner = styled.div`
   }
 `;
 export default function SuwonDY() {
-  const { isSeoul, campus, campusName } = useCampusDetect();
+  const { isSuwon, campus, campusName } = useCampusDetect();
   return (
     <div>
-      <PromotionBanner isSeoul={isSeoul} />
+      <PromotionBanner isSuwon={isSuwon} />
       <h1>This is home</h1>
       <h1>This is home</h1>
       <h1>This is home</h1>
