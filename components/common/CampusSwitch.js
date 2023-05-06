@@ -4,15 +4,15 @@ import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import useCampusDetect from "../../hooks/useCampusDetect";
 
-const SwitchWrap = styled.div`
+const Fadeinout = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 998;
   background-color: #222;
   animation: fade-in-out 0.7s ease-in-out forwards;
+  display: ${(props) => (props.show ? "block" : "none")};
 
   @keyframes fade-in-out {
     0% {
@@ -76,6 +76,11 @@ export default function CampusSwitch() {
   const params = router.pathname.slice(6);
   const { campus } = useCampusDetect();
   const [isOn, setisOn] = useState(campus); // false일때 명, true일때 율
+  const [showFadeinout, setFadeinout] = useState(true);
+
+  setTimeout(() => {
+    setFadeinout(false);
+  }, 750);
 
   const toggleHandler = () => {
     setisOn(!isOn);
@@ -96,7 +101,7 @@ export default function CampusSwitch() {
     <>
       {matches_1024 && (
         <>
-          <SwitchWrap />
+          <Fadeinout show={showFadeinout} />
           <ToggleContainer onClick={toggleHandler}>
             <div className={`toggle-container ${isOn ? "suwon" : null}`} />
             <div className={`toggle-circle ${isOn ? "suwon-circle" : null}`}>
