@@ -151,6 +151,8 @@ function NavButton({ item }) {
 }
 
 export default function Header() {
+  const router = useRouter();
+  const params = router.pathname.slice(6);
   const [isOpen, setOpen] = useState(false);
   const toggleSide = (e) => {
     setOpen(true);
@@ -183,9 +185,7 @@ export default function Header() {
 
   return (
     <>
-      {campusName === "" ? null : (campusName === "seoul" ||
-          campusName === "suwon") &&
-        scrollPosition < 60 ? (
+      {campusName === "" ? null : params === "" && scrollPosition < 60 ? (
         <LogoWrap>
           {campusName === "seoul" ? (
             <SkklubLogo src="/assets/images/skklub_명륜.png" />
@@ -230,7 +230,7 @@ export default function Header() {
           {isSearchVisible && (
             <Searchbar setIsSearchVisible={setIsSearchVisible} />
           )}
-          {campusName === "seoul" || campusName === "suwon" ? (
+          {params === "" ? (
             <ResponsiveMargin height={200} />
           ) : match760 ? (
             <ResponsiveMargin height={80} />
