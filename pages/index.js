@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
 import logoImg from "../public/assets/images/skklub_logo_m.png";
-import { useRouter } from "next/router";
 import {
   SeoulSelectBtn,
   SuwonSelectBtn,
@@ -59,11 +58,6 @@ const BtnContainer = styled.div`
 `;
 
 export default function Home() {
-  const router = useRouter();
-  const onLocationBtnClick = (location) => {
-    router.push(`/${location}`);
-  };
-
   return (
     <HomePageContainer>
       <ItemContainer>
@@ -81,12 +75,8 @@ export default function Home() {
         <PhraseBtnContainer>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnContainer>
-            <SeoulSelectBtn handleClick={() => onLocationBtnClick("seoul")}>
-              명륜
-            </SeoulSelectBtn>
-            <SuwonSelectBtn handleClick={() => onLocationBtnClick("suwon")}>
-              율전
-            </SuwonSelectBtn>
+            <SeoulSelectBtn nextLocation="seoul">명륜</SeoulSelectBtn>
+            <SuwonSelectBtn nextLocation="suwon">율전</SuwonSelectBtn>
           </BtnContainer>
         </PhraseBtnContainer>
       </ItemContainer>
