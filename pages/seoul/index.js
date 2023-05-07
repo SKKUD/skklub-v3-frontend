@@ -8,7 +8,6 @@ import BorrowSection from "../../components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "../../components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "../../components/main/Notice/MobileNoticeSection";
 import CampusSwitch from "../../components/common/CampusSwitch";
-import Image from "next/image";
 
 const HomeContainer = styled.div`
   width: 100%;

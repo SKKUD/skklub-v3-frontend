@@ -6,7 +6,7 @@ import {
   SuwonSelectBtn,
 } from "../components/start/LocationSelectBtn.stories";
 
-const HomePageContainer = styled.div`
+const StartPageWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -19,7 +19,7 @@ const HomePageContainer = styled.div`
   }
 `;
 
-const ItemContainer = styled.div`
+const MainContents = styled.div`
   position: absolute;
   left: 50%;
   top: 50%;
@@ -29,7 +29,7 @@ const ItemContainer = styled.div`
   align-items: center;
 `;
 
-const PhraseBtnContainer = styled.div`
+const PhraseBtnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +45,7 @@ const Phrase = styled.h2`
   }
 `;
 
-const BtnContainer = styled.div`
+const BtnWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -59,8 +59,8 @@ const BtnContainer = styled.div`
 
 export default function Home() {
   return (
-    <HomePageContainer>
-      <ItemContainer>
+    <StartPageWrapper>
+      <MainContents>
         <Image
           src={logoImg}
           alt="SKKLUB LOGO"
@@ -72,14 +72,14 @@ export default function Home() {
             minWidth: "310px",
           }}
         ></Image>
-        <PhraseBtnContainer>
+        <PhraseBtnWrapper>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
-          <BtnContainer>
+          <BtnWrapper>
             <SeoulSelectBtn nextLocation="seoul">명륜</SeoulSelectBtn>
             <SuwonSelectBtn nextLocation="suwon">율전</SuwonSelectBtn>
-          </BtnContainer>
-        </PhraseBtnContainer>
-      </ItemContainer>
-    </HomePageContainer>
+          </BtnWrapper>
+        </PhraseBtnWrapper>
+      </MainContents>
+    </StartPageWrapper>
   );
 }
