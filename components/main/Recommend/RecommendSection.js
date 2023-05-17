@@ -39,6 +39,22 @@ const IntroCircle = styled.div`
   padding-left: 68px;
 `;
 
+
+const ClubCircle = styled.div`
+  width: 153px;
+  height: 153px;
+  background-color: ${(props) =>
+    props.campus
+      ? ({ theme }) => theme.palette.primary.main
+      : ({ theme }) => theme.palette.secondary.main};
+  border-radius: 80px;
+  font-size: 1.75rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const ClubTitle = styled.div`
   width: 135px;
   height: 93px;
@@ -47,6 +63,7 @@ const ClubTitle = styled.div`
 `;
 
 export default function RecommendSection() {
+  const { isSuwon } = useCampusDetect();
   const matches_1024 = useMediaQuery("(max-width:1024px)");
   const matches_950 = useMediaQuery("(max-width:950px)");
   const { isSuwon } = useCampusDetect();
@@ -66,14 +83,15 @@ export default function RecommendSection() {
             {!matches_950 && <Hashtag>#사회공헌</Hashtag>}
           </HashtagWrapper>
         </IntroCircle>
-        <ClubCircle isSuwon={isSuwon}>
+        <ClubCircle campus={!isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
         </ClubCircle>
-        <ClubCircle isSuwon={isSuwon}>
+        <ClubCircle campus={!isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
         </ClubCircle>
         {!matches_1024 && (
-          <ClubCircle isSuwon={isSuwon}>
+          <ClubCircle campus={!isSuwon}>
+
             <ClubTitle>성균 민속 연구반 탈</ClubTitle>
           </ClubCircle>
         )}

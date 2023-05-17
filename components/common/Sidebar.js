@@ -41,7 +41,10 @@ const Line = styled.div`
 `;
 
 const CampusWrap = styled.div`
-  color: rgba(80, 207, 177, 1);
+  color: ${(props) =>
+    props.campus
+      ? ({ theme }) => theme.palette.primary.main
+      : ({ theme }) => theme.palette.secondary.main};
   font-size: 1.1rem;
   font-weight: 500;
 `;
@@ -91,7 +94,7 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
             </Link>
           ))}
           <Line />
-          <CampusWrap>
+          <CampusWrap campus={isSuwon}>
             {isSuwon ? (
               <Link href={`/seoul${params}`}>명륜 캠퍼스</Link>
             ) : (
