@@ -33,6 +33,7 @@ const Name = styled.div`
 `;
 
 export default function IntroBanner({ name }) {
+
   return (
     <BannerWrap>
       <Detail>성균관대학교 동아리연합회</Detail>
