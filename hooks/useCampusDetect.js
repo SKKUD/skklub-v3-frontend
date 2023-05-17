@@ -6,18 +6,18 @@ const useCampusDetect = () => {
   const campusName = router.pathname.slice(1, 6);
   const [campus, setCampus] = useState(campusName === "suwon"); // suwon === true, seoul === false
   const isSuwon = campusName === "suwon";
-  // const isSeoul = campusName === "seoul";
+  // const isSeoul = !isSuwon;
 
   // const updateCampus = useCallback(() => {
   //   if (campusName === "suwon") {
   //     setCampus(true);
-  //   } else if (campusName === "seoul") {
+  //   } else if (!isSuwon) {
   //     setCampus(false);
   //   }
   // }, [campusName]);s
 
   // useEffect(() => {
-  //   if (campusName === "suwon" || campusName === "seoul") {
+  //   if (campusName === "suwon" || !isSuwon) {
   //     updateCampus();
   //   }
   // }, [campusName, updateCampus]);

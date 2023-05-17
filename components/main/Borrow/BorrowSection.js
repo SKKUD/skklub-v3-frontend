@@ -1,7 +1,11 @@
 import styled from "@emotion/styled";
+import useCampusDetect from "../../../hooks/useCampusDetect";
 
 const BorrowWrapper = styled.div`
-  background-color: ${({ theme }) => theme.palette.primary.main};
+  background-color: ${(props) =>
+    props.campus
+      ? ({ theme }) => theme.palette.primary.main
+      : ({ theme }) => theme.palette.secondary.main};
   width: 100%;
   max-width: 1182px;
   height: 160px;
@@ -57,8 +61,10 @@ const ComingSoon = styled.div`
 `;
 
 export default function BorrowSection() {
+  const { isSuwon } = useCampusDetect();
+
   return (
-    <BorrowWrapper>
+    <BorrowWrapper campus={!isSuwon}>
       <BorrowPhrase>공간대관 필요하세요?</BorrowPhrase>
       <ComingSoon>Coming Soon</ComingSoon>
     </BorrowWrapper>
