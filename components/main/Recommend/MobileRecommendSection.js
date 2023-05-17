@@ -4,6 +4,7 @@ import RecommendTheme from "./RecommendTheme";
 import RecommendSubTheme from "./RecommendSubThem";
 import HashtagWrapper from "./HashtagWrapper";
 import Hashtag from "./Hashtag";
+import ClubCircle from "./ClubCircle";
 import useCampusDetect from "../../../hooks/useCampusDetect";
 
 const MobileRecommendWrapper = styled.div`
@@ -90,6 +91,7 @@ export default function MobileRecommendSection() {
             <SmallClubCircle campus={!isSuwon}>
               성균 민속 연구반 탈
             </SmallClubCircle>
+
           </SmallCircleContainer>
         </div>
       </SmallContentContainer>

@@ -5,6 +5,7 @@ import RecommendTheme from "./RecommendTheme";
 import RecommendSubTheme from "./RecommendSubThem";
 import Hashtag from "./Hashtag";
 import HashtagWrapper from "./HashtagWrapper";
+import ClubCircle from "./ClubCircle";
 import useCampusDetect from "../../../hooks/useCampusDetect";
 
 const RecommendWrapper = styled.div`
@@ -38,6 +39,7 @@ const IntroCircle = styled.div`
   padding-left: 68px;
 `;
 
+
 const ClubCircle = styled.div`
   width: 153px;
   height: 153px;
@@ -64,6 +66,7 @@ export default function RecommendSection() {
   const { isSuwon } = useCampusDetect();
   const matches_1024 = useMediaQuery("(max-width:1024px)");
   const matches_950 = useMediaQuery("(max-width:950px)");
+  const { isSuwon } = useCampusDetect();
   return (
     <RecommendWrapper>
       <Phrase>오늘의 추천동아리</Phrase>
@@ -88,6 +91,7 @@ export default function RecommendSection() {
         </ClubCircle>
         {!matches_1024 && (
           <ClubCircle campus={!isSuwon}>
+
             <ClubTitle>성균 민속 연구반 탈</ClubTitle>
           </ClubCircle>
         )}
