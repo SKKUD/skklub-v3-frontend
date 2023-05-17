@@ -56,10 +56,10 @@ export default function SeoulDY() {
   return (
     <>
       <IntroBanner name={data.name} />
-      <IntroLayout campus="Seoul">
+      <IntroLayout >
         <IntroSection data={data} />
       </IntroLayout>
-      <IntroLayout campus="Seoul" color="#222525">
+      <IntroLayout color="#222525">
         <DepartmentSection data={data} />
       </IntroLayout>
       <Footer />
