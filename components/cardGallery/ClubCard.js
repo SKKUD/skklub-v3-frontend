@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import FavoriteIcon from "@mui/icons-material/Favorite";
 // import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import React from "react";
