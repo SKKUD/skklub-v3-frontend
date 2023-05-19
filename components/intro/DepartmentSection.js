@@ -9,6 +9,7 @@ const DeptTitle = styled.div`
     props.campus
       ? ({ theme }) => theme.palette.secondary.main
       : ({ theme }) => theme.palette.primary.main};
+
   font-weight: 700;
   margin-bottom: 4rem;
 
@@ -95,6 +96,7 @@ export default function DepartmentSection({ data }) {
   return (
     <>
       <DeptTitle campus={isSuwon}>부서 소개</DeptTitle>
+
       {data.department.map((dept) => (
         <DepartmentCard dept={dept} key={dept.name} />
       ))}
