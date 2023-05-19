@@ -1,10 +1,14 @@
 import { Card } from "@mui/material";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
+import useCampusDetect from "../../hooks/useCampusDetect";
 
 const DeptTitle = styled.div`
   font-size: 2.5rem;
-  color: ${(props) => props.theme.palette.primary.main};
+  color: ${(props) =>
+    props.campus
+      ? ({ theme }) => theme.palette.secondary.main
+      : ({ theme }) => theme.palette.primary.main};
   font-weight: 700;
   margin-bottom: 4rem;
 
@@ -87,9 +91,10 @@ export function DepartmentCard({ dept }) {
 }
 
 export default function DepartmentSection({ data }) {
+  const { isSuwon } = useCampusDetect();
   return (
     <>
-      <DeptTitle>부서 소개</DeptTitle>
+      <DeptTitle campus={isSuwon}>부서 소개</DeptTitle>
       {data.department.map((dept) => (
         <DepartmentCard dept={dept} key={dept.name} />
       ))}
