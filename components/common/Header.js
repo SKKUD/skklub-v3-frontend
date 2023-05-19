@@ -86,7 +86,10 @@ const NavButtonFont = styled.div`
   line-height: 1.25rem;
   color: #fff;
   &:hover {
-    color: #80a4ff;
+    color: ${(props) =>
+      props.campus
+        ? ({ theme }) => theme.palette.secondary.main
+        : ({ theme }) => theme.palette.primary.main};
   }
 
   @media (max-width: 1024px) {
@@ -141,10 +144,10 @@ function HomeButton({ campusName }) {
   );
 }
 
-function NavButton({ item }) {
+function NavButton({ item, campus }) {
   return (
     <Link href={`/${item.path}`}>
-      <NavButtonFont>{item.name}</NavButtonFont>
+      <NavButtonFont campus={campus}>{item.name}</NavButtonFont>
     </Link>
   );
 }
@@ -161,7 +164,7 @@ export default function Header() {
   const handleSearchClick = () => {
     setIsSearchVisible(!isSearchVisible);
   };
-  const { campusName } = useCampusDetect();
+  const { campusName, isSuwon } = useCampusDetect();
 
   const navItems = [
     { name: "동아리연합회", path: campusName + "/intro" },
@@ -199,7 +202,7 @@ export default function Header() {
               <HomeButton campusName={campusName} />
               <NavWrap>
                 {navItems.map((item) => (
-                  <NavButton item={item} key={item.name} />
+                  <NavButton item={item} campus={isSuwon} key={item.name} />
                 ))}
               </NavWrap>
               <IconButtonsWrap>

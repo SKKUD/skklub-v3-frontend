@@ -1,7 +1,7 @@
 import ClubsLayout from "../../layout/clubs/ClubsLayout";
 
-export default function StudentOrg() {
-    const ClubCategory = "학생단체";
+export default function IndependentClubs() {
+    const ClubCategory = "기타동아리";
     return (
       <>
         <ClubsLayout club={ClubCategory} />

@@ -58,7 +58,7 @@ const data = {
   ],
 };
 
-export default function SeoulDY() {
+export default function SuwonDY() {
   return (
     <>
       <IntroBanner name={data.name} />
