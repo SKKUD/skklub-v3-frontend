@@ -1,6 +1,6 @@
 import FavoriteIcon from "@mui/icons-material/Favorite";
 // import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 export default function ClubCard({
@@ -11,7 +11,6 @@ export default function ClubCard({
   hover,
   ...props
 }) {
-  
   return (
     <div className={[hover ? "withImg" : "noImg", "wrap"].join(" ")} {...props}>
       <div className="title" style={color && { color }}>
@@ -40,7 +39,7 @@ export default function ClubCard({
           background-color: #262626;
         }
         .withImg {
-          background: url("/public/cardImage.png");
+          background: url("/cardImage.png");
         }
 
         .title {
@@ -54,7 +53,7 @@ export default function ClubCard({
           justify-content: space-between;
         }
         .redHeartButton {
-          color: "#FF0000";
+          color: #ff0000;
         }
       `}</style>
     </div>
