@@ -72,11 +72,11 @@ const CardGrid = styled.div`
   }
 `;
 
-export default function CardBoard() {
+export default function CardBoard({ cardsData }) {
   return (
     <BoardWrapper>
       <CardGrid>
-        {CLUBS_DUMMY_DATA.map((club) => (
+        {cardsData.map((club) => (
           <ClubCard key={club.clubName}>
             <ClubCardName>{club.clubName}</ClubCardName>
             <ClubCardFooter>
