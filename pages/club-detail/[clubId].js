@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 
-import RecruitingSection from "../components/club-detail/RecruitingSection";
-import InfoSection from "../components/club-detail/InfoSection";
-import AboutSection from "../components/club-detail/AboutSection";
-import ActivitySection from "../components/club-detail/ActivitySection";
-import ClubDetailBanner from "../components/club-detail/ClubDetailBanner";
+import RecruitingSection from "../../components/club-detail/RecruitingSection";
+import InfoSection from "../../components/club-detail/InfoSection";
+import AboutSection from "../../components/club-detail/AboutSection";
+import ActivitySection from "../../components/club-detail/ActivitySection";
+import ClubDetailBanner from "../../components/club-detail/ClubDetailBanner";
 
 const ClubDetailContent = styled.div`
   display: grid;
