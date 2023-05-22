@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { CLUBS_DUMMY_DATA } from "../../utils/constants";
+import { useRouter } from "next/router";
 
 const BoardWrapper = styled.div`
   max-width: 1200px;
@@ -22,6 +23,10 @@ const ClubCard = styled.div`
   @media (max-width: 930px) {
     width: 163px;
     height: 163px;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -73,11 +78,18 @@ const CardGrid = styled.div`
 `;
 
 export default function CardBoard({ cardsData }) {
+  const router = useRouter();
+  const handleCardClick = (clubId) => {
+    router.push(`/club-detail/${clubId}`);
+  };
   return (
     <BoardWrapper>
       <CardGrid>
         {cardsData.map((club) => (
-          <ClubCard key={club.clubName}>
+          <ClubCard
+            key={club.clubName}
+            onClick={() => handleCardClick(club.clubId)}
+          >
             <ClubCardName>{club.clubName}</ClubCardName>
             <ClubCardFooter>
               <ClubCardType>{club.categories.join("/")}</ClubCardType>
