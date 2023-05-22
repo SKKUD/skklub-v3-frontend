@@ -5,11 +5,11 @@ export const CLUBS_DUMMY_DATA = [
   },
   {
     clubName: "별누리",
-    categories: ["평면예술", "서예"],
+    categories: ["평면예술", "예서"],
   },
   {
     clubName: "라켓챌린지",
-    categories: ["평면예술", "서예"],
+    categories: ["평면예술", "예서 서영이 딸이애요"],
   },
   {
     clubName: "UBF",

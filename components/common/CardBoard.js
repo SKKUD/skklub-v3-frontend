@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { CLUBS_DUMMY_DATA } from "../../utils/constants";
 
 const BoardWrapper = styled.div`
   max-width: 1200px;
@@ -72,15 +73,14 @@ const CardGrid = styled.div`
 `;
 
 export default function CardBoard() {
-  const TEMP_ROW = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   return (
     <BoardWrapper>
       <CardGrid>
-        {TEMP_ROW.map((e, idx) => (
-          <ClubCard key={idx}>
-            <ClubCardName>꾼</ClubCardName>
+        {CLUBS_DUMMY_DATA.map((club) => (
+          <ClubCard key={club.clubName}>
+            <ClubCardName>{club.clubName}</ClubCardName>
             <ClubCardFooter>
-              <ClubCardType>평면예술/서예</ClubCardType>
+              <ClubCardType>{club.categories.join("/")}</ClubCardType>
               <Heart />
             </ClubCardFooter>
           </ClubCard>
