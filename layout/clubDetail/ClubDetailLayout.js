@@ -16,7 +16,7 @@ const ClubDetailContent = styled.div`
   padding: 0 1rem;
 `;
 
-export default function ClubDetail() {
+export default function ClubDetailLayout() {
   return (
     <>
       <ClubDetailBanner />
