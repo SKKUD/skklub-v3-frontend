@@ -80,9 +80,9 @@ const CardGrid = styled.div`
 export default function CardBoard({ cardsData }) {
   const router = useRouter();
   const currentPath = router.pathname;
-  console.log(currentPath);
+  const [_, location, a] = currentPath.split("/");
   const handleCardClick = (clubId) => {
-    router.push(`/${currentPath}/club-detail/${clubId}`);
+    router.push(`/${location}/${clubId}`);
   };
   return (
     <BoardWrapper>
