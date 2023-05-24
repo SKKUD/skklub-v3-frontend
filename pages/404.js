@@ -55,7 +55,6 @@ const NotFoundPage = () => {
       </ErrorMessage>
       <Styledbtn>
         <Link href="/">
-          {/* <ButtonFont>{`홈으로 이동 >`}</ButtonFont> */}
           {`홈으로 이동 >`}
         </Link>
       </Styledbtn>
