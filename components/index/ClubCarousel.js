@@ -53,7 +53,7 @@ const StyledCard = styled.div`
 
   @media (max-width: 750px) {
     height: 550px;
-    max-height: 550px;
+    min-height: 550px;
   }
 `;
 
