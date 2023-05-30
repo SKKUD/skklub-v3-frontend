@@ -13,7 +13,7 @@ const HomeContainer = styled.div`
   width: 100%;
   /* min-height: -webkit-fill-available;
   height: ${(props) => props.height}; */
-  /* min-height: ${(props) => (isMobile ? "600px" : props.height)}; */
+
   min-height: ${(props) => props.height};
   text-align: center;
   display: flex;
