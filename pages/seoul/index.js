@@ -18,7 +18,7 @@ const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 `;
 
 const PromotionBanner = styled.div`
