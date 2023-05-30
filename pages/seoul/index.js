@@ -15,7 +15,7 @@ const HomeContainer = styled.div`
   /* min-height: -webkit-fill-available;
   height: ${(props) => props.height}; */
   /* min-height: ${(props) => (isMobile ? "600px" : props.height)}; */
-  min-height: ${(props) => props.height};
+  /* min-height: ${(props) => props.height}; */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -56,7 +56,7 @@ export default function Seoul() {
   const matches_768 = useMediaQuery("(max-width:768px)");
   const matches_680 = useMediaQuery("(max-width:680px)");
   const [homeContainerHeight, setHomeContainerHeight] = useState(1024);
-  console.log(isMobile);
+  // console.log(isMobile);
 
   useEffect(() => {
     // setHomeContainerHeight(window.innerHeight - 201);
