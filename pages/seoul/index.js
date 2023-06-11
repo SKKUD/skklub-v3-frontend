@@ -52,7 +52,6 @@ const ContentContainer = styled.div`
   padding-bottom: 14rem;
   @media (max-width: 425px) {
     padding-bottom: 4rem;
-    max-height: 600px;
   }
 `;
 

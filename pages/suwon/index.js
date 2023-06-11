@@ -19,6 +19,10 @@ const HomeContainer = styled.div`
   flex-direction: column;
   align-items: center;
   /* margin-bottom: 20px; */
+
+  @media (max-width: 750px) {
+    height: 600px;
+  }
 `;
 
 const PromotionBanner = styled.div`
@@ -47,7 +51,6 @@ const ContentContainer = styled.div`
   padding-bottom: 14rem;
   @media (max-width: 425px) {
     padding-bottom: 4rem;
-    max-height: 600px;
   }
 `;
 
