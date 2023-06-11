@@ -11,19 +11,12 @@ import CampusSwitch from "../../components/common/CampusSwitch";
 
 const HomeContainer = styled.div`
   width: 100%;
-  /* min-height: -webkit-fill-available;
-  height: ${(props) => props.height}; */
-
-  min-height: ${(props) => props.height};
+  height: ${(props) => props.height};
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-
-  @media (max-width: 750px) {
-    height: 600px;
-  }
 `;
 
 const PromotionBanner = styled.div`
@@ -71,7 +64,9 @@ export default function Seoul() {
 
   return (
     <>
-      <HomeContainer height={`${homeContainerHeight}px`}>
+      <HomeContainer
+        height={matches_680 ? "620px" : `${homeContainerHeight}px`}
+      >
         <ClubCarousel />
       </HomeContainer>
       <CampusSwitch />
