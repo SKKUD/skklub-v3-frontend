@@ -1,13 +1,9 @@
 "use client";
 
 import "./globals.css";
-import { Inter } from "next/font/google";
 
 import Providers from "./providers";
 import Header from "@/app/components/common/Header";
-// import Providers from "./providers";
-
-const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -18,7 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <Providers>
       <html lang="en">
-        <body className={inter.className} suppressHydrationWarning={true}>
+        <body suppressHydrationWarning={true}>
           <Header />
           {children}
         </body>
