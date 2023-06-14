@@ -1,4 +1,10 @@
-// `app/page.js` is the UI for the `/` URL
-export default function Page() {
-  return <h1>Hello, Home page!</h1>;
+"use client";
+
+import Image from "next/image";
+import styles from "./page.module.css";
+
+// const Container = styled.div``;
+
+export default function Home() {
+  return <div>hello world</div>;
 }
