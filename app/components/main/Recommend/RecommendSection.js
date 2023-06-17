@@ -81,14 +81,14 @@ export default function RecommendSection() {
             {!matches_950 && <Hashtag>#사회공헌</Hashtag>}
           </HashtagWrapper>
         </IntroCircle>
-        <ClubCircle campus={!isSuwon}>
+        <ClubCircle campus={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
         </ClubCircle>
-        <ClubCircle campus={!isSuwon}>
+        <ClubCircle campus={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
         </ClubCircle>
         {!matches_1024 && (
-          <ClubCircle campus={!isSuwon}>
+          <ClubCircle campus={isSuwon}>
             <ClubTitle>성균 민속 연구반 탈</ClubTitle>
           </ClubCircle>
         )}

@@ -82,13 +82,13 @@ export default function MobileRecommendSection() {
             <Hashtag>#사회공헌</Hashtag>
           </HashtagWrapper>
           <SmallCircleContainer>
-            <SmallClubCircle campus={!isSuwon}>
+            <SmallClubCircle campus={isSuwon}>
               성균 민속 연구반 탈
             </SmallClubCircle>
-            <SmallClubCircle campus={!isSuwon}>
+            <SmallClubCircle campus={isSuwon}>
               성균 민속 연구반 탈
             </SmallClubCircle>
-            <SmallClubCircle campus={!isSuwon}>
+            <SmallClubCircle campus={isSuwon}>
               성균 민속 연구반 탈
             </SmallClubCircle>
           </SmallCircleContainer>
