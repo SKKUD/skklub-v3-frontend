@@ -56,7 +56,7 @@ const ToggleContainer = styled.div`
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background-color: rgba(128, 164, 255, 1);
+    background-color: rgba(80, 207, 177, 1);
     transition: 0.5s;
     color: rgb(255, 254, 255);
     font-size: 2.5rem;
@@ -69,7 +69,7 @@ const ToggleContainer = styled.div`
     left: 8px;
     top: 62px;
     transition: 0.5s;
-    background-color: rgba(80, 207, 177, 1);
+    background-color: rgba(128, 164, 255, 1);
   }
 `;
 
