@@ -64,7 +64,7 @@ const ComingSoon = styled.div`
 export default function BorrowSection() {
   const { isSuwon } = useCampusDetect();
   return (
-    <BorrowWrapper campus={!isSuwon}>
+    <BorrowWrapper campus={isSuwon}>
       <BorrowPhrase>공간대관 필요하세요?</BorrowPhrase>
       <ComingSoon>Coming Soon</ComingSoon>
     </BorrowWrapper>
