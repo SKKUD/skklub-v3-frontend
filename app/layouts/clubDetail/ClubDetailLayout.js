@@ -14,7 +14,9 @@ const ClubDetailContent = styled.div`
   margin-top: 3rem;
   gap: 30px;
   margin-bottom: 300px;
-  padding: 0 1rem;
+  @media (max-width: 1200px) {
+    padding: 0 1rem;
+  }
 `;
 
 export default function ClubDetailLayout() {
