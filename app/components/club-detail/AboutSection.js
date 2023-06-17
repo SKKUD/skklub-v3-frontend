@@ -8,7 +8,7 @@ const AboutContent = styled.div`
   font-size: 1rem;
   line-height: 169%;
   height: 226px;
-
+  word-break: keep-all;
   @media (max-width: 760px) {
     height: 312px;
     overflow-y: auto;
