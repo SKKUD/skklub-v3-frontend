@@ -192,9 +192,9 @@ export default function Header() {
       {campusName === "" ? null : params === "" && scrollPosition < 60 ? (
         <LogoWrap>
           {campusName === "suwon" ? (
-            <SkklubLogo src="/assets/images/skklub_율전.png" />
-          ) : (
             <SkklubLogo src="/assets/images/skklub_명륜.png" />
+          ) : (
+            <SkklubLogo src="/assets/images/skklub_율전.png" />
           )}
         </LogoWrap>
       ) : (
