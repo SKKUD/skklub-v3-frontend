@@ -95,7 +95,7 @@ export default function DepartmentSection({ data }) {
   const { isSuwon } = useCampusDetect();
   return (
     <>
-      <DeptTitle campus={isSuwon}>부서 소개</DeptTitle>
+      <DeptTitle campus={!isSuwon}>부서 소개</DeptTitle>
 
       {data.department.map((dept) => (
         <DepartmentCard dept={dept} key={dept.name} />
