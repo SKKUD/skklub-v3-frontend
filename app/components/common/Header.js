@@ -86,7 +86,12 @@ const HomeImgWrap = styled.div`
 const NavButtonFont = styled.div`
   font-weight: bold;
   line-height: 1.25rem;
-  color: #fff;
+  color: ${(props) =>
+    props.isMatch
+      ? props.campus
+        ? ({ theme }) => theme.palette.primary.main
+        : ({ theme }) => theme.palette.secondary.main
+      : "#fff"};
   &:hover {
     color: ${(props) =>
       props.campus
@@ -146,10 +151,12 @@ function HomeButton({ campusName }) {
   );
 }
 
-function NavButton({ item, campus }) {
+function NavButton({ item, campus, params }) {
   return (
     <Link href={`/${item.path}`}>
-      <NavButtonFont campus={campus}>{item.name}</NavButtonFont>
+      <NavButtonFont campus={campus} isMatch={params === item.check}>
+        {item.name}
+      </NavButtonFont>
     </Link>
   );
 }
@@ -169,12 +176,28 @@ export default function Header() {
   const { campusName, isSuwon } = useCampusDetect();
 
   const navItems = [
-    { name: "동아리연합회", path: campusName + "/intro" },
-    { name: "중앙동아리", path: campusName + "/central-clubs" },
-    { name: "기타동아리", path: campusName + "/independent-clubs" },
-    { name: "소모임", path: campusName + "/groups" },
-    { name: "학회", path: campusName + "/academic-clubs" },
-    { name: "학생단체", path: campusName + "/student-org" },
+    { name: "동아리연합회", path: campusName + "/intro", check: "/intro" },
+    {
+      name: "중앙동아리",
+      path: campusName + "/central-clubs",
+      check: "/central-clubs",
+    },
+    {
+      name: "기타동아리",
+      path: campusName + "/independent-clubs",
+      check: "/independent-clubs",
+    },
+    { name: "소모임", path: campusName + "/groups", check: "/groups" },
+    {
+      name: "학회",
+      path: campusName + "/academic-clubs",
+      check: "/academic-clubs",
+    },
+    {
+      name: "학생단체",
+      path: campusName + "/student-org",
+      check: "/student-org",
+    },
   ];
 
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -204,7 +227,12 @@ export default function Header() {
               <HomeButton campusName={campusName} />
               <NavWrap>
                 {navItems.map((item) => (
-                  <NavButton item={item} campus={isSuwon} key={item.name} />
+                  <NavButton
+                    item={item}
+                    campus={isSuwon}
+                    params={params}
+                    key={item.name}
+                  />
                 ))}
               </NavWrap>
               <IconButtonsWrap>
