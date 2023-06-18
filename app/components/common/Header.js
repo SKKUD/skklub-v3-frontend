@@ -90,8 +90,8 @@ const NavButtonFont = styled.div`
   &:hover {
     color: ${(props) =>
       props.campus
-        ? ({ theme }) => theme.palette.secondary.main
-        : ({ theme }) => theme.palette.primary.main};
+        ? ({ theme }) => theme.palette.primary.main
+        : ({ theme }) => theme.palette.secondary.main};
   }
 
   @media (max-width: 1024px) {
@@ -137,9 +137,9 @@ function HomeButton({ campusName }) {
     <Link href={`/${campusName}`}>
       <HomeImgWrap>
         {campusName === "suwon" ? (
-          <img src="/assets/images/skklub_율전.png" />
-        ) : (
           <img src="/assets/images/skklub_명륜.png" />
+        ) : (
+          <img src="/assets/images/skklub_율전.png" />
         )}
       </HomeImgWrap>
     </Link>
@@ -192,9 +192,9 @@ export default function Header() {
       {campusName === "" ? null : params === "" && scrollPosition < 60 ? (
         <LogoWrap>
           {campusName === "suwon" ? (
-            <SkklubLogo src="/assets/images/skklub_율전.png" />
-          ) : (
             <SkklubLogo src="/assets/images/skklub_명륜.png" />
+          ) : (
+            <SkklubLogo src="/assets/images/skklub_율전.png" />
           )}
         </LogoWrap>
       ) : (
