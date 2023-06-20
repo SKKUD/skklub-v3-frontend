@@ -57,7 +57,10 @@ const ClubCardType = styled.div`
 const Heart = styled.div`
   width: 22px;
   height: 20px;
-  background-color: red;
+  background-color: ${(props) => (props.isLiked ? "red" : "blue")};
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 const CardGrid = styled.div`
@@ -97,7 +100,9 @@ export default function CardBoard({ cardsData }) {
     }
   };
 
-  const likedClubs = window.localStorage.getItem("likedClubs") && "[]";
+  const likedClubs = JSON.parse(
+    window.localStorage.getItem("likedClubs") || "[]"
+  );
   console.log(likedClubs);
 
   return (
@@ -111,7 +116,7 @@ export default function CardBoard({ cardsData }) {
             <ClubCardName>{club.name}</ClubCardName>
             <ClubCardFooter>
               <ClubCardType>{`${club.belongs}/${club.briefActivityDescription}`}</ClubCardType>
-              <Heart />
+              <Heart isLiked={likedClubs.includes(club.name)} />
             </ClubCardFooter>
           </ClubCard>
         ))}
