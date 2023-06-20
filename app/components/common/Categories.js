@@ -1,6 +1,8 @@
 "use client";
+import { testState } from "@/utils/atoms";
 import { CATEGORIES } from "@/utils/constants";
 import styled from "@emotion/styled";
+import { useRecoilState } from "recoil";
 
 const CategoryWrapper = styled.div`
   max-width: 1200px;
@@ -54,10 +56,17 @@ const Category = styled.button`
 `;
 
 export default function Categories() {
+  const [test, useTest] = useRecoilState(testState);
+
+  const onCategoryClick = () => {
+    useTest("2");
+  };
   return (
     <CategoryWrapper>
       {CATEGORIES.map((category) => (
-        <Category>{category}</Category>
+        <Category key={category} onClick={onCategoryClick}>
+          {category}
+        </Category>
       ))}
     </CategoryWrapper>
   );
