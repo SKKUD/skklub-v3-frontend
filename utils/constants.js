@@ -68,7 +68,7 @@ export const CLUBS_DUMMY_DATA = [
 ];
 
 export const CATEGORIES = [
-  "전채",
+  "전체",
   "평면예술",
   "언행예술",
   "봉사",

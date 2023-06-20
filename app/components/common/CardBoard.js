@@ -1,8 +1,8 @@
 "use client";
-import { testState } from "@/utils/atoms";
+import { categoryState } from "@/utils/atoms";
 import styled from "@emotion/styled";
 import { usePathname, useRouter } from "next/navigation";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 
 const BoardWrapper = styled.div`
   max-width: 1200px;
@@ -82,16 +82,25 @@ const CardGrid = styled.div`
 export default function CardBoard({ cardsData }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [test, useTest] = useRecoilState(testState);
-  console.log(test);
+  const category = useRecoilValue(categoryState);
+
   const [_, location, a] = pathname.split("/");
   const handleCardClick = (clubId) => {
     router.push(`/${location}/${clubId}`);
   };
+
+  const filteredClubs = (category) => {
+    if (category === "전체") {
+      return cardsData;
+    } else {
+      return cardsData.filter((card) => card.belongs === category);
+    }
+  };
+
   return (
     <BoardWrapper>
       <CardGrid>
-        {cardsData.map((club) => (
+        {filteredClubs(category).map((club) => (
           <ClubCard
             key={club.name}
             onClick={() => handleCardClick(club.clubId)}
