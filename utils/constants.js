@@ -55,3 +55,15 @@ export const CLUBS_DUMMY_DATA = [
     clubId: "10",
   },
 ];
+
+export const CATEGORIES = [
+  "전채",
+  "평면예술",
+  "언행예술",
+  "봉사",
+  "취미교양",
+  "스포츠",
+  "종교",
+  "학술",
+  "인문사회",
+];
