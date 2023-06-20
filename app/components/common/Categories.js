@@ -2,7 +2,7 @@
 import { categoryState } from "@/utils/atoms";
 import { CATEGORIES } from "@/utils/constants";
 import styled from "@emotion/styled";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 
 const CategoryWrapper = styled.div`
   max-width: 1200px;
@@ -27,7 +27,8 @@ const Category = styled.button`
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 1.5rem;
-  background-color: transparent;
+  background-color: ${(props) =>
+    props.isClicked ? "#303030eb" : "transparent"};
   &:nth-of-type(3n) {
     color: rgba(255, 149, 89, 1);
   }
@@ -56,7 +57,7 @@ const Category = styled.button`
 `;
 
 export default function Categories() {
-  const setCategory = useSetRecoilState(categoryState);
+  const [category, setCategory] = useRecoilState(categoryState);
 
   const onCategoryClick = (clickedCategory) => {
     setCategory(clickedCategory);
@@ -65,7 +66,11 @@ export default function Categories() {
   return (
     <CategoryWrapper>
       {CATEGORIES.map((c) => (
-        <Category key={c} onClick={() => onCategoryClick(c)}>
+        <Category
+          key={c}
+          isClicked={category === c}
+          onClick={() => onCategoryClick(c)}
+        >
           {c}
         </Category>
       ))}
