@@ -28,16 +28,16 @@ const Category = styled.button`
   font-size: 1.25rem;
   line-height: 1.5rem;
   background-color: transparent;
-  &:nth-child(3n) {
+  &:nth-of-type(3n) {
     color: rgba(255, 149, 89, 1);
   }
-  &:nth-child(3n + 1) {
+  &:nth-of-type(3n + 1) {
     color: rgba(252, 123, 149, 1);
   }
-  &:nth-child(3n + 2) {
+  &:nth-of-type(3n + 2) {
     color: rgba(128, 164, 255, 1);
   }
-  &:first-child {
+  &:first-of-type {
     color: rgba(255, 255, 255, 1);
   }
   &:hover {

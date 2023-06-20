@@ -97,6 +97,9 @@ export default function CardBoard({ cardsData }) {
     }
   };
 
+  const likedClubs = window.localStorage.getItem("likedClubs") && "[]";
+  console.log(likedClubs);
+
   return (
     <BoardWrapper>
       <CardGrid>
