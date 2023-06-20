@@ -1,6 +1,8 @@
 "use client";
+import { testState } from "@/utils/atoms";
 import styled from "@emotion/styled";
 import { usePathname, useRouter } from "next/navigation";
+import { useRecoilState } from "recoil";
 
 const BoardWrapper = styled.div`
   max-width: 1200px;
@@ -80,7 +82,8 @@ const CardGrid = styled.div`
 export default function CardBoard({ cardsData }) {
   const router = useRouter();
   const pathname = usePathname();
-
+  const [test, useTest] = useRecoilState(testState);
+  console.log(test);
   const [_, location, a] = pathname.split("/");
   const handleCardClick = (clubId) => {
     router.push(`/${location}/${clubId}`);
