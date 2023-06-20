@@ -20,7 +20,7 @@ const Category = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #303030eb;
+  border: 1px solid #303030;
   border-radius: 20px;
   font-weight: 600;
   font-size: 1.25rem;
@@ -37,6 +37,10 @@ const Category = styled.button`
   }
   &:first-child {
     color: rgba(255, 255, 255, 1);
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: #303030eb;
   }
 
   white-space: nowrap;
