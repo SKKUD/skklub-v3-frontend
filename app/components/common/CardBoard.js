@@ -2,6 +2,7 @@
 import { categoryState } from "@/utils/atoms";
 import styled from "@emotion/styled";
 import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 
 const BoardWrapper = styled.div`
@@ -57,7 +58,10 @@ const ClubCardType = styled.div`
 const Heart = styled.div`
   width: 22px;
   height: 20px;
-  background-color: red;
+  background-color: ${(props) => (props.isLiked ? "red" : "blue")};
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 const CardGrid = styled.div`
@@ -83,6 +87,12 @@ export default function CardBoard({ cardsData }) {
   const router = useRouter();
   const pathname = usePathname();
   const category = useRecoilValue(categoryState);
+  const [likedClubs, setLikedClubs] = useState([]);
+  useEffect(() => {
+    setLikedClubs(
+      JSON.parse(window.localStorage.getItem("likedClubs") || "[]")
+    );
+  }, []);
 
   const [_, location, a] = pathname.split("/");
   const handleCardClick = (clubId) => {
@@ -97,6 +107,19 @@ export default function CardBoard({ cardsData }) {
     }
   };
 
+  const handleHeartClick = (event, clubName) => {
+    event.stopPropagation();
+    if (likedClubs.includes(clubName)) {
+      const newLikedClubs = likedClubs.filter((item) => item !== clubName);
+      window.localStorage.setItem("likedClubs", JSON.stringify(newLikedClubs));
+      setLikedClubs(newLikedClubs);
+    } else {
+      const newLikedClubs = [...likedClubs, clubName];
+      window.localStorage.setItem("likedClubs", JSON.stringify(newLikedClubs));
+      setLikedClubs(newLikedClubs);
+    }
+  };
+
   return (
     <BoardWrapper>
       <CardGrid>
@@ -108,7 +131,10 @@ export default function CardBoard({ cardsData }) {
             <ClubCardName>{club.name}</ClubCardName>
             <ClubCardFooter>
               <ClubCardType>{`${club.belongs}/${club.briefActivityDescription}`}</ClubCardType>
-              <Heart />
+              <Heart
+                isLiked={likedClubs.includes(club.name)}
+                onClick={(event) => handleHeartClick(event, club.name)}
+              />
             </ClubCardFooter>
           </ClubCard>
         ))}
