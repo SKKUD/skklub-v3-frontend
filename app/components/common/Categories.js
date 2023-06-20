@@ -1,4 +1,5 @@
 "use client";
+import { CATEGORIES } from "@/utils/constants";
 import styled from "@emotion/styled";
 
 const CategoryWrapper = styled.div`
@@ -19,13 +20,29 @@ const Category = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #303030eb;
+  border: 1px solid #303030;
   border-radius: 20px;
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 1.5rem;
   background-color: transparent;
-  color: whitesmoke;
+  &:nth-child(3n) {
+    color: rgba(255, 149, 89, 1);
+  }
+  &:nth-child(3n + 1) {
+    color: rgba(252, 123, 149, 1);
+  }
+  &:nth-child(3n + 2) {
+    color: rgba(128, 164, 255, 1);
+  }
+  &:first-child {
+    color: rgba(255, 255, 255, 1);
+  }
+  &:hover {
+    cursor: pointer;
+    background-color: #303030eb;
+  }
+
   white-space: nowrap;
 
   @media (max-width: 1024px) {
@@ -39,15 +56,9 @@ const Category = styled.button`
 export default function Categories() {
   return (
     <CategoryWrapper>
-      <Category>전체</Category>
-      <Category>평면예술</Category>
-      <Category>연행예술</Category>
-      <Category>봉사</Category>
-      <Category>취미교양</Category>
-      <Category>스포츠</Category>
-      <Category>종교</Category>
-      <Category>학술</Category>
-      <Category>인문사회</Category>
+      {CATEGORIES.map((category) => (
+        <Category>{category}</Category>
+      ))}
     </CategoryWrapper>
   );
 }
