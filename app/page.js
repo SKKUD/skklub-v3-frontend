@@ -13,13 +13,29 @@ const StartPageWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-image: url("/assets/animations/web_loading.gif");
+  /* background-image: url("/assets/animations/web_loading.gif");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   @media (max-width: 425px) {
     background-image: url("/assets/animations/mobile-loading.gif");
-  }
+  } */
+`;
+
+const VideoWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  /* opacity: 0.15; */
+`;
+
+const BgVideo = styled.video`
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 `;
 
 const MainContents = styled.div`
@@ -30,6 +46,8 @@ const MainContents = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background: transparent;
+  background-color: transparent; */
 `;
 
 const PhraseBtnWrapper = styled.div`
@@ -59,6 +77,7 @@ const BtnWrapper = styled.div`
     justify-content: space-around;
   }
 `;
+
 async function getUsers() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
   const users = await res.json();
@@ -74,6 +93,12 @@ export default function Home() {
   });
   return (
     <StartPageWrapper>
+      <VideoWrapper>
+        <BgVideo autoPlay muted>
+          <source src="/assets/animations/web_loading.mkv" type="video/mp4" />
+          Browser not supported
+        </BgVideo>
+      </VideoWrapper>
       <MainContents>
         <Image
           src={logoImg}
