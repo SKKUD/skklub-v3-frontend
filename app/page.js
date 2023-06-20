@@ -7,6 +7,7 @@ import {
   SeoulSelectBtn,
   SuwonSelectBtn,
 } from "@/app/components/start/LocationSelectBtn.stories";
+import { useQuery } from "@tanstack/react-query";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
@@ -58,8 +59,19 @@ const BtnWrapper = styled.div`
     justify-content: space-around;
   }
 `;
+async function getUsers() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const users = await res.json();
+  return users;
+}
 
 export default function Home() {
+  const { data, isLoading, isFetching, error } = useQuery({
+    queryKey: ["hydrate-users"],
+    queryFn: () => getUsers(),
+    onSuccess: (data) => console.log(data),
+    onError: (error) => console.log(error),
+  });
   return (
     <StartPageWrapper>
       <MainContents>
