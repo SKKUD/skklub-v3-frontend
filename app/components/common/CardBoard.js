@@ -90,12 +90,12 @@ export default function CardBoard({ cardsData }) {
       <CardGrid>
         {cardsData.map((club) => (
           <ClubCard
-            key={club.clubName}
+            key={club.name}
             onClick={() => handleCardClick(club.clubId)}
           >
-            <ClubCardName>{club.clubName}</ClubCardName>
+            <ClubCardName>{club.name}</ClubCardName>
             <ClubCardFooter>
-              <ClubCardType>{club.categories.join("/")}</ClubCardType>
+              <ClubCardType>{`${club.belongs}/${club.briefActivityDescription}`}</ClubCardType>
               <Heart />
             </ClubCardFooter>
           </ClubCard>

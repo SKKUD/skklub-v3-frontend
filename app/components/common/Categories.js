@@ -2,7 +2,7 @@
 import { CATEGORIES } from "@/utils/constants";
 import styled from "@emotion/styled";
 
-const CategoryWrapper = styled.ul`
+const CategoryWrapper = styled.div`
   max-width: 1200px;
   width: 100%;
   display: flex;
