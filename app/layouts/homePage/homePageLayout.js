@@ -12,6 +12,7 @@ import MobileNoticeSection from "@/app/components/main/Notice/MobileNoticeSectio
 import CampusSwitch from "@/app/components/common/CampusSwitch";
 import ClubCarousel from "@/app/components/main/ClubCarousel";
 import useURLParse from "@/hooks/useURLParse";
+import useScreenHeight from "@/hooks/useScreenHeight";
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -63,13 +64,8 @@ const ContentContainer = styled.div`
 export default function HomePageLayout() {
   const matches_768 = useMediaQuery("(max-width:768px)");
   const matches_680 = useMediaQuery("(max-width:680px)");
-  const [homeContainerHeight, setHomeContainerHeight] = useState(1024);
+  const [homeContainerHeight] = useScreenHeight();
   const { isSuwon } = useURLParse();
-
-  useEffect(() => {
-    const height = document.documentElement.clientHeight;
-    setHomeContainerHeight(height - 201);
-  }, []);
 
   return (
     <>
