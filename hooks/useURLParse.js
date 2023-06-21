@@ -1,6 +1,5 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, useCallback } from "react";
 
 const useURLParse = () => {
   const pathName = usePathname();
