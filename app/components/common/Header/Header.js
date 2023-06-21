@@ -10,21 +10,8 @@ import Link from "next/link";
 import Sidebar from "./Sidebar";
 import Searchbar from "./Searchbar";
 import styles from "./hamburger.module.css";
-import useURLParse from "../../../hooks/useURLParse";
-import { usePathname } from "next/navigation";
-
-const LogoWrap = styled.div`
-  width: 100%;
-  top: 0;
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-`;
-
-const SkklubLogo = styled.img`
-  width: 300px;
-  margin: 60px;
-`;
+import useURLParse from "../../../../hooks/useURLParse";
+import HomePageLogo from "./HomePageLogo";
 
 const HeaderWrap = styled.div`
   position: fixed;
@@ -211,13 +198,7 @@ export default function Header() {
   return (
     <>
       {location === "" ? null : type === undefined && scrollPosition < 60 ? (
-        <LogoWrap>
-          {location === "suwon" ? (
-            <SkklubLogo src="/assets/images/skklub_명륜.png" />
-          ) : (
-            <SkklubLogo src="/assets/images/skklub_율전.png" />
-          )}
-        </LogoWrap>
+        <HomePageLogo location={location} />
       ) : (
         <>
           <HeaderWrap>

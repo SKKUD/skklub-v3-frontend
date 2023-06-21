@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import useURLParse from "../../../hooks/useURLParse";
+import useURLParse from "../../../../hooks/useURLParse";
 import IconButton from "@mui/material/IconButton";
 import styled from "@emotion/styled";
 import Link from "next/link";

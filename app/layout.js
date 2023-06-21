@@ -3,7 +3,7 @@
 import "./globals.css";
 
 import Providers from "./providers";
-import Header from "@/app/components/common/Header";
+import Header from "@/app/components/common/Header/Header";
 
 // export const metadata = {
 //   title: "Create Next App",
