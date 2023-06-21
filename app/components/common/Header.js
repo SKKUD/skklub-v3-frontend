@@ -210,8 +210,7 @@ export default function Header() {
 
   return (
     <>
-      {location === "" ? null : typeof type === "undefined" &&
-        scrollPosition < 60 ? (
+      {location === "" ? null : type === undefined && scrollPosition < 60 ? (
         <LogoWrap>
           {location === "suwon" ? (
             <SkklubLogo src="/assets/images/skklub_명륜.png" />
@@ -261,7 +260,7 @@ export default function Header() {
           {isSearchVisible && (
             <Searchbar setIsSearchVisible={setIsSearchVisible} />
           )}
-          {typeof type === "undefined" ? (
+          {type === undefined ? (
             <ResponsiveMargin height={200} />
           ) : match760 ? (
             <ResponsiveMargin height={80} />
