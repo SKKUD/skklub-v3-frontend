@@ -1,13 +1,9 @@
+import CardBoard from "@/app/components/common/CardBoard";
 import ClubsLayout from "@/app/layouts/clubs/ClubsLayout";
 import { CLUBS_DUMMY_DATA } from "@/utils/constants";
 
-export default function CentralClubs() {
-  const ClubCategory = "학생단체";
+export default function AcademicClubs() {
   //API 함수호출
   const CARDS_DATA = CLUBS_DUMMY_DATA;
-  return (
-    <>
-      <ClubsLayout club={ClubCategory} cardsData={CARDS_DATA} />
-    </>
-  );
+  return <CardBoard cardsData={CARDS_DATA} />;
 }
