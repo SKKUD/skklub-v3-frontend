@@ -1,3 +1,4 @@
+"use client";
 import CampusSwitch from "@/app/components/common/CampusSwitch";
 import Categories from "@/app/components/common/Categories";
 import UpperBanner from "@/app/components/common/UpperBanner";
@@ -15,7 +16,7 @@ export default function CardBoardLayout({ children }) {
       <UpperBanner />
       <MainSection>
         <Categories />
-        <CardBoard cardsData={cardsData} />
+        {children}
       </MainSection>
       <CampusSwitch />
     </>
