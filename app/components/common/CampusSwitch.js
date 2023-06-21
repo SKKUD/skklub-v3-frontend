@@ -87,11 +87,19 @@ export default function CampusSwitch() {
     setisOn(!isOn);
     if (isOn) {
       setTimeout(() => {
-        router.push(`/seoul/${type}`);
+        if (typeof type === "undefined") {
+          router.push(`/seoul`);
+        } else {
+          router.push(`/seoul/${type && ""}`);
+        }
       }, 750);
     } else {
       setTimeout(() => {
-        router.push(`/suwon/${type}`);
+        if (typeof type === "undefined") {
+          router.push(`/suwon`);
+        } else {
+          router.push(`/suwon/${type && ""}`);
+        }
       }, 750);
     }
   };
