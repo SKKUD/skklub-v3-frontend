@@ -1,7 +1,7 @@
 import { Card } from "@mui/material";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
-import useCampusDetect from "@/hooks/useCampusDetect";
+import useURLParse from "@/hooks/useURLParse";
 
 const DeptTitle = styled.div`
   font-size: 2.5rem;
@@ -92,7 +92,7 @@ export function DepartmentCard({ dept }) {
 }
 
 export default function DepartmentSection({ data }) {
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
   return (
     <>
       <DeptTitle campus={!isSuwon}>부서 소개</DeptTitle>

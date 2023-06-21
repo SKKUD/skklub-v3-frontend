@@ -1,4 +1,4 @@
-import useCampusDetect from "@/hooks/useCampusDetect";
+import useURLParse from "@/hooks/useURLParse";
 import styled from "@emotion/styled";
 import { usePathname } from "next/navigation";
 
@@ -27,7 +27,7 @@ const Title = styled.div`
 `;
 
 export default function UpperBanner() {
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
   const pathName = usePathname();
   console.log(pathName);
   console.log(pathName.split("/"));

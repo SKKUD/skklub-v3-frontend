@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import useCampusDetect from "../../../hooks/useCampusDetect";
+import useURLParse from "../../../hooks/useURLParse";
 import IconButton from "@mui/material/IconButton";
 import styled from "@emotion/styled";
 import Link from "next/link";
@@ -53,7 +53,7 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
   const router = usePathname();
 
   const params = router.slice(6);
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
   const outside = useRef();
   const toggleSide = () => {
     setOpen(false);

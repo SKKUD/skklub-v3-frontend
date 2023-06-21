@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
-import useCampusDetect from "@/hooks/useCampusDetect";
+import useURLParse from "@/hooks/useURLParse";
 
 const IntroSectionLayout = styled.div`
   display: flex;
@@ -90,7 +90,7 @@ const Body = styled.p`
 
 export default function IntroSection(props) {
   const match480 = useMediaQuery("(max-width:480px)");
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
 
   return (
     <>

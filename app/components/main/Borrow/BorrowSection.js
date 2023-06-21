@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import useCampusDetect from "../../../../hooks/useCampusDetect";
+import useURLParse from "../../../../hooks/useURLParse";
 
 const BorrowWrapper = styled.div`
   background-color: ${(props) =>
@@ -62,7 +62,7 @@ const ComingSoon = styled.div`
 `;
 
 export default function BorrowSection() {
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
   return (
     <BorrowWrapper campus={isSuwon}>
       <BorrowPhrase>공간대관 필요하세요?</BorrowPhrase>

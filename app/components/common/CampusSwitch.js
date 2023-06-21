@@ -3,7 +3,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
-import useCampusDetect from "../../../hooks/useCampusDetect";
+import useURLParse from "../../../hooks/useURLParse";
 import { usePathname, useRouter } from "next/navigation";
 
 const Fadeinout = styled.div`
@@ -77,8 +77,8 @@ export default function CampusSwitch() {
   const router = useRouter();
   const pathname = usePathname();
   const params = pathname.slice(6);
-  const { campus } = useCampusDetect();
-  const [isOn, setisOn] = useState(campus); // false일때 명, true일때 율
+  const { isSuwon } = useURLParse();
+  const [isOn, setisOn] = useState(isSuwon); // false일때 명, true일때 율
   const [showFadeinout, setFadeinout] = useState(true);
 
   setTimeout(() => {
