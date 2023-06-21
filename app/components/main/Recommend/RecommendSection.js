@@ -42,7 +42,7 @@ const ClubCircle = styled.div`
   width: 153px;
   height: 153px;
   background-color: ${(props) =>
-    props.campus
+    props.isSuwon
       ? ({ theme }) => theme.palette.primary.main
       : ({ theme }) => theme.palette.secondary.main};
   border-radius: 80px;
@@ -81,14 +81,14 @@ export default function RecommendSection() {
             {!matches_950 && <Hashtag>#사회공헌</Hashtag>}
           </HashtagWrapper>
         </IntroCircle>
-        <ClubCircle campus={isSuwon}>
+        <ClubCircle isSuwon={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
         </ClubCircle>
-        <ClubCircle campus={isSuwon}>
+        <ClubCircle isSuwon={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
         </ClubCircle>
         {!matches_1024 && (
-          <ClubCircle campus={isSuwon}>
+          <ClubCircle isSuwon={isSuwon}>
             <ClubTitle>성균 민속 연구반 탈</ClubTitle>
           </ClubCircle>
         )}
