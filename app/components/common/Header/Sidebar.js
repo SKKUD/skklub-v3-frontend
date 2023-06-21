@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import useURLParse from "../../../hooks/useURLParse";
+import useURLParse from "../../../../hooks/useURLParse";
 import IconButton from "@mui/material/IconButton";
 import styled from "@emotion/styled";
 import Link from "next/link";
@@ -15,6 +15,15 @@ const NavWrap = styled.div`
   font-size: 1.1rem;
   font-weight: 500;
   margin-top: 30px;
+`;
+
+const NavButtonFont = styled.div`
+  color: ${(props) =>
+    props.isMatch
+      ? props.isSuwon
+        ? ({ theme }) => theme.palette.primary.main
+        : ({ theme }) => theme.palette.secondary.main
+      : "#fff"};
 `;
 
 const SidebarInner = styled.div`
@@ -50,10 +59,7 @@ const CampusWrap = styled.div`
 `;
 
 export default function Sidebar({ isOpen, setOpen, navItems }) {
-  const router = usePathname();
-
-  const params = router.slice(6);
-  const { isSuwon } = useURLParse();
+  const { isSuwon, type } = useURLParse();
   const outside = useRef();
   const toggleSide = () => {
     setOpen(false);
@@ -91,15 +97,21 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
         <NavWrap onClick={toggleSide}>
           {navItems.map((item) => (
             <Link href={`/${item.path}`} key={item.name}>
-              {item.name}
+              <NavButtonFont isSuwon={isSuwon} isMatch={type === item.check}>
+                {item.name}
+              </NavButtonFont>
             </Link>
           ))}
           <Line />
           <CampusWrap campus={isSuwon}>
             {isSuwon ? (
-              <Link href={`/seoul${params}`}>명륜 캠퍼스</Link>
+              <Link href={type === undefined ? "/seoul" : `/seoul/${type}`}>
+                명륜 캠퍼스
+              </Link>
             ) : (
-              <Link href={`/suwon${params}`}>율전 캠퍼스</Link>
+              <Link href={type === undefined ? "/suwon" : `/suwon/${type}`}>
+                율전 캠퍼스
+              </Link>
             )}
           </CampusWrap>
         </NavWrap>

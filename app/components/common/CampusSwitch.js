@@ -85,20 +85,22 @@ export default function CampusSwitch() {
 
   const toggleHandler = () => {
     setisOn(!isOn);
+    console.log(type);
+    console.log(type === undefined);
     if (isOn) {
       setTimeout(() => {
-        if (typeof type === "undefined") {
+        if (type === undefined) {
           router.push(`/seoul`);
         } else {
-          router.push(`/seoul/${type && ""}`);
+          router.push(`/seoul/${type}`);
         }
       }, 750);
     } else {
       setTimeout(() => {
-        if (typeof type === "undefined") {
+        if (type === undefined) {
           router.push(`/suwon`);
         } else {
-          router.push(`/suwon/${type && ""}`);
+          router.push(`/suwon/${type}`);
         }
       }, 750);
     }
