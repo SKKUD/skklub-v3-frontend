@@ -27,11 +27,8 @@ const Title = styled.div`
 `;
 
 export default function UpperBanner() {
-  const { isSuwon } = useURLParse();
-  const pathName = usePathname();
-  console.log(pathName);
-  console.log(pathName.split("/"));
-  const [_, location, type] = pathName.split("/");
+  const { isSuwon, type } = useURLParse();
+
   const convertEngTypeToKo = (type) => {
     if (type === "central-clubs") {
       return "중앙동아리";

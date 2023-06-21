@@ -4,7 +4,7 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import useURLParse from "../../../hooks/useURLParse";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const Fadeinout = styled.div`
   position: fixed;
@@ -75,9 +75,7 @@ const ToggleContainer = styled.div`
 
 export default function CampusSwitch() {
   const router = useRouter();
-  const pathname = usePathname();
-  const params = pathname.slice(6);
-  const { isSuwon } = useURLParse();
+  const { isSuwon, type } = useURLParse();
   const [isOn, setisOn] = useState(isSuwon); // false일때 명, true일때 율
   const [showFadeinout, setFadeinout] = useState(true);
 
@@ -89,11 +87,11 @@ export default function CampusSwitch() {
     setisOn(!isOn);
     if (isOn) {
       setTimeout(() => {
-        router.push(`/seoul${params}`);
+        router.push(`/seoul/${type}`);
       }, 750);
     } else {
       setTimeout(() => {
-        router.push(`/suwon${params}`);
+        router.push(`/suwon/${type}`);
       }, 750);
     }
   };
@@ -101,18 +99,16 @@ export default function CampusSwitch() {
   const matches_1024 = useMediaQuery("(min-width:1024px)");
 
   return (
-    <>
-      {matches_1024 && (
-        <>
-          <Fadeinout show={showFadeinout} />
-          <ToggleContainer onClick={toggleHandler}>
-            <div className={`toggle-container ${isOn ? "suwon" : null}`} />
-            <div className={`toggle-circle ${isOn ? "suwon-circle" : null}`}>
-              {isOn ? "율" : "명"}
-            </div>
-          </ToggleContainer>
-        </>
-      )}
-    </>
+    matches_1024 && (
+      <>
+        <Fadeinout show={showFadeinout} />
+        <ToggleContainer onClick={toggleHandler}>
+          <div className={`toggle-container ${isOn && "suwon"}`} />
+          <div className={`toggle-circle ${isOn && "suwon-circle"}`}>
+            {isOn ? "율" : "명"}
+          </div>
+        </ToggleContainer>
+      </>
+    )
   );
 }
