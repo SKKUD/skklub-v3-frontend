@@ -88,13 +88,13 @@ const NavButtonFont = styled.div`
   line-height: 1.25rem;
   color: ${(props) =>
     props.isMatch
-      ? props.campus
+      ? props.isSuwon
         ? ({ theme }) => theme.palette.primary.main
         : ({ theme }) => theme.palette.secondary.main
       : "#fff"};
   &:hover {
     color: ${(props) =>
-      props.campus
+      props.isSuwon
         ? ({ theme }) => theme.palette.primary.main
         : ({ theme }) => theme.palette.secondary.main};
   }
@@ -151,10 +151,10 @@ function HomeButton({ location }) {
   );
 }
 
-function NavButton({ item, campus, type }) {
+function NavButton({ item, isSuwon, type }) {
   return (
     <Link href={`/${item.path}`}>
-      <NavButtonFont campus={campus} isMatch={type === item.check}>
+      <NavButtonFont isSuwon={isSuwon} isMatch={type === item.check}>
         {item.name}
       </NavButtonFont>
     </Link>
@@ -227,7 +227,7 @@ export default function Header() {
                 {navItems.map((item) => (
                   <NavButton
                     item={item}
-                    campus={isSuwon}
+                    isSuwon={isSuwon}
                     type={type}
                     key={item.name}
                   />
