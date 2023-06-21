@@ -5,7 +5,7 @@ import RecommendTheme from "./RecommendTheme";
 import RecommendSubTheme from "./RecommendSubThem";
 import Hashtag from "./Hashtag";
 import HashtagWrapper from "./HashtagWrapper";
-import useCampusDetect from "../../../../hooks/useCampusDetect";
+import useURLParse from "../../../../hooks/useURLParse";
 
 const RecommendWrapper = styled.div`
   width: 1100px;
@@ -61,7 +61,7 @@ const ClubTitle = styled.div`
 `;
 
 export default function RecommendSection() {
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
   const matches_1024 = useMediaQuery("(max-width:1024px)");
   const matches_950 = useMediaQuery("(max-width:950px)");
 

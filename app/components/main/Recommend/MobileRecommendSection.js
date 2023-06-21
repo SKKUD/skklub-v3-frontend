@@ -5,7 +5,7 @@ import RecommendSubTheme from "./RecommendSubThem";
 import HashtagWrapper from "./HashtagWrapper";
 import Hashtag from "./Hashtag";
 import ClubCircle from "./ClubCircle";
-import useCampusDetect from "../../../../hooks/useCampusDetect";
+import useURLParse from "../../../../hooks/useURLParse";
 
 const MobileRecommendWrapper = styled.div`
   width: 100%;
@@ -64,7 +64,7 @@ const SmallClubCircle = styled.div`
 `;
 
 export default function MobileRecommendSection() {
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
 
   return (
     <MobileRecommendWrapper>
