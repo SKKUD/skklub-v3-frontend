@@ -1,8 +1,6 @@
 "use client";
 
 import styled from "@emotion/styled";
-
-import { useEffect, useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import RecommendSection from "@/app/components/main/Recommend/RecommendSection";
 import NoticeSection from "@/app/components/main/Notice/NoticeSection";
