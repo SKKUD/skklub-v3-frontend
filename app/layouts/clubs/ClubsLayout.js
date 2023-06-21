@@ -14,7 +14,7 @@ const MainSection = styled.div`
 export default function ClubsLayout({ club, cardsData }) {
   return (
     <>
-      <UpperBanner club={club} />
+      <UpperBanner />
       <MainSection>
         <Categories />
         <CardBoard cardsData={cardsData} />
