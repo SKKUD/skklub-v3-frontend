@@ -151,10 +151,10 @@ function HomeButton({ location }) {
   );
 }
 
-function NavButton({ item, campus, params }) {
+function NavButton({ item, campus, type }) {
   return (
     <Link href={`/${item.path}`}>
-      <NavButtonFont campus={campus} isMatch={params === item.check}>
+      <NavButtonFont campus={campus} isMatch={type === item.check}>
         {item.name}
       </NavButtonFont>
     </Link>
@@ -162,8 +162,7 @@ function NavButton({ item, campus, params }) {
 }
 
 export default function Header() {
-  const router = usePathname();
-  const params = router.slice(6);
+  const { location, isSuwon, type } = useURLParse();
   const [isOpen, setOpen] = useState(false);
   const toggleSide = (e) => {
     setOpen(true);
@@ -173,30 +172,29 @@ export default function Header() {
   const handleSearchClick = () => {
     setIsSearchVisible(!isSearchVisible);
   };
-  const { location, isSuwon } = useURLParse();
 
   const navItems = [
-    { name: "동아리연합회", path: location + "/intro", check: "/intro" },
+    { name: "동아리연합회", path: location + "/intro", check: "intro" },
     {
       name: "중앙동아리",
       path: location + "/central-clubs",
-      check: "/central-clubs",
+      check: "central-clubs",
     },
     {
       name: "기타동아리",
       path: location + "/independent-clubs",
-      check: "/independent-clubs",
+      check: "independent-clubs",
     },
-    { name: "소모임", path: location + "/groups", check: "/groups" },
+    { name: "소모임", path: location + "/groups", check: "groups" },
     {
       name: "학회",
       path: location + "/academic-clubs",
-      check: "/academic-clubs",
+      check: "academic-clubs",
     },
     {
       name: "학생단체",
       path: location + "/student-org",
-      check: "/student-org",
+      check: "student-org",
     },
   ];
 
@@ -212,7 +210,8 @@ export default function Header() {
 
   return (
     <>
-      {location === "" ? null : params === "" && scrollPosition < 60 ? (
+      {location === "" ? null : typeof type === "undefined" &&
+        scrollPosition < 60 ? (
         <LogoWrap>
           {location === "suwon" ? (
             <SkklubLogo src="/assets/images/skklub_명륜.png" />
@@ -230,7 +229,7 @@ export default function Header() {
                   <NavButton
                     item={item}
                     campus={isSuwon}
-                    params={params}
+                    type={type}
                     key={item.name}
                   />
                 ))}
@@ -262,7 +261,7 @@ export default function Header() {
           {isSearchVisible && (
             <Searchbar setIsSearchVisible={setIsSearchVisible} />
           )}
-          {params === "" ? (
+          {typeof type === "undefined" ? (
             <ResponsiveMargin height={200} />
           ) : match760 ? (
             <ResponsiveMargin height={80} />
