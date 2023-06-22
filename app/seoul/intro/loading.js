@@ -1,11 +1,5 @@
-"use client";
-
-import styled from "@emotion/styled";
-
-const Test = styled.div`
-  color: red;
-`;
+import LoadingLayout from "@/app/layouts/loading/LoadingLayout";
 
 export default function Loading() {
-  return <Test>Loading</Test>;
+  return <LoadingLayout />;
 }
