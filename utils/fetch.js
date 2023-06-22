@@ -18,3 +18,6 @@ const getDailyRecommendation = async ({
   await fetch(
     `${BASE_URL}/club/random?campus=${campus}&clubType=${clubType}&belongs=${belongs}`
   ).then((res) => res.json());
+
+const getClubDetail = async (clubId) =>
+  await fetch(`${BASE_URL}/club/${clubId}`).then((res) => res.json());
