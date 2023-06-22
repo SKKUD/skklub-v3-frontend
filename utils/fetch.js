@@ -21,3 +21,6 @@ const getDailyRecommendation = async ({
 
 const getClubDetail = async (clubId) =>
   await fetch(`${BASE_URL}/club/${clubId}`).then((res) => res.json());
+
+const getResultFromFullSearchKeyword = async ({ name }) =>
+  await fetch(`${BASE_URL}/club/search?name=${name}`).then((res) => res.json());
