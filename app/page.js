@@ -114,8 +114,12 @@ export default function Home() {
         <PhraseBtnWrapper>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnWrapper>
-            <SeoulSelectBtn nextLocation="seoul">명륜</SeoulSelectBtn>
-            <SuwonSelectBtn nextLocation="suwon">율전</SuwonSelectBtn>
+            <SeoulSelectBtn nextLocation="seoul" hoverColor="#50CFB1">
+              명륜
+            </SeoulSelectBtn>
+            <SuwonSelectBtn nextLocation="suwon" hoverColor="#80A4FF">
+              율전
+            </SuwonSelectBtn>
           </BtnWrapper>
         </PhraseBtnWrapper>
       </MainContents>
