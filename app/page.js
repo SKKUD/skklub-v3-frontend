@@ -8,6 +8,7 @@ import {
   SuwonSelectBtn,
 } from "@/app/components/start/LocationSelectBtn.stories";
 import { useQuery } from "@tanstack/react-query";
+import { getUsers } from "@/utils/fetch";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
@@ -78,19 +79,14 @@ const BtnWrapper = styled.div`
   }
 `;
 
-async function getUsers() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const users = await res.json();
-  return users;
-}
-
 export default function Home() {
   const { data, isLoading, isFetching, error } = useQuery({
     queryKey: ["hydrate-users"],
-    queryFn: () => getUsers(),
+    queryFn: getUsers,
     onSuccess: (data) => console.log(data),
     onError: (error) => console.log(error),
   });
+
   return (
     <StartPageWrapper>
       <VideoWrapper>
@@ -114,8 +110,12 @@ export default function Home() {
         <PhraseBtnWrapper>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnWrapper>
-            <SeoulSelectBtn nextLocation="seoul">명륜</SeoulSelectBtn>
-            <SuwonSelectBtn nextLocation="suwon">율전</SuwonSelectBtn>
+            <SeoulSelectBtn nextLocation="seoul" hoverColor="#50CFB1">
+              명륜
+            </SeoulSelectBtn>
+            <SuwonSelectBtn nextLocation="suwon" hoverColor="#80A4FF">
+              율전
+            </SuwonSelectBtn>
           </BtnWrapper>
         </PhraseBtnWrapper>
       </MainContents>
