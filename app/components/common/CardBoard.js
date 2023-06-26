@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const BoardWrapper = styled.div`
   max-width: 1200px;
@@ -134,7 +134,10 @@ export default function CardBoard({ cardsData }) {
               <ClubCardType>{`${club.belongs}/${club.briefActivityDescription}`}</ClubCardType>
               <Heart
                 isLiked={likedClubs.includes(club.name)}
-                onClick={(event) => handleHeartClick(event, club.name)}><FavoriteIcon/></Heart>
+                onClick={(event) => handleHeartClick(event, club.name)}
+              >
+                <FavoriteIcon />
+              </Heart>
             </ClubCardFooter>
           </ClubCard>
         ))}
