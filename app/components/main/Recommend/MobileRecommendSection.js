@@ -5,7 +5,7 @@ import RecommendSubTheme from "./RecommendSubThem";
 import HashtagWrapper from "./HashtagWrapper";
 import Hashtag from "./Hashtag";
 import ClubCircle from "./ClubCircle";
-import useCampusDetect from "../../../../hooks/useCampusDetect";
+import useURLParse from "../../../../hooks/useURLParse";
 
 const MobileRecommendWrapper = styled.div`
   width: 100%;
@@ -64,7 +64,7 @@ const SmallClubCircle = styled.div`
 `;
 
 export default function MobileRecommendSection() {
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
 
   return (
     <MobileRecommendWrapper>
@@ -82,13 +82,13 @@ export default function MobileRecommendSection() {
             <Hashtag>#사회공헌</Hashtag>
           </HashtagWrapper>
           <SmallCircleContainer>
-            <SmallClubCircle campus={!isSuwon}>
+            <SmallClubCircle campus={isSuwon}>
               성균 민속 연구반 탈
             </SmallClubCircle>
-            <SmallClubCircle campus={!isSuwon}>
+            <SmallClubCircle campus={isSuwon}>
               성균 민속 연구반 탈
             </SmallClubCircle>
-            <SmallClubCircle campus={!isSuwon}>
+            <SmallClubCircle campus={isSuwon}>
               성균 민속 연구반 탈
             </SmallClubCircle>
           </SmallCircleContainer>

@@ -5,7 +5,7 @@ import RecommendTheme from "./RecommendTheme";
 import RecommendSubTheme from "./RecommendSubThem";
 import Hashtag from "./Hashtag";
 import HashtagWrapper from "./HashtagWrapper";
-import useCampusDetect from "../../../../hooks/useCampusDetect";
+import useURLParse from "../../../../hooks/useURLParse";
 
 const RecommendWrapper = styled.div`
   width: 1100px;
@@ -42,7 +42,7 @@ const ClubCircle = styled.div`
   width: 153px;
   height: 153px;
   background-color: ${(props) =>
-    props.campus
+    props.isSuwon
       ? ({ theme }) => theme.palette.primary.main
       : ({ theme }) => theme.palette.secondary.main};
   border-radius: 80px;
@@ -61,7 +61,7 @@ const ClubTitle = styled.div`
 `;
 
 export default function RecommendSection() {
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
   const matches_1024 = useMediaQuery("(max-width:1024px)");
   const matches_950 = useMediaQuery("(max-width:950px)");
 
@@ -81,14 +81,14 @@ export default function RecommendSection() {
             {!matches_950 && <Hashtag>#사회공헌</Hashtag>}
           </HashtagWrapper>
         </IntroCircle>
-        <ClubCircle campus={!isSuwon}>
+        <ClubCircle isSuwon={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
         </ClubCircle>
-        <ClubCircle campus={!isSuwon}>
+        <ClubCircle isSuwon={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
         </ClubCircle>
         {!matches_1024 && (
-          <ClubCircle campus={!isSuwon}>
+          <ClubCircle isSuwon={isSuwon}>
             <ClubTitle>성균 민속 연구반 탈</ClubTitle>
           </ClubCircle>
         )}

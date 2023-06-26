@@ -7,18 +7,36 @@ import {
   SeoulSelectBtn,
   SuwonSelectBtn,
 } from "@/app/components/start/LocationSelectBtn.stories";
+import { useQuery } from "@tanstack/react-query";
+import { getUsers } from "@/utils/fetch";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-image: url("/assets/animations/web_loading.gif");
+  /* background-image: url("/assets/animations/web_loading.gif");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   @media (max-width: 425px) {
     background-image: url("/assets/animations/mobile-loading.gif");
-  }
+  } */
+`;
+
+const VideoWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  /* opacity: 0.15; */
+`;
+
+const BgVideo = styled.video`
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 `;
 
 const MainContents = styled.div`
@@ -29,6 +47,8 @@ const MainContents = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background: transparent;
+  background-color: transparent; */
 `;
 
 const PhraseBtnWrapper = styled.div`
@@ -60,8 +80,21 @@ const BtnWrapper = styled.div`
 `;
 
 export default function Home() {
+  const { data, isLoading, isFetching, error } = useQuery({
+    queryKey: ["hydrate-users"],
+    queryFn: getUsers,
+    onSuccess: (data) => console.log(data),
+    onError: (error) => console.log(error),
+  });
+
   return (
     <StartPageWrapper>
+      <VideoWrapper>
+        <BgVideo autoPlay muted>
+          <source src="/assets/animations/web_loading.mkv" type="video/mp4" />
+          Browser not supported
+        </BgVideo>
+      </VideoWrapper>
       <MainContents>
         <Image
           src={logoImg}
@@ -77,8 +110,12 @@ export default function Home() {
         <PhraseBtnWrapper>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnWrapper>
-            <SeoulSelectBtn nextLocation="seoul">명륜</SeoulSelectBtn>
-            <SuwonSelectBtn nextLocation="suwon">율전</SuwonSelectBtn>
+            <SeoulSelectBtn nextLocation="seoul" hoverColor="#50CFB1">
+              명륜
+            </SeoulSelectBtn>
+            <SuwonSelectBtn nextLocation="suwon" hoverColor="#80A4FF">
+              율전
+            </SuwonSelectBtn>
           </BtnWrapper>
         </PhraseBtnWrapper>
       </MainContents>

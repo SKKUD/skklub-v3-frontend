@@ -3,8 +3,8 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
-import useCampusDetect from "../../../hooks/useCampusDetect";
-import { usePathname, useRouter } from "next/navigation";
+import useURLParse from "../../../hooks/useURLParse";
+import { useRouter } from "next/navigation";
 
 const Fadeinout = styled.div`
   position: fixed;
@@ -56,7 +56,7 @@ const ToggleContainer = styled.div`
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background-color: rgba(128, 164, 255, 1);
+    background-color: rgba(80, 207, 177, 1);
     transition: 0.5s;
     color: rgb(255, 254, 255);
     font-size: 2.5rem;
@@ -69,16 +69,14 @@ const ToggleContainer = styled.div`
     left: 8px;
     top: 62px;
     transition: 0.5s;
-    background-color: rgba(80, 207, 177, 1);
+    background-color: rgba(128, 164, 255, 1);
   }
 `;
 
 export default function CampusSwitch() {
   const router = useRouter();
-  const pathname = usePathname();
-  const params = pathname.slice(6);
-  const { campus } = useCampusDetect();
-  const [isOn, setisOn] = useState(campus); // false일때 명, true일때 율
+  const { isSuwon, type } = useURLParse();
+  const [isOn, setisOn] = useState(isSuwon); // false일때 명, true일때 율
   const [showFadeinout, setFadeinout] = useState(true);
 
   setTimeout(() => {
@@ -87,13 +85,23 @@ export default function CampusSwitch() {
 
   const toggleHandler = () => {
     setisOn(!isOn);
+    console.log(type);
+    console.log(type === undefined);
     if (isOn) {
       setTimeout(() => {
-        router.push(`/seoul${params}`);
+        if (type === undefined) {
+          router.push(`/seoul`);
+        } else {
+          router.push(`/seoul/${type}`);
+        }
       }, 750);
     } else {
       setTimeout(() => {
-        router.push(`/suwon${params}`);
+        if (type === undefined) {
+          router.push(`/suwon`);
+        } else {
+          router.push(`/suwon/${type}`);
+        }
       }, 750);
     }
   };
@@ -101,18 +109,16 @@ export default function CampusSwitch() {
   const matches_1024 = useMediaQuery("(min-width:1024px)");
 
   return (
-    <>
-      {matches_1024 && (
-        <>
-          <Fadeinout show={showFadeinout} />
-          <ToggleContainer onClick={toggleHandler}>
-            <div className={`toggle-container ${isOn ? "suwon" : null}`} />
-            <div className={`toggle-circle ${isOn ? "suwon-circle" : null}`}>
-              {isOn ? "율" : "명"}
-            </div>
-          </ToggleContainer>
-        </>
-      )}
-    </>
+    matches_1024 && (
+      <>
+        <Fadeinout show={showFadeinout} />
+        <ToggleContainer onClick={toggleHandler}>
+          <div className={`toggle-container ${isOn && "suwon"}`} />
+          <div className={`toggle-circle ${isOn && "suwon-circle"}`}>
+            {isOn ? "율" : "명"}
+          </div>
+        </ToggleContainer>
+      </>
+    )
   );
 }

@@ -1,6 +1,9 @@
 "use client";
+import { categoryState } from "@/utils/atoms";
 import styled from "@emotion/styled";
 import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useRecoilValue } from "recoil";
 
 const BoardWrapper = styled.div`
   max-width: 1200px;
@@ -55,7 +58,10 @@ const ClubCardType = styled.div`
 const Heart = styled.div`
   width: 22px;
   height: 20px;
-  background-color: red;
+  background-color: ${(props) => (props.isLiked ? "red" : "blue")};
+  &:hover {
+    transform: scale(1.2);
+  }
 `;
 
 const CardGrid = styled.div`
@@ -80,23 +86,55 @@ const CardGrid = styled.div`
 export default function CardBoard({ cardsData }) {
   const router = useRouter();
   const pathname = usePathname();
+  const category = useRecoilValue(categoryState);
+  const [likedClubs, setLikedClubs] = useState([]);
+  useEffect(() => {
+    setLikedClubs(
+      JSON.parse(window.localStorage.getItem("likedClubs") || "[]")
+    );
+  }, []);
 
   const [_, location, a] = pathname.split("/");
   const handleCardClick = (clubId) => {
     router.push(`/${location}/${clubId}`);
   };
+
+  const filteredClubs = (category) => {
+    if (category === "전체") {
+      return cardsData;
+    } else {
+      return cardsData.filter((card) => card.belongs === category);
+    }
+  };
+
+  const handleHeartClick = (event, clubName) => {
+    event.stopPropagation();
+    if (likedClubs.includes(clubName)) {
+      const newLikedClubs = likedClubs.filter((item) => item !== clubName);
+      window.localStorage.setItem("likedClubs", JSON.stringify(newLikedClubs));
+      setLikedClubs(newLikedClubs);
+    } else {
+      const newLikedClubs = [...likedClubs, clubName];
+      window.localStorage.setItem("likedClubs", JSON.stringify(newLikedClubs));
+      setLikedClubs(newLikedClubs);
+    }
+  };
+
   return (
     <BoardWrapper>
       <CardGrid>
-        {cardsData.map((club) => (
+        {filteredClubs(category).map((club) => (
           <ClubCard
-            key={club.clubName}
+            key={club.name}
             onClick={() => handleCardClick(club.clubId)}
           >
-            <ClubCardName>{club.clubName}</ClubCardName>
+            <ClubCardName>{club.name}</ClubCardName>
             <ClubCardFooter>
-              <ClubCardType>{club.categories.join("/")}</ClubCardType>
-              <Heart />
+              <ClubCardType>{`${club.belongs}/${club.briefActivityDescription}`}</ClubCardType>
+              <Heart
+                isLiked={likedClubs.includes(club.name)}
+                onClick={(event) => handleHeartClick(event, club.name)}
+              />
             </ClubCardFooter>
           </ClubCard>
         ))}

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
-import useCampusDetect from "@/hooks/useCampusDetect";
+import useURLParse from "@/hooks/useURLParse";
 
 const IntroSectionLayout = styled.div`
   display: flex;
@@ -90,29 +90,29 @@ const Body = styled.p`
 
 export default function IntroSection(props) {
   const match480 = useMediaQuery("(max-width:480px)");
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
 
   return (
     <>
       <IntroSectionLayout>
-        <IntroPill campus={isSuwon}>Who we are</IntroPill>
+        <IntroPill campus={!isSuwon}>Who we are</IntroPill>
         <IntroCard>
           <Title>
             안녕하세요, 동아리연합회 {match480 && <br />}
-            <RedSpan campus={isSuwon}>{props.data.name}</RedSpan>입니다!
+            <RedSpan campus={!isSuwon}>{props.data.name}</RedSpan>입니다!
           </Title>
           <Body>{props.data.section[0]}</Body>
         </IntroCard>
       </IntroSectionLayout>
       <IntroSectionLayout>
-        <IntroPill campus={isSuwon}>What we do</IntroPill>
+        <IntroPill campus={!isSuwon}>What we do</IntroPill>
         <IntroCard>
           <Title>저희는 {match480 && <br />}이런 활동을 해요!</Title>
           <Body>{props.data.section[1]}</Body>
         </IntroCard>
       </IntroSectionLayout>
       <IntroSectionLayout>
-        <IntroPill campus={isSuwon}>How we work</IntroPill>
+        <IntroPill campus={!isSuwon}>How we work</IntroPill>
         <IntroCard>
           <Title>
             동아리연합회는 {match480 && <br />}이렇게 구성되어 있어요!
