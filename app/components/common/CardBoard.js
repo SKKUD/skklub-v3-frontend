@@ -1,4 +1,5 @@
 "use client";
+
 import { categoryState } from "@/utils/atoms";
 import styled from "@emotion/styled";
 import { usePathname, useRouter } from "next/navigation";
@@ -88,6 +89,7 @@ export default function CardBoard({ cardsData }) {
   const router = useRouter();
   const pathname = usePathname();
   const category = useRecoilValue(categoryState);
+
   const [likedClubs, setLikedClubs] = useState([]);
   useEffect(() => {
     setLikedClubs(

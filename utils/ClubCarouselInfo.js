@@ -1,7 +1,7 @@
 export const ClubCarouselInfo = [
   {
     img: "종교분과.gif",
-    name: "종교분과",
+    name: "종교",
     content:
       "평면예술분과는 평면예술을 사랑하는 동아리들이 모여있습니다. 회화, 사진, 서예, 만화, 판화, 영상까지, 다양한 평면예술을 즐겨보세요!",
   },
@@ -49,7 +49,7 @@ export const ClubCarouselInfo = [
   },
   {
     img: "학술분과.gif",
-    name: "학술분과",
+    name: "학술",
     content:
       "평면예술분과는 평면예술을 사랑하는 동아리들이 모여있습니다. 회화, 사진, 서예, 만화, 판화, 영상까지, 다양한 평면예술을 즐겨보세요!",
   },

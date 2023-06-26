@@ -70,7 +70,7 @@ export const CLUBS_DUMMY_DATA = [
 export const CATEGORIES = [
   "전체",
   "평면예술",
-  "언행예술",
+  "연행예술",
   "봉사",
   "취미교양",
   "스포츠",
