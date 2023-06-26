@@ -1,6 +1,8 @@
 "use client";
 
 import styled from "@emotion/styled";
+import Image from "next/image";
+import useURLParse from "@/hooks/useURLParse";
 
 const LoadingBanner = styled.div`
   position: absolute;
@@ -8,7 +10,6 @@ const LoadingBanner = styled.div`
   transform: translate(0%, -50%);
   width: 100%;
   height: 300px;
-  background-color: rgba(38, 38, 38, 1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,12 +18,33 @@ const LoadingBanner = styled.div`
 const LoadingLabel = styled.div`
   font-size: 3rem;
   font-weight: 700;
+  @media (max-width: 425px) {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
 `;
 
 export default function LoadingLayout() {
+  const { isSuwon } = useURLParse();
   return (
     <LoadingBanner>
-      <LoadingLabel>동방 문 두드리는 중...</LoadingLabel>
+      {isSuwon ? (
+        <Image
+          src="/assets/animations/loading_icon_suwon.gif"
+          width={150}
+          height={150}
+          alt="Loading Icon"
+        />
+      ) : (
+        <Image
+          src="/assets/animations/loading_icon_seoul.gif"
+          width={150}
+          height={150}
+          alt="Loading Icon"
+        />
+      )}
+
+      <LoadingLabel>Loading...</LoadingLabel>
     </LoadingBanner>
   );
 }
