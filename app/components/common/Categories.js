@@ -64,7 +64,7 @@ export default function Categories() {
   const selected = categoryParams.get("category");
 
   useEffect(() => {
-    setCategory(selected);
+    if (selected){setCategory(selected);}
   }, []);
 
   const onCategoryClick = (clickedCategory) => {
