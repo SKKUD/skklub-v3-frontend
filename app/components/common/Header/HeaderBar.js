@@ -8,6 +8,8 @@ import { useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import styles from "./hamburger.module.css";
 import Link from "next/link";
+import { useSetRecoilState } from "recoil";
+import { categoryState } from "@/utils/atoms";
 
 const HeaderWrap = styled.div`
   position: fixed;
@@ -135,9 +137,18 @@ function HomeButton({ location }) {
 }
 
 function NavButton({ item, isSuwon, type }) {
+  const setCategory = useSetRecoilState(categoryState);
+
+  const onLinkClick = () => {
+    setCategory("전체");
+  };
   return (
     <Link href={`/${item.path}`}>
-      <NavButtonFont isSuwon={isSuwon} isMatch={type === item.check}>
+      <NavButtonFont
+        isSuwon={isSuwon}
+        isMatch={type === item.check}
+        onClick={onLinkClick}
+      >
         {item.name}
       </NavButtonFont>
     </Link>
