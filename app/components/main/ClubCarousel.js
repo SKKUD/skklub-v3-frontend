@@ -12,6 +12,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/swiper.min.css";
 import { ClubCarouselInfo } from "../../../utils/ClubCarouselInfo";
+import { useRecoilState } from "recoil";
+import { categoryState } from "@/utils/atoms";
 
 const ClubCarouselContainer = styled.div`
   width: ${(props) => props.width || "50%"};
@@ -97,9 +99,11 @@ export default function ClubCarousel() {
   const match1024 = useMediaQuery("(max-width:1024px)");
   const router = useRouter();
   const pathname = usePathname()
+  const [category, setCategory] = useRecoilState(categoryState);
   
   const handleClickCard = (clickedCategory) => {
-    const newPath = `${pathname}/central-clubs?category=${clickedCategory}`;
+    setCategory(clickedCategory)
+    const newPath = `${pathname}/central-clubs`;
     router.push(newPath);
   };
 
