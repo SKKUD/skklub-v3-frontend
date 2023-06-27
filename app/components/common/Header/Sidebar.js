@@ -52,8 +52,8 @@ const Line = styled.div`
 const CampusWrap = styled.div`
   color: ${(props) =>
     props.campus
-      ? ({ theme }) => theme.palette.primary.main
-      : ({ theme }) => theme.palette.secondary.main};
+      ? ({ theme }) => theme.palette.secondary.main
+      : ({ theme }) => theme.palette.primary.main};
   font-size: 1.1rem;
   font-weight: 500;
 `;
