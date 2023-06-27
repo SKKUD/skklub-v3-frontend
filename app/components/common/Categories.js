@@ -1,6 +1,3 @@
-"use client";
-import { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 import { categoryState } from "@/utils/atoms";
 import { CATEGORIES } from "@/utils/constants";
 import styled from "@emotion/styled";
@@ -60,12 +57,6 @@ const Category = styled.button`
 
 export default function Categories() {
   const [category, setCategory] = useRecoilState(categoryState);
-  const categoryParams = useSearchParams();
-  const selected = categoryParams.get("category");
-
-  useEffect(() => {
-    if (selected){setCategory(selected);}
-  }, []);
 
   const onCategoryClick = (clickedCategory) => {
     setCategory(clickedCategory);
