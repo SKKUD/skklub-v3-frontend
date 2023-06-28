@@ -1,4 +1,7 @@
+"use client";
+
 import styled from "@emotion/styled";
+import { usePathname, useRouter } from "next/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/core";
 import { useMediaQuery } from "@mui/material";
@@ -9,6 +12,8 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/swiper.min.css";
 import { ClubCarouselInfo } from "../../../utils/ClubCarouselInfo";
+import { useSetRecoilState } from "recoil";
+import { categoryState } from "@/utils/atoms";
 
 const ClubCarouselContainer = styled.div`
   width: ${(props) => props.width || "50%"};
@@ -91,7 +96,15 @@ function ClubCarouselCard({ name, content, img }) {
 
 export default function ClubCarousel() {
   const match760 = useMediaQuery("(max-width:760px)");
-  const match1024 = useMediaQuery("(max-width:1024px)");
+  const router = useRouter();
+  const pathname = usePathname();
+  const setCategory = useSetRecoilState(categoryState);
+
+  const handleClickCard = (clickedCategory) => {
+    setCategory(clickedCategory);
+    const newPath = `${pathname}/central-clubs`;
+    router.push(newPath);
+  };
 
   const width = match760 ? "90%" : "750px";
   return (
@@ -148,7 +161,10 @@ export default function ClubCarousel() {
           className="mySwiper"
         >
           {ClubCarouselInfo.map((info) => (
-            <SwiperSlide key={info.name}>
+            <SwiperSlide
+              key={info.name}
+              onClick={() => handleClickCard(info.name)}
+            >
               <ClubCarouselCard
                 name={info.name}
                 content={info.content}

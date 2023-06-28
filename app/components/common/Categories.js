@@ -1,4 +1,3 @@
-"use client";
 import { categoryState } from "@/utils/atoms";
 import { CATEGORIES } from "@/utils/constants";
 import styled from "@emotion/styled";
