@@ -61,6 +61,7 @@ const Heart = styled.div`
   width: 22px;
   height: 20px;
   color: ${(props) => (props.isLiked ? "#da5d65" : "#b7b7b7")};
+  transition: color 0.5s;
   &:hover {
     transform: scale(1.2);
   }
