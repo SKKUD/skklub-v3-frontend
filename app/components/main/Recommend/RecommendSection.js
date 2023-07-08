@@ -6,6 +6,8 @@ import RecommendSubTheme from "./RecommendSubThem";
 import Hashtag from "./Hashtag";
 import HashtagWrapper from "./HashtagWrapper";
 import useURLParse from "../../../../hooks/useURLParse";
+import { CircleContainer } from "./CircleContainer";
+import ClubCircle from "./ClubCircle";
 
 const RecommendWrapper = styled.div`
   width: 1100px;
@@ -13,17 +15,6 @@ const RecommendWrapper = styled.div`
   margin-top: 120px;
   @media (max-width: 1400px) {
     width: 100%;
-  }
-`;
-
-const CircleContainer = styled.div`
-  display: flex;
-  width: 100%;
-  gap: 17px;
-  margin-top: 24px;
-  padding: 0px 30px;
-  @media (max-width: 1400px) {
-    padding: 0;
   }
 `;
 
@@ -36,21 +27,6 @@ const IntroCircle = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-left: 68px;
-`;
-
-const ClubCircle = styled.div`
-  width: 153px;
-  height: 153px;
-  background-color: ${(props) =>
-    props.isSuwon
-      ? ({ theme }) => theme.palette.primary.main
-      : ({ theme }) => theme.palette.secondary.main};
-  border-radius: 80px;
-  font-size: 1.75rem;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 
 const ClubTitle = styled.div`

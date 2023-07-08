@@ -4,7 +4,7 @@ const ClubCircle = styled.div`
   width: 153px;
   height: 153px;
   background-color: ${({ isSuwon, theme }) =>
-    isSuwon ? theme.palette.secondary.main : theme.palette.primary.main};
+    !isSuwon ? theme.palette.secondary.main : theme.palette.primary.main};
   border-radius: 80px;
   font-size: 1.75rem;
   font-weight: 500;
