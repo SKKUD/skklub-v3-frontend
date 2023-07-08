@@ -31,7 +31,6 @@ const MoreBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-
   border: none;
   border-radius: 104px;
   color: white;
