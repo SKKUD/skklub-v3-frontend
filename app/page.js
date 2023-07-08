@@ -21,6 +21,7 @@ const StartPageWrapper = styled.div`
   @media (max-width: 425px) {
     background-image: url("/assets/animations/mobile-loading.gif");
   } */
+  overflow: hidden;
 `;
 
 const VideoWrapper = styled.div`
