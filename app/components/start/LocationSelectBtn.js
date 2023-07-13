@@ -1,6 +1,6 @@
+import useLocationPush from "../../../hooks/useLocationPush";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
-import useLocationPush from "@/hooks/useLocationPush";
 
 const LocationBtn = styled.button`
   border: none;
@@ -27,19 +27,20 @@ const LocationBtn = styled.button`
 `;
 
 export default function LocationSelectBtn({
-  children,
+  label,
   hoverColor = "#80A4FF",
   nextLocation,
 }) {
   const pushToNextLocation = useLocationPush(nextLocation);
   return (
     <LocationBtn hoverColor={hoverColor} onClick={pushToNextLocation}>
-      {children}
+      {label}
     </LocationBtn>
   );
 }
 
 LocationSelectBtn.propTypes = {
+  label: PropTypes.string,
   hoverColor: PropTypes.string,
   nextLocation: PropTypes.string,
 };

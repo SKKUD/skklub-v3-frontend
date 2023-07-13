@@ -85,8 +85,6 @@ export default function CampusSwitch() {
 
   const toggleHandler = () => {
     setisOn(!isOn);
-    console.log(type);
-    console.log(type === undefined);
     if (isOn) {
       setTimeout(() => {
         if (type === undefined) {

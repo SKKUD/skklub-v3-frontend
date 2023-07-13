@@ -1,4 +1,4 @@
-import CardBoard from "@/app/components/common/CardBoard";
+import CardBoard from "@/app/components/cardBoard/CardBoard";
 import { CLUBS_DUMMY_DATA } from "@/utils/constants";
 
 export default function AcademicClubs() {
