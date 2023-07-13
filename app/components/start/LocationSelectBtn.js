@@ -1,6 +1,6 @@
+import useLocationPush from "../../../hooks/useLocationPush";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
-import useLocationPush from "@/hooks/useLocationPush";
 
 const LocationBtn = styled.button`
   border: none;

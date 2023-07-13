@@ -4,11 +4,13 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import logoImg from "@/public/assets/images/skklub_logo_m.png";
 import {
+  Default,
   SeoulSelectBtn,
   SuwonSelectBtn,
 } from "@/app/components/start/LocationSelectBtn.stories";
 import { useQuery } from "@tanstack/react-query";
 import { getUsers } from "@/utils/fetch";
+import LocationSelectBtn from "./components/start/LocationSelectBtn";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
@@ -111,12 +113,12 @@ export default function Home() {
         <PhraseBtnWrapper>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnWrapper>
-            <SeoulSelectBtn nextLocation="seoul" hoverColor="#50CFB1">
+            <LocationSelectBtn nextLocation="seoul" hoverColor="#50CFB1">
               명륜
-            </SeoulSelectBtn>
-            <SuwonSelectBtn nextLocation="suwon" hoverColor="#80A4FF">
+            </LocationSelectBtn>
+            <LocationSelectBtn nextLocation="suwon" hoverColor="#80A4FF">
               율전
-            </SuwonSelectBtn>
+            </LocationSelectBtn>
           </BtnWrapper>
         </PhraseBtnWrapper>
       </MainContents>
