@@ -1,7 +1,6 @@
 import LocationSelectBtn from "./LocationSelectBtn";
 
 export default {
-  title: "LocationSelectBtn",
   component: LocationSelectBtn,
   parameters: {
     nextjs: {
