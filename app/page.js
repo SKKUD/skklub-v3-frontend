@@ -3,11 +3,6 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
 import logoImg from "@/public/assets/images/skklub_logo_m.png";
-import {
-  Default,
-  SeoulSelectBtn,
-  SuwonSelectBtn,
-} from "@/app/components/start/LocationSelectBtn.stories";
 import { useQuery } from "@tanstack/react-query";
 import { getUsers } from "@/utils/fetch";
 import LocationSelectBtn from "./components/start/LocationSelectBtn";
@@ -83,12 +78,12 @@ const BtnWrapper = styled.div`
 `;
 
 export default function Home() {
-  const { data, isLoading, isFetching, error } = useQuery({
-    queryKey: ["hydrate-users"],
-    queryFn: getUsers,
-    onSuccess: (data) => console.log(data),
-    onError: (error) => console.log(error),
-  });
+  // const { data, isLoading, isFetching, error } = useQuery({
+  //   queryKey: ["hydrate-users"],
+  //   queryFn: getUsers,
+  //   onSuccess: (data) => console.log(data),
+  //   onError: (error) => console.log(error),
+  // });
 
   return (
     <StartPageWrapper>
@@ -113,12 +108,16 @@ export default function Home() {
         <PhraseBtnWrapper>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
           <BtnWrapper>
-            <LocationSelectBtn nextLocation="seoul" hoverColor="#50CFB1">
-              명륜
-            </LocationSelectBtn>
-            <LocationSelectBtn nextLocation="suwon" hoverColor="#80A4FF">
-              율전
-            </LocationSelectBtn>
+            <LocationSelectBtn
+              label="명륜"
+              nextLocation="seoul"
+              hoverColor="#50CFB1"
+            />
+            <LocationSelectBtn
+              label="율전"
+              nextLocation="suwon"
+              hoverColor="#80A4FF"
+            />
           </BtnWrapper>
         </PhraseBtnWrapper>
       </MainContents>
