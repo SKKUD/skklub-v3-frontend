@@ -1,5 +1,5 @@
 "use client";
-import CampusSwitch from "@/app/components/common/CampusSwitch";
+import CampusSwitch from "@/app/components/common/CampusSwitch/CampusSwitch";
 import Categories from "@/app/components/common/Categories";
 import UpperBanner from "@/app/components/common/UpperBanner";
 import styled from "@emotion/styled";

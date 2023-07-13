@@ -3,7 +3,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
-import useURLParse from "../../../hooks/useURLParse";
+import useURLParse from "../../../../hooks/useURLParse";
 import { useRouter } from "next/navigation";
 
 const Fadeinout = styled.div`
