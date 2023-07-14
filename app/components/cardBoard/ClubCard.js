@@ -24,7 +24,7 @@ const CustomCard = styled.div`
   }
 `;
 
-const ClubCardName = styled.div`
+const CardTitle = styled.div`
   font-weight: 500;
   font-size: 3rem;
   line-height: 120%;
@@ -33,14 +33,14 @@ const ClubCardName = styled.div`
   left: 20px;
 `;
 
-const ClubCardFooter = styled.div`
+const CardFooter = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
 `;
 
-const ClubCardType = styled.div`
+const CardType = styled.div`
   font-weight: 300;
   font-size: 1.125rem;
   line-height: 160%;
@@ -86,16 +86,16 @@ export default function ClubCard({ club }) {
 
   return (
     <CustomCard key={club.name} onClick={() => handleCardClick(club.clubId)}>
-      <ClubCardName>{club.name}</ClubCardName>
-      <ClubCardFooter>
-        <ClubCardType>{`${club.belongs}/${club.briefActivityDescription}`}</ClubCardType>
+      <CardTitle>{club.name}</CardTitle>
+      <CardFooter>
+        <CardType>{`${club.belongs}/${club.briefActivityDescription}`}</CardType>
         <Heart
           isLiked={likedClubs.includes(club.name)}
           onClick={(event) => handleHeartClick(event, club.name)}
         >
           <FavoriteIcon />
         </Heart>
-      </ClubCardFooter>
+      </CardFooter>
     </CustomCard>
   );
 }
