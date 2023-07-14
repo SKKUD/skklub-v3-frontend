@@ -49,7 +49,7 @@ export default function CardBoard({ cardsData }) {
     <BoardWrapper>
       <CardGrid>
         {filteredClubs(category).map((club) => (
-          <ClubCard key={club.id} club={club} />
+          <ClubCard key={club.clubId} club={club} />
         ))}
       </CardGrid>
     </BoardWrapper>
