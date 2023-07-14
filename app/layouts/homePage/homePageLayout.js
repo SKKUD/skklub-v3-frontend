@@ -12,7 +12,7 @@ import ClubCarousel from "@/app/components/main/ClubCarousel";
 import useURLParse from "@/hooks/useURLParse";
 import useScreenHeight from "@/hooks/useScreenHeight";
 
-const HomeContainer = styled.div`
+const FullScreenWrapper = styled.div`
   width: 100%;
   min-height: ${(props) => props.height};
   text-align: center;
@@ -48,7 +48,7 @@ const PromotionBanner = styled.div`
   }
 `;
 
-const ContentContainer = styled.div`
+const ContentWrapper = styled.div`
   width: 100%;
   padding: 0 1rem;
   margin: 0 auto;
@@ -67,16 +67,16 @@ export default function HomePageLayout() {
 
   return (
     <>
-      <HomeContainer height={`${homeContainerHeight}px`}>
+      <FullScreenWrapper height={`${homeContainerHeight}px`}>
         <ClubCarousel />
-      </HomeContainer>
+      </FullScreenWrapper>
       <CampusSwitch />
       <PromotionBanner isSuwon={isSuwon}>동아리 홍보배너</PromotionBanner>
-      <ContentContainer>
+      <ContentWrapper>
         {matches_768 ? <MobileRecommendSection /> : <RecommendSection />}
         {matches_680 ? <MobileNoticeSection /> : <NoticeSection />}
         <BorrowSection />
-      </ContentContainer>
+      </ContentWrapper>
     </>
   );
 }
