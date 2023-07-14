@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { usePathname, useRouter } from "next/navigation";
 import useClubLike from "@/hooks/useClubLike";
@@ -19,7 +18,6 @@ const CustomCard = styled.div`
     width: 163px;
     height: 163px;
   }
-
   &:hover {
     cursor: pointer;
   }
@@ -60,19 +58,13 @@ const Heart = styled.div`
 export default function ClubCard({ club }) {
   const router = useRouter();
   const pathname = usePathname();
+  const [likedClubs, modifyLikedClubs] = useClubLike();
+
   const [_, location, a] = pathname.split("/");
+
   const handleCardClick = (clubId) => {
     router.push(`/${location}/${clubId}`);
   };
-
-  // const [likedClubs, setLikedClubs] = useState([]);
-  // useEffect(() => {
-  //   setLikedClubs(
-  //     JSON.parse(window.localStorage.getItem("likedClubs") || "[]")
-  //   );
-  // }, []);
-
-  const [likedClubs, modifyLikedClubs] = useClubLike();
 
   const handleHeartClick = (event, clubName) => {
     event.stopPropagation();

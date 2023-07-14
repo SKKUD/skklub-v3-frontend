@@ -2,8 +2,6 @@
 
 import { categoryState } from "@/utils/atoms";
 import styled from "@emotion/styled";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 
 import ClubCard from "./ClubCard";
