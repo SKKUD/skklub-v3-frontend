@@ -5,6 +5,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useMediaQuery } from "@mui/material";
 import Phrase from "../Common/Phrase";
 import NoticeCard from "./NoticeCard";
+import MoreBtn from "./MoreBtn";
 
 const NoticeWrapper = styled.div`
   position: relative;
@@ -20,20 +21,6 @@ const NoticeHeader = styled.div`
   @media (max-width: 1400px) {
     width: 100%;
   }
-`;
-
-const MoreBtn = styled.button`
-  background-color: #4e5353;
-  width: 104px;
-  height: 33px;
-  font-weight: 400;
-  font-size: 1.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-radius: 104px;
-  color: white;
 `;
 
 const CarouselContainer = styled.div`
