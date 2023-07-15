@@ -4,6 +4,7 @@ import Phrase from "../Common/Phrase";
 import NoticeCard from "./NoticeCard";
 import MoreBtn from "./MoreBtn";
 import NoticeDate from "./NoticeDate";
+import NoticeTitle from "./NoticeTitle";
 
 const MobileNoticeWrapper = styled.div`
   width: 100%;
@@ -15,24 +16,6 @@ const SmallCardContainer = styled.div`
   display: flex;
   justify-content: space-around;
   margin-top: 1rem;
-`;
-
-//제목이 길경우 짧게 파싱해주어야함
-const CardTitle = styled.div`
-  color: white;
-  font-weight: 600;
-  font-size: 1.25rem;
-  width: 224px;
-  margin-bottom: 0.75rem;
-
-  @media (max-width: 425px) {
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 151.5%;
-    width: 150px;
-    margin: 0 auto;
-    margin-bottom: 2px;
-  }
 `;
 
 const CardClubName = styled.div`
@@ -58,12 +41,12 @@ export default function MobileNoticeSection() {
       <SmallCardContainer>
         <NoticeCard imageUrl="/assets/images/one.png">
           <NoticeDate>Jan 9, 2021</NoticeDate>
-          <CardTitle>[밴드] 제 22회 초청공연</CardTitle>
+          <NoticeTitle>[밴드] 제 22회 초청공연</NoticeTitle>
           <CardClubName>못갗춘마디</CardClubName>
         </NoticeCard>
         <NoticeCard imageUrl="/assets/images/one.png">
           <NoticeDate>Jan 9, 2021</NoticeDate>
-          <CardTitle>[밴드] 제 22회 초청공연</CardTitle>
+          <NoticeTitle>[밴드] 제 22회 초청공연</NoticeTitle>
           <CardClubName>못갗춘마디</CardClubName>
         </NoticeCard>
         {!matches_560 && (

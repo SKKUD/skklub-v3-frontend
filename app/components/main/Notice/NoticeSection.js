@@ -7,6 +7,7 @@ import Phrase from "../Common/Phrase";
 import NoticeCard from "./NoticeCard";
 import MoreBtn from "./MoreBtn";
 import NoticeDate from "./NoticeDate";
+import NoticeTitle from "./NoticeTitle";
 
 const NoticeWrapper = styled.div`
   position: relative;
@@ -61,15 +62,6 @@ const CardRow = styled.div`
   gap: 28px;
 `;
 
-//제목이 길경우 짧게 파싱해주어야함
-const CardTitle = styled.div`
-  color: white;
-  font-weight: 600;
-  font-size: 1.25rem;
-  width: 224px;
-  margin-bottom: 0.75rem;
-`;
-
 const CardClubName = styled.div`
   font-weight: 400;
   font-size: 1rem;
@@ -96,26 +88,26 @@ export default function NoticeSection() {
           <CardRow>
             <NoticeCard imageUrl="/assets/images/one.png">
               <NoticeDate>JAN 9, 2021</NoticeDate>
-              <CardTitle>하반기 수선관 운동장 예약어쩌구</CardTitle>
+              <NoticeTitle>하반기 수선관 운동장 예약어쩌구</NoticeTitle>
             </NoticeCard>
             <NoticeCard imageUrl="/assets/images/two.png">
               <NoticeDate>JAN 9, 2021</NoticeDate>
-              <CardTitle>
+              <NoticeTitle>
                 [스포츠] 산악 바이크 취미로 타실 분들 모집합니다.
-              </CardTitle>
+              </NoticeTitle>
               <CardClubName>스꾸모터</CardClubName>
             </NoticeCard>
             {!matches_950 && (
               <NoticeCard imageUrl="/assets/images/three.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
-                <CardTitle>[스포츠] 성균관배 골프대회 개최안내</CardTitle>
+                <NoticeTitle>[스포츠] 성균관배 골프대회 개최안내</NoticeTitle>
                 <CardClubName>성골퍼</CardClubName>
               </NoticeCard>
             )}
             {!matches_1400 && (
               <NoticeCard imageUrl="/assets/images/four.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
-                <CardTitle>[밴드] 제 22회 초청공연</CardTitle>
+                <NoticeTitle>[밴드] 제 22회 초청공연</NoticeTitle>
                 <CardClubName>못갖춘 마디</CardClubName>
               </NoticeCard>
             )}
@@ -123,26 +115,26 @@ export default function NoticeSection() {
           <CardRow>
             <NoticeCard imageUrl="/assets/images/one.png">
               <NoticeDate>JAN 9, 2021</NoticeDate>
-              <CardTitle>하반기 수선관 운동장 예약어쩌구</CardTitle>
+              <NoticeTitle>하반기 수선관 운동장 예약어쩌구</NoticeTitle>
             </NoticeCard>
             <NoticeCard imageUrl="/assets/images/two.png">
               <NoticeDate>JAN 9, 2021</NoticeDate>
-              <CardTitle>
+              <NoticeTitle>
                 [스포츠] 산악 바이크 취미로 타실 분들 모집합니다.
-              </CardTitle>
+              </NoticeTitle>
               <CardClubName>스꾸모터</CardClubName>
             </NoticeCard>
             {!matches_950 && (
               <NoticeCard imageUrl="/assets/images/three.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
-                <CardTitle>[스포츠] 성균관배 골프대회 개최안내</CardTitle>
+                <NoticeTitle>[스포츠] 성균관배 골프대회 개최안내</NoticeTitle>
                 <CardClubName>성골퍼</CardClubName>
               </NoticeCard>
             )}
             {!matches_1400 && (
               <NoticeCard imageUrl="/assets/images/four.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
-                <CardTitle>[밴드] 제 22회 초청공연</CardTitle>
+                <NoticeTitle>[밴드] 제 22회 초청공연</NoticeTitle>
                 <CardClubName>못갖춘 마디</CardClubName>
               </NoticeCard>
             )}
@@ -150,26 +142,26 @@ export default function NoticeSection() {
           <CardRow>
             <NoticeCard imageUrl="/assets/images/one.png">
               <NoticeDate>JAN 9, 2021</NoticeDate>
-              <CardTitle>하반기 수선관 운동장 예약어쩌구</CardTitle>
+              <NoticeTitle>하반기 수선관 운동장 예약어쩌구</NoticeTitle>
             </NoticeCard>
             <NoticeCard imageUrl="/assets/images/two.png">
               <NoticeDate>JAN 9, 2021</NoticeDate>
-              <CardTitle>
+              <NoticeTitle>
                 [스포츠] 산악 바이크 취미로 타실 분들 모집합니다.
-              </CardTitle>
+              </NoticeTitle>
               <CardClubName>스꾸모터</CardClubName>
             </NoticeCard>
             {!matches_950 && (
               <NoticeCard imageUrl="/assets/images/three.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
-                <CardTitle>[스포츠] 성균관배 골프대회 개최안내</CardTitle>
+                <NoticeTitle>[스포츠] 성균관배 골프대회 개최안내</NoticeTitle>
                 <CardClubName>성골퍼</CardClubName>
               </NoticeCard>
             )}
             {!matches_1400 && (
               <NoticeCard imageUrl="/assets/images/four.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
-                <CardTitle>[밴드] 제 22회 초청공연</CardTitle>
+                <NoticeTitle>[밴드] 제 22회 초청공연</NoticeTitle>
                 <CardClubName>못갖춘 마디</CardClubName>
               </NoticeCard>
             )}
