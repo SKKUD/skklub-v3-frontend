@@ -8,6 +8,7 @@ import NoticeCard from "./NoticeCard";
 import MoreBtn from "./MoreBtn";
 import NoticeDate from "./NoticeDate";
 import NoticeTitle from "./NoticeTitle";
+import NoticeWriter from "./NoticeWriter";
 
 const NoticeWrapper = styled.div`
   position: relative;
@@ -62,13 +63,6 @@ const CardRow = styled.div`
   gap: 28px;
 `;
 
-const CardClubName = styled.div`
-  font-weight: 400;
-  font-size: 1rem;
-  color: white;
-  margin-bottom: 17px;
-`;
-
 export default function NoticeSection() {
   const matches_1400 = useMediaQuery("(max-width:1400px)");
   const matches_950 = useMediaQuery("(max-width:950px)");
@@ -95,20 +89,20 @@ export default function NoticeSection() {
               <NoticeTitle>
                 [스포츠] 산악 바이크 취미로 타실 분들 모집합니다.
               </NoticeTitle>
-              <CardClubName>스꾸모터</CardClubName>
+              <NoticeWriter>스꾸모터</NoticeWriter>
             </NoticeCard>
             {!matches_950 && (
               <NoticeCard imageUrl="/assets/images/three.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
                 <NoticeTitle>[스포츠] 성균관배 골프대회 개최안내</NoticeTitle>
-                <CardClubName>성골퍼</CardClubName>
+                <NoticeWriter>성골퍼</NoticeWriter>
               </NoticeCard>
             )}
             {!matches_1400 && (
               <NoticeCard imageUrl="/assets/images/four.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
                 <NoticeTitle>[밴드] 제 22회 초청공연</NoticeTitle>
-                <CardClubName>못갖춘 마디</CardClubName>
+                <NoticeWriter>못갖춘 마디</NoticeWriter>
               </NoticeCard>
             )}
           </CardRow>
@@ -122,20 +116,20 @@ export default function NoticeSection() {
               <NoticeTitle>
                 [스포츠] 산악 바이크 취미로 타실 분들 모집합니다.
               </NoticeTitle>
-              <CardClubName>스꾸모터</CardClubName>
+              <NoticeWriter>스꾸모터</NoticeWriter>
             </NoticeCard>
             {!matches_950 && (
               <NoticeCard imageUrl="/assets/images/three.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
                 <NoticeTitle>[스포츠] 성균관배 골프대회 개최안내</NoticeTitle>
-                <CardClubName>성골퍼</CardClubName>
+                <NoticeWriter>성골퍼</NoticeWriter>
               </NoticeCard>
             )}
             {!matches_1400 && (
               <NoticeCard imageUrl="/assets/images/four.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
                 <NoticeTitle>[밴드] 제 22회 초청공연</NoticeTitle>
-                <CardClubName>못갖춘 마디</CardClubName>
+                <NoticeWriter>못갖춘 마디</NoticeWriter>
               </NoticeCard>
             )}
           </CardRow>
@@ -149,20 +143,20 @@ export default function NoticeSection() {
               <NoticeTitle>
                 [스포츠] 산악 바이크 취미로 타실 분들 모집합니다.
               </NoticeTitle>
-              <CardClubName>스꾸모터</CardClubName>
+              <NoticeWriter>스꾸모터</NoticeWriter>
             </NoticeCard>
             {!matches_950 && (
               <NoticeCard imageUrl="/assets/images/three.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
                 <NoticeTitle>[스포츠] 성균관배 골프대회 개최안내</NoticeTitle>
-                <CardClubName>성골퍼</CardClubName>
+                <NoticeWriter>성골퍼</NoticeWriter>
               </NoticeCard>
             )}
             {!matches_1400 && (
               <NoticeCard imageUrl="/assets/images/four.png">
                 <NoticeDate>JAN 9, 2021</NoticeDate>
                 <NoticeTitle>[밴드] 제 22회 초청공연</NoticeTitle>
-                <CardClubName>못갖춘 마디</CardClubName>
+                <NoticeWriter>못갖춘 마디</NoticeWriter>
               </NoticeCard>
             )}
           </CardRow>
