@@ -5,27 +5,27 @@ export const getUsers = async () =>
     res.json()
   );
 
-const getClubs = async ({ campus = "seoul", clubType = "", belongs = "" }) =>
+export const getClubs = async (campus = "seoul", clubType = "", belongs = "") =>
   await fetch(
     `${BASE_URL}/club/prev?campus=${campus}&clubType=${clubType}&belongs=${belongs}`
   ).then((res) => res.json());
 
-const getDailyRecommendation = async ({
+export const getDailyRecommendation = async (
   campus = "seoul",
   clubType = "",
-  belongs = "",
-}) =>
+  belongs = ""
+) =>
   await fetch(
     `${BASE_URL}/club/random?campus=${campus}&clubType=${clubType}&belongs=${belongs}`
   ).then((res) => res.json());
 
-const getClubDetail = async (clubId) =>
+export const getClubDetail = async (clubId) =>
   await fetch(`${BASE_URL}/club/${clubId}`).then((res) => res.json());
 
-const getClubsFromFullKeyword = async ({ name }) =>
+export const getClubsFromFullKeyword = async ({ name }) =>
   await fetch(`${BASE_URL}/club/search?name=${name}`).then((res) => res.json());
 
-const getClubsFromPartialKeyword = async ({ keyword }) =>
+export const getClubsFromPartialKeyword = async ({ keyword }) =>
   await fetch(`${BASE_URL}/club/search/prevs?name=${keyword}`).then((res) =>
     res.json()
   );
