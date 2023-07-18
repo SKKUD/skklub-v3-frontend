@@ -1,4 +1,4 @@
-const BASE_URL = "www.baseURL";
+const BASE_URL = "http://api.dev.skklub.com";
 
 export const getUsers = async () =>
   await fetch("https://jsonplaceholder.typicode.com/users").then((res) =>
