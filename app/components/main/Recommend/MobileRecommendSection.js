@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import SectionTitle from "../Common/SectionTitle";
-import RecommendTheme from "./RecommendTheme";
-import RecommendSubTheme from "./RecommendSubThem";
+import ThemeTitle from "./ThemeTitle";
+import ThemeSubtitle from "./ThemeSubtitle";
 import HashtagWrapper from "./HashtagWrapper";
 import Hashtag from "./Hashtag";
 import useURLParse from "../../../../hooks/useURLParse";
@@ -40,10 +40,10 @@ export default function MobileRecommendSection() {
       <SectionTitle>오늘의 추천동아리</SectionTitle>
       <SmallContentContainer>
         <div>
-          <RecommendTheme>인성품과 보람 동시에 잡기</RecommendTheme>
-          <RecommendSubTheme style={{ color: "#9B9B9B" }}>
+          <ThemeTitle>인성품과 보람 동시에 잡기</ThemeTitle>
+          <ThemeSubtitle style={{ color: "#9B9B9B" }}>
             {`"뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"`}
-          </RecommendSubTheme>
+          </ThemeSubtitle>
           <HashtagWrapper>
             <Hashtag>#대학생활</Hashtag>
             <Hashtag>#봉사</Hashtag>

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import SectionTitle from "../Common/SectionTitle";
-import RecommendTheme from "./RecommendTheme";
-import RecommendSubTheme from "./RecommendSubThem";
+import ThemeTitle from "./ThemeTitle";
+import ThemeSubtitle from "./ThemeSubtitle";
 import Hashtag from "./Hashtag";
 import HashtagWrapper from "./HashtagWrapper";
 import useURLParse from "../../../../hooks/useURLParse";
@@ -11,7 +11,6 @@ import RecommendationClub from "./RecommendationClub";
 import SectionDesc from "../Common/SectionDesc";
 
 const RecommendWrapper = styled.div`
-  width: 1100px;
   margin: 0 auto;
   margin-top: 120px;
   @media (max-width: 1400px) {
@@ -20,14 +19,16 @@ const RecommendWrapper = styled.div`
 `;
 
 const RecommendationTheme = styled.div`
-  height: 153px;
+  height: 174px;
+  width: 378px;
   flex: 1;
   background-color: #fc7b95;
-  border-radius: 80px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 68px;
+  padding-left: 24px;
+  gap: 0.75rem;
 `;
 
 const ClubTitle = styled.div`
@@ -52,10 +53,10 @@ export default function RecommendSection() {
       </SectionDesc>
       <RecommendationContent>
         <RecommendationTheme>
-          <RecommendTheme>인성품과 보람 동시에 잡기</RecommendTheme>
-          <RecommendSubTheme>
+          <ThemeTitle>인성품과 보람 동시에 잡기</ThemeTitle>
+          <ThemeSubtitle>
             {`"뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"`}
-          </RecommendSubTheme>
+          </ThemeSubtitle>
           <HashtagWrapper>
             <Hashtag>#대학생활</Hashtag>
             <Hashtag>#봉사</Hashtag>

@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
 
 const RecommendationClub = styled.div`
-  width: 153px;
-  height: 153px;
+  width: 174px;
+  height: 174px;
   background-color: ${({ isSuwon, theme }) =>
     !isSuwon ? theme.palette.secondary.main : theme.palette.primary.main};
-  border-radius: 80px;
+  border-radius: 10px;
   font-size: 1.75rem;
   font-weight: 500;
   display: flex;
