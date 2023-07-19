@@ -7,7 +7,7 @@ const CategoryWrapper = styled.div`
   max-width: 1200px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 0 auto;
   margin-bottom: 2.5rem;
