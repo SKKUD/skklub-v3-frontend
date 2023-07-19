@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 const RecommendationClub = styled.div`
+  position: relative;
   width: 174px;
   height: 174px;
   background-color: ${({ isSuwon, theme }) =>
@@ -9,8 +10,9 @@ const RecommendationClub = styled.div`
   font-size: 1.75rem;
   font-weight: 500;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   @media (max-width: 768px) {
     width: 180px;

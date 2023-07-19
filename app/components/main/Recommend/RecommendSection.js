@@ -32,10 +32,30 @@ const RecommendationTheme = styled.div`
 `;
 
 const ClubTitle = styled.div`
-  width: 135px;
-  height: 93px;
+  /* width: 135px;
+  height: 93px; */
+
+  color: #303030;
   text-align: center;
+  font-family: Gmarket Sans;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 500;
+  line-height: 160%; /* 32px */
+  letter-spacing: -0.4px;
+`;
+
+const ClubType = styled.div`
+  position: absolute;
+  bottom: 20px;
+  color: #303030;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 180%; /* 25.2px */
+  letter-spacing: -0.14px;
 `;
 
 export default function RecommendSection() {
@@ -66,13 +86,16 @@ export default function RecommendSection() {
         </RecommendationTheme>
         <RecommendationClub isSuwon={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
+          <ClubType>평면예술/서예</ClubType>
         </RecommendationClub>
         <RecommendationClub isSuwon={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
+          <ClubType>평면예술/서예</ClubType>
         </RecommendationClub>
         {!matches_1024 && (
           <RecommendationClub isSuwon={isSuwon}>
             <ClubTitle>성균 민속 연구반 탈</ClubTitle>
+            <ClubType>평면예술/서예</ClubType>
           </RecommendationClub>
         )}
       </RecommendationContent>
