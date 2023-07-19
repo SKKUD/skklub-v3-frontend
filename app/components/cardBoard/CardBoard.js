@@ -7,7 +7,7 @@ import { useRecoilValue } from "recoil";
 import ClubCard from "./ClubCard";
 
 const BoardWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 990px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -15,8 +15,8 @@ const BoardWrapper = styled.div`
 
 const CardGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  max-width: 1200px;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
   row-gap: 30px;
   column-gap: 30px;
 
