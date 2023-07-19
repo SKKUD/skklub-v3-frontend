@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
 
 const NoticeTitle = styled.div`
-  color: white;
+  overflow: hidden;
+  color: #fff;
+  text-overflow: ellipsis;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 600;
-  font-size: 1.25rem;
-  width: 224px;
-  margin-bottom: 0.75rem;
+  line-height: normal;
 
   @media (max-width: 425px) {
     font-weight: 600;
