@@ -9,7 +9,6 @@ const FooterWrap = styled.div`
   font-weight: 600;
   text-align: center;
   background-color: #262626;
-  /* margin-top: 70px; */
   display: flex;
   justify-content: center;
   align-items: center;

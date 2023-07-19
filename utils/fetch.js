@@ -1,4 +1,4 @@
-const BASE_URL = process.env.DEV_URI;
+const BASE_URL = process.env.NEXT_PUBLIC_DEV_URI;
 
 export const getUsers = async () =>
   await fetch("https://jsonplaceholder.typicode.com/users").then((res) =>
@@ -36,12 +36,14 @@ export const getNoticeDetail = async (noticeId) =>
 export const getNoticeThumbnailCard = async () =>
   await fetch(`${BASE_URL}/notice/prev/thumbnail`).then((res) => res.json());
 
-export const getNoticeListwithRole = async ({ auth }) =>
-  await fetch(`${BASE_URL}/notice/prev?role=${auth}`).then((res) => res.json());
+export const getNoticeListwithRole = async ({ auth }) => {
+  await fetch(`${BASE_URL}/notice/prev`).then((res) => res.json());
+};
+// await fetch(`${BASE_URL}/notice/prev?role=${auth}`).then((res) => res.json());
 
 export const getNoticesFromKeyword = async ({ keyword }) =>
-  await fetch(`${BASE_URL}/notice/prev/search/title?title=${keyword}`).then((res) =>
-    res.json()
+  await fetch(`${BASE_URL}/notice/prev/search/title?title=${keyword}`).then(
+    (res) => res.json()
   );
 
 export const getNoticeFiles = async ({ filename }) =>

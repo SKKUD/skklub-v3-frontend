@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
+import { useQuery } from "@tanstack/react-query";
+import { getNoticeListwithRole } from "@/utils/fetch";
 
 const TableWrapper = styled.div`
   width: 100%;
@@ -32,9 +34,27 @@ const NoticeRowItem = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: pretendard;
+
   @media (max-width: 768px) {
     font-size: 1.125rem;
     line-height: 21px;
+  }
+
+  &.first-row {
+    flex: 0.5;
+    justify-content: flex-start;
+    padding-left: 13px;
+  }
+  &.second-row {
+    flex: 5;
+    justify-content: flex-start;
+  }
+  &.third-row {
+    flex: 2;
+  }
+  &.last-row {
+    flex: 1.2;
   }
 `;
 
@@ -51,41 +71,73 @@ const MobileItem = styled.div`
 
 const NoticeDivider = styled.hr`
   border: 0px;
-  border-top: 1px solid #737d81;
+  border-top: 0.3px solid #575757;
 `;
 
-const DUMMY_ARRAY = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+const content = [
+  {
+    noticeId: "1983279873",
+    title: "[밴드] 제 22회 못갖춘마디 정기공연 초청",
+    writerName: "못갖춘마디",
+    createdAt: "2023-04-25",
+  },
+  {
+    noticeId: "1983279874",
+    title: "[밴드] 제 22회 못갖춘마디 정기공연 초청",
+    writerName: "못갖춘마디",
+    createdAt: "2023-04-25",
+  },
+
+  {
+    noticeId: "1983279876",
+    title: "[밴드] 제 22회 못갖춘마디 정기공연 초청",
+    writerName: "못갖춘마디",
+    createdAt: "2023-04-25",
+  },
+  {
+    noticeId: "1983279878",
+    title: "[밴드] 제 22회 못갖춘마디 정기공연 초청",
+    writerName: "못갖춘마디",
+    createdAt: "2023-04-25",
+  },
+  {
+    noticeId: "1983279879",
+    title: "[밴드] 제 22회 못갖춘마디 정기공연 초청",
+    writerName: "못갖춘마디",
+    createdAt: "2023-04-25",
+  },
+];
 
 export default function NoticeTableBody() {
   const match768 = useMediaQuery("(max-width:768px)");
+  const { isLoading, data } = useQuery(["notices"], getNoticeListwithRole);
+
   return (
     <TableWrapper>
-      {DUMMY_ARRAY.map((ele, idx) => (
+      {content.map((item, idx) => (
         <div key={idx}>
           <NoticeRow>
             {!match768 && (
-              <NoticeRowItem style={{ width: "80px" }}>34</NoticeRowItem>
+              <NoticeRowItem className="first-row">{idx}</NoticeRowItem>
             )}
-            <NoticeRowItem style={{ flex: 1, justifyContent: "start" }}>
-              [밴드] 제 22회 못갖춘마디 정기공연 초청
-            </NoticeRowItem>
+            <NoticeRowItem className="second-row">{item.title}</NoticeRowItem>
             {match768 ? (
               <MobileItemWrapper>
-                <MobileItem>못갖춘마디</MobileItem>
-                <MobileItem>2023-04-25</MobileItem>
+                <MobileItem>{item.writerName}</MobileItem>
+                <MobileItem>{item.createdAt}</MobileItem>
               </MobileItemWrapper>
             ) : (
               <>
-                <NoticeRowItem style={{ width: "200px" }}>
-                  못갖춘 마디
+                <NoticeRowItem className="third-row">
+                  {item.writerName}
                 </NoticeRowItem>
-                <NoticeRowItem style={{ width: "150px" }}>
-                  2023-04-25
+                <NoticeRowItem className="last-row">
+                  {item.createdAt}
                 </NoticeRowItem>
               </>
             )}
           </NoticeRow>
-          <NoticeDivider />
+          {idx !== content.length - 1 && <NoticeDivider />}
         </div>
       ))}
     </TableWrapper>
