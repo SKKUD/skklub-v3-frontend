@@ -2,17 +2,12 @@ import styled from "@emotion/styled";
 import useURLParse from "../../../../hooks/useURLParse";
 
 const BorrowWrapper = styled.div`
-  background-color: ${(props) =>
-    props.campus
-      ? ({ theme }) => theme.palette.primary.main
-      : ({ theme }) => theme.palette.secondary.main};
-
+  background-color: #fc7b95;
   width: 100%;
-  max-width: 1182px;
-  height: 160px;
+  height: 120px;
   margin: 0 auto;
   margin-top: 10rem;
-  border-radius: 0.75rem;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
