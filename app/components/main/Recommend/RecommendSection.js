@@ -34,7 +34,10 @@ const RecommendationTheme = styled.div`
 const ClubTitle = styled.div`
   /* width: 135px;
   height: 93px; */
-
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
   color: #303030;
   text-align: center;
   font-family: Gmarket Sans;
@@ -46,8 +49,9 @@ const ClubTitle = styled.div`
 `;
 
 const ClubType = styled.div`
-  position: absolute;
-  bottom: 20px;
+  /* position: absolute;
+  bottom: 20px; */
+  margin-bottom: 20px;
   color: #303030;
   text-align: center;
   font-family: Pretendard;

@@ -11,8 +11,8 @@ const RecommendationClub = styled.div`
   font-weight: 500;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* align-items: center;
+  justify-content: center; */
 
   @media (max-width: 768px) {
     width: 180px;

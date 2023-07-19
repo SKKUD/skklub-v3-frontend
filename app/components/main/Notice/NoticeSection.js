@@ -9,6 +9,7 @@ import MoreBtn from "./MoreBtn";
 import NoticeDate from "./NoticeDate";
 import NoticeTitle from "./NoticeTitle";
 import NoticeWriter from "./NoticeWriter";
+import SectionDesc from "../Common/SectionDesc";
 
 const NoticeWrapper = styled.div`
   position: relative;
@@ -17,21 +18,21 @@ const NoticeWrapper = styled.div`
 `;
 
 const NoticeHeader = styled.div`
-  width: 1100px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  @media (max-width: 1400px) {
+  /* @media (max-width: 1400px) {
     width: 100%;
-  }
+  } */
 `;
 
 const CarouselContainer = styled.div`
   height: 346px;
-  width: 1182px;
+  width: 100%;
   background-color: transparent;
   margin: 0 auto;
-  margin-top: 2rem;
+  margin-top: 1rem;
   @media (max-width: 1400px) {
     width: 910px;
   }
@@ -68,10 +69,14 @@ export default function NoticeSection() {
   const matches_950 = useMediaQuery("(max-width:950px)");
   return (
     <NoticeWrapper>
-      <NoticeHeader>
-        <SectionTitle>공지사항</SectionTitle>
-        <MoreBtn>MORE</MoreBtn>
-      </NoticeHeader>
+      {/* <NoticeHeader> */}
+      <SectionTitle>공지사항</SectionTitle>
+      {/* <MoreBtn>MORE</MoreBtn> */}
+      <SectionDesc>
+        성균관대학교 동아리연합회에서 공지사항을 알려드립니다! <br />
+        동아리와 학교에 관한 새로운 소식들을 들어보세요!
+      </SectionDesc>
+      {/* </NoticeHeader> */}
       <CarouselContainer>
         <Carousel
           {...DefaultSettingsT}
