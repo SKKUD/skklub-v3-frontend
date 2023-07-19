@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const Phrase = styled.div`
+const SectionTitle = styled.div`
   font-size: 2rem;
   font-weight: 500;
 
@@ -10,4 +10,4 @@ const Phrase = styled.div`
   }
 `;
 
-export default Phrase;
+export default SectionTitle;

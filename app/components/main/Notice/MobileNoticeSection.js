@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
-import Phrase from "../Common/Phrase";
+import SectionTitle from "../Common/SectionTitle";
 import NoticeCard from "./NoticeCard";
 import MoreBtn from "./MoreBtn";
 import NoticeDate from "./NoticeDate";
@@ -23,7 +23,7 @@ export default function MobileNoticeSection() {
   const matches_560 = useMediaQuery("(max-width:560px)");
   return (
     <MobileNoticeWrapper>
-      <Phrase>공지사항</Phrase>
+      <SectionTitle>공지사항</SectionTitle>
       <MoreBtn>More</MoreBtn>
       <SmallCardContainer>
         <NoticeCard imageUrl="/assets/images/one.png">

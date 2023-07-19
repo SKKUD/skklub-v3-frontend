@@ -71,7 +71,7 @@ export default function HomePageLayout() {
         <ClubCarousel />
       </FullScreenWrapper>
       <CampusSwitch />
-      <PromotionBanner isSuwon={isSuwon}>동아리 홍보배너</PromotionBanner>
+      {/* <PromotionBanner isSuwon={isSuwon}>동아리 홍보배너</PromotionBanner> */}
       <ContentWrapper>
         {matches_768 ? <MobileRecommendSection /> : <RecommendSection />}
         {matches_680 ? <MobileNoticeSection /> : <NoticeSection />}
