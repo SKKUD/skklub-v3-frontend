@@ -3,7 +3,7 @@ import Carousel from "react-material-ui-carousel";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useMediaQuery } from "@mui/material";
-import Phrase from "../Common/Phrase";
+import SectionTitle from "../Common/SectionTitle";
 import NoticeCard from "./NoticeCard";
 import MoreBtn from "./MoreBtn";
 import NoticeDate from "./NoticeDate";
@@ -69,7 +69,7 @@ export default function NoticeSection() {
   return (
     <NoticeWrapper>
       <NoticeHeader>
-        <Phrase>공지사항</Phrase>
+        <SectionTitle>공지사항</SectionTitle>
         <MoreBtn>MORE</MoreBtn>
       </NoticeHeader>
       <CarouselContainer>

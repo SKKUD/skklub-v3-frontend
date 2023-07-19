@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import Phrase from "../Common/Phrase";
+import SectionTitle from "../Common/SectionTitle";
 import RecommendTheme from "./RecommendTheme";
 import RecommendSubTheme from "./RecommendSubThem";
 import HashtagWrapper from "./HashtagWrapper";
@@ -37,7 +37,7 @@ export default function MobileRecommendSection() {
 
   return (
     <MobileRecommendWrapper>
-      <Phrase>오늘의 추천동아리</Phrase>
+      <SectionTitle>오늘의 추천동아리</SectionTitle>
       <SmallContentContainer>
         <div>
           <RecommendTheme>인성품과 보람 동시에 잡기</RecommendTheme>
