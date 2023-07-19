@@ -5,8 +5,8 @@ import RecommendSubTheme from "./RecommendSubThem";
 import HashtagWrapper from "./HashtagWrapper";
 import Hashtag from "./Hashtag";
 import useURLParse from "../../../../hooks/useURLParse";
-import { CircleContainer } from "./CircleContainer";
-import ClubCircle from "./ClubCircle";
+import { RecommendationContent } from "./RecommendationContent";
+import RecommendationClub from "./RecommendationClub";
 
 const MobileRecommendWrapper = styled.div`
   width: 100%;
@@ -50,11 +50,17 @@ export default function MobileRecommendSection() {
             <Hashtag>#친구</Hashtag>
             <Hashtag>#사회공헌</Hashtag>
           </HashtagWrapper>
-          <CircleContainer>
-            <ClubCircle campus={isSuwon}>성균 민속 연구반 탈</ClubCircle>
-            <ClubCircle campus={isSuwon}>성균 민속 연구반 탈</ClubCircle>
-            <ClubCircle campus={isSuwon}>성균 민속 연구반 탈</ClubCircle>
-          </CircleContainer>
+          <RecommendationContent>
+            <RecommendationClub campus={isSuwon}>
+              성균 민속 연구반 탈
+            </RecommendationClub>
+            <RecommendationClub campus={isSuwon}>
+              성균 민속 연구반 탈
+            </RecommendationClub>
+            <RecommendationClub campus={isSuwon}>
+              성균 민속 연구반 탈
+            </RecommendationClub>
+          </RecommendationContent>
         </div>
       </SmallContentContainer>
     </MobileRecommendWrapper>

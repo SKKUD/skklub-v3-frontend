@@ -6,8 +6,9 @@ import RecommendSubTheme from "./RecommendSubThem";
 import Hashtag from "./Hashtag";
 import HashtagWrapper from "./HashtagWrapper";
 import useURLParse from "../../../../hooks/useURLParse";
-import { CircleContainer } from "./CircleContainer";
-import ClubCircle from "./ClubCircle";
+import { RecommendationContent } from "./RecommendationContent";
+import RecommendationClub from "./RecommendationClub";
+import SectionDesc from "../Common/SectionDesc";
 
 const RecommendWrapper = styled.div`
   width: 1100px;
@@ -18,7 +19,7 @@ const RecommendWrapper = styled.div`
   }
 `;
 
-const IntroCircle = styled.div`
+const RecommendationTheme = styled.div`
   height: 153px;
   flex: 1;
   background-color: #fc7b95;
@@ -44,8 +45,13 @@ export default function RecommendSection() {
   return (
     <RecommendWrapper>
       <SectionTitle>오늘의 추천동아리</SectionTitle>
-      <CircleContainer>
-        <IntroCircle>
+      <SectionDesc>
+        스클럽이 추천하는 동아리를 잘 살펴보세요!
+        <br />잘 모르던 분야도 함께 활동하다보면 어느새 즐거운 동료가
+        되어있을거에요!
+      </SectionDesc>
+      <RecommendationContent>
+        <RecommendationTheme>
           <RecommendTheme>인성품과 보람 동시에 잡기</RecommendTheme>
           <RecommendSubTheme>
             {`"뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"`}
@@ -56,19 +62,19 @@ export default function RecommendSection() {
             <Hashtag>#친구</Hashtag>
             {!matches_950 && <Hashtag>#사회공헌</Hashtag>}
           </HashtagWrapper>
-        </IntroCircle>
-        <ClubCircle isSuwon={isSuwon}>
+        </RecommendationTheme>
+        <RecommendationClub isSuwon={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-        </ClubCircle>
-        <ClubCircle isSuwon={isSuwon}>
+        </RecommendationClub>
+        <RecommendationClub isSuwon={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-        </ClubCircle>
+        </RecommendationClub>
         {!matches_1024 && (
-          <ClubCircle isSuwon={isSuwon}>
+          <RecommendationClub isSuwon={isSuwon}>
             <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-          </ClubCircle>
+          </RecommendationClub>
         )}
-      </CircleContainer>
+      </RecommendationContent>
     </RecommendWrapper>
   );
 }

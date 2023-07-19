@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const CircleContainer = styled.div`
+export const RecommendationContent = styled.div`
   display: flex;
   width: 100%;
   gap: 17px;

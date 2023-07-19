@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const ClubCircle = styled.div`
+const RecommendationClub = styled.div`
   width: 153px;
   height: 153px;
   background-color: ${({ isSuwon, theme }) =>
@@ -26,4 +26,4 @@ const ClubCircle = styled.div`
   }
 `;
 
-export default ClubCircle;
+export default RecommendationClub;
