@@ -1,4 +1,4 @@
-const BASE_URL = "http://api.dev.skklub.com";
+const BASE_URL = process.env.NEXT_PUBLIC_DEV_URI;
 
 export const getUsers = async () =>
   await fetch("https://jsonplaceholder.typicode.com/users").then((res) =>
@@ -29,3 +29,30 @@ export const getClubsFromPartialKeyword = async ({ keyword }) =>
   await fetch(`${BASE_URL}/club/search/prevs?name=${keyword}`).then((res) =>
     res.json()
   );
+
+export const getNoticeDetail = async (noticeId) =>{
+  const response = await fetch(`${BASE_URL}/notice/${noticeId}`)
+  return await response.json(); 
+}
+
+export const getNoticeThumbnailCard = async () =>{
+  const response = await fetch(`${BASE_URL}/notice/prev/thumbnail`)
+  return await response.json(); 
+}
+  
+
+export const getNoticeListwithRole = async ({ auth }) => {
+  const response = await fetch(`${BASE_URL}/notice/prev`)
+  return await response.json(); 
+};
+// await fetch(`${BASE_URL}/notice/prev?role=${auth}`).then((res) => res.json());
+
+export const getNoticesFromKeyword = async ({ keyword }) =>{
+const response = await fetch(`${BASE_URL}/notice/prev/search/title?title=${keyword}`);
+return await response.json(); 
+};
+
+  export const getNoticeFiles = async ({ filename }) => {
+    const response = await fetch(`${BASE_URL}/notice/file?fileSavedName=${filename}`);
+    return await response.json();
+  };

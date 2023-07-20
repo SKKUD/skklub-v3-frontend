@@ -3,16 +3,15 @@ import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import NoticeRadioBtns from "@/app/components/notices/NoticeRadioBtns";
-import NoticeTableHeader from "@/app/components/notices/NoticeTableHeader";
 import NoticeTableBody from "@/app/components/notices/NoticeTableBody";
-import NoticeTablePagination from "@/app/components/notices/NoticeTablePagination";
+import Footer from "../components/common/Footer";
 
 const NoticesBanner = styled.div`
   width: 100%;
-  height: 378px;
+  height: 236px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.70);
@@ -23,8 +22,7 @@ const NoticesBanner = styled.div`
 
 const SubTitle = styled.div`
   font-weight: 400;
-  font-size: 2rem;
-  line-height: 2rem;
+  font-size: 16px;
   @media (max-width: 768px) {
     font-weight: 400;
     font-size: 1.25rem;
@@ -33,8 +31,7 @@ const SubTitle = styled.div`
 `;
 const Title = styled.div`
   font-weight: 600;
-  font-size: 3rem;
-  line-height: 2rem;
+  font-size: 32px;
   @media (max-width: 768px) {
     font-weight: 900;
     font-size: 2.5rem;
@@ -46,7 +43,7 @@ const NoticesContentWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 1.5rem;
-  margin-bottom: 300px;
+  margin-bottom: 100px;
   @media (max-width: 1200px) {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -57,12 +54,7 @@ const NoticesContentWrapper = styled.div`
 `;
 
 export default function Notices() {
-  const [page, setPage] = useState(1);
   const match768 = useMediaQuery("(max-width:768px)");
-  const handlePageChange = (e, value) => {
-    e.preventDefault();
-    setPage(value);
-  };
 
   return (
     <>
@@ -72,13 +64,9 @@ export default function Notices() {
       </NoticesBanner>
       <NoticesContentWrapper>
         <NoticeRadioBtns />
-        {!match768 && <NoticeTableHeader />}
         <NoticeTableBody />
-        <NoticeTablePagination
-          page={page}
-          handlePageChange={handlePageChange}
-        />
       </NoticesContentWrapper>
+      <Footer/>
     </>
   );
 }
