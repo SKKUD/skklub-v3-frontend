@@ -10,6 +10,7 @@ import styles from "./hamburger.module.css";
 import Link from "next/link";
 import { useSetRecoilState } from "recoil";
 import { categoryState } from "@/utils/atoms";
+import CampusSwitch from "../CampusSwitch/CampusSwitch";
 
 const HeaderWrap = styled.div`
   position: fixed;
@@ -94,7 +95,7 @@ const NavButtonFont = styled.div`
 const NavWrap = styled.div`
   display: flex;
   width: 50%;
-  min-width: 600px;
+  min-width: 500px;
   justify-content: space-between;
 
   @media (max-width: 1023px) {
@@ -206,7 +207,9 @@ export default function HeaderBar({ location, isSuwon, type }) {
               />
             ))}
           </NavWrap>
+          
           <IconButtonsWrap>
+          {!match760 && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
                 <CloseIcon sx={{ fontSize: "35px", color: "#666" }} />
