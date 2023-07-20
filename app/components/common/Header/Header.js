@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <>
-      {location === "" ? null : type === undefined && scrollPosition < 60 ? (
+      {location === "" ? null : location!=="notices" && type === undefined && scrollPosition < 60 ? (
         <HomePageLogo location={location} />
       ) : (
         <HeaderBar location={location} type={type} isSuwon={isSuwon} />
