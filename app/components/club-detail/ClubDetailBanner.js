@@ -27,6 +27,8 @@ const BannerContent = styled.div`
 `;
 
 const InfoWrapper = styled.div`
+  position: relative;
+  flex: 1;
   height: 174px;
   display: flex;
   flex-direction: column;
@@ -141,6 +143,36 @@ const BannerSubContent = styled.div`
   }
 `;
 
+const ClubPageNaviagateBtn = styled.button`
+  position: absolute;
+  /* bottom: 24px; */
+  right: 0;
+  width: 188px;
+  height: 39px;
+  background-color: #fff;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  overflow: hidden;
+  color: #151717;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  @media (max-width: 760px) {
+    position: relative;
+    margin: 0 auto;
+    right: 0;
+    bottom: 0;
+    margin-top: 2rem;
+  }
+`;
+
 export default function ClubDetailBanner() {
   const match425 = useMediaQuery("(max-width:425px)");
   return (
@@ -168,6 +200,7 @@ export default function ClubDetailBanner() {
             <br />잘 모르던 분야도 함께 활동하다보면 어느새 즐거운 동료가
             되어있을 거에요!
           </BannerSubContent>
+          <ClubPageNaviagateBtn>동아리 페이지 바로가기</ClubPageNaviagateBtn>
         </InfoWrapper>
         {/* <BannerMainContent>
           <ClubInfoWrapper>
