@@ -1,10 +1,13 @@
 import styled from "@emotion/styled";
 
 export const SectionTitle = styled.div`
+  margin-bottom: 20px;
+  color: #fff;
+  font-size: 1.75rem;
+  font-style: normal;
   font-weight: 500;
-  font-size: 1.25rem;
-  line-height: 107.5%;
-  margin-bottom: 0.5rem;
+  line-height: 100%; /* 28px */
+  letter-spacing: -0.56px;
 `;
 
 export const SectionDivider = styled.hr`

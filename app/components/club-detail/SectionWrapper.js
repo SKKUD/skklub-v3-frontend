@@ -2,11 +2,11 @@ import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
   background-color: #2c2c2c;
-  height: 264px;
+  height: 225px;
   border-radius: 10px;
-  padding-top: 1.75rem;
-  padding-left: 2.125rem;
-  padding-right: 2.125rem;
+  padding-top: 34px;
+  padding-left: 30px;
+  padding-right: 30px;
   position: relative;
 
   @media (max-width: 760px) {
