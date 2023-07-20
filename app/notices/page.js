@@ -9,22 +9,25 @@ import NoticeTablePagination from "@/app/components/notices/NoticeTablePaginatio
 
 const NoticesBanner = styled.div`
   width: 100%;
-  height: 378px;
+  height: 236px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
   justify-content: center;
   align-items: center;
-  background-color: #262626;
+  background-color: rgba(0, 0, 0, 1);
   @media (max-width: 768px) {
     gap: 30px;
   }
 `;
 
 const SubTitle = styled.div`
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
   font-weight: 400;
-  font-size: 2rem;
-  line-height: 2rem;
+  line-height: normal;
   @media (max-width: 768px) {
     font-weight: 400;
     font-size: 1.25rem;
@@ -32,9 +35,11 @@ const SubTitle = styled.div`
   }
 `;
 const Title = styled.div`
-  font-weight: 600;
-  font-size: 3rem;
-  line-height: 2rem;
+  color: #fff;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
   @media (max-width: 768px) {
     font-weight: 900;
     font-size: 2.5rem;
