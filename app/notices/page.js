@@ -48,7 +48,7 @@ const Title = styled.div`
 `;
 
 const NoticesContentWrapper = styled.div`
-  max-width: 1200px;
+  max-width: 1050px;
   margin: 0 auto;
   margin-top: 1.5rem;
   margin-bottom: 300px;
@@ -59,6 +59,14 @@ const NoticesContentWrapper = styled.div`
   @media (max-width: 768px) {
     margin-top: 0;
   }
+`;
+
+const NoticesBoard = styled.div`
+  width: 100%;
+  background-color: #2a3133;
+  border-radius: 10px;
+  padding-top: 47px;
+  margin-top: 24px;
 `;
 
 export default function Notices() {
@@ -77,12 +85,14 @@ export default function Notices() {
       </NoticesBanner>
       <NoticesContentWrapper>
         <NoticeRadioBtns />
-        {!match768 && <NoticeTableHeader />}
-        <NoticeTableBody />
-        <NoticeTablePagination
-          page={page}
-          handlePageChange={handlePageChange}
-        />
+        <NoticesBoard>
+          {!match768 && <NoticeTableHeader />}
+          <NoticeTableBody />
+          <NoticeTablePagination
+            page={page}
+            handlePageChange={handlePageChange}
+          />
+        </NoticesBoard>
       </NoticesContentWrapper>
     </>
   );

@@ -15,7 +15,6 @@ export default function NoticeRadioBtns() {
           row
           aria-labelledby="demo-row-radio-buttons-group-label"
           name="row-radio-buttons-group"
-          sx={{ marginLeft: "30px" }}
         >
           <FormControlLabel
             value="all"
