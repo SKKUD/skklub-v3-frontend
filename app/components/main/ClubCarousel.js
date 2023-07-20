@@ -50,7 +50,7 @@ const StyledCard = styled.div`
   height: 70vh;
   min-height: 600px;
   border-radius: 20px;
-  background-color: #303030;
+  background-color: #2A3133;
   text-align: center;
   margin: 0 auto;
 

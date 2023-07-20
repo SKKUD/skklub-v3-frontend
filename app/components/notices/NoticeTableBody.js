@@ -4,7 +4,7 @@ import { useMediaQuery } from "@mui/material";
 const TableWrapper = styled.div`
   width: 100%;
   padding: 27px 44px;
-  background-color: #2c2c2c;
+  background-color: #2A3133;
   margin-top: 18px;
   border-radius: 12px;
   @media (max-width: 768px) {

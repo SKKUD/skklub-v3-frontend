@@ -15,7 +15,7 @@ const NoticesBanner = styled.div`
   gap: 40px;
   justify-content: center;
   align-items: center;
-  background-color: #262626;
+  background-color: rgba(0, 0, 0, 0.70);
   @media (max-width: 768px) {
     gap: 30px;
   }
