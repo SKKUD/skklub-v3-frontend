@@ -4,7 +4,7 @@ const AttributeRow = styled.div`
   width: 100%;
   height: 56px;
   display: flex;
-  background-color: #2c2c2c;
+  background-color: #2A3133;
   border-radius: 10px;
   gap: 20px;
   padding: 0 36px;

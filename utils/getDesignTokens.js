@@ -27,7 +27,7 @@ const getDesignTokens = (mode) => ({
             main: "#16A480",
           },
           background: {
-            paper: "#434C4F",
+            paper: "#2A3133",
             default: "#151717",
           },
           text: {
