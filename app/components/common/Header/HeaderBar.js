@@ -44,8 +44,7 @@ const HeaderInner = styled.div`
 `;
 
 const HomeImgWrap = styled.div`
-  margin-right: 80px;
-  width: 132px;
+  width: 120px;
   display: flex;
   align-items: center;
 
@@ -55,7 +54,6 @@ const HomeImgWrap = styled.div`
   }
 
   @media (max-width: 1024px) {
-    margin-right: 60px;
     width: 110px;
   }
 
@@ -69,8 +67,8 @@ const HomeImgWrap = styled.div`
 `;
 
 const NavButtonFont = styled.div`
-  font-weight: bold;
-  line-height: 1.25rem;
+  font-weight: 600;
+  line-height: 16px;
   color: ${(props) =>
     props.isMatch
       ? props.isSuwon
@@ -95,7 +93,8 @@ const NavButtonFont = styled.div`
 
 const NavWrap = styled.div`
   display: flex;
-  width: 65%;
+  width: 50%;
+  min-width: 600px;
   justify-content: space-between;
 
   @media (max-width: 1023px) {
