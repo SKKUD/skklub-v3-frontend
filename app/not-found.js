@@ -35,7 +35,7 @@ const Styledbtn = styled.div`
   background-color: #fff;
   text-align: center;
   &:hover {
-    background-color: ${({ theme }) => theme.palette.primary.main};
+    background-color: ${({ theme }) => theme.palette.secondary.main};
     > a {
       color: #fff;
     }
@@ -47,7 +47,7 @@ const Styledbtn = styled.div`
   }
 `;
 
-const NotFoundPage = () => {
+export default function NotFoundPage() {
   return (
     <Container>
       <Img404 src="/assets/images/404.png" />
@@ -60,5 +60,3 @@ const NotFoundPage = () => {
     </Container>
   );
 };
-
-export default NotFoundPage;
