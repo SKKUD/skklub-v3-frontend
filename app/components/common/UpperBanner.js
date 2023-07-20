@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 const BannerWrapper = styled.div`
   width: 100vw;
-  height: 378px;
+  height: 236px;
   background-color: green;
   display: flex;
   justify-content: center;
