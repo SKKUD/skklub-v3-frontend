@@ -3,9 +3,8 @@ import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import NoticeRadioBtns from "@/app/components/notices/NoticeRadioBtns";
-import NoticeTableHeader from "@/app/components/notices/NoticeTableHeader";
 import NoticeTableBody from "@/app/components/notices/NoticeTableBody";
-import NoticeTablePagination from "@/app/components/notices/NoticeTablePagination";
+import Footer from "../components/common/Footer";
 
 const NoticesBanner = styled.div`
   width: 100%;
@@ -44,7 +43,7 @@ const NoticesContentWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 1.5rem;
-  margin-bottom: 300px;
+  margin-bottom: 100px;
   @media (max-width: 1200px) {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -55,12 +54,7 @@ const NoticesContentWrapper = styled.div`
 `;
 
 export default function Notices() {
-  const [page, setPage] = useState(1);
   const match768 = useMediaQuery("(max-width:768px)");
-  const handlePageChange = (e, value) => {
-    e.preventDefault();
-    setPage(value);
-  };
 
   return (
     <>
@@ -70,13 +64,9 @@ export default function Notices() {
       </NoticesBanner>
       <NoticesContentWrapper>
         <NoticeRadioBtns />
-        {!match768 && <NoticeTableHeader />}
         <NoticeTableBody />
-        <NoticeTablePagination
-          page={page}
-          handlePageChange={handlePageChange}
-        />
       </NoticesContentWrapper>
+      <Footer/>
     </>
   );
 }
