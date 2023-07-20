@@ -12,26 +12,17 @@ import styled from "@emotion/styled";
 import useURLParse from "@/hooks/useURLParse";
 
 const SearchbarWrap = styled.div`
-  /* position: sticky;
-  top: 70px;
-  width: 70%;
-  min-height: 70px;
-  margin: 0px auto;
-  margin-top: -70px;
-  background-color: #151717;
-  z-index: 50;
-  padding: 0 30px; */
   position: fixed;
-  top: 70px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   width: 70%;
-  min-height: 70px;
-  background-color: #151717;
+  min-height: 60px;
+  background-color: #2a3133;
   z-index: 50;
   padding: 0 30px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 
   @media (max-width: 1024px) {
     width: 90%;
@@ -46,8 +37,8 @@ const StyledInput = styled(Input)`
   height: 60px;
   .MuiInputBase-input {
     height: 1.5em;
-    line-height: 1.5em;
-    font-size: 1.2rem;
+    line-height: 20px;
+    font-size: 16px;
   }
 
   &::after {
@@ -60,15 +51,15 @@ const StyledInput = styled(Input)`
 `;
 
 const SuggestionBox = styled.div`
-  background-color: #151717;
+  background-color: #2a3133;
   position: sticky;
-  top: 140px;
+  /* top: 140px; */
   width: 100%;
   height: auto;
   max-height: 300px;
   overflow: scroll;
   margin: 0px auto;
-  padding: 10px;
+  padding: 0 10px;
   z-index: 60;
 
   @media (max-width: 1024px) {
