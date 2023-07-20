@@ -2,6 +2,7 @@
 
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
+import {useState,useEffect} from "react";
 import RecommendSection from "@/app/components/main/Recommend/RecommendSection";
 import NoticeSection from "@/app/components/main/Notice/NoticeSection";
 import BorrowSection from "@/app/components/main/Borrow/BorrowSection";
@@ -10,6 +11,7 @@ import MobileNoticeSection from "@/app/components/main/Notice/MobileNoticeSectio
 import ClubCarousel from "@/app/components/main/ClubCarousel";
 import useURLParse from "@/hooks/useURLParse";
 import useScreenHeight from "@/hooks/useScreenHeight";
+import Fadeinout from "@/app/components/main/Fadeinout";
 
 const FullScreenWrapper = styled.div`
   width: 100%;
@@ -65,9 +67,18 @@ export default function HomePageLayout() {
   const matches_680 = useMediaQuery("(max-width:680px)");
   const [homeContainerHeight] = useScreenHeight();
   const { isSuwon } = useURLParse();
+  const [showFadeinout, setFadeinout] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setFadeinout(false);
+    }, 750);
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <>
+      <Fadeinout showFadeinout={showFadeinout}/>
       <FullScreenWrapper height={`${homeContainerHeight}px`}>
         <ClubCarousel />
       </FullScreenWrapper>

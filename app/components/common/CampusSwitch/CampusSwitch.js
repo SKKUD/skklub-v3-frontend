@@ -1,36 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "@emotion/styled";
 import useURLParse from "../../../../hooks/useURLParse";
 import { useRouter } from "next/navigation";
 
-const Fadeinout = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #222;
-  animation: fade-in-out 0.7s ease-in-out forwards;
-  display: ${(props) => (props.show ? "block" : "none")};
-
-  @keyframes fade-in-out {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-`;
-
 const ToggleContainer = styled.div`
   position: relative;
   cursor: pointer;
+  margin-right: 20px;
 
   > .toggle-container {
     width: 116px;
@@ -95,39 +73,52 @@ export default function CampusSwitch() {
   const router = useRouter();
   const { isSuwon, type } = useURLParse();
   const [isOn, setisOn] = useState(isSuwon); // false일때 명, true일때 율
-  const [showFadeinout, setFadeinout] = useState(true);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setFadeinout(false);
-    }, 750);
-    return () => clearTimeout(timeout);
-  }, []);
+  // const toggleHandler = () => {
+  //   setisOn(!isOn);
 
-  const toggleHandler = () => {
+  //   if (isOn) {
+  //     setTimeout(() => {
+  //       if (type === undefined) {
+  //         router.push(`/seoul`).then(() => window.location.reload());
+  //       } else {
+  //         router.push(`/seoul/${type}`);
+  //       }
+  //     }, 750);
+  //   } else {
+  //     setTimeout(() => {
+  //       if (type === undefined) {
+  //         router.push(`/suwon`).then(() => window.location.reload());
+  //       } else {
+  //         router.push(`/suwon/${type}`);
+  //       }
+  //     }, 750);
+  //   }
+  // };
+
+  const toggleHandler = async () => {
     setisOn(!isOn);
+    
     if (isOn) {
-      setTimeout(() => {
-        if (type === undefined) {
-          router.push(`/seoul`);
-        } else {
-          router.push(`/seoul/${type}`);
-        }
-      }, 750);
+      await new Promise((resolve) => setTimeout(resolve, 750)); // Delay for smooth transition (optional)
+      if (type === undefined) {
+        router.push(`/seoul`);
+      } else {
+        router.push(`/seoul/${type}`);
+      }
     } else {
-      setTimeout(() => {
-        if (type === undefined) {
-          router.push(`/suwon`);
-        } else {
-          router.push(`/suwon/${type}`);
-        }
-      }, 750);
+      await new Promise((resolve) => setTimeout(resolve, 750)); // Delay for smooth transition (optional)
+      if (type === undefined) {
+        router.push(`/suwon`);
+      } else {
+        router.push(`/suwon/${type}`);
+      }
     }
+    window.scrollTo(0, 0);
   };
 
   return (
     <>
-      <Fadeinout show={showFadeinout} />
       <ToggleContainer onClick={toggleHandler}>
         <div className={`toggle-container ${isOn && "suwon"}`}>
           <div>명륜</div> <div>율전</div>

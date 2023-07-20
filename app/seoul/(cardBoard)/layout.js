@@ -18,7 +18,6 @@ export default function CardBoardLayout({ children }) {
         <Categories />
         {children}
       </MainSection>
-      <CampusSwitch />
     </>
   );
 }
