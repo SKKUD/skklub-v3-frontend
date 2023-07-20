@@ -209,7 +209,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
           </NavWrap>
           
           <IconButtonsWrap>
-          {!match760  && <CampusSwitch />}
+          {type!=="notices" && !match760  && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
                 <CloseIcon sx={{ fontSize: "35px", color: "#666" }} />
