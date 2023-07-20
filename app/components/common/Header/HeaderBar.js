@@ -236,7 +236,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
       ) : match760 ? (
         <ResponsiveMargin height={80} />
       ) : (
-        <ResponsiveMargin height={70} />
+        <ResponsiveMargin height={60} />
       )}
       <Sidebar isOpen={isOpen} setOpen={setOpen} navItems={navItems} />
     </>
