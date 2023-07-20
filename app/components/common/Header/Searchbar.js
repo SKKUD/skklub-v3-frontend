@@ -44,7 +44,7 @@ const StyledInput = styled(Input)`
   &::after {
     border-bottom: 2px solid
       ${(props) =>
-        props.campus
+        props.campus === "true"
           ? props.theme.palette.primary.main
           : props.theme.palette.secondary.main};
   }
@@ -129,7 +129,7 @@ export default function Searchbar({ setIsSearchVisible }) {
   return (
     <SearchbarWrap ref={outside}>
       <StyledInput
-        campus={isSuwon}
+        campus={isSuwon.toString()}
         fullWidth
         placeholder="동아리를 입력하세요."
         value={searchTerm}
