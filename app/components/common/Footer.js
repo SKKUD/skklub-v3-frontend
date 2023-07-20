@@ -2,13 +2,13 @@ import styled from "@emotion/styled";
 
 const FooterWrap = styled.div`
   width: 100%;
-  height: 300px;
+  height: 120px;
   font-size: 1rem;
   font-family: pretendard;
   color: rgba(255, 255, 255, 0.5);
   font-weight: 600;
   text-align: center;
-  background-color: #262626;
+  background-color: #2a3133;
   /* margin-top: 70px; */
   display: flex;
   justify-content: center;
