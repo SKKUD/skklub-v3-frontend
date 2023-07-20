@@ -7,12 +7,12 @@ import NoticeSection from "@/app/components/main/Notice/NoticeSection";
 import BorrowSection from "@/app/components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "@/app/components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "@/app/components/main/Notice/MobileNoticeSection";
-import CampusSwitch from "@/app/components/common/CampusSwitch";
+import CampusSwitch from "@/app/components/common/CampusSwitch/CampusSwitch";
 import ClubCarousel from "@/app/components/main/ClubCarousel";
 import useURLParse from "@/hooks/useURLParse";
 import useScreenHeight from "@/hooks/useScreenHeight";
 
-const HomeContainer = styled.div`
+const FullScreenWrapper = styled.div`
   width: 100%;
   min-height: ${(props) => props.height};
   text-align: center;
@@ -48,14 +48,16 @@ const PromotionBanner = styled.div`
   }
 `;
 
-const ContentContainer = styled.div`
+const ContentWrapper = styled.div`
   width: 100%;
-  padding: 0 1rem;
+  max-width: 990px;
+
   margin: 0 auto;
   padding-bottom: 14rem;
   @media (max-width: 425px) {
     padding-bottom: 4rem;
     max-height: 600px;
+    padding: 0 1rem;
   }
 `;
 
@@ -67,16 +69,16 @@ export default function HomePageLayout() {
 
   return (
     <>
-      <HomeContainer height={`${homeContainerHeight}px`}>
+      <FullScreenWrapper height={`${homeContainerHeight}px`}>
         <ClubCarousel />
-      </HomeContainer>
+      </FullScreenWrapper>
       <CampusSwitch />
-      <PromotionBanner isSuwon={isSuwon}>동아리 홍보배너</PromotionBanner>
-      <ContentContainer>
+      {/* <PromotionBanner isSuwon={isSuwon}>동아리 홍보배너</PromotionBanner> */}
+      <ContentWrapper>
         {matches_768 ? <MobileRecommendSection /> : <RecommendSection />}
         {matches_680 ? <MobileNoticeSection /> : <NoticeSection />}
         <BorrowSection />
-      </ContentContainer>
+      </ContentWrapper>
     </>
   );
 }

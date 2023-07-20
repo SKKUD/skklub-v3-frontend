@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const ContentWrapper = styled.div`
+const PageWrapper = styled.div`
   max-width: 1200px;
   width: 100%;
   margin: 1rem auto;
@@ -15,7 +15,7 @@ const ContentWrapper = styled.div`
   padding-bottom: 3rem;
 `;
 
-const TitleWrapper = styled.div`
+const TitleBox = styled.div`
   background-color: rgba(44, 44, 44, 1);
   padding: 2rem;
   border-radius: 10px;
@@ -44,7 +44,7 @@ const SubTitle = styled.div`
   color: rgba(255, 255, 255, 0.7);
 `;
 
-const MainTextWrapper = styled.div`
+const ContentBox = styled.div`
   background-color: rgba(44, 44, 44, 1);
   padding: 2rem;
   border-radius: 10px;
@@ -69,7 +69,7 @@ const Navigator = styled.div`
   cursor: pointer;
 `;
 
-const MainLabel = styled.div`
+const NavLabel = styled.div`
   font-size: 22px;
   font-weight: 400;
   line-height: 22px;
@@ -110,31 +110,31 @@ const BackToListBtn = styled.div`
 
 export default function NoticePage() {
   return (
-    <ContentWrapper>
-      <TitleWrapper>
+    <PageWrapper>
+      <TitleBox>
         <Title>[밴드] 제 22회 못갖춘마디 정기공연 초청</Title>
         <SubTitleWrapper>
           <SubTitle>못갖춘 마디</SubTitle>
           <SubTitle>2023-04-05</SubTitle>
         </SubTitleWrapper>
-      </TitleWrapper>
-      <MainTextWrapper>
+      </TitleBox>
+      <ContentBox>
         어쩌구저쩌구 초청합니다 어쩌구저쩌구 초청합니다.어쩌구저쩌구 초청합니다.
         어쩌구저쩌구 초청합니다. 어쩌구저쩌구 초청합니다.어쩌구저쩌구
         초청합니다.어쩌구저쩌구 초청합니다. 어쩌구저쩌구 초청합니다.어쩌구저쩌구
         초청합니다. 어쩌구저쩌구 초청합니다. 어쩌구저쩌구
         초청합니다.어쩌구저쩌구 초청합니다.어쩌구저쩌구 초청합니다.
-      </MainTextWrapper>
+      </ContentBox>
       <>
         <Navigator>
-          <MainLabel>다음글</MainLabel>
+          <NavLabel>다음글</NavLabel>
           <NextTitle>다음 공지사항이 없습니다.</NextTitle>
           <ArrowBtn>
             <ExpandLessIcon fontSize="large" />
           </ArrowBtn>
         </Navigator>
         <Navigator>
-          <MainLabel>이전글</MainLabel>
+          <NavLabel>이전글</NavLabel>
           <NextTitle>
             [문화기획국] 동아리체험단 신청방법 카드뉴스 - 학생
           </NextTitle>
@@ -144,6 +144,6 @@ export default function NoticePage() {
         </Navigator>
       </>
       <BackToListBtn>목록</BackToListBtn>
-    </ContentWrapper>
+    </PageWrapper>
   );
 }

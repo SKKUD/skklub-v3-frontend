@@ -65,7 +65,7 @@ const Phrase = styled.h2`
   }
 `;
 
-const BtnWrapper = styled.div`
+const BtnContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -104,10 +104,10 @@ export default function Home() {
             maxWidth: "1430px",
             minWidth: "310px",
           }}
-        ></Image>
+        />
         <PhraseBtnWrapper>
           <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
-          <BtnWrapper>
+          <BtnContainer>
             <LocationSelectBtn
               label="명륜"
               nextLocation="seoul"
@@ -118,7 +118,7 @@ export default function Home() {
               nextLocation="suwon"
               hoverColor="#80A4FF"
             />
-          </BtnWrapper>
+          </BtnContainer>
         </PhraseBtnWrapper>
       </MainContents>
     </StartPageWrapper>
