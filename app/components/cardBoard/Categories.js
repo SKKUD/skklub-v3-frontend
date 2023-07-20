@@ -7,45 +7,41 @@ const CategoryWrapper = styled.div`
   max-width: 1200px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 0 auto;
   margin-bottom: 2.5rem;
   margin-top: 5.25rem;
   overflow-x: auto;
-  gap: 8px;
+  gap: 20px;
 `;
 
 const Category = styled.button`
-  padding: 10px 30px;
+  width: 102px;
+  height: 39px;
+  padding: 10px 21px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #303030;
-  border-radius: 20px;
+  border: none;
+  border-radius: 99px;
+  background-color: ${(props) => (props.isClicked ? "#FFF" : "#2A3133")};
+  overflow: hidden;
+  color: ${(props) => (props.isClicked ? "#151717" : "#FFF")};
+  text-align: center;
+  text-overflow: ellipsis;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
   font-weight: 600;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
-  background-color: ${(props) =>
-    props.isClicked ? "#303030eb" : "transparent"};
-  &:nth-of-type(3n) {
-    color: rgba(255, 149, 89, 1);
-  }
-  &:nth-of-type(3n + 1) {
-    color: rgba(252, 123, 149, 1);
-  }
-  &:nth-of-type(3n + 2) {
-    color: rgba(128, 164, 255, 1);
-  }
-  &:first-of-type {
-    color: rgba(255, 255, 255, 1);
-  }
+  line-height: normal;
+  white-space: nowrap;
+
   &:hover {
     cursor: pointer;
     background-color: #303030eb;
+    color: #fff;
   }
-
-  white-space: nowrap;
 
   @media (max-width: 1024px) {
     font-weight: 600;

@@ -1,16 +1,23 @@
 import styled from "@emotion/styled";
 
 const Hashtag = styled.div`
-  padding: 3px 15px;
-  height: 30px;
-  font-size: 1rem;
+  padding: 5px 15px;
+  /* height: 30px; */
+
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  background-color: #303030;
-  border-radius: 100px;
+
+  border-radius: 99px;
+  background: #fff;
+
+  color: #303030;
+  font-family: Pretendard;
+  font-size: 15px;
+  font-style: normal;
   font-weight: 600;
+  line-height: 180%; /* 27px */
+  letter-spacing: -0.15px;
 
   @media (max-width: 768px) {
     height: unset;

@@ -2,34 +2,40 @@ import styled from "@emotion/styled";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { usePathname, useRouter } from "next/navigation";
 import useClubLike from "@/hooks/useClubLike";
+import Image from "next/image";
+import noticeExample from "@/public/assets/images/notice_example.png";
 
 const CustomCard = styled.div`
-  width: 276px;
-  height: 276px;
-  background-color: #303030eb;
+  width: 174px;
   border-radius: 1rem;
   position: relative;
-  padding-left: 22px;
+  /* background-color: #303030eb; */
+  /* padding-left: 22px;
   padding-right: 20px;
-  padding-bottom: 18px;
-  display: flex;
-  align-items: end;
-  @media (max-width: 930px) {
+  padding-bottom: 18px; */
+  /* display: flex;
+  align-items: end; */
+  /* @media (max-width: 930px) {
     width: 163px;
     height: 163px;
-  }
+  } */
   &:hover {
     cursor: pointer;
   }
 `;
 
-const CardTitle = styled.div`
+const CardHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+`;
+
+const ClubName = styled.div`
+  color: #fff;
+  font-size: 1.5rem;
+  font-style: normal;
   font-weight: 500;
-  font-size: 3rem;
-  line-height: 120%;
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  line-height: normal;
 `;
 
 const CardFooter = styled.div`
@@ -40,14 +46,18 @@ const CardFooter = styled.div`
 `;
 
 const CardType = styled.div`
-  font-weight: 300;
-  font-size: 1.125rem;
-  line-height: 160%;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 22.4px */
+  margin-top: 0.5rem;
 `;
 
 const Heart = styled.div`
-  width: 22px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   color: ${(props) => (props.isLiked ? "#da5d65" : "#b7b7b7")};
   transition: color 0.5s;
   &:hover {
@@ -79,16 +89,27 @@ export default function ClubCard({ club }) {
 
   return (
     <CustomCard key={club.name} onClick={() => handleCardClick(club.clubId)}>
-      <CardTitle>{club.name}</CardTitle>
-      <CardFooter>
-        <CardType>{`${club.belongs}/${club.briefActivityDescription}`}</CardType>
+      <Image
+        src={noticeExample}
+        width={174}
+        height={174}
+        alt="notice thumbnail"
+      />
+      <CardHeader>
+        <ClubName>{club.name}</ClubName>
         <Heart
           isLiked={likedClubs.includes(club.name)}
           onClick={(event) => handleHeartClick(event, club.name)}
         >
           <FavoriteIcon />
         </Heart>
-      </CardFooter>
+      </CardHeader>
+      <CardType>{`${club.belongs}/${club.briefActivityDescription}`}</CardType>
+
+      {/* <CardFooter>
+        
+        
+      </CardFooter> */}
     </CustomCard>
   );
 }

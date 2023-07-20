@@ -10,14 +10,15 @@ import styles from "./hamburger.module.css";
 import Link from "next/link";
 import { useSetRecoilState } from "recoil";
 import { categoryState } from "@/utils/atoms";
+import CampusSwitch from "../CampusSwitch/CampusSwitch";
 
 const HeaderWrap = styled.div`
   position: fixed;
   top: 0;
   z-index: 999;
-  background-color: #151717;
+  background-color: #2a3133;
   width: 100%;
-  height: 70px;
+  height: 60px;
   padding: 20px 30px;
 
   @media (max-width: 480px) {
@@ -44,8 +45,7 @@ const HeaderInner = styled.div`
 `;
 
 const HomeImgWrap = styled.div`
-  margin-right: 80px;
-  width: 132px;
+  width: 120px;
   display: flex;
   align-items: center;
 
@@ -55,7 +55,6 @@ const HomeImgWrap = styled.div`
   }
 
   @media (max-width: 1024px) {
-    margin-right: 60px;
     width: 110px;
   }
 
@@ -69,8 +68,8 @@ const HomeImgWrap = styled.div`
 `;
 
 const NavButtonFont = styled.div`
-  font-weight: bold;
-  line-height: 1.25rem;
+  font-weight: 600;
+  line-height: 16px;
   color: ${(props) =>
     props.isMatch
       ? props.isSuwon
@@ -95,7 +94,8 @@ const NavButtonFont = styled.div`
 
 const NavWrap = styled.div`
   display: flex;
-  width: 65%;
+  width: 50%;
+  min-width: 500px;
   justify-content: space-between;
 
   @media (max-width: 1023px) {
@@ -207,7 +207,9 @@ export default function HeaderBar({ location, isSuwon, type }) {
               />
             ))}
           </NavWrap>
+          
           <IconButtonsWrap>
+          {!match760 && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
                 <CloseIcon sx={{ fontSize: "35px", color: "#666" }} />
@@ -237,7 +239,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
       ) : match760 ? (
         <ResponsiveMargin height={80} />
       ) : (
-        <ResponsiveMargin height={70} />
+        <ResponsiveMargin height={60} />
       )}
       <Sidebar isOpen={isOpen} setOpen={setOpen} navItems={navItems} />
     </>

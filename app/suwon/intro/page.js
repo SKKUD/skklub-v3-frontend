@@ -4,7 +4,6 @@ import IntroLayout from "@/app/layouts/intro/IntroLayout";
 import IntroSection from "@/app/components/intro/IntroSection";
 import DepartmentSection from "@/app/components/intro/DepartmentSection";
 import Footer from "@/app/components/common/Footer";
-import CampusSwitch from "@/app/components/common/CampusSwitch/CampusSwitch";
 
 const data = {
   name: "for:동",
@@ -65,12 +64,9 @@ export default function SeoulDY() {
       <IntroBanner name={data.name} />
       <IntroLayout>
         <IntroSection data={data} />
-      </IntroLayout>
-      <IntroLayout color="#222525">
         <DepartmentSection data={data} />
       </IntroLayout>
-      <Footer />
-      <CampusSwitch />
+      <Footer /> 
     </>
   );
 }

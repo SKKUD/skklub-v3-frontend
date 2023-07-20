@@ -1,16 +1,18 @@
 import styled from "@emotion/styled";
 
-const ClubCircle = styled.div`
-  width: 153px;
-  height: 153px;
+const RecommendationClub = styled.div`
+  position: relative;
+  width: 174px;
+  height: 174px;
   background-color: ${({ isSuwon, theme }) =>
     !isSuwon ? theme.palette.secondary.main : theme.palette.primary.main};
-  border-radius: 80px;
+  border-radius: 10px;
   font-size: 1.75rem;
   font-weight: 500;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
 
   @media (max-width: 768px) {
     width: 180px;
@@ -26,4 +28,4 @@ const ClubCircle = styled.div`
   }
 `;
 
-export default ClubCircle;
+export default RecommendationClub;

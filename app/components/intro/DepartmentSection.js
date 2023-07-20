@@ -1,20 +1,25 @@
-import { Card } from "@mui/material";
+import { Card, useMediaQuery } from "@mui/material";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import useURLParse from "@/hooks/useURLParse";
 
 const DeptTitle = styled.div`
-  font-size: 2.5rem;
+  font-size: 28px;
   color: ${(props) =>
     props.campus
       ? ({ theme }) => theme.palette.secondary.main
       : ({ theme }) => theme.palette.primary.main};
-
-  font-weight: 700;
-  margin-bottom: 4rem;
-
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  > p {
+    color: #fff;
+  }
   @media (max-width: 768px) {
-    font-size: 1.8rem;
+    margin-bottom: 15px;
+    font-size: 24px;
   }
 `;
 
@@ -31,20 +36,20 @@ const DeptWrap = styled.div`
 `;
 
 const DeptLeftSection = styled.div`
-  width: 30%;
+  width: 25%;
   display: flex;
-  padding-top: 15px;
+  align-items: center;
 
   @media (max-width: 768px) {
     width: 100%;
     margin-bottom: 5px;
-    padding-top: 0;
+    padding-top: 15px;
   }
 `;
 const DeptEmoji = styled.div`
-  font-size: 1.7rem;
-  line-height: 30px;
-  margin-right: 30px;
+  font-size: 24px;
+  line-height: 32px;
+  margin-right: 50px;
 
   @media (max-width: 768px) {
     font-size: 1.3rem;
@@ -52,11 +57,14 @@ const DeptEmoji = styled.div`
   }
 `;
 const DeptName = styled.div`
-  font-size: 1.7rem;
-  line-height: 1.7rem;
+  width: 100px;
+  font-size: 20px;
+  line-height: 32px;
   font-weight: 600;
+  word-break: keep-all;
 
   @media (max-width: 768px) {
+    width: 100%;
     font-size: 1.3rem;
   }
 `;
@@ -67,9 +75,11 @@ const DeptDescription = styled(Card)`
   padding: 21px 38px;
   font-family: pretendard;
   border-radius: 12px;
-  font-size: 1.3rem;
-  line-height: 2rem;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 25px;
   word-break: keep-all;
+  justify-self: flex-end;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -93,9 +103,17 @@ export function DepartmentCard({ dept }) {
 
 export default function DepartmentSection({ data }) {
   const { isSuwon } = useURLParse();
+  const match480 = useMediaQuery("(max-width:480px)");
   return (
     <>
-      <DeptTitle campus={!isSuwon}>부서 소개</DeptTitle>
+      {match480 ? (
+        <DeptTitle campus={!isSuwon}>부서 소개</DeptTitle>
+      ) : (
+        <DeptTitle campus={!isSuwon}>
+          {data.name}
+          <p> 은 이렇게 구성되어 있어요</p>
+        </DeptTitle>
+      )}
 
       {data.department.map((dept) => (
         <DepartmentCard dept={dept} key={dept.name} />
