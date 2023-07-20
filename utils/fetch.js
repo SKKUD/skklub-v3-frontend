@@ -30,23 +30,29 @@ export const getClubsFromPartialKeyword = async ({ keyword }) =>
     res.json()
   );
 
-export const getNoticeDetail = async (noticeId) =>
-  await fetch(`${BASE_URL}/notice/${noticeId}`).then((res) => res.json());
+export const getNoticeDetail = async (noticeId) =>{
+  const response = await fetch(`${BASE_URL}/notice/${noticeId}`)
+  return await response.json(); 
+}
 
-export const getNoticeThumbnailCard = async () =>
-  await fetch(`${BASE_URL}/notice/prev/thumbnail`).then((res) => res.json());
+export const getNoticeThumbnailCard = async () =>{
+  const response = await fetch(`${BASE_URL}/notice/prev/thumbnail`)
+  return await response.json(); 
+}
+  
 
 export const getNoticeListwithRole = async ({ auth }) => {
-  await fetch(`${BASE_URL}/notice/prev`).then((res) => res.json());
+  const response = await fetch(`${BASE_URL}/notice/prev`)
+  return await response.json(); 
 };
 // await fetch(`${BASE_URL}/notice/prev?role=${auth}`).then((res) => res.json());
 
-export const getNoticesFromKeyword = async ({ keyword }) =>
-  await fetch(`${BASE_URL}/notice/prev/search/title?title=${keyword}`).then(
-    (res) => res.json()
-  );
+export const getNoticesFromKeyword = async ({ keyword }) =>{
+const response = await fetch(`${BASE_URL}/notice/prev/search/title?title=${keyword}`);
+return await response.json(); 
+};
 
-export const getNoticeFiles = async ({ filename }) =>
-  await fetch(`${BASE_URL}/notice/file?fileSavedName=${filename}`).then((res) =>
-    res.json()
-  );
+  export const getNoticeFiles = async ({ filename }) => {
+    const response = await fetch(`${BASE_URL}/notice/file?fileSavedName=${filename}`);
+    return await response.json();
+  };

@@ -111,6 +111,7 @@ const content = [
 export default function NoticeTableBody() {
   const match768 = useMediaQuery("(max-width:768px)");
   const { isLoading, data } = useQuery(["notices"], getNoticeListwithRole);
+  console.log(data)
 
   return (
     <TableWrapper>
