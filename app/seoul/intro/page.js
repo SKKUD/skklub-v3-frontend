@@ -13,8 +13,6 @@ export default function SeoulDY() {
       <IntroBanner name={INTRO_DUMMY_DATA.name} />
       <IntroLayout>
         <IntroSection data={INTRO_DUMMY_DATA} />
-      </IntroLayout>
-      <IntroLayout color="#222525">
         <DepartmentSection data={INTRO_DUMMY_DATA} />
       </IntroLayout>
       <Footer />

@@ -4,10 +4,10 @@ import useURLParse from "@/hooks/useURLParse";
 
 const IntroSectionLayout = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 100%;
+  width: 95%;
   margin-bottom: 2rem;
   word-break: keep-all;
 
@@ -26,15 +26,16 @@ const IntroPill = styled.div`
       ? ({ theme }) => theme.palette.secondary.main
       : ({ theme }) => theme.palette.primary.main};
   color: ${(props) => props.theme.palette.text.primary};
-  padding: 1.5rem 1rem;
-  border-radius: 50px;
+  padding: 18px 20px;
+  border-radius: 16px;
   margin: 0.5rem;
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: 600;
   min-width: 20%;
   text-align: center;
 
   @media (max-width: 768px) {
+    border-radius: 50px;
     min-width: 50%;
     font-size: 1.2rem;
     padding: 0.7rem 1rem;
@@ -46,11 +47,12 @@ const IntroPill = styled.div`
 const IntroCard = styled.div`
   background-color: ${(props) => props.theme.palette.background.paper};
   color: ${(props) => props.theme.palette.text.primary};
-  padding: 1.5rem 2.5rem;
+  padding: 24px;
   border-radius: 1rem;
   margin: 0.5rem;
-  width: 70%;
+  width: 85%;
   margin-left: 3rem;
+  align-self: flex-end;
 
   @media (max-width: 768px) {
     width: 100%;
@@ -81,8 +83,9 @@ const RedSpan = styled.span`
 
 const Body = styled.p`
   font-family: pretendard;
-  font-size: 1.3rem;
-  line-height: 2rem;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
   @media (max-width: 768px) {
     font-size: 1rem;
   }
@@ -94,29 +97,52 @@ export default function IntroSection(props) {
 
   return (
     <>
+      {!match480 && (
+        <Title>
+          안녕하세요, 동아리연합회{" "}
+          <RedSpan campus={!isSuwon}>{props.data.name}</RedSpan>입니다!
+        </Title>
+      )}
       <IntroSectionLayout>
-        <IntroPill campus={!isSuwon}>Who we are</IntroPill>
+        <IntroPill campus={!isSuwon}>
+          {match480 ? "Who we are" : "동아리연합회는 어떤 단체인가요?"}
+        </IntroPill>
         <IntroCard>
-          <Title>
-            안녕하세요, 동아리연합회 {match480 && <br />}
-            <RedSpan campus={!isSuwon}>{props.data.name}</RedSpan>입니다!
-          </Title>
+          {match480 && (
+            <Title>
+              안녕하세요, <br />
+              동아리연합회
+              <RedSpan campus={!isSuwon}>{props.data.name}</RedSpan>입니다!
+            </Title>
+          )}
           <Body>{props.data.section[0]}</Body>
         </IntroCard>
       </IntroSectionLayout>
       <IntroSectionLayout>
-        <IntroPill campus={!isSuwon}>What we do</IntroPill>
+        <IntroPill campus={!isSuwon}>
+          {match480 ? "What we do" : "동아리 연합회는 무슨 일을 하나요?"}
+        </IntroPill>
         <IntroCard>
-          <Title>저희는 {match480 && <br />}이런 활동을 해요!</Title>
+          {match480 && (
+            <Title>
+              저희는 <br />
+              이런 활동을 해요!
+            </Title>
+          )}
           <Body>{props.data.section[1]}</Body>
         </IntroCard>
       </IntroSectionLayout>
       <IntroSectionLayout>
-        <IntroPill campus={!isSuwon}>How we work</IntroPill>
+        <IntroPill campus={!isSuwon}>
+          {match480 ? "How we work" : "동아리 연합회는 어떻게 구성되어있나요?"}
+        </IntroPill>
         <IntroCard>
-          <Title>
-            동아리연합회는 {match480 && <br />}이렇게 구성되어 있어요!
-          </Title>
+          {match480 && (
+            <Title>
+              동아리연합회는 <br />
+              이렇게 구성되어 있어요!
+            </Title>
+          )}
           <Body>{props.data.section[2]}</Body>
         </IntroCard>
       </IntroSectionLayout>
