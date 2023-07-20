@@ -65,8 +65,6 @@ export default function SeoulDY() {
       <IntroBanner name={data.name} />
       <IntroLayout>
         <IntroSection data={data} />
-      </IntroLayout>
-      <IntroLayout color="#222525">
         <DepartmentSection data={data} />
       </IntroLayout>
       <Footer />
