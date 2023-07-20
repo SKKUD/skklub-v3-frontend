@@ -66,6 +66,7 @@ const NoticesBoard = styled.div`
   background-color: #2a3133;
   border-radius: 10px;
   padding-top: 47px;
+  padding-bottom: 30px;
   margin-top: 24px;
 `;
 

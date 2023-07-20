@@ -3,10 +3,12 @@ import { useMediaQuery } from "@mui/material";
 
 const TableWrapper = styled.div`
   width: 100%;
-  padding: 27px 44px;
-  background-color: #2c2c2c;
-  margin-top: 18px;
+  padding: 0 41px;
+  margin-top: 44px;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
   @media (max-width: 768px) {
     padding: 19px 13px;
     margin-top: 0;
@@ -17,7 +19,6 @@ const NoticeRow = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  height: 56px;
   gap: 20px;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -26,12 +27,16 @@ const NoticeRow = styled.div`
   }
 `;
 const NoticeRowItem = styled.div`
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
   @media (max-width: 768px) {
     font-size: 1.125rem;
     line-height: 21px;
@@ -61,32 +66,29 @@ export default function NoticeTableBody() {
   return (
     <TableWrapper>
       {DUMMY_ARRAY.map((ele, idx) => (
-        <div key={idx}>
-          <NoticeRow>
-            {!match768 && (
-              <NoticeRowItem style={{ width: "80px" }}>34</NoticeRowItem>
-            )}
-            <NoticeRowItem style={{ flex: 1, justifyContent: "start" }}>
-              [밴드] 제 22회 못갖춘마디 정기공연 초청
-            </NoticeRowItem>
-            {match768 ? (
-              <MobileItemWrapper>
-                <MobileItem>못갖춘마디</MobileItem>
-                <MobileItem>2023-04-25</MobileItem>
-              </MobileItemWrapper>
-            ) : (
-              <>
-                <NoticeRowItem style={{ width: "200px" }}>
-                  못갖춘 마디
-                </NoticeRowItem>
-                <NoticeRowItem style={{ width: "150px" }}>
-                  2023-04-25
-                </NoticeRowItem>
-              </>
-            )}
-          </NoticeRow>
-          <NoticeDivider />
-        </div>
+        <NoticeRow>
+          {!match768 && (
+            <NoticeRowItem style={{ width: "80px" }}>34</NoticeRowItem>
+          )}
+          <NoticeRowItem style={{ flex: 1, justifyContent: "start" }}>
+            [밴드] 제 22회 못갖춘마디 정기공연 초청
+          </NoticeRowItem>
+          {match768 ? (
+            <MobileItemWrapper>
+              <MobileItem>못갖춘마디</MobileItem>
+              <MobileItem>2023-04-25</MobileItem>
+            </MobileItemWrapper>
+          ) : (
+            <>
+              <NoticeRowItem style={{ width: "200px" }}>
+                못갖춘 마디
+              </NoticeRowItem>
+              <NoticeRowItem style={{ width: "150px" }}>
+                2023-04-25
+              </NoticeRowItem>
+            </>
+          )}
+        </NoticeRow>
       ))}
     </TableWrapper>
   );
