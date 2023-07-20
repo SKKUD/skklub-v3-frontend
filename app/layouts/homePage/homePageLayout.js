@@ -7,7 +7,6 @@ import NoticeSection from "@/app/components/main/Notice/NoticeSection";
 import BorrowSection from "@/app/components/main/Borrow/BorrowSection";
 import MobileRecommendSection from "@/app/components/main/Recommend/MobileRecommendSection";
 import MobileNoticeSection from "@/app/components/main/Notice/MobileNoticeSection";
-import CampusSwitch from "@/app/components/common/CampusSwitch/CampusSwitch";
 import ClubCarousel from "@/app/components/main/ClubCarousel";
 import useURLParse from "@/hooks/useURLParse";
 import useScreenHeight from "@/hooks/useScreenHeight";
@@ -72,7 +71,6 @@ export default function HomePageLayout() {
       <FullScreenWrapper height={`${homeContainerHeight}px`}>
         <ClubCarousel />
       </FullScreenWrapper>
-      <CampusSwitch />
       {/* <PromotionBanner isSuwon={isSuwon}>동아리 홍보배너</PromotionBanner> */}
       <ContentWrapper>
         {matches_768 ? <MobileRecommendSection /> : <RecommendSection />}

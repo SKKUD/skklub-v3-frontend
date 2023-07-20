@@ -10,6 +10,7 @@ import styles from "./hamburger.module.css";
 import Link from "next/link";
 import { useSetRecoilState } from "recoil";
 import { categoryState } from "@/utils/atoms";
+import CampusSwitch from "../CampusSwitch/CampusSwitch";
 
 const HeaderWrap = styled.div`
   position: fixed;
@@ -206,6 +207,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
               />
             ))}
           </NavWrap>
+          {!match760 && <CampusSwitch />}
           <IconButtonsWrap>
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (

@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import { useMediaQuery } from "@mui/material";
 import useURLParse from "../../../../hooks/useURLParse";
 import { useRouter } from "next/navigation";
 
@@ -30,18 +29,28 @@ const Fadeinout = styled.div`
 `;
 
 const ToggleContainer = styled.div`
-  position: fixed;
-  left: 88%;
-  bottom: 10vh;
-  z-index: 999;
+  position: relative;
   cursor: pointer;
 
   > .toggle-container {
-    height: 134px;
-    width: 80px;
-    border-radius: 50px;
-    background-color: #e5e5e5;
-    color: rgba(128, 164, 255, 1);
+    width: 116px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 99px;
+    background-color: #434c4f;
+    color: #a7abaf;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 38px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    > div {
+      width: 61px;
+    }
   }
   //.suwon 클래스가 활성화 되었을 경우의 CSS를 구현
   > .suwon {
@@ -50,26 +59,35 @@ const ToggleContainer = styled.div`
   }
 
   > .toggle-circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background-color: rgba(80, 207, 177, 1);
+    top: 0;
+    left: 0;
+    width: 65px;
+    height: 38px;
+    border-radius: 99px;
+    border: 3px solid #4fcfb1;
+    background: #b6eadd;
     transition: 0.5s;
-    color: rgb(255, 254, 255);
-    font-size: 2.5rem;
-    font-weight: 700;
+    color: #009672;
     text-align: center;
-    line-height: 70px;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    /* line-height: 160%; */
   }
   //.suwon 클래스가 활성화 되었을 경우의 CSS를 구현
   > .suwon-circle {
-    left: 8px;
-    top: 62px;
+    top: 0px;
+    left: 50px;
     transition: 0.5s;
-    background-color: rgba(128, 164, 255, 1);
+    /* background-color: rgba(128, 164, 255, 1); */
+    border: 3px solid #6b94fa;
+    background: #abbdeb;
+    color: #3a63cb;
   }
 `;
 
@@ -107,19 +125,17 @@ export default function CampusSwitch() {
     }
   };
 
-  const matches_1024 = useMediaQuery("(min-width:1024px)");
-
   return (
-    matches_1024 && (
-      <>
-        <Fadeinout show={showFadeinout} />
-        <ToggleContainer onClick={toggleHandler}>
-          <div className={`toggle-container ${isOn && "suwon"}`} />
-          <div className={`toggle-circle ${isOn && "suwon-circle"}`}>
-            {isOn ? "율" : "명"}
-          </div>
-        </ToggleContainer>
-      </>
-    )
+    <>
+      <Fadeinout show={showFadeinout} />
+      <ToggleContainer onClick={toggleHandler}>
+        <div className={`toggle-container ${isOn && "suwon"}`}>
+          <div>명륜</div> <div>율전</div>
+        </div>
+        <div className={`toggle-circle ${isOn && "suwon-circle"}`}>
+          {isOn ? "율전" : "명륜"}
+        </div>
+      </ToggleContainer>
+    </>
   );
 }
