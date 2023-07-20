@@ -24,10 +24,10 @@ export default function ClubDetailLayout() {
     <>
       <ClubDetailBanner />
       <ClubDetailContent>
-        <RecruitingSection />
-        <InfoSection />
         <AboutSection />
+        <InfoSection />
         <ActivitySection />
+        <RecruitingSection />
       </ClubDetailContent>
     </>
   );

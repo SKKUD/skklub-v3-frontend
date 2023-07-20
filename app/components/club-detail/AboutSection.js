@@ -41,14 +41,11 @@ const ClubPageNaviagateBtn = styled.button`
 `;
 
 export default function AboutSection() {
-  const match760 = useMediaQuery("(max-width:760px)");
   return (
     <SectionWrapper
       style={{
-        gridColumnStart: match760 ? 1 : 2,
+        gridColumnStart: 1,
         gridColumnEnd: 4,
-        flex: 1,
-        height: match760 ? "auto" : "403px",
       }}
     >
       <SectionTitle>About</SectionTitle>

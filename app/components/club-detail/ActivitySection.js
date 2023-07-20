@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import SectionWrapper from "./SectionWrapper";
 import { SectionDivider, SectionTitle } from "./common";
+import { useMediaQuery } from "@mui/material";
 
 const DetailContent = styled.div`
   margin-top: 1.5rem;
@@ -12,11 +13,14 @@ const DetailContent = styled.div`
 `;
 
 export default function ActivitySection() {
+  const match760 = useMediaQuery("(max-width:760px)");
   return (
     <SectionWrapper
       style={{
-        gridColumnStart: 1,
+        gridColumnStart: match760 ? 1 : 2,
         gridColumnEnd: 4,
+        flex: 1,
+        height: match760 ? "auto" : "403px",
       }}
     >
       <SectionTitle>Activity</SectionTitle>

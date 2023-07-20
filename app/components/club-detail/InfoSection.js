@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import SectionWrapper from "./SectionWrapper";
 import { SectionDivider, SectionTitle } from "./common";
+import { useMediaQuery } from "@mui/material";
 
 const InfoContentWrapper = styled.div`
   margin-top: 1.5rem;
