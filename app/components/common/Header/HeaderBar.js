@@ -15,9 +15,9 @@ const HeaderWrap = styled.div`
   position: fixed;
   top: 0;
   z-index: 999;
-  background-color: #151717;
+  background-color: #2a3133;
   width: 100%;
-  height: 70px;
+  height: 60px;
   padding: 20px 30px;
 
   @media (max-width: 480px) {
