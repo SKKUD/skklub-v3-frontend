@@ -10,11 +10,11 @@ const LayoutBackground = styled.div`
   padding: 100px 20rem;
 
   @media (max-width: 1440px) {
-    padding: 70px 10rem;
+    padding: 60px 10rem;
   }
 
   @media (max-width: 1024px) {
-    padding: 70px 5rem;
+    padding: 60px 5rem;
   }
 
   @media (max-width: 768px) {
