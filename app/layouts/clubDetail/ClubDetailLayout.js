@@ -9,7 +9,7 @@ import ClubDetailBanner from "../../components/club-detail/ClubDetailBanner";
 const ClubDetailContent = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  max-width: 1200px;
+  max-width: 1050px;
   margin: 0 auto;
   margin-top: 3rem;
   gap: 30px;

@@ -7,7 +7,7 @@ import { useMediaQuery } from "@mui/material";
 const BannerWrapper = styled.div`
   width: 100%;
   height: 360px;
-  background-color: #a0211d33;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 1rem;
   display: flex;
   justify-content: center;
