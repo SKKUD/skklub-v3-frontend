@@ -4,7 +4,6 @@ import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import NoticeRadioBtns from "@/app/components/notices/NoticeRadioBtns";
 import NoticeTableBody from "@/app/components/notices/NoticeTableBody";
-import Footer from "../components/common/Footer";
 
 const NoticesBanner = styled.div`
   width: 100%;
@@ -66,7 +65,7 @@ export default function Notices() {
         <NoticeRadioBtns />
         <NoticeTableBody />
       </NoticesContentWrapper>
-      <Footer/>
+      
     </>
   );
 }
