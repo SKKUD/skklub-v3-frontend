@@ -12,18 +12,22 @@ const BannerWrapper = styled.div`
 `;
 
 const SubTitle = styled.div`
-  font-weight: 400;
-  font-size: 2.5rem;
-  line-height: 2.5rem;
   text-align: center;
-  margin-bottom: 1.25rem;
+
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `;
 
 const Title = styled.div`
+  color: #fff;
+  font-size: 2rem;
+  font-style: normal;
   font-weight: 500;
-  font-size: 3rem;
-  line-height: 3rem;
-  text-align: center;
+  line-height: normal;
 `;
 
 export default function UpperBanner() {
