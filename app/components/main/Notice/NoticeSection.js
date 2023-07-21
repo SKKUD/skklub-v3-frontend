@@ -79,7 +79,6 @@ const NoticeCard = styled.div`
 
 const NoticeThumbnail = styled.div`
   overflow: hidden;
-  color: #dfe3e4;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-family: Pretendard;
@@ -88,6 +87,7 @@ const NoticeThumbnail = styled.div`
   font-weight: 500;
   line-height: 140%; /* 19.6px */
   letter-spacing: -0.14px;
+  color: ${({ theme }) => theme.palette.text.secondary};
 `;
 
 export default function NoticeSection() {
