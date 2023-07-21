@@ -5,40 +5,42 @@ const AttributeRow = styled.div`
   height: 56px;
   display: flex;
   gap: 20px;
-  padding: 0 41px;
   justify-content: space-between;
-  /* margin-bottom: 11px; */
+  border-bottom: 3px solid #fff;
+  margin-bottom: 25px;
 `;
 
 const AttributeRowItem = styled.div`
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
-  text-align: center;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-`;
 
-const Divider = styled.hr`
-  height: 3px;
-  background-color: #fff;
-  border: none;
-  margin: 0 41px;
+  &.first-row {
+    flex: 0.5;
+    justify-content: center;
+    padding-left: 5px;
+  }
+  &.second-row {
+    flex: 5;
+  }
+  &.third-row {
+    flex: 2;
+  }
+  &.last-row {
+    flex: 1.2;
+  }
 `;
 
 export default function NoticeTableHeader() {
   return (
-    <>
-      <AttributeRow>
-        <AttributeRowItem style={{ width: "80px" }}>NO.</AttributeRowItem>
-        <AttributeRowItem style={{ flex: 1 }}>제목</AttributeRowItem>
-        <AttributeRowItem style={{ width: "200px" }}>작성자</AttributeRowItem>
-        <AttributeRowItem style={{ width: "150px" }}>작성일지</AttributeRowItem>
-      </AttributeRow>
-      <Divider />
-    </>
+    <AttributeRow>
+      <AttributeRowItem className="first-row">NO.</AttributeRowItem>
+      <AttributeRowItem className="second-row">제목</AttributeRowItem>
+      <AttributeRowItem className="third-row">작성자</AttributeRowItem>
+      <AttributeRowItem className="last-row">작성일지</AttributeRowItem>
+    </AttributeRow>
   );
 }

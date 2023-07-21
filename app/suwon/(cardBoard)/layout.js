@@ -1,5 +1,4 @@
 "use client";
-import CampusSwitch from "@/app/components/common/CampusSwitch/CampusSwitch";
 import Categories from "@/app/components/cardBoard/Categories";
 import UpperBanner from "@/app/components/common/UpperBanner";
 import styled from "@emotion/styled";
@@ -18,7 +17,6 @@ export default function CardBoardLayout({ children }) {
         <Categories />
         {children}
       </MainSection>
-      <CampusSwitch />
     </>
   );
 }

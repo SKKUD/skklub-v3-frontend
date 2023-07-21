@@ -7,7 +7,7 @@ import HeaderBar from "./HeaderBar";
 
 export default function Header() {
   const { location, isSuwon, type } = useURLParse();
-
+  
   const [scrollPosition, setScrollPosition] = useState(0);
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
@@ -18,10 +18,10 @@ export default function Header() {
 
   return (
     <>
-      {location === "" ? null : type === undefined && scrollPosition < 60 ? (
+      {location === "" ? null : location!=="notices" && type === undefined && scrollPosition < 60 ? (
         <HomePageLogo location={location} />
       ) : (
-        <HeaderBar location={location} type={type} isSuwon={isSuwon} />
+        <HeaderBar location={location ==="notices"?"seoul":location} type={type} isSuwon={isSuwon} />
       )}
     </>
   );

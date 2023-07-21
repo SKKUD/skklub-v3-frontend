@@ -8,7 +8,7 @@ const getDesignTokens = (mode) => ({
             main: "#3f51b5",
           },
           secondary: {
-            main: "#80a4ff",
+            main: "#86DDC8",
           },
           background: {
             paper: "#262626",
@@ -24,10 +24,10 @@ const getDesignTokens = (mode) => ({
             main: "#80A4FF",
           },
           secondary: {
-            main: "#50CFB1",
+            main: "#16A480",
           },
           background: {
-            paper: "#262626",
+            paper: "#2A3133",
             default: "#151717",
           },
           text: {

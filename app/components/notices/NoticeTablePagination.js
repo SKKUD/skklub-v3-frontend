@@ -3,8 +3,8 @@ import { Pagination, PaginationItem } from "@mui/material";
 
 const PaginationWrapper = styled.div`
   width: 100%;
-  /* height: 15px; */
-  margin-top: 47px;
+  height: 15px;
+  margin: 30px auto 20px;
   display: flex;
   justify-content: center;
 `;

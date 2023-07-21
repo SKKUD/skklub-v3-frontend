@@ -16,7 +16,7 @@ const LoadingBanner = styled.div`
 `;
 
 const LoadingLabel = styled.div`
-  font-size: 3rem;
+  font-size: 30px;
   font-weight: 700;
   @media (max-width: 425px) {
     font-size: 1.5rem;
@@ -31,15 +31,15 @@ export default function LoadingLayout() {
       {isSuwon ? (
         <Image
           src="/assets/animations/loading_icon_suwon.gif"
-          width={150}
-          height={150}
+          width={100}
+          height={100}
           alt="Loading Icon"
         />
       ) : (
         <Image
           src="/assets/animations/loading_icon_seoul.gif"
-          width={150}
-          height={150}
+          width={100}
+          height={100}
           alt="Loading Icon"
         />
       )}
