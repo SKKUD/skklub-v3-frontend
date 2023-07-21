@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 const NoticeDate = styled.div`
   overflow: hidden;
-  color: #dfe3e4;
   text-overflow: ellipsis;
   font-family: Pretendard;
   font-size: 0.75rem;
