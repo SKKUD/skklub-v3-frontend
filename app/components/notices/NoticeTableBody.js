@@ -84,14 +84,13 @@ const MobileItem = styled.div`
   line-height: 14px;
 `;
 
-export default function NoticeTableBody() {
+export default function NoticeTableBody({role}) {
   const router = useRouter();
   const pushToNoticeDetail = (nextLocation) => {
     router.push(`${nextLocation}`);
   };
-
   const match768 = useMediaQuery("(max-width:768px)");
-  const { isLoading, data } = useQuery(["notices"], getNoticeListwithRole);
+  const { isLoading, data } = useQuery({queryKey: ["notices",role], queryFn: ()=> getNoticeListwithRole(role), onSuccess: (data)=> console.log(data)});
   const [page, setPage] = useState(1);
   const handlePageChange = (e, value) => {
     e.preventDefault();

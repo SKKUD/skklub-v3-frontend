@@ -13,6 +13,7 @@ const PageWrapper = styled.div`
   width: 100%;
   margin: 1rem auto;
   margin-top: 32px;
+  margin-bottom: 100px;
   display: flex;
   flex-direction: column;
   padding-bottom: 3rem;
@@ -172,10 +173,13 @@ const BackToListBtn = styled.div`
 
 export default function NoticePage() {
   const params = useParams()
-  const { isLoading, data } = useQuery({queryKey: ["notice-detail"], queryFn: ()=> getNoticeDetail(params.noticeId),onSuccess: (data)=> console.log(data)});
+  const { isLoading, data } = useQuery({queryKey: ["notice-detail",params], queryFn: ()=> getNoticeDetail(params.noticeId),onSuccess: (data)=> console.log(data)});
   const router = useRouter();
   const pushToNotices = () => {
     router.push(`/notices`);
+  };
+  const pushToNotice = (id) => {
+    router.push(`/notices/${id}`);
   };
   return (
     <>
@@ -201,16 +205,15 @@ export default function NoticePage() {
         </ContentBox>
         <NavWrapper>
           <Divider style={{ marginTop: 0 }} />
-          <Navigator>
+          <Navigator onClick={data && data.preNotice ? () => pushToNotice(data.preNotice.id) : null}>
             <NavLabel>이전글</NavLabel>
-            <NextTitle>다음 공지사항이 없습니다.</NextTitle>
-            <NavWriter>인사캠 제 42대 동아리연합회 동글</NavWriter>
+            <NextTitle>{data && data.preNotice? data.preNotice.title: "이전 공지사항이 없습니다."}</NextTitle>
           </Navigator>
           <Divider style={{ marginTop: 0, height: "1px" }} />
-          <Navigator>
+          <Navigator onClick={data && data.postNotice ? () => pushToNotice(data.postNotice.id) : null}>
             <NavLabel>다음글</NavLabel>
             <NextTitle>
-              [문화기획국] 동아리체험단 신청방법 카드뉴스 - 학생
+            {data && data.postNotice? data.postNotice.title: "다음 공지사항이 없습니다."}
             </NextTitle>
           </Navigator>
           <Divider style={{ marginTop: 0 }} />

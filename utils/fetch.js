@@ -41,7 +41,7 @@ export const getNoticeThumbnailCard = async () =>{
 }
   
 
-export const getNoticeListwithRole = async ({ auth }) => {
+export const getNoticeListwithRole = async (auth) => {
   const response = await fetch(`${BASE_URL}/notice/prev?role=${auth}`)
   return await response.json(); 
 };
