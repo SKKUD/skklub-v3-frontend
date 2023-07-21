@@ -113,7 +113,7 @@ const TitleWrapper = styled.div`
 
 const ClubName = styled.div`
   color: #fff;
-  font-family: Gmarket Sans;
+  font-family: GmarketSansMedium;
   font-size: 2.375rem;
   font-style: normal;
   font-weight: 500;
