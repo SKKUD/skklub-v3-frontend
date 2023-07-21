@@ -22,9 +22,7 @@ const IntroSectionLayout = styled.div`
 
 const IntroPill = styled.div`
   background-color: ${(props) =>
-    props.campus
-      ? ({ theme }) => theme.palette.secondary.main
-      : ({ theme }) => theme.palette.primary.main};
+    props.campus ? "rgba(134, 221, 200, 1)" : "rgba(128, 164, 255, 1)"};
   color: ${(props) => props.theme.palette.text.primary};
   padding: 18px 20px;
   border-radius: 16px;
@@ -45,7 +43,7 @@ const IntroPill = styled.div`
 `;
 
 const IntroCard = styled.div`
-  background-color: ${(props) => props.theme.palette.background.paper};
+  background-color: ${({ theme }) => theme.palette.secondary.main};
   color: ${(props) => props.theme.palette.text.primary};
   padding: 24px;
   border-radius: 1rem;
@@ -74,9 +72,7 @@ const Title = styled.h1`
 
 const RedSpan = styled.span`
   color: ${(props) =>
-    props.campus
-      ? ({ theme }) => theme.palette.secondary.main
-      : ({ theme }) => theme.palette.primary.main};
+    props.campus ? "rgba(134, 221, 200, 1)" : "rgba(128, 164, 255, 1)"};
 
   word-break: keep-all;
 `;
@@ -86,6 +82,7 @@ const Body = styled.p`
   font-size: 16px;
   line-height: 24px;
   font-weight: 500;
+
   @media (max-width: 768px) {
     font-size: 1rem;
   }
