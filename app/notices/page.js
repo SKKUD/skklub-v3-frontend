@@ -13,7 +13,7 @@ const NoticesBanner = styled.div`
   gap: 10px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.70);
+  background-color: rgba(0, 0, 0, 0.7);
   @media (max-width: 768px) {
     gap: 30px;
   }
@@ -65,7 +65,6 @@ export default function Notices() {
         <NoticeRadioBtns />
         <NoticeTableBody />
       </NoticesContentWrapper>
-      
     </>
   );
 }

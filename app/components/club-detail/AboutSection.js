@@ -4,11 +4,14 @@ import { useMediaQuery } from "@mui/material";
 import { SectionDivider, SectionTitle } from "./common";
 
 const AboutContent = styled.div`
-  font-weight: 300;
-  font-size: 1rem;
-  line-height: 169%;
   height: 226px;
   word-break: keep-all;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 25.6px */
   /* @media (max-width: 760px) {
     height: 312px;
     overflow-y: auto;
@@ -41,18 +44,14 @@ const ClubPageNaviagateBtn = styled.button`
 `;
 
 export default function AboutSection() {
-  const match760 = useMediaQuery("(max-width:760px)");
   return (
     <SectionWrapper
       style={{
-        gridColumnStart: match760 ? 1 : 2,
+        gridColumnStart: 1,
         gridColumnEnd: 4,
-        flex: 1,
-        height: match760 ? "auto" : "403px",
       }}
     >
-      <SectionTitle>About</SectionTitle>
-      <SectionDivider />
+      <SectionTitle>동아리 정보</SectionTitle>
       <AboutContent>
         성균합창단은 54년의 전통을 잇는 중앙 합창 동아리입니다. 매주 화, 목요일
         7시 정기 연습과 뒤풀이로 단원간 화합을 도모하고, 매 학기 정기 공연을
@@ -63,7 +62,7 @@ export default function AboutSection() {
         또는 노래 관련 경험이 없어도, 학번이 높아도 괜찮습니다. 편한 마음으로
         가볍게 놀러오세요!
       </AboutContent>
-      <ClubPageNaviagateBtn>동아리 페이지</ClubPageNaviagateBtn>
+      {/* <ClubPageNaviagateBtn>동아리 페이지</ClubPageNaviagateBtn> */}
     </SectionWrapper>
   );
 }

@@ -1,26 +1,33 @@
 import styled from "@emotion/styled";
 import SectionWrapper from "./SectionWrapper";
 import { SectionDivider, SectionTitle } from "./common";
+import { useMediaQuery } from "@mui/material";
 
 const DetailContent = styled.div`
   margin-top: 1.5rem;
   width: 100%;
-  font-weight: 300;
-  font-size: 1rem;
-  line-height: 130%;
   white-space: pre-line;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 25.6px */
 `;
 
 export default function ActivitySection() {
+  const match760 = useMediaQuery("(max-width:760px)");
   return (
     <SectionWrapper
       style={{
-        gridColumnStart: 1,
+        gridColumnStart: match760 ? 1 : 2,
         gridColumnEnd: 4,
+        flex: 1,
+        height: match760 ? "auto" : "443px",
       }}
     >
-      <SectionTitle>Activity</SectionTitle>
-      <SectionDivider />
+      <SectionTitle>활동 내용</SectionTitle>
+
       <DetailContent>
         {`3월 - 새내기배움터 및 입학식 공연 
             5월 - 23기 5월 정기공연 

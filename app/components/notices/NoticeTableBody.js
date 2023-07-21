@@ -9,9 +9,12 @@ import NoticeTablePagination from "./NoticeTablePagination";
 const TableWrapper = styled.div`
   width: 100%;
   padding: 27px 44px;
-  background-color: #2A3133;
+  background-color: #2a3133;
   margin-top: 18px;
   border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
   @media (max-width: 768px) {
     padding: 19px 13px;
     margin-top: 0;
@@ -50,12 +53,12 @@ const NoticeRowItem = styled.div`
     justify-content: center;
   }
   &.second-row {
-    display:block;
+    display: block;
     flex: 5;
     justify-content: flex-start;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     padding-left: 10px;
   }
   &.third-row {
@@ -79,7 +82,6 @@ const MobileItem = styled.div`
   line-height: 14px;
 `;
 
-
 export default function NoticeTableBody() {
   const match768 = useMediaQuery("(max-width:768px)");
   const { isLoading, data } = useQuery(["notices"], getNoticeListwithRole);
@@ -92,35 +94,35 @@ export default function NoticeTableBody() {
   return (
     <TableWrapper>
       {!match768 && <NoticeTableHeader />}
-      {data && data.content.map((item) => (
-        <div key={item.noticeId}>
-          <NoticeRow>
-            {!match768 && (
-              <NoticeRowItem className="first-row">{item.noticeId}</NoticeRowItem>
-            )}
-            <NoticeRowItem className="second-row">{item.title}</NoticeRowItem>
-            {match768 ? (
-              <MobileItemWrapper>
-                <MobileItem>{item.writerName}</MobileItem>
-                <MobileItem>{item.createdAt.substr(0,10)}</MobileItem>
-              </MobileItemWrapper>
-            ) : (
-              <>
-                <NoticeRowItem className="third-row">
-                  {item.writerName}
+      {data &&
+        data.content.map((item) => (
+          <div key={item.noticeId}>
+            <NoticeRow>
+              {!match768 && (
+                <NoticeRowItem className="first-row">
+                  {item.noticeId}
                 </NoticeRowItem>
-                <NoticeRowItem className="last-row">
-                  {item.createdAt.substr(0,10)}
-                </NoticeRowItem>
-              </>
-            )}
-          </NoticeRow>
-        </div>
-      ))}
-      <NoticeTablePagination
-          page={page}
-          handlePageChange={handlePageChange}
-        />
+              )}
+              <NoticeRowItem className="second-row">{item.title}</NoticeRowItem>
+              {match768 ? (
+                <MobileItemWrapper>
+                  <MobileItem>{item.writerName}</MobileItem>
+                  <MobileItem>{item.createdAt.substr(0, 10)}</MobileItem>
+                </MobileItemWrapper>
+              ) : (
+                <>
+                  <NoticeRowItem className="third-row">
+                    {item.writerName}
+                  </NoticeRowItem>
+                  <NoticeRowItem className="last-row">
+                    {item.createdAt.substr(0, 10)}
+                  </NoticeRowItem>
+                </>
+              )}
+            </NoticeRow>
+          </div>
+        ))}
+      <NoticeTablePagination page={page} handlePageChange={handlePageChange} />
     </TableWrapper>
   );
 }
