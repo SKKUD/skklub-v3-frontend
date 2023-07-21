@@ -33,6 +33,7 @@ const CardGrid = styled.div`
 `;
 
 export default function CardBoard({ cardsData }) {
+  console.log(cardsData);
   const category = useRecoilValue(categoryState);
 
   const filteredClubs = (category) => {
