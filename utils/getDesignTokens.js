@@ -12,7 +12,7 @@ const getDesignTokens = (mode) => ({
           },
           background: {
             paper: "#262626",
-            default: "#151717",
+            default: "#FFFEF4",
           },
           text: {
             primary: "rgba(255,255,255,0.87)",

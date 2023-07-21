@@ -9,11 +9,12 @@ import { RecoilRoot } from "recoil";
 
 const Providers = ({ children }) => {
   const darkModeTheme = createTheme(getDesignTokens("dark"));
+  const lightModeTheme = createTheme(getDesignTokens("light"));
   const [client] = useState(
     new QueryClient({ defaultOptions: { queries: { staleTime: 5000 } } })
   );
   return (
-    <ThemeProvider theme={darkModeTheme}>
+    <ThemeProvider theme={lightModeTheme}>
       <CssBaseline />
       <RecoilRoot>
         <QueryClientProvider client={client}>{children}</QueryClientProvider>
