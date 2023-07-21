@@ -1,5 +1,6 @@
+import useURLParse from "@/hooks/useURLParse";
 import { categoryState } from "@/utils/atoms";
-import { CATEGORIES } from "@/utils/constants";
+import { CATEGORIES_SEOUL, CATEGORIES_SUWON } from "@/utils/constants";
 import styled from "@emotion/styled";
 import { useRecoilState } from "recoil";
 
@@ -53,14 +54,14 @@ const Category = styled.button`
 
 export default function Categories() {
   const [category, setCategory] = useRecoilState(categoryState);
-
+  const { isSuwon } = useURLParse();
   const onCategoryClick = (clickedCategory) => {
     setCategory(clickedCategory);
   };
 
   return (
     <CategoryWrapper>
-      {CATEGORIES.map((c) => (
+      {(isSuwon ? CATEGORIES_SUWON : CATEGORIES_SEOUL).map((c) => (
         <Category
           key={c}
           isClicked={category === c}

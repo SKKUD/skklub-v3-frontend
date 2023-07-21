@@ -67,7 +67,7 @@ export const CLUBS_DUMMY_DATA = [
   },
 ];
 
-export const CATEGORIES = [
+export const CATEGORIES_SEOUL = [
   "전체",
   "평면예술",
   "언행예술",
@@ -77,6 +77,17 @@ export const CATEGORIES = [
   "종교",
   "학술",
   "인문사회",
+];
+
+export const CATEGORIES_SUWON = [
+  "전체",
+  "평면예술",
+  "언행예술",
+  "건강체육",
+  "취미교양",
+  "사회",
+  "종교",
+  "학술",
 ];
 
 export const INTRO_DUMMY_DATA = {
