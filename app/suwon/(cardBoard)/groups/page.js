@@ -1,14 +1,16 @@
+"use client";
+
 import CardBoard from "@/app/components/cardBoard/CardBoard";
-import { CLUBS_DUMMY_DATA } from "@/utils/constants";
+import LoadingLayout from "@/app/layouts/loading/LoadingLayout";
+import { getClubs } from "@/utils/fetch";
+import { useQuery } from "@tanstack/react-query";
 
 export default function CentralClubs() {
   //API 함수호출
-  // const { data } = useQuery({
-  //   queryKey: ["suwon-groups"],
-  //   queryFn: () => getClubs("율전", "소모임"),
-  // });
+  const { data, isLoading } = useQuery({
+    queryKey: ["suwon-groups"],
+    queryFn: () => getClubs("율전", "소모임"),
+  });
 
-  const CARDS_DATA = CLUBS_DUMMY_DATA;
-
-  return <CardBoard cardsData={CARDS_DATA} />;
+  return isLoading ? <LoadingLayout /> : <CardBoard cardsData={data.content} />;
 }
