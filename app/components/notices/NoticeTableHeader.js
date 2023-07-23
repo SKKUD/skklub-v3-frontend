@@ -3,11 +3,11 @@ import styled from "@emotion/styled";
 const AttributeRow = styled.div`
   width: 100%;
   height: 56px;
+  padding-bottom: 10px;
   display: flex;
   gap: 20px;
   justify-content: space-between;
   border-bottom: 3px solid #fff;
-  margin-bottom: 25px;
 `;
 
 const AttributeRowItem = styled.div`
@@ -40,7 +40,7 @@ export default function NoticeTableHeader() {
       <AttributeRowItem className="first-row">NO.</AttributeRowItem>
       <AttributeRowItem className="second-row">제목</AttributeRowItem>
       <AttributeRowItem className="third-row">작성자</AttributeRowItem>
-      <AttributeRowItem className="last-row">작성일지</AttributeRowItem>
+      <AttributeRowItem className="last-row">작성일자</AttributeRowItem>
     </AttributeRow>
   );
 }

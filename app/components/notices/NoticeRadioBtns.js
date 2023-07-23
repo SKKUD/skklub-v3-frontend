@@ -22,8 +22,7 @@ const StyledRadioBtn = styled(Radio)`
   }
 `;
 
-export default function NoticeRadioBtns() {
-  const [value, setValue] = useState("all");
+export default function NoticeRadioBtns({value,setValue}) {
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -33,17 +32,17 @@ export default function NoticeRadioBtns() {
     <FormControl>
       <StyledRadioGroup row value={value} onChange={handleChange}>
         <FormControlLabel
-          value="all"
+          value=""
           control={<StyledRadioBtn size="small" />}
           label="전체"
         />
         <FormControlLabel
-          value="seoul"
+          value="ROLE_ADMIN_SEOUL_CENTRAL"
           control={<StyledRadioBtn size="small" />}
           label="명륜 동아리"
         />
         <FormControlLabel
-          value="suwon"
+          value="ROLE_ADMIN_SUWON_CENTRAL"
           control={<StyledRadioBtn size="small" />}
           label="율전 동아리"
         />

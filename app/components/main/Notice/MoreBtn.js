@@ -1,17 +1,14 @@
 import styled from "@emotion/styled";
 
 const MoreBtn = styled.button`
-  background-color: #4e5353;
-  font-weight: 400;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #f0f0f0;
+  color: #303030;
+  font-weight: 600;
   border: none;
-  color: white;
-  width: 104px;
-  height: 33px;
-  font-size: 1.25rem;
-  border-radius: 104px;
+  width: 72px;
+  height: 39px;
+  font-size: 16px;
+  border-radius: 99px;
 
   @media (max-width: 680px) {
     width: 73px;

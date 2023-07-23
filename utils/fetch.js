@@ -41,11 +41,12 @@ export const getNoticeThumbnailCard = async () =>{
 }
   
 
-export const getNoticeListwithRole = async ({ auth }) => {
-  const response = await fetch(`${BASE_URL}/notice/prev`)
-  return await response.json(); 
+export const getNoticeListwithRole = async ({ role, page }) => {
+  const response = await fetch(
+    `${BASE_URL}/notice/prev?role=${role}&size=10&page=${page - 1}`
+  );
+  return await response.json();
 };
-// await fetch(`${BASE_URL}/notice/prev?role=${auth}`).then((res) => res.json());
 
 export const getNoticesFromKeyword = async ({ keyword }) =>{
 const response = await fetch(`${BASE_URL}/notice/prev/search/title?title=${keyword}`);

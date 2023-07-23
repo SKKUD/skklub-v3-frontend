@@ -9,11 +9,15 @@ const PaginationWrapper = styled.div`
   justify-content: center;
 `;
 
-export default function NoticeTablePagination({ page, handlePageChange }) {
+export default function NoticeTablePagination({
+  totalPages,
+  page,
+  handlePageChange,
+}) {
   return (
     <PaginationWrapper>
       <Pagination
-        count={10}
+        count={totalPages ? totalPages % 10 : 10}
         defaultPage={1}
         page={page}
         onChange={handlePageChange}
