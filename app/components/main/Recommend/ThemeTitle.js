@@ -7,6 +7,7 @@ const ThemeTitle = styled.div`
   font-weight: 500;
   line-height: 100%; /* 20px */
   letter-spacing: -0.4px;
+  font-family: GmarketSansBold;
 
   @media (max-width: 425px) {
     font-weight: 500;
