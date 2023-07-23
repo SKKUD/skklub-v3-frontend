@@ -90,8 +90,12 @@ export default function NoticeTableBody({role}) {
     router.push(`${nextLocation}`);
   };
   const match768 = useMediaQuery("(max-width:768px)");
-  const { isLoading, data } = useQuery({queryKey: ["notices",role], queryFn: ()=> getNoticeListwithRole(role), onSuccess: (data)=> console.log(data)});
   const [page, setPage] = useState(1);
+  const { isLoading, data } = useQuery({
+    queryKey: ["notices", role, page],
+    queryFn: () => getNoticeListwithRole({ role, page }),
+    onSuccess: (data) => console.log(data),
+  });
   const handlePageChange = (e, value) => {
     e.preventDefault();
     setPage(value);
@@ -102,7 +106,10 @@ export default function NoticeTableBody({role}) {
       {!match768 && <NoticeTableHeader />}
       {data &&
         data.content.map((item) => (
-          <div key={item.noticeId} onClick={() => pushToNoticeDetail(`/notices/${item.noticeId}`)}>
+          <div
+            key={item.noticeId}
+            onClick={() => pushToNoticeDetail(`/notices/${item.noticeId}`)}
+          >
             <NoticeRow>
               {!match768 && (
                 <NoticeRowItem className="first-row">
@@ -128,7 +135,11 @@ export default function NoticeTableBody({role}) {
             </NoticeRow>
           </div>
         ))}
-      <NoticeTablePagination page={page} handlePageChange={handlePageChange} />
+      <NoticeTablePagination
+        totalPages={data && data.totalPages}
+        page={page}
+        handlePageChange={handlePageChange}
+      />
     </TableWrapper>
   );
 }
