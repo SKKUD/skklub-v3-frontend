@@ -40,7 +40,7 @@ const ClubTitle = styled.div`
   align-items: center;
   color: #303030;
   text-align: center;
-  font-family: GmarketSansMedium;
+  font-family: GmarketSansBold;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
