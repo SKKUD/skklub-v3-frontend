@@ -8,7 +8,7 @@ const BannerWrapper = styled.div`
   gap: 20px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 0.7);
   @media (max-width: 768px) {
     gap: 30px;
   }
