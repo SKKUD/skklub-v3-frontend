@@ -54,6 +54,7 @@ const NoticeRowItem = styled.div`
     justify-content: center;
   }
   &.second-row {
+    cursor: pointer;
     display: block;
     flex: 5;
     justify-content: flex-start;
