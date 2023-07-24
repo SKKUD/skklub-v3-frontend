@@ -14,7 +14,7 @@ const DetailContent = styled.div`
   line-height: 160%; /* 25.6px */
 `;
 
-export default function ActivitySection() {
+export default function ActivitySection({ clubData }) {
   const match760 = useMediaQuery("(max-width:760px)");
   return (
     <SectionWrapper
@@ -23,16 +23,12 @@ export default function ActivitySection() {
         gridColumnEnd: 4,
         flex: 1,
         height: match760 ? "auto" : "443px",
+        overflowX: "scroll",
       }}
     >
       <SectionTitle>활동 내용</SectionTitle>
 
-      <DetailContent>
-        {`3월 - 새내기배움터 및 입학식 공연 
-            5월 - 23기 5월 정기공연 
-            6월 -24기 모집마감 7월 - 방학 중 연습 시작(공식 활동) 
-            9월 - 23, 24기 9월정기공연`}
-      </DetailContent>
+      <DetailContent>{clubData.activityDescription}</DetailContent>
     </SectionWrapper>
   );
 }

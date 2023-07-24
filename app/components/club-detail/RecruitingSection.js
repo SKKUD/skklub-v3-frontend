@@ -87,7 +87,7 @@ const RTd = styled.td`
   }
 `;
 
-export default function RecruitingSection() {
+export default function RecruitingSection({ clubData }) {
   return (
     <SectionWrapper
       style={{
@@ -108,7 +108,7 @@ export default function RecruitingSection() {
         </RThead>
         <tbody>
           <RTr>
-            <RTd>asdf</RTd>
+            <RTd>{asdf}</RTd>
             <RTd>asdf</RTd>
             <RTd>asdf</RTd>
             <RTd>asdf</RTd>
