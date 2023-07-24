@@ -52,10 +52,9 @@ const RTr = styled.tr`
 `;
 
 const RTh = styled.th`
-  border: 1px solid #fff;
+  border: 1px solid;
   padding-top: 14px;
   padding-bottom: 14px;
-  color: #fff;
   font-family: Pretendard;
   font-size: 22px;
   font-style: normal;
@@ -70,10 +69,9 @@ const RTh = styled.th`
 `;
 
 const RTd = styled.td`
-  border: 1px solid #fff;
+  border: 1px solid;
   padding-top: 33px;
   padding-bottom: 40px;
-  color: #fff;
   text-align: center;
   font-family: Pretendard;
   font-size: 16px;

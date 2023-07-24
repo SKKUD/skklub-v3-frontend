@@ -16,7 +16,6 @@ const LabelContainer = styled.div`
 
 const BoldLabel = styled.div`
   height: 30px;
-  color: #fff;
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
@@ -28,7 +27,6 @@ const BoldLabel = styled.div`
 
 const Label = styled.div`
   height: 30px;
-  color: #fff;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
