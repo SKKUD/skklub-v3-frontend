@@ -6,16 +6,14 @@ import useURLParse from "@/hooks/useURLParse";
 const DeptTitle = styled.div`
   font-size: 28px;
   color: ${(props) =>
-    props.campus
-      ? ({ theme }) => theme.palette.secondary.main
-      : ({ theme }) => theme.palette.primary.main};
+    props.campus ? "rgba(134, 221, 200, 1)" : "rgba(128, 164, 255, 1)"};
   display: flex;
   align-items: center;
   font-weight: 600;
   margin-bottom: 20px;
   margin-top: 60px;
   > p {
-    color: #fff;
+    color: ${({ theme }) => theme.palette.text.primary};
   }
   @media (max-width: 768px) {
     margin-bottom: 15px;
@@ -70,6 +68,7 @@ const DeptName = styled.div`
 `;
 
 const DeptDescription = styled(Card)`
+  background-color: ${({ theme }) => theme.palette.secondary.main};
   width: 70%;
   margin: 8px;
   padding: 21px 38px;
