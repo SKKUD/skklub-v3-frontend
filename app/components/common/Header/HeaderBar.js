@@ -223,7 +223,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
               {isSearchVisible ? (
                 <CloseIcon sx={{ fontSize: "35px", color: "#666" }} />
               ) : (
-                <SearchIcon sx={{ fontSize: "35px" }} />
+                <SearchIcon sx={{ fontSize: "35px", color: "#5e5e5e" }} />
               )}
             </IconButton>
 

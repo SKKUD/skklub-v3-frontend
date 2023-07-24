@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 import styles from "./hamburger.module.css";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 
 const NavWrap = styled.div`
   display: flex;
@@ -23,13 +24,17 @@ const NavButtonFont = styled.div`
       ? props.isSuwon
         ? ({ theme }) => theme.palette.primary.main
         : ({ theme }) => theme.palette.secondary.main
-      : "#fff"};
+      : "inherit"};
 `;
 
 const SidebarInner = styled.div`
   z-index: 1000;
   padding: 20px 30px 20px 20px;
-  background-color: #151717;
+  background-color: ${(props) =>
+    props.isDarkMode
+      ? ({ theme }) => theme.palette.background.paper
+      : "#F5F4EA"};
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#585858")};
   height: 100%;
   width: 50%;
   max-width: 250px;
@@ -60,6 +65,7 @@ const CampusWrap = styled.div`
 
 export default function Sidebar({ isOpen, setOpen, navItems }) {
   const { isSuwon, type } = useURLParse();
+  const isDarkMode = useThemeModeDetect();
   const outside = useRef();
   const toggleSide = () => {
     setOpen(false);
@@ -81,7 +87,11 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
 
   return (
     <>
-      <SidebarInner ref={outside} className={isOpen ? "open" : ""}>
+      <SidebarInner
+        isDarkMode={isDarkMode}
+        ref={outside}
+        className={isOpen ? "open" : ""}
+      >
         <IconButton
           className={`${styles.menutrigger} ${styles.type7} ${
             isOpen ? styles.active7 : ""
@@ -97,7 +107,11 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
         <NavWrap onClick={toggleSide}>
           {navItems.map((item) => (
             <Link href={`/${item.path}`} key={item.name}>
-              <NavButtonFont isSuwon={isSuwon} isMatch={type === item.check}>
+              <NavButtonFont
+                isDarkMode={isDarkMode}
+                isSuwon={isSuwon}
+                isMatch={type === item.check}
+              >
                 {item.name}
               </NavButtonFont>
             </Link>
