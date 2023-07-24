@@ -54,6 +54,7 @@ const NoticesContentWrapper = styled.div`
 
 export default function Notices() {
   const match768 = useMediaQuery("(max-width:768px)");
+  const [role, setRole] = useState("");
 
   return (
     <>
@@ -62,8 +63,8 @@ export default function Notices() {
         <Title>공지사항</Title>
       </NoticesBanner>
       <NoticesContentWrapper>
-        <NoticeRadioBtns />
-        <NoticeTableBody />
+        <NoticeRadioBtns value={role} setValue={setRole}/>
+        <NoticeTableBody role={role}/>
       </NoticesContentWrapper>
     </>
   );

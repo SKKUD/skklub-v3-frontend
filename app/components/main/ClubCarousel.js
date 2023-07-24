@@ -131,7 +131,7 @@ export default function ClubCarousel() {
                 content={info.content}
                 img={info.img}
               />
-            </SwiperSlide>
+    </SwiperSlide>
           ))}
         </Swiper>
       ) : (

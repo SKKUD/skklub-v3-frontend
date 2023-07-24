@@ -5,6 +5,8 @@ import { useQuery } from "@tanstack/react-query";
 import { getNoticeListwithRole } from "@/utils/fetch";
 import NoticeTableHeader from "./NoticeTableHeader";
 import NoticeTablePagination from "./NoticeTablePagination";
+import { useRouter } from "next/navigation";
+
 
 const TableWrapper = styled.div`
   width: 100%;
@@ -25,7 +27,7 @@ const NoticeRow = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  height: 66px;
+  height: 40px;
   gap: 20px;
   @media (max-width: 768px) {
     flex-direction: column;
@@ -36,7 +38,7 @@ const NoticeRow = styled.div`
 const NoticeRowItem = styled.div`
   font-weight: 400;
   font-size: 18px;
-  line-height: 66px;
+  line-height: 40px;
   font-weight: 500;
   display: flex;
   justify-content: center;
@@ -82,10 +84,18 @@ const MobileItem = styled.div`
   line-height: 14px;
 `;
 
-export default function NoticeTableBody() {
+export default function NoticeTableBody({role}) {
+  const router = useRouter();
+  const pushToNoticeDetail = (nextLocation) => {
+    router.push(`${nextLocation}`);
+  };
   const match768 = useMediaQuery("(max-width:768px)");
-  const { isLoading, data } = useQuery(["notices"], getNoticeListwithRole);
   const [page, setPage] = useState(1);
+  const { isLoading, data } = useQuery({
+    queryKey: ["notices", role, page],
+    queryFn: () => getNoticeListwithRole({ role, page }),
+    onSuccess: (data) => console.log(data),
+  });
   const handlePageChange = (e, value) => {
     e.preventDefault();
     setPage(value);
@@ -96,7 +106,10 @@ export default function NoticeTableBody() {
       {!match768 && <NoticeTableHeader />}
       {data &&
         data.content.map((item) => (
-          <div key={item.noticeId}>
+          <div
+            key={item.noticeId}
+            onClick={() => pushToNoticeDetail(`/notices/${item.noticeId}`)}
+          >
             <NoticeRow>
               {!match768 && (
                 <NoticeRowItem className="first-row">
@@ -122,7 +135,11 @@ export default function NoticeTableBody() {
             </NoticeRow>
           </div>
         ))}
-      <NoticeTablePagination page={page} handlePageChange={handlePageChange} />
+      <NoticeTablePagination
+        totalPages={data && data.totalPages}
+        page={page}
+        handlePageChange={handlePageChange}
+      />
     </TableWrapper>
   );
 }
