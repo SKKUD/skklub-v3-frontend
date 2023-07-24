@@ -128,7 +128,6 @@ export default function ClubCarousel() {
   const pathname = usePathname();
   const setCategory = useSetRecoilState(categoryState);
   const IsDarkMode = useThemeModeDetect();
-  console.log(IsDarkMode);
 
   const handleClickCard = (clickedCategory) => {
     setCategory(clickedCategory);

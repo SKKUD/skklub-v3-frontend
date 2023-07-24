@@ -112,7 +112,6 @@ export default function Searchbar({ setIsSearchVisible }) {
   };
 
   const { isSuwon } = useURLParse();
-  console.log(isSuwon);
   useEffect(() => {
     document.addEventListener("mousedown", handleOutside);
     return () => {
