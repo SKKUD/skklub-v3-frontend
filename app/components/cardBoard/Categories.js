@@ -26,9 +26,15 @@ const Category = styled.button`
   align-items: center;
   border: none;
   border-radius: 99px;
-  background-color: ${(props) => (props.isClicked ? "#FFF" : "#2A3133")};
+  background-color: ${(props) =>
+    props.isClicked
+      ? props.theme.palette.text.primary
+      : props.theme.palette.secondary.main};
   overflow: hidden;
-  color: ${(props) => (props.isClicked ? "#151717" : "#FFF")};
+  color: ${(props) =>
+    props.isClicked
+      ? props.theme.palette.secondary.main
+      : props.theme.palette.text.primary};
   text-align: center;
   text-overflow: ellipsis;
   font-family: Pretendard;

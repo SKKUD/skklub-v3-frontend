@@ -31,7 +31,6 @@ const CardHeader = styled.div`
 `;
 
 const ClubName = styled.div`
-  color: #fff;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 500;
@@ -46,7 +45,6 @@ const CardFooter = styled.div`
 `;
 
 const CardType = styled.div`
-  color: #fff;
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
