@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
-  background-color: #2a3133;
+  background-color: ${({ theme }) => theme.palette.secondary.main};
   height: 225px;
   border-radius: 10px;
   padding-top: 34px;

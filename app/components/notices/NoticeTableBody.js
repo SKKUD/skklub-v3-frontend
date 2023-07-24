@@ -7,11 +7,10 @@ import NoticeTableHeader from "./NoticeTableHeader";
 import NoticeTablePagination from "./NoticeTablePagination";
 import { useRouter } from "next/navigation";
 
-
 const TableWrapper = styled.div`
   width: 100%;
   padding: 27px 44px;
-  background-color: #2a3133;
+  background-color: ${({ theme }) => theme.palette.secondary.main};
   margin-top: 18px;
   border-radius: 12px;
   display: flex;
@@ -84,7 +83,7 @@ const MobileItem = styled.div`
   line-height: 14px;
 `;
 
-export default function NoticeTableBody({role}) {
+export default function NoticeTableBody({ role }) {
   const router = useRouter();
   const pushToNoticeDetail = (nextLocation) => {
     router.push(`${nextLocation}`);

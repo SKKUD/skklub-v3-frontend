@@ -8,14 +8,15 @@ const getDesignTokens = (mode) => ({
             main: "#3f51b5",
           },
           secondary: {
-            main: "#86DDC8",
+            main: "#E5E4DA",
           },
           background: {
-            paper: "#262626",
-            default: "#151717",
+            paper: "#FFF",
+            default: "#FFFEF4",
           },
           text: {
-            primary: "rgba(255,255,255,0.87)",
+            primary: "rgba(36, 36, 34, 1)",
+            secondary: "#585858",
           },
         }
       : {
@@ -24,7 +25,7 @@ const getDesignTokens = (mode) => ({
             main: "#80A4FF",
           },
           secondary: {
-            main: "#16A480",
+            main: "#434C4F",
           },
           background: {
             paper: "#2A3133",
@@ -32,6 +33,7 @@ const getDesignTokens = (mode) => ({
           },
           text: {
             primary: "rgba(255,255,255,0.87)",
+            secondary: "#DFE3E4",
           },
         }),
   },

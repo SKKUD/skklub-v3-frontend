@@ -7,7 +7,6 @@ const DetailContent = styled.div`
   margin-top: 1.5rem;
   width: 100%;
   white-space: pre-line;
-  color: #fff;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;

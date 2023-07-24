@@ -6,16 +6,12 @@ import { SectionDivider, SectionTitle } from "./common";
 const AboutContent = styled.div`
   height: 226px;
   word-break: keep-all;
-  color: #fff;
+
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 160%; /* 25.6px */
-  /* @media (max-width: 760px) {
-    height: 312px;
-    overflow-y: auto;
-  } */
 `;
 
 const ClubPageNaviagateBtn = styled.button`

@@ -18,12 +18,11 @@ const StyledRadioGroup = styled(RadioGroup)`
 
 const StyledRadioBtn = styled(Radio)`
   &.Mui-checked {
-    color: #fff;
+    color: ${({ theme }) => theme.palette.text.primary};
   }
 `;
 
-export default function NoticeRadioBtns({value,setValue}) {
-
+export default function xNoticeRadioBtns({ value, setValue }) {
   const handleChange = (event) => {
     setValue(event.target.value);
   };

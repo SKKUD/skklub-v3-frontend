@@ -8,6 +8,7 @@ const BannerWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #fff;
 
   @media (max-width: 768px) {
     height: 180px;

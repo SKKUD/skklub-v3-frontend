@@ -4,8 +4,9 @@ const RecommendationClub = styled.div`
   position: relative;
   width: 174px;
   height: 174px;
-  background-color: ${({ isSuwon, theme }) =>
-    !isSuwon ? theme.palette.secondary.main : theme.palette.primary.main};
+  /* background-color: ${({ isSuwon, theme }) =>
+    !isSuwon ? theme.palette.secondary.main : theme.palette.primary.main}; */
+  background-color: rgba(80, 207, 177, 1);
   border-radius: 10px;
   font-size: 1.75rem;
   font-weight: 500;

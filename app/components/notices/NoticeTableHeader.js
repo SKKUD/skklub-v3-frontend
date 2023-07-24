@@ -7,7 +7,7 @@ const AttributeRow = styled.div`
   display: flex;
   gap: 20px;
   justify-content: space-between;
-  border-bottom: 3px solid #fff;
+  border-bottom: 3px solid;
 `;
 
 const AttributeRowItem = styled.div`

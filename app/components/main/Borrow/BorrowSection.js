@@ -31,7 +31,6 @@ const BorrowWrapper = styled.div`
 `;
 
 const BorrowPhrase = styled.div`
-  color: #fff;
   text-align: center;
   font-size: 2rem;
   font-style: normal;

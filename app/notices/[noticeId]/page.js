@@ -1,12 +1,12 @@
 "use client";
- 
-import { useRouter,useParams } from 'next/navigation'
+
+import { useRouter, useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import NoticeBanner from "@/app/components/notices/NoticeBanner";
 import styled from "@emotion/styled";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { getNoticeDetail } from '@/utils/fetch';
+import { getNoticeDetail } from "@/utils/fetch";
 
 const PageWrapper = styled.div`
   max-width: 1050px;
@@ -17,7 +17,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 3rem;
-  background-color: rgba(42, 49, 51, 1);
+  background-color: ${({ theme }) => theme.palette.secondary.main};
   border-radius: 10px;
   padding-top: 44px;
   padding-left: 30px;
@@ -32,7 +32,6 @@ const TitleBox = styled.div`
 `;
 
 const Title = styled.div`
-  color: #fff;
   font-family: GmarketSansMedium;
   font-size: 1.75rem;
   font-style: normal;
@@ -48,8 +47,6 @@ const SubTitleWrapper = styled.div`
 
 const SubTitle = styled.div`
   text-align: center;
-
-  color: #fff;
   font-family: Pretendard;
   font-size: 0.875rem;
   font-style: normal;
@@ -63,14 +60,13 @@ const SubTitle = styled.div`
 
 const Divider = styled.hr`
   height: 3px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.palette.text.primary};
   border: none;
   margin-top: 22px;
   width: 100%;
 `;
 
 const Attachment = styled.div`
-  color: #fff;
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
@@ -84,7 +80,6 @@ const Attachment = styled.div`
 const ContentBox = styled.div`
   padding: 0 25px;
   text-align: left;
-  color: #fff;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -112,7 +107,6 @@ const Navigator = styled.div`
 const NavLabel = styled.div`
   text-align: left;
   margin-right: 30px;
-  color: #fff;
   font-family: Pretendard;
   font-size: 1.125rem;
   font-style: normal;
@@ -122,7 +116,6 @@ const NavLabel = styled.div`
 
 const NextTitle = styled.div`
   text-align: left;
-  color: #fff;
   font-family: Pretendard;
   font-size: 1rem;
   font-style: normal;
@@ -153,13 +146,13 @@ const BackToListBtn = styled.div`
   width: 98px;
   height: 39px;
   background: rgba(67, 76, 79, 1);
+  color: #fff;
   border-radius: 99px;
   display: flex;
   justify-content: center;
   align-items: center;
   letter-spacing: 0em;
   overflow: hidden;
-  color: #fff;
   text-align: center;
   text-overflow: ellipsis;
   font-family: Pretendard;
@@ -172,8 +165,12 @@ const BackToListBtn = styled.div`
 `;
 
 export default function NoticePage() {
-  const params = useParams()
-  const { isLoading, data } = useQuery({queryKey: ["notice-detail",params], queryFn: ()=> getNoticeDetail(params.noticeId),onSuccess: (data)=> console.log(data)});
+  const params = useParams();
+  const { isLoading, data } = useQuery({
+    queryKey: ["notice-detail", params],
+    queryFn: () => getNoticeDetail(params.noticeId),
+    onSuccess: (data) => console.log(data),
+  });
   const router = useRouter();
   const pushToNotices = () => {
     router.push(`/notices`);
@@ -194,26 +191,46 @@ export default function NoticePage() {
                 border: "none",
               }}
             >
-              {data && data.createdAt.substr(0,10)}
+              {data && data.createdAt.substr(0, 10)}
             </SubTitle>
           </SubTitleWrapper>
           <Divider />
-          <Attachment>{data && data.extraFileNames.length > 0 && `첨부파일(${data.extraFileNames.length})`}</Attachment>
+          <Attachment>
+            {data &&
+              data.extraFileNames.length > 0 &&
+              `첨부파일(${data.extraFileNames.length})`}
+          </Attachment>
         </TitleBox>
-        <ContentBox>
-        {data && data.content}
-        </ContentBox>
+        <ContentBox>{data && data.content}</ContentBox>
         <NavWrapper>
           <Divider style={{ marginTop: 0 }} />
-          <Navigator onClick={data && data.preNotice ? () => pushToNotice(data.preNotice.id) : null}>
+          <Navigator
+            onClick={
+              data && data.preNotice
+                ? () => pushToNotice(data.preNotice.id)
+                : null
+            }
+          >
             <NavLabel>이전글</NavLabel>
-            <NextTitle>{data && data.preNotice? data.preNotice.title: "이전 공지사항이 없습니다."}</NextTitle>
+            <NextTitle>
+              {data && data.preNotice
+                ? data.preNotice.title
+                : "이전 공지사항이 없습니다."}
+            </NextTitle>
           </Navigator>
           <Divider style={{ marginTop: 0, height: "1px" }} />
-          <Navigator onClick={data && data.postNotice ? () => pushToNotice(data.postNotice.id) : null}>
+          <Navigator
+            onClick={
+              data && data.postNotice
+                ? () => pushToNotice(data.postNotice.id)
+                : null
+            }
+          >
             <NavLabel>다음글</NavLabel>
             <NextTitle>
-            {data && data.postNotice? data.postNotice.title: "다음 공지사항이 없습니다."}
+              {data && data.postNotice
+                ? data.postNotice.title
+                : "다음 공지사항이 없습니다."}
             </NextTitle>
           </Navigator>
           <Divider style={{ marginTop: 0 }} />

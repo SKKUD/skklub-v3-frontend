@@ -20,6 +20,7 @@ const NoticesBanner = styled.div`
 `;
 
 const SubTitle = styled.div`
+  color: #fff;
   font-weight: 400;
   font-size: 16px;
   @media (max-width: 768px) {
@@ -29,6 +30,7 @@ const SubTitle = styled.div`
   }
 `;
 const Title = styled.div`
+  color: #fff;
   font-weight: 600;
   font-size: 32px;
   @media (max-width: 768px) {
@@ -63,8 +65,8 @@ export default function Notices() {
         <Title>공지사항</Title>
       </NoticesBanner>
       <NoticesContentWrapper>
-        <NoticeRadioBtns value={role} setValue={setRole}/>
-        <NoticeTableBody role={role}/>
+        <NoticeRadioBtns value={role} setValue={setRole} />
+        <NoticeTableBody role={role} />
       </NoticesContentWrapper>
     </>
   );

@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 const NoticeTitle = styled.div`
   width: 100%;
-  color: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
