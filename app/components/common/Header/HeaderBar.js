@@ -11,12 +11,16 @@ import Link from "next/link";
 import { useSetRecoilState } from "recoil";
 import { categoryState } from "@/utils/atoms";
 import CampusSwitch from "../CampusSwitch/CampusSwitch";
+import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 
 const HeaderWrap = styled.div`
   position: fixed;
   top: 0;
   z-index: 999;
-  background-color: #2a3133;
+  background-color: ${(props) =>
+    props.isDarkMode
+      ? ({ theme }) => theme.palette.background.paper
+      : "#F5F4EA"};
   width: 100%;
   height: 60px;
   padding: 20px 30px;
@@ -75,7 +79,9 @@ const NavButtonFont = styled.div`
       ? props.isSuwon
         ? ({ theme }) => theme.palette.primary.main
         : ({ theme }) => theme.palette.secondary.main
-      : "#fff"};
+      : props.isDarkMode
+      ? "#fff"
+      : "#585858"};
   &:hover {
     color: ${(props) =>
       props.isSuwon
@@ -136,7 +142,7 @@ function HomeButton({ location }) {
   );
 }
 
-function NavButton({ item, isSuwon, type }) {
+function NavButton({ item, isDarkMode, isSuwon, type }) {
   const setCategory = useSetRecoilState(categoryState);
 
   const onLinkClick = () => {
@@ -145,6 +151,7 @@ function NavButton({ item, isSuwon, type }) {
   return (
     <Link href={`/${item.path}`}>
       <NavButtonFont
+        isDarkMode={isDarkMode}
         isSuwon={isSuwon}
         isMatch={type === item.check}
         onClick={onLinkClick}
@@ -160,6 +167,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
   const toggleSide = (e) => {
     setOpen(true);
   };
+  const isDarkMode = useThemeModeDetect();
 
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const handleSearchClick = () => {
@@ -194,22 +202,23 @@ export default function HeaderBar({ location, isSuwon, type }) {
   ];
   return (
     <>
-      <HeaderWrap>
+      <HeaderWrap isDarkMode={isDarkMode}>
         <HeaderInner>
           <HomeButton location={location} />
           <NavWrap>
             {navItems.map((item) => (
               <NavButton
                 item={item}
+                isDarkMode={isDarkMode}
                 isSuwon={isSuwon}
                 type={type}
                 key={item.name}
               />
             ))}
           </NavWrap>
-          
+
           <IconButtonsWrap>
-          {type!=="notices" && !match760  && <CampusSwitch />}
+            {type !== "notices" && !match760 && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
                 <CloseIcon sx={{ fontSize: "35px", color: "#666" }} />

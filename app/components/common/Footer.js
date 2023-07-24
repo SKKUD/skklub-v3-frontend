@@ -1,3 +1,4 @@
+import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 import styled from "@emotion/styled";
 
 const FooterWrap = styled.div`
@@ -5,11 +6,15 @@ const FooterWrap = styled.div`
   height: 120px;
   font-size: 1rem;
   font-family: pretendard;
-  color: rgba(255, 255, 255, 0.5);
+
+  color: ${(props) =>
+    props.isDarkMode ? "rgba(255, 255, 255, 0.5)" : "#949595"};
   font-weight: 600;
   text-align: center;
-  background-color: #2a3133;
-  /* margin-top: 70px; */
+  background-color: ${(props) =>
+    props.isDarkMode
+      ? ({ theme }) => theme.palette.background.paper
+      : "#F5F4EA"};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +27,10 @@ const FooterWrap = styled.div`
 `;
 
 export default function Footer() {
+  const isDarkMode = useThemeModeDetect();
   return (
-    <FooterWrap>SKKLUB - Created and Maintained by 기술지원위원회</FooterWrap>
+    <FooterWrap isDarkMode={isDarkMode}>
+      SKKLUB - Created and Maintained by 기술지원위원회
+    </FooterWrap>
   );
 }
