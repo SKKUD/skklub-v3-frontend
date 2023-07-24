@@ -6,16 +6,10 @@ import getDesignTokens from "@/utils/getDesignTokens";
 import { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RecoilRoot } from "recoil";
+import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 
 const Providers = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  useEffect(() => {
-    setIsDarkMode(
-      window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-    );
-  }, []);
-
+  const isDarkMode = useThemeModeDetect();
   const darkModeTheme = createTheme(getDesignTokens("dark"));
   const lightModeTheme = createTheme(getDesignTokens("light"));
   const [client] = useState(
