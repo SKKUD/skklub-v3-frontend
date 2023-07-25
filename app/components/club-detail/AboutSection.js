@@ -45,6 +45,7 @@ export default function AboutSection({ clubData }) {
       style={{
         gridColumnStart: 1,
         gridColumnEnd: 4,
+        height: "auto",
       }}
     >
       <SectionTitle>동아리 정보</SectionTitle>

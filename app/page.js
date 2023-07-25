@@ -3,8 +3,6 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
 import logoImg from "@/public/assets/images/skklub_logo_m.png";
-import { useQuery } from "@tanstack/react-query";
-import { getUsers } from "@/utils/fetch";
 import LocationSelectBtn from "./components/start/LocationSelectBtn";
 
 const StartPageWrapper = styled.div`
@@ -60,6 +58,7 @@ const Phrase = styled.h2`
   text-align: center;
   font-size: 2rem;
   word-break: keep-all;
+  color: #fff;
   @media (max-width: 425px) {
     font-size: 1.25rem;
   }
