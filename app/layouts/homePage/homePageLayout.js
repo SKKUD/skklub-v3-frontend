@@ -2,7 +2,7 @@
 
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
-import {useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import RecommendSection from "@/app/components/main/Recommend/RecommendSection";
 import NoticeSection from "@/app/components/main/Notice/NoticeSection";
 import BorrowSection from "@/app/components/main/Borrow/BorrowSection";
@@ -52,13 +52,15 @@ const PromotionBanner = styled.div`
 const ContentWrapper = styled.div`
   width: 100%;
   max-width: 990px;
-
   margin: 0 auto;
   padding-bottom: 14rem;
+  @media (max-width: 990px) {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
   @media (max-width: 425px) {
-    padding-bottom: 4rem;
-    max-height: 600px;
     padding: 0 1rem;
+    padding-bottom: 4rem;
   }
 `;
 
@@ -78,7 +80,7 @@ export default function HomePageLayout() {
 
   return (
     <>
-      <Fadeinout showFadeinout={showFadeinout}/>
+      <Fadeinout showFadeinout={showFadeinout} />
       <FullScreenWrapper height={`${homeContainerHeight}px`}>
         <ClubCarousel />
       </FullScreenWrapper>

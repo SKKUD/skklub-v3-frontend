@@ -11,8 +11,11 @@ const SectionTitle = styled.div`
   font-family: GmarketSansBold;
 
   @media (max-width: 425px) {
+    font-size: 1.25rem;
+    font-style: normal;
     font-weight: 500;
-    font-size: 1rem;
+    line-height: normal;
+    margin-bottom: 16px;
   }
 `;
 

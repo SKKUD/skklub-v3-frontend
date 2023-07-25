@@ -9,6 +9,8 @@ import useURLParse from "../../../../hooks/useURLParse";
 import { RecommendationContent } from "./RecommendationContent";
 import RecommendationClub from "./RecommendationClub";
 import SectionDesc from "../Common/SectionDesc";
+import ClubTitle from "./ClubTitle";
+import ClubType from "./ClubType";
 
 const RecommendWrapper = styled.div`
   margin: 0 auto;
@@ -29,37 +31,6 @@ const RecommendationTheme = styled.div`
   justify-content: center;
   padding-left: 24px;
   gap: 0.75rem;
-`;
-
-const ClubTitle = styled.div`
-  /* width: 135px;
-  height: 93px; */
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  color: #303030;
-  text-align: center;
-  font-family: GmarketSansBold;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 160%; /* 32px */
-  letter-spacing: -0.4px;
-`;
-
-const ClubType = styled.div`
-  /* position: absolute;
-  bottom: 20px; */
-  margin-bottom: 20px;
-  color: #303030;
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 180%; /* 25.2px */
-  letter-spacing: -0.14px;
 `;
 
 export default function RecommendSection() {

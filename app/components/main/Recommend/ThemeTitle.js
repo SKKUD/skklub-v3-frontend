@@ -10,9 +10,12 @@ const ThemeTitle = styled.div`
   font-family: GmarketSansBold;
 
   @media (max-width: 425px) {
-    font-weight: 500;
+    font-family: GmarketSansBold;
     font-size: 1rem;
-    line-height: 151.5%;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 151.5%; /* 24.24px */
+    margin-bottom: 8px;
   }
 `;
 

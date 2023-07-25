@@ -9,9 +9,12 @@ const ThemeSubtitle = styled.div`
   line-height: 160%; /* 25.6px */
 
   @media (max-width: 425px) {
+    font-family: Pretendard;
+    font-size: 0.875rem;
+    font-style: normal;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 151.5%;
+    line-height: 151.5%; /* 21.21px */
+    margin-bottom: 9px;
   }
 `;
 

@@ -13,12 +13,14 @@ const NoticeTitle = styled.div`
   margin: 5px 0;
 
   @media (max-width: 425px) {
+    text-overflow: ellipsis;
+    font-family: Pretendard;
+    font-size: 0.875;
+    font-style: normal;
     font-weight: 600;
-    font-size: 15px;
-    line-height: 151.5%;
-    width: 150px;
-    margin: 0 auto;
-    margin-bottom: 2px;
+    line-height: normal;
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 `;
 
