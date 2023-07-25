@@ -23,17 +23,14 @@ const NavButtonFont = styled.div`
     props.isMatch
       ? props.isSuwon
         ? props.theme.palette.primary.main
-        : "rgba(134, 221, 200, 1)"
+        : props.theme.palette.secondary.main
       : "inherit"};
 `;
 
 const SidebarInner = styled.div`
   z-index: 1000;
   padding: 20px 30px 20px 20px;
-  background-color: ${(props) =>
-    props.isDarkMode
-      ? ({ theme }) => theme.palette.background.paper
-      : "#F5F4EA"};
+  background-color: ${({ theme }) => theme.palette.background.paper};
   color: ${(props) => (props.isDarkMode ? "#fff" : "#585858")};
   height: 100%;
   width: 50%;

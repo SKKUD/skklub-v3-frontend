@@ -62,7 +62,7 @@ const StyledCard = styled.div`
   height: 40vh;
   min-height: 550px;
   border-radius: 15px;
-  background-color: ${({ theme }) => theme.palette.background.paper};
+  background-color: ${({ theme }) => theme.palette.info.main};
   text-align: center;
   margin: 15px auto 50px;
   box-shadow: 0px 4px 20px 5px rgba(0, 0, 0, 0.25);
