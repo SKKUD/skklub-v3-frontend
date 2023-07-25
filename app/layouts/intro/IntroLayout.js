@@ -18,6 +18,7 @@ const LayoutBackground = styled.div`
   }
 
   @media (max-width: 768px) {
+    align-items: flex-start;
     padding: 30px 1rem;
   }
 `;

@@ -5,18 +5,21 @@ import useURLParse from "@/hooks/useURLParse";
 
 const DeptTitle = styled.div`
   font-size: 28px;
-  color: ${(props) =>
-    props.campus ? "rgba(134, 221, 200, 1)" : "rgba(128, 164, 255, 1)"};
+  color: ${({ theme }) => theme.palette.text.primary};
   display: flex;
   align-items: center;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
   margin-top: 60px;
-  > p {
-    color: ${({ theme }) => theme.palette.text.primary};
+  font-family: GmarketSansBold;
+  word-break: keep-all;
+  > span {
+    color: ${(props) => (props.campus ? "#00B590" : "#80A4FF")};
   }
   @media (max-width: 768px) {
+    display: block;
     margin-bottom: 15px;
+    margin-left: 15px;
     font-size: 24px;
   }
 `;
@@ -40,7 +43,7 @@ const DeptLeftSection = styled.div`
 
   @media (max-width: 768px) {
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     padding-top: 15px;
   }
 `;
@@ -50,7 +53,6 @@ const DeptEmoji = styled.div`
   margin-right: 50px;
 
   @media (max-width: 768px) {
-    font-size: 1.3rem;
     margin: 0 20px;
   }
 `;
@@ -60,14 +62,14 @@ const DeptName = styled.div`
   line-height: 32px;
   font-weight: 600;
   word-break: keep-all;
+  font-family: GmarketSansBold;
 
   @media (max-width: 768px) {
     width: 100%;
-    font-size: 1.3rem;
   }
 `;
 
-const DeptDescription = styled(Card)`
+const DeptDescription = styled.div`
   background-color: ${({ theme }) => theme.palette.background.paper};
   width: 70%;
   margin: 8px;
@@ -81,9 +83,9 @@ const DeptDescription = styled(Card)`
   justify-self: flex-end;
 
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 14px;
     width: 100%;
-    padding: 20px;
+    padding: 20px 16px;
     margin: 0px;
   }
 `;
@@ -105,14 +107,9 @@ export default function DepartmentSection({ data }) {
   const match480 = useMediaQuery("(max-width:480px)");
   return (
     <>
-      {match480 ? (
-        <DeptTitle campus={!isSuwon}>부서 소개</DeptTitle>
-      ) : (
-        <DeptTitle campus={!isSuwon}>
-          {data.name}
-          <p> 은 이렇게 구성되어 있어요</p>
-        </DeptTitle>
-      )}
+      <DeptTitle campus={!isSuwon}>
+        <span>{data.name}</span>은 {match480 && <br />} 이렇게 구성되어 있어요
+      </DeptTitle>
 
       {data.department.map((dept) => (
         <DepartmentCard dept={dept} key={dept.name} />
