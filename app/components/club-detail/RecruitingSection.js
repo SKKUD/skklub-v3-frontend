@@ -108,10 +108,13 @@ export default function RecruitingSection({ clubData }) {
         </RThead>
         <tbody>
           <RTr>
-            <RTd>{asdf}</RTd>
-            <RTd>asdf</RTd>
-            <RTd>asdf</RTd>
-            <RTd>asdf</RTd>
+            <RTd>
+              {clubData.recruit.recruitStartAt.slice(0, 10)} ~{" "}
+              {clubData.recruit.recruitEndAt.slice(0, 10)}
+            </RTd>
+            <RTd>{clubData.recruit.recruitQuota}</RTd>
+            <RTd>{clubData.recruit.recruitProcessDescription}</RTd>
+            <RTd>{clubData.mandatoryActivatePeriod}</RTd>
           </RTr>
         </tbody>
       </RTable>

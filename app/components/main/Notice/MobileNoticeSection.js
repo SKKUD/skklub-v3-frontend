@@ -3,9 +3,8 @@ import { useMediaQuery } from "@mui/material";
 import SectionTitle from "../Common/SectionTitle";
 import NoticeCard from "./NoticeCard";
 import MoreBtn from "./MoreBtn";
-import NoticeDate from "./NoticeDate";
-import NoticeTitle from "./NoticeTitle";
-import NoticeWriter from "./NoticeWriter";
+import { useQuery } from "@tanstack/react-query";
+import { getNoticeThumbnailCard } from "@/utils/fetch";
 
 const MobileNoticeWrapper = styled.div`
   width: 100%;
@@ -15,31 +14,37 @@ const MobileNoticeWrapper = styled.div`
 
 const SmallCardContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 1rem;
 `;
 
+const NoticeCardsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  margin-top: 1rem;
+  gap: 16px;
+`;
+
 export default function MobileNoticeSection() {
-  const matches_560 = useMediaQuery("(max-width:560px)");
+  const pushToNotices = () => {
+    router.push(`/notices`);
+  };
+  const { isLoading, data } = useQuery({
+    queryKey: ["notice-thumbnail"],
+    queryFn: () => getNoticeThumbnailCard(),
+    // onSuccess: (data) => console.log(data),
+  });
+
   return (
     <MobileNoticeWrapper>
       <SectionTitle>공지사항</SectionTitle>
-      <MoreBtn>More</MoreBtn>
-      <SmallCardContainer>
-        <NoticeCard imageUrl="/assets/images/one.png">
-          <NoticeDate>Jan 9, 2021</NoticeDate>
-          <NoticeTitle>[밴드] 제 22회 초청공연</NoticeTitle>
-          <NoticeWriter>못갗춘마디</NoticeWriter>
-        </NoticeCard>
-        <NoticeCard imageUrl="/assets/images/one.png">
-          <NoticeDate>Jan 9, 2021</NoticeDate>
-          <NoticeTitle>[밴드] 제 22회 초청공연</NoticeTitle>
-          <NoticeWriter>못갗춘마디</NoticeWriter>
-        </NoticeCard>
-        {!matches_560 && (
-          <NoticeCard imageUrl="/assets/images/one.png"></NoticeCard>
-        )}
-      </SmallCardContainer>
+      <MoreBtn onClick={pushToNotices}>더보기</MoreBtn>
+      <NoticeCardsContainer>
+        {data &&
+          data.content
+            .slice(0, 2)
+            .map((item) => <NoticeCard key={item.noticeId} item={item} />)}
+      </NoticeCardsContainer>
     </MobileNoticeWrapper>
   );
 }
