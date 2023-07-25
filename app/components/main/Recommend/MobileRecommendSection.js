@@ -7,6 +7,8 @@ import Hashtag from "./Hashtag";
 import useURLParse from "../../../../hooks/useURLParse";
 import { RecommendationContent } from "./RecommendationContent";
 import RecommendationClub from "./RecommendationClub";
+import ClubType from "./ClubType";
+import ClubTitle from "./ClubTitle";
 
 const MobileRecommendWrapper = styled.div`
   width: 100%;
@@ -18,15 +20,12 @@ const MobileRecommendWrapper = styled.div`
 `;
 
 const SmallContentContainer = styled.div`
-  background-color: #303030;
+  border-radius: 10px;
+  background: #fc7b95;
   width: 100%;
   height: 400px;
   margin-top: 1rem;
   padding: 1rem;
-  padding-bottom: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   @media (max-width: 425px) {
     height: 242px;
   }
@@ -39,29 +38,30 @@ export default function MobileRecommendSection() {
     <MobileRecommendWrapper>
       <SectionTitle>오늘의 추천동아리</SectionTitle>
       <SmallContentContainer>
-        <div>
-          <ThemeTitle>인성품과 보람 동시에 잡기</ThemeTitle>
-          <ThemeSubtitle style={{ color: "#9B9B9B" }}>
-            {`"뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"`}
-          </ThemeSubtitle>
-          <HashtagWrapper>
-            <Hashtag>#대학생활</Hashtag>
-            <Hashtag>#봉사</Hashtag>
-            <Hashtag>#친구</Hashtag>
-            <Hashtag>#사회공헌</Hashtag>
-          </HashtagWrapper>
-          <RecommendationContent>
-            <RecommendationClub campus={isSuwon}>
-              성균 민속 연구반 탈
-            </RecommendationClub>
-            <RecommendationClub campus={isSuwon}>
-              성균 민속 연구반 탈
-            </RecommendationClub>
-            <RecommendationClub campus={isSuwon}>
-              성균 민속 연구반 탈
-            </RecommendationClub>
-          </RecommendationContent>
-        </div>
+        <ThemeTitle>인성품과 보람 동시에 잡기</ThemeTitle>
+        <ThemeSubtitle>
+          {`"뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"`}
+        </ThemeSubtitle>
+        <HashtagWrapper>
+          <Hashtag>#대학생활</Hashtag>
+          <Hashtag>#봉사</Hashtag>
+          <Hashtag>#친구</Hashtag>
+          <Hashtag>#사회공헌</Hashtag>
+        </HashtagWrapper>
+        <RecommendationContent>
+          <RecommendationClub campus={isSuwon}>
+            <ClubTitle>성균 민속 연구반 탈</ClubTitle>
+            <ClubType>평면예술 / 서예</ClubType>
+          </RecommendationClub>
+          <RecommendationClub campus={isSuwon}>
+            <ClubTitle>성균 민속 연구반 탈</ClubTitle>
+            <ClubType>평면예술 / 서예</ClubType>
+          </RecommendationClub>
+          <RecommendationClub campus={isSuwon}>
+            <ClubTitle>성균 민속 연구반 탈</ClubTitle>
+            <ClubType>평면예술 / 서예</ClubType>
+          </RecommendationClub>
+        </RecommendationContent>
       </SmallContentContainer>
     </MobileRecommendWrapper>
   );
