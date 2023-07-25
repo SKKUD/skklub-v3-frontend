@@ -22,8 +22,8 @@ const NavButtonFont = styled.div`
   color: ${(props) =>
     props.isMatch
       ? props.isSuwon
-        ? ({ theme }) => theme.palette.primary.main
-        : ({ theme }) => theme.palette.secondary.main
+        ? props.theme.palette.primary.main
+        : "rgba(134, 221, 200, 1)"
       : "inherit"};
 `;
 
@@ -56,9 +56,7 @@ const Line = styled.div`
 
 const CampusWrap = styled.div`
   color: ${(props) =>
-    props.campus
-      ? ({ theme }) => theme.palette.secondary.main
-      : ({ theme }) => theme.palette.primary.main};
+    props.campus ? "rgba(134, 221, 200, 1)" : props.theme.palette.primary.main};
   font-size: 1.1rem;
   font-weight: 500;
 `;

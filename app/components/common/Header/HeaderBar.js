@@ -74,19 +74,26 @@ const HomeImgWrap = styled.div`
 const NavButtonFont = styled.div`
   font-weight: 600;
   line-height: 16px;
-  color: ${(props) =>
+  /* color: ${(props) =>
     props.isMatch
       ? props.isSuwon
         ? ({ theme }) => theme.palette.primary.main
         : ({ theme }) => theme.palette.secondary.main
       : props.isDarkMode
       ? "#fff"
-      : "#585858"};
+      : "#585858"}; */
+
+  color: ${(props) =>
+    props.isMatch
+      ? props.isSuwon
+        ? props.theme.palette.primary.main
+        : "rgba(134, 221, 200, 1)"
+      : props.theme.palette.text.primary};
   &:hover {
     color: ${(props) =>
       props.isSuwon
-        ? ({ theme }) => theme.palette.primary.main
-        : ({ theme }) => theme.palette.secondary.main};
+        ? props.theme.palette.primary.main
+        : "rgba(134, 221, 200, 1)"};
   }
 
   @media (max-width: 1024px) {
@@ -143,6 +150,7 @@ function HomeButton({ location }) {
 }
 
 function NavButton({ item, isDarkMode, isSuwon, type }) {
+  console.log(isSuwon);
   const setCategory = useSetRecoilState(categoryState);
 
   const onLinkClick = () => {
