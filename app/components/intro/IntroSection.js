@@ -43,7 +43,7 @@ const IntroPill = styled.div`
 `;
 
 const IntroCard = styled.div`
-  background-color: ${({ theme }) => theme.palette.secondary.main};
+  background-color: ${({ theme }) => theme.palette.background.paper};
   color: ${(props) => props.theme.palette.text.primary};
   padding: 24px;
   border-radius: 1rem;

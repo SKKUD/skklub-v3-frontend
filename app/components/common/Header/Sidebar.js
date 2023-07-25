@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 import styles from "./hamburger.module.css";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 
 const NavWrap = styled.div`
   display: flex;
@@ -21,15 +22,16 @@ const NavButtonFont = styled.div`
   color: ${(props) =>
     props.isMatch
       ? props.isSuwon
-        ? ({ theme }) => theme.palette.primary.main
-        : ({ theme }) => theme.palette.secondary.main
-      : "#fff"};
+        ? props.theme.palette.primary.main
+        : props.theme.palette.secondary.main
+      : "inherit"};
 `;
 
 const SidebarInner = styled.div`
   z-index: 1000;
   padding: 20px 30px 20px 20px;
-  background-color: #151717;
+  background-color: ${({ theme }) => theme.palette.background.paper};
+  color: ${(props) => (props.isDarkMode ? "#fff" : "#585858")};
   height: 100%;
   width: 50%;
   max-width: 250px;
@@ -51,15 +53,14 @@ const Line = styled.div`
 
 const CampusWrap = styled.div`
   color: ${(props) =>
-    props.campus
-      ? ({ theme }) => theme.palette.secondary.main
-      : ({ theme }) => theme.palette.primary.main};
+    props.campus ? "rgba(134, 221, 200, 1)" : props.theme.palette.primary.main};
   font-size: 1.1rem;
   font-weight: 500;
 `;
 
 export default function Sidebar({ isOpen, setOpen, navItems }) {
   const { isSuwon, type } = useURLParse();
+  const isDarkMode = useThemeModeDetect();
   const outside = useRef();
   const toggleSide = () => {
     setOpen(false);
@@ -81,7 +82,11 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
 
   return (
     <>
-      <SidebarInner ref={outside} className={isOpen ? "open" : ""}>
+      <SidebarInner
+        isDarkMode={isDarkMode}
+        ref={outside}
+        className={isOpen ? "open" : ""}
+      >
         <IconButton
           className={`${styles.menutrigger} ${styles.type7} ${
             isOpen ? styles.active7 : ""
@@ -97,7 +102,11 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
         <NavWrap onClick={toggleSide}>
           {navItems.map((item) => (
             <Link href={`/${item.path}`} key={item.name}>
-              <NavButtonFont isSuwon={isSuwon} isMatch={type === item.check}>
+              <NavButtonFont
+                isDarkMode={isDarkMode}
+                isSuwon={isSuwon}
+                isMatch={type === item.check}
+              >
                 {item.name}
               </NavButtonFont>
             </Link>

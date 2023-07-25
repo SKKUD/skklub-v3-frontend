@@ -17,7 +17,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 3rem;
-  background-color: ${({ theme }) => theme.palette.secondary.main};
+  background-color: ${({ theme }) => theme.palette.background.paper};
   border-radius: 10px;
   padding-top: 44px;
   padding-left: 30px;
