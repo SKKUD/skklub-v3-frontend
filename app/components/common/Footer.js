@@ -11,10 +11,7 @@ const FooterWrap = styled.div`
     props.isDarkMode ? "rgba(255, 255, 255, 0.5)" : "#949595"};
   font-weight: 600;
   text-align: center;
-  background-color: ${(props) =>
-    props.isDarkMode
-      ? ({ theme }) => theme.palette.background.paper
-      : "#F5F4EA"};
+  background-color: ${(props) => (props.isDarkMode ? "#2A3133" : "#E5E4DA")};
   display: flex;
   justify-content: center;
   align-items: center;

@@ -17,10 +17,7 @@ const HeaderWrap = styled.div`
   position: fixed;
   top: 0;
   z-index: 999;
-  background-color: ${(props) =>
-    props.isDarkMode
-      ? ({ theme }) => theme.palette.background.paper
-      : "#F5F4EA"};
+  background-color: ${(props) => (props.isDarkMode ? "#2A3133" : "#F5F4EA")};
   width: 100%;
   height: 60px;
   padding: 20px 30px;
@@ -80,7 +77,9 @@ const NavButtonFont = styled.div`
       ? props.isSuwon
         ? props.theme.palette.primary.main
         : props.theme.palette.secondary.main
-      : props.theme.palette.text.primary};
+      : props.isDarkMode
+      ? props.theme.palette.text.primary
+      : "#585858"};
   &:hover {
     color: ${(props) =>
       props.isSuwon
@@ -220,9 +219,19 @@ export default function HeaderBar({ location, isSuwon, type }) {
             {type !== "notices" && !match760 && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
-                <CloseIcon sx={{ fontSize: "35px", color: "#666" }} />
+                <CloseIcon
+                  sx={{
+                    fontSize: "35px",
+                    color: isDarkMode ? "#fff" : "#585858",
+                  }}
+                />
               ) : (
-                <SearchIcon sx={{ fontSize: "35px", color: "#5e5e5e" }} />
+                <SearchIcon
+                  sx={{
+                    fontSize: "35px",
+                    color: isDarkMode ? "#fff" : "#585858",
+                  }}
+                />
               )}
             </IconButton>
 
@@ -241,7 +250,12 @@ export default function HeaderBar({ location, isSuwon, type }) {
           </IconButtonsWrap>
         </HeaderInner>
       </HeaderWrap>
-      {isSearchVisible && <Searchbar setIsSearchVisible={setIsSearchVisible} />}
+      {isSearchVisible && (
+        <Searchbar
+          isDarkMode={isDarkMode}
+          setIsSearchVisible={setIsSearchVisible}
+        />
+      )}
       {type === undefined ? (
         <ResponsiveMargin height={200} />
       ) : match760 ? (

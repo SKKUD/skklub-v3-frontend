@@ -18,7 +18,10 @@ const SearchbarWrap = styled.div`
   transform: translateX(-50%);
   width: 70%;
   min-height: 60px;
-  background-color: #2a3133;
+  background-color: ${(props) =>
+    props.isDarkMode
+      ? ({ theme }) => theme.palette.background.paper
+      : "#F5F4EA"};
   z-index: 50;
   padding: 0 30px;
   border-bottom-left-radius: 10px;
@@ -51,7 +54,10 @@ const StyledInput = styled(Input)`
 `;
 
 const SuggestionBox = styled.div`
-  background-color: #2a3133;
+  background-color: ${(props) =>
+    props.isDarkMode
+      ? ({ theme }) => theme.palette.background.paper
+      : "#F5F4EA"};
   position: sticky;
   /* top: 140px; */
   width: 100%;
@@ -71,7 +77,7 @@ const SuggestionBox = styled.div`
   }
 `;
 
-export default function Searchbar({ setIsSearchVisible }) {
+export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
 
@@ -126,7 +132,7 @@ export default function Searchbar({ setIsSearchVisible }) {
   };
 
   return (
-    <SearchbarWrap ref={outside}>
+    <SearchbarWrap isDarkMode={isDarkMode} ref={outside}>
       <StyledInput
         campus={isSuwon.toString()}
         fullWidth
@@ -141,7 +147,7 @@ export default function Searchbar({ setIsSearchVisible }) {
           </InputAdornment>
         }
       />
-      <SuggestionBox>
+      <SuggestionBox isDarkMode={isDarkMode}>
         <List component="div" aria-label="suggestion">
           {suggestions.map((suggestion) => (
             <ListItemButton

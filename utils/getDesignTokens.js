@@ -5,11 +5,11 @@ const getDesignTokens = (mode) => ({
       ? {
           //라이트 율전
           primary: {
-            main: "#3f51b5",
+            main: "#80A4FF",
           },
           //라이트 명휸
           secondary: {
-            main: "#00B590",
+            main: "#86DDC8",
           },
           background: {
             paper: "#E5E4DA",
