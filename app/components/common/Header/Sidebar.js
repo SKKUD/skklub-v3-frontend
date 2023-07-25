@@ -30,7 +30,10 @@ const NavButtonFont = styled.div`
 const SidebarInner = styled.div`
   z-index: 1000;
   padding: 20px 30px 20px 20px;
-  background-color: ${({ theme }) => theme.palette.background.paper};
+  background-color: ${(props) =>
+    props.isDarkMode
+      ? ({ theme }) => theme.palette.background.paper
+      : "#F5F4EA"};
   color: ${(props) => (props.isDarkMode ? "#fff" : "#585858")};
   height: 100%;
   width: 50%;
@@ -48,12 +51,12 @@ const SidebarInner = styled.div`
 const Line = styled.div`
   width: 90%;
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: ${(props) =>
+    props.isDarkMode ? "rgba(255, 255, 255, 0.2)" : "#585858"};
 `;
 
 const CampusWrap = styled.div`
-  color: ${(props) =>
-    props.campus ? "rgba(134, 221, 200, 1)" : props.theme.palette.primary.main};
+  color: ${(props) => (props.campus ? "#50CFB1" : "#80A4FF")};
   font-size: 1.1rem;
   font-weight: 500;
 `;
@@ -111,15 +114,15 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
               </NavButtonFont>
             </Link>
           ))}
-          <Line />
+          <Line isDarkMode={isDarkMode} />
           <CampusWrap campus={isSuwon}>
             {isSuwon ? (
               <Link href={type === undefined ? "/seoul" : `/seoul/${type}`}>
-                명륜 캠퍼스
+                명륜 캠퍼스 가기
               </Link>
             ) : (
               <Link href={type === undefined ? "/suwon" : `/suwon/${type}`}>
-                율전 캠퍼스
+                율전 캠퍼스 가기
               </Link>
             )}
           </CampusWrap>
