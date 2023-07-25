@@ -52,7 +52,6 @@ const PromotionBanner = styled.div`
 const ContentWrapper = styled.div`
   width: 100%;
   max-width: 990px;
-
   margin: 0 auto;
   padding-bottom: 14rem;
   @media (max-width: 990px) {
@@ -60,9 +59,8 @@ const ContentWrapper = styled.div`
     padding-right: 16px;
   }
   @media (max-width: 425px) {
-    padding-bottom: 4rem;
-    max-height: 600px;
     padding: 0 1rem;
+    padding-bottom: 4rem;
   }
 `;
 
