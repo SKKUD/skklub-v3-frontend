@@ -3,37 +3,47 @@ const getDesignTokens = (mode) => ({
     mode,
     ...(mode === "light"
       ? {
-          // palette values for light mode
+          //라이트 율전
           primary: {
             main: "#3f51b5",
           },
+          //라이트 명휸
           secondary: {
-            main: "#E5E4DA",
+            main: "#00B590",
           },
           background: {
-            paper: "#FFF",
+            paper: "#E5E4DA",
             default: "#FFFEF4",
           },
           text: {
             primary: "rgba(36, 36, 34, 1)",
             secondary: "#585858",
           },
+          //라이트 카라우셀
+          info: {
+            main: "#FFF",
+          },
         }
       : {
-          // palette values for dark mode
+          //다크 율전
           primary: {
             main: "#80A4FF",
           },
+          //다크 명륜
           secondary: {
-            main: "#434C4F",
+            main: "#16A480",
           },
           background: {
-            paper: "#2A3133",
+            paper: "#434C4F",
             default: "#151717",
           },
           text: {
             primary: "rgba(255,255,255,0.87)",
             secondary: "#DFE3E4",
+          },
+          //다크 카라우셀
+          info: {
+            main: "#434C4F",
           },
         }),
   },

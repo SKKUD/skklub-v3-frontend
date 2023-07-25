@@ -29,11 +29,11 @@ const Category = styled.button`
   background-color: ${(props) =>
     props.isClicked
       ? props.theme.palette.text.primary
-      : props.theme.palette.secondary.main};
+      : props.theme.palette.background.paper};
   overflow: hidden;
   color: ${(props) =>
     props.isClicked
-      ? props.theme.palette.secondary.main
+      ? props.theme.palette.background.paper
       : props.theme.palette.text.primary};
   text-align: center;
   text-overflow: ellipsis;

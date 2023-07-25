@@ -68,7 +68,7 @@ const DeptName = styled.div`
 `;
 
 const DeptDescription = styled(Card)`
-  background-color: ${({ theme }) => theme.palette.secondary.main};
+  background-color: ${({ theme }) => theme.palette.background.paper};
   width: 70%;
   margin: 8px;
   padding: 21px 38px;

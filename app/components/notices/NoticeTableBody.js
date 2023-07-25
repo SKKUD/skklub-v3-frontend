@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 const TableWrapper = styled.div`
   width: 100%;
   padding: 27px 44px;
-  background-color: ${({ theme }) => theme.palette.secondary.main};
+  background-color: ${({ theme }) => theme.palette.background.paper};
   margin-top: 18px;
   border-radius: 12px;
   display: flex;
