@@ -70,12 +70,12 @@ const StyledCard = styled.div`
   @media (max-width: 750px) {
     height: 500px;
     min-height: 500px;
-    box-shadow: 1px -1px 3px 1px rgba(176, 176, 176, 0.75) inset;
+    box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.16);
   }
 `;
 
 const ContentWrap = styled.div`
-  width: 80%;
+  width: 82%;
   height: 100%;
   margin: 0 auto;
   display: flex;
@@ -83,6 +83,7 @@ const ContentWrap = styled.div`
   justify-content: end;
   align-items: center;
   padding-bottom: 50px;
+  word-break: keep-all;
 `;
 
 const Name = styled.div`
@@ -136,7 +137,7 @@ export default function ClubCarousel() {
   };
 
   const width = match760
-    ? "90%"
+    ? "100%"
     : match1000
     ? "900px"
     : match1200
@@ -149,7 +150,8 @@ export default function ClubCarousel() {
           style={{
             "--swiper-pagination-color": "#fff",
           }}
-          slidesPerView={1}
+          slidesPerView={1.13}
+          spaceBetween={10}
           loop={true}
           autoHeight={true}
           grabCursor={true}
