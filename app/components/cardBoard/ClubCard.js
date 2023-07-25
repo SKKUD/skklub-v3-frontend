@@ -86,7 +86,7 @@ export default function ClubCard({ club }) {
   };
 
   return (
-    <CustomCard key={club.name} onClick={() => handleCardClick(club.clubId)}>
+    <CustomCard key={club.name} onClick={() => handleCardClick(club.id)}>
       <Image
         src={noticeExample}
         width={174}

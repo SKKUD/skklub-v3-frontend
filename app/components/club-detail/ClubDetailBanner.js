@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 import clubLogoImg from "@/public/assets/images/club_logo.png";
 import { useMediaQuery } from "@mui/material";
+import Link from "next/link";
 
 const BannerWrapper = styled.div`
   width: 100%;
@@ -173,7 +174,7 @@ const ClubPageNaviagateBtn = styled.button`
   }
 `;
 
-export default function ClubDetailBanner() {
+export default function ClubDetailBanner({ clubData }) {
   const match425 = useMediaQuery("(max-width:425px)");
   return (
     <BannerWrapper>
@@ -189,18 +190,22 @@ export default function ClubDetailBanner() {
         />
         <InfoWrapper>
           <StatusWrapper>
-            <RecruitStatus>모집중</RecruitStatus>
-            <PlaceInfo>명륜 캠퍼스</PlaceInfo>
+            <RecruitStatus>
+              {clubData.recruit.recruitEndAt ? "모집중" : ""}
+            </RecruitStatus>
+            <PlaceInfo>{clubData.campus} 캠퍼스</PlaceInfo>
           </StatusWrapper>
           <TitleWrapper>
-            <ClubName>못갖춘 마디</ClubName>
+            <ClubName>{clubData.name}</ClubName>
           </TitleWrapper>
           <BannerSubContent>
             스클럽이 추천하는 동아리를 잘 살펴보세요!
             <br />잘 모르던 분야도 함께 활동하다보면 어느새 즐거운 동료가
             되어있을 거에요!
           </BannerSubContent>
-          <ClubPageNaviagateBtn>동아리 페이지 바로가기</ClubPageNaviagateBtn>
+          <ClubPageNaviagateBtn>
+            <Link href={clubData.webLink1}>동아리 페이지 바로가기</Link>
+          </ClubPageNaviagateBtn>
         </InfoWrapper>
         {/* <BannerMainContent>
           <ClubInfoWrapper>

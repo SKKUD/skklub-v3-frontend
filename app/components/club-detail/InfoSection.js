@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import SectionWrapper from "./SectionWrapper";
 import { SectionDivider, SectionTitle } from "./common";
+import Link from "next/link";
 
 const InfoContentWrapper = styled.div`
   padding-top: 12px;
@@ -57,7 +58,7 @@ const Info = styled.div`
   font-size: 1rem;
 `;
 
-export default function InfoSection() {
+export default function InfoSection({ clubData }) {
   return (
     <SectionWrapper
       style={{
@@ -78,14 +79,18 @@ export default function InfoSection() {
           <BoldLabel>동아리 페이지</BoldLabel>
         </LabelContainer>
         <LabelContainer>
-          <Label>중앙동아리</Label>
-          <Label>중앙동아리</Label>
-          <Label>중앙동아리</Label>
-          <Label>중앙동아리</Label>
-          <Label>중앙동아리</Label>
-          <Label>중앙동아리</Label>
-          <Label>중앙동아리</Label>
-          <Label>중앙동아리</Label>
+          <Label>{clubData.clubType}</Label>
+          <Label>{clubData.campus}캠퍼스</Label>
+          <Label>{clubData.roomLocation}</Label>
+          <Label>{clubData.memberAmount}</Label>
+          <Label>{clubData.regularMeetingTime}</Label>
+          <Label>{clubData.presidentName}</Label>
+          <Label>{clubData.presidentContact}</Label>
+          <Label>
+            <Link href={clubData.webLink1}>
+              {clubData.webLink1.slice(0, 10)}...
+            </Link>
+          </Label>
         </LabelContainer>
         {/* <InfoContentRow>
           <InfoCategory>중분류</InfoCategory>
