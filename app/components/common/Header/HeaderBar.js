@@ -17,10 +17,7 @@ const HeaderWrap = styled.div`
   position: fixed;
   top: 0;
   z-index: 999;
-  background-color: ${(props) =>
-    props.isDarkMode
-      ? ({ theme }) => theme.palette.background.paper
-      : "#F5F4EA"};
+  background-color: ${(props) => (props.isDarkMode ? "#2A3133" : "#F5F4EA")};
   width: 100%;
   height: 60px;
   padding: 20px 30px;
