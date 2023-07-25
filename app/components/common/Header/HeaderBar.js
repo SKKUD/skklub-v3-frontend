@@ -142,7 +142,6 @@ function HomeButton({ location }) {
 }
 
 function NavButton({ item, isDarkMode, isSuwon, type }) {
-  console.log(isSuwon);
   const setCategory = useSetRecoilState(categoryState);
 
   const onLinkClick = () => {
