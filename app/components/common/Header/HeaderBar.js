@@ -220,9 +220,19 @@ export default function HeaderBar({ location, isSuwon, type }) {
             {type !== "notices" && !match760 && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
-                <CloseIcon sx={{ fontSize: "35px", color: "#666" }} />
+                <CloseIcon
+                  sx={{
+                    fontSize: "35px",
+                    color: isDarkMode ? "#fff" : "#585858",
+                  }}
+                />
               ) : (
-                <SearchIcon sx={{ fontSize: "35px", color: "#5e5e5e" }} />
+                <SearchIcon
+                  sx={{
+                    fontSize: "35px",
+                    color: isDarkMode ? "#fff" : "#585858",
+                  }}
+                />
               )}
             </IconButton>
 
@@ -241,7 +251,12 @@ export default function HeaderBar({ location, isSuwon, type }) {
           </IconButtonsWrap>
         </HeaderInner>
       </HeaderWrap>
-      {isSearchVisible && <Searchbar setIsSearchVisible={setIsSearchVisible} />}
+      {isSearchVisible && (
+        <Searchbar
+          isDarkMode={isDarkMode}
+          setIsSearchVisible={setIsSearchVisible}
+        />
+      )}
       {type === undefined ? (
         <ResponsiveMargin height={200} />
       ) : match760 ? (
