@@ -77,7 +77,9 @@ const NavButtonFont = styled.div`
       ? props.isSuwon
         ? props.theme.palette.primary.main
         : props.theme.palette.secondary.main
-      : props.theme.palette.text.primary};
+      : props.isDarkMode
+      ? props.theme.palette.text.primary
+      : "#585858"};
   &:hover {
     color: ${(props) =>
       props.isSuwon
