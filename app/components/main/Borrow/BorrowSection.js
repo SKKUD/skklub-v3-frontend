@@ -11,10 +11,6 @@ const BorrowWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* padding-left: 4rem;
-  flex-direction: column;
-  padding-right: 4.7rem; */
   gap: 2rem;
 
   @media (max-width: 1100px) {
