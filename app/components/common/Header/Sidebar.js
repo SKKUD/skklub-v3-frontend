@@ -30,10 +30,7 @@ const NavButtonFont = styled.div`
 const SidebarInner = styled.div`
   z-index: 1000;
   padding: 20px 30px 20px 20px;
-  background-color: ${(props) =>
-    props.isDarkMode
-      ? ({ theme }) => theme.palette.background.paper
-      : "#F5F4EA"};
+  background-color: ${(props) => (props.isDarkMode ? "#2A3133" : "#F5F4EA")};
   color: ${(props) => (props.isDarkMode ? "#fff" : "#585858")};
   height: 100%;
   width: 50%;
