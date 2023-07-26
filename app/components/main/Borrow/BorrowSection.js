@@ -11,12 +11,13 @@ const BorrowWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 4rem;
-  padding-right: 4.7rem;
+
+  /* padding-left: 4rem;
+  flex-direction: column;
+  padding-right: 4.7rem; */
   gap: 2rem;
 
   @media (max-width: 1100px) {
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 13px;
@@ -37,11 +38,14 @@ const BorrowPhrase = styled.div`
   font-weight: 500;
   line-height: 151.5%; /* 57.57px */
   letter-spacing: -1.14px;
+  font-family: GmarketSansBold;
 
-  @media (max-width: 1100px) {
+  @media (max-width: 425px) {
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: normal;
     font-weight: 500;
-    font-size: 2rem;
-    line-height: 2rem;
+    line-height: normal;
   }
 `;
 
@@ -59,6 +63,16 @@ const ComingSoon = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  @media (max-width: 425px) {
+    width: 145px;
+    height: 28px;
+    color: #fff;
+    text-align: center;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
 `;
 
 export default function BorrowSection() {
