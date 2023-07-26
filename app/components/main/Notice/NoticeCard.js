@@ -3,6 +3,7 @@ import NoticeDate from "./NoticeDate";
 import NoticeTitle from "./NoticeTitle";
 import Image from "next/image";
 import { useMediaQuery } from "@mui/material";
+import { useRouter } from "next/navigation";
 
 // const NoticeCard = styled.div`
 //   width: 244px;
@@ -67,6 +68,7 @@ const NoticeThumbnail = styled.div`
 
 export default function NoticeCard({ item }) {
   const matches_425 = useMediaQuery("(max-width:425px)");
+  const router = useRouter();
   const pushToNotice = (id) => {
     router.push(`/notices/${id}`);
   };
