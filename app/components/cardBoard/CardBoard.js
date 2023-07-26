@@ -28,7 +28,7 @@ const CardGrid = styled.div`
   }
 
   @media (max-width: 425px) {
-    gap: 15px;
+    gap: 16px;
   }
 `;
 

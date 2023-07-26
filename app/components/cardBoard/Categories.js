@@ -6,15 +6,18 @@ import { useRecoilState } from "recoil";
 
 const CategoryWrapper = styled.div`
   max-width: 1200px;
-  width: 100%;
+  /* width: auto; */
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: 0 auto;
-  margin-bottom: 2.5rem;
-  margin-top: 5.25rem;
-  overflow-x: auto;
+  margin-bottom: 25px;
+  margin-top: 32px;
+  overflow-x: scroll;
   gap: 20px;
+
+  @media (max-width: 425px) {
+    justify-content: flex-start;
+  }
 `;
 
 const Category = styled.button`
@@ -30,7 +33,7 @@ const Category = styled.button`
     props.isClicked
       ? props.theme.palette.text.primary
       : props.theme.palette.background.paper};
-  overflow: hidden;
+
   color: ${(props) =>
     props.isClicked
       ? props.theme.palette.background.paper
@@ -50,11 +53,17 @@ const Category = styled.button`
     color: #fff;
   }
 
-  @media (max-width: 1024px) {
-    font-weight: 600;
+  @media (max-width: 425px) {
+    width: 94px;
+    height: 37px;
+    padding: 10px 21px;
+    text-align: center;
+    text-overflow: ellipsis;
+    font-family: Pretendard;
     font-size: 0.875rem;
-    line-height: 17px;
-    padding: 8px 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
   }
 `;
 
