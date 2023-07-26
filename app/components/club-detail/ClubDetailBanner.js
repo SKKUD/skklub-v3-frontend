@@ -14,8 +14,9 @@ const BannerWrapper = styled.div`
   justify-content: center;
   padding-top: 128px;
   @media (max-width: 425px) {
-    height: 160px;
-    padding-top: 35px;
+    height: 258px;
+    padding-top: 16px;
+    flex-direction: column;
   }
 `;
 
@@ -25,6 +26,11 @@ const BannerContent = styled.div`
   height: 174px;
   display: flex;
   gap: 30px;
+  @media (max-width: 425px) {
+    height: 100px;
+    justify-content: center;
+    gap: 16px;
+  }
 `;
 
 const InfoWrapper = styled.div`
@@ -34,37 +40,20 @@ const InfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: end;
-`;
-
-const BannerMainContent = styled.div`
-  margin-bottom: 1.5rem;
-  display: flex;
-
   @media (max-width: 425px) {
-    margin-bottom: 0.75rem;
+    height: auto;
+    justify-content: end;
+    padding-bottom: 9px;
   }
-`;
-
-const ClubInfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 1.5rem;
-  @media (max-width: 425px) {
-    margin-left: 0.5rem;
-  }
-`;
-
-const ClubSubInfoWraper = styled.div`
-  display: flex;
-  margin-bottom: 0.5rem;
-  gap: 1rem;
 `;
 
 const StatusWrapper = styled.div`
   display: flex;
   gap: 13px;
   align-items: center;
+  @media (max-width: 425px) {
+    gap: 8px;
+  }
 `;
 
 const RecruitStatus = styled.div`
@@ -83,12 +72,13 @@ const RecruitStatus = styled.div`
   font-weight: 700;
   line-height: 160%; /* 25.6px */
   @media (max-width: 425px) {
-    width: 42px;
-    height: 18px;
+    width: 56px;
+    height: 23px;
+    font-family: Pretendard;
+    font-size: 0.75rem;
+    font-style: normal;
     font-weight: 700;
-    font-size: 10px;
-    line-height: 107.5%;
-    border-radius: 3px;
+    line-height: 160%; /* 19.2px */
   }
 `;
 
@@ -101,20 +91,19 @@ const PlaceInfo = styled.div`
   line-height: 160%; /* 28.8px */
 
   @media (max-width: 425px) {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 12px;
+    color: #fff;
+    font-family: Pretendard;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 160%; /* 22.4px */
   }
-`;
-
-const TitleWrapper = styled.div`
-  display: flex;
-  gap: 24px;
 `;
 
 const ClubName = styled.div`
   color: #fff;
-  font-family: GmarketSansMedium;
+  font-family: GmarketSansBold;
+
   font-size: 2.375rem;
   font-style: normal;
   font-weight: 500;
@@ -122,9 +111,11 @@ const ClubName = styled.div`
   margin-top: 18px;
 
   @media (max-width: 425px) {
+    font-size: 1.5rem;
+    font-style: normal;
     font-weight: 500;
-    font-size: 28px;
-    line-height: 107.5%;
+    line-height: normal;
+    margin-top: 8px;
   }
 `;
 
@@ -138,9 +129,11 @@ const BannerSubContent = styled.div`
   margin-top: 14px;
 
   @media (max-width: 425px) {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%; /* 19.2px */
+    margin-top: 12px;
   }
 `;
 
@@ -165,12 +158,12 @@ const ClubPageNaviagateBtn = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  @media (max-width: 760px) {
+  @media (max-width: 425px) {
     position: relative;
-    margin: 0 auto;
-    right: 0;
-    bottom: 0;
-    margin-top: 2rem;
+    margin-top: 16px;
+    width: 100%;
+    font-size: 0.875rem;
+    height: 37px;
   }
 `;
 
@@ -184,8 +177,8 @@ export default function ClubDetailBanner({ clubData }) {
           alt="CLUB_LOGO"
           placeholder="blur"
           style={{
-            height: match425 ? "59px" : "174px",
-            width: match425 ? "59px" : "174px",
+            height: match425 ? "100px" : "174px",
+            width: match425 ? "100px" : "174px",
           }}
         />
         <InfoWrapper>
@@ -195,9 +188,25 @@ export default function ClubDetailBanner({ clubData }) {
             </RecruitStatus>
             <PlaceInfo>{clubData.campus} 캠퍼스</PlaceInfo>
           </StatusWrapper>
-          <TitleWrapper>
-            <ClubName>{clubData.name}</ClubName>
-          </TitleWrapper>
+
+          <ClubName>{clubData.name}</ClubName>
+
+          {!match425 && (
+            <>
+              <BannerSubContent>
+                스클럽이 추천하는 동아리를 잘 살펴보세요!
+                <br />잘 모르던 분야도 함께 활동하다보면 어느새 즐거운 동료가
+                되어있을 거에요!
+              </BannerSubContent>
+              <ClubPageNaviagateBtn>
+                <Link href={clubData.webLink1}>동아리 페이지 바로가기</Link>
+              </ClubPageNaviagateBtn>
+            </>
+          )}
+        </InfoWrapper>
+      </BannerContent>
+      {match425 && (
+        <>
           <BannerSubContent>
             스클럽이 추천하는 동아리를 잘 살펴보세요!
             <br />잘 모르던 분야도 함께 활동하다보면 어느새 즐거운 동료가
@@ -206,20 +215,8 @@ export default function ClubDetailBanner({ clubData }) {
           <ClubPageNaviagateBtn>
             <Link href={clubData.webLink1}>동아리 페이지 바로가기</Link>
           </ClubPageNaviagateBtn>
-        </InfoWrapper>
-        {/* <BannerMainContent>
-          <ClubInfoWrapper>
-            <ClubSubInfoWraper>
-              <RecruitStatus>모집중</RecruitStatus>
-              <PlaceInfo>명륜 캠퍼스</PlaceInfo>
-            </ClubSubInfoWraper>
-            <ClubName>못갖춘 마디</ClubName>
-          </ClubInfoWrapper>
-        </BannerMainContent>
-        <BannerSubContent>
-          어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌
-        </BannerSubContent> */}
-      </BannerContent>
+        </>
+      )}
     </BannerWrapper>
   );
 }

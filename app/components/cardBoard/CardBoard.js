@@ -36,7 +36,7 @@ export default function CardBoard({ cardsData }) {
   const category = useRecoilValue(categoryState);
 
   const filteredClubs = (category) => {
-    if (category === "전체") {
+    if (category === "전체보기") {
       return cardsData;
     } else {
       return cardsData.filter((card) => card.belongs === category);
