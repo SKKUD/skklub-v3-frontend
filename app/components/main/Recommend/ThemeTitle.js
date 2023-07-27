@@ -8,7 +8,9 @@ const ThemeTitle = styled.div`
   line-height: 100%; /* 20px */
   letter-spacing: -0.4px;
   font-family: GmarketSansBold;
-
+  @media (max-width: 768px) {
+    margin-bottom: 16px;
+  }
   @media (max-width: 425px) {
     font-family: GmarketSansBold;
     font-size: 1rem;

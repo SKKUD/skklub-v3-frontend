@@ -7,9 +7,10 @@ const ThemeSubtitle = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 160%; /* 25.6px */
-
+  @media (max-width: 768px) {
+    margin-bottom: 12px;
+  }
   @media (max-width: 425px) {
-    font-family: Pretendard;
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 600;
