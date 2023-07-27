@@ -69,3 +69,16 @@ export const getNoticeFiles = async ({ filename }) => {
   );
   return await response.json();
 };
+
+
+export const getPartiallyMatchedSearchResults = async (keyword) => {
+  const response = await fetch(
+    `${BASE_URL}/club/search/prevs?keyword=${keyword}`
+  );
+  return await response.json();
+};
+
+export const getFullyMatchedSearchResults = async (keyword) => {
+  const response = await fetch(`${BASE_URL}/club/search?name=${keyword}`);
+  return await response.json();
+};

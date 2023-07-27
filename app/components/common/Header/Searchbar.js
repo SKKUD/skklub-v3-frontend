@@ -1,15 +1,25 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Input from "@mui/material/Input";
-import InputAdornment from "@mui/material/InputAdornment";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
+import {
+  Input,
+  InputAdornment,
+  IconButton,
+  List,
+  ListItemButton,
+  ListItemText,
+  Snackbar,
+  Alert,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import styled from "@emotion/styled";
 import useURLParse from "@/hooks/useURLParse";
+import { useQuery } from "@tanstack/react-query";
+import {
+  getPartiallyMatchedSearchResults,
+  getFullyMatchedSearchResults,
+} from "@/utils/fetch";
+import { useRouter } from "next/navigation";
 
 const SearchbarWrap = styled.div`
   position: fixed;
@@ -18,10 +28,7 @@ const SearchbarWrap = styled.div`
   transform: translateX(-50%);
   width: 70%;
   min-height: 60px;
-  background-color: ${(props) =>
-    props.isDarkMode
-      ? ({ theme }) => theme.palette.background.paper
-      : "#F5F4EA"};
+  background-color: ${(props) => (props.isDarkMode ? "#2A3133" : "#E5E4DA")};
   z-index: 50;
   padding: 0 30px;
   border-bottom-left-radius: 10px;
@@ -54,10 +61,7 @@ const StyledInput = styled(Input)`
 `;
 
 const SuggestionBox = styled.div`
-  background-color: ${(props) =>
-    props.isDarkMode
-      ? ({ theme }) => theme.palette.background.paper
-      : "#F5F4EA"};
+  background-color: ${(props) => (props.isDarkMode ? "#2A3133" : "#E5E4DA")};
   position: sticky;
   /* top: 140px; */
   width: 100%;
@@ -68,25 +72,27 @@ const SuggestionBox = styled.div`
   padding: 0 10px;
   z-index: 60;
 
-  @media (max-width: 1024px) {
-    width: 90%;
-  }
   @media (max-width: 480px) {
     top: 150px;
     width: 100%;
+    max-height: 160px;
   }
 `;
 
 export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
+  const { isSuwon } = useURLParse();
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const { isLoading, data } = useQuery({
+    queryKey: ["keywords", searchTerm],
+    queryFn: () => getPartiallyMatchedSearchResults(searchTerm),
+    onSuccess: (data) => console.log(data),
+  });
 
   const handleChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
-
-    const newSuggestions = getSuggestions(value);
-    setSuggestions(newSuggestions);
   };
 
   const handleSelectSuggestion = (suggestion) => {
@@ -94,22 +100,18 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
     setSuggestions([]);
   };
 
-  const getSuggestions = (value) => {
-    const suggestions = [
-      "사과",
-      "바나나",
-      "오렌지",
-      "포도",
-      "수박",
-      "딸기",
-      "파인애플",
-    ];
+  const [searchAlert, setAlert] = useState(false);
 
-    const filteredSuggestions = suggestions.filter((item) =>
-      item.toLowerCase().includes(value.toLowerCase())
-    );
+  const handleSubmit = () => {
+    if (data.content[0].name === searchTerm) {
+      router.push("/")
+    } else {
+      setAlert(true);
+    }
+  };
 
-    return filteredSuggestions;
+  const handleAlertClose = () => {
+    setAlert(false);
   };
 
   const outside = useRef();
@@ -117,7 +119,6 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
     setIsSearchVisible(false);
   };
 
-  const { isSuwon } = useURLParse();
   useEffect(() => {
     document.addEventListener("mousedown", handleOutside);
     return () => {
@@ -141,24 +142,38 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
         onChange={handleChange}
         endAdornment={
           <InputAdornment position="end">
-            <IconButton aria-label="toggle password visibility">
+            <IconButton onClick={handleSubmit}>
               <SearchIcon sx={{ fontSize: "34px" }} />
             </IconButton>
           </InputAdornment>
         }
       />
-      <SuggestionBox isDarkMode={isDarkMode}>
+      <SuggestionBox isDarkMode={isDarkMode} campus={isSuwon.toString()}>
         <List component="div" aria-label="suggestion">
-          {suggestions.map((suggestion) => (
-            <ListItemButton
-              key={suggestion}
-              onClick={() => handleSelectSuggestion(suggestion)}
-            >
-              <ListItemText primary={suggestion} />
-            </ListItemButton>
-          ))}
+          {data &&
+            data.content.map((suggestion) => (
+              <ListItemButton
+                key={suggestion.id}
+                onClick={() => handleSelectSuggestion(suggestion.name)}
+              >
+                <ListItemText primary={suggestion.name} />
+              </ListItemButton>
+            ))}
         </List>
       </SuggestionBox>
+      <Snackbar
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        open={searchAlert}
+        autoHideDuration={700}
+        onClose={handleAlertClose}
+      >
+        <Alert severity="error" sx={{ width: "100%" }}>
+          추천 검색어를 클릭하여 정확한 동아리명을 입력해주세요!
+        </Alert>
+      </Snackbar>
     </SearchbarWrap>
   );
 }
