@@ -11,6 +11,8 @@ import RecommendationClub from "./RecommendationClub";
 import SectionDesc from "../Common/SectionDesc";
 import ClubTitle from "./ClubTitle";
 import ClubType from "./ClubType";
+import { useQuery } from "@tanstack/react-query";
+import { getClubRecommendation } from "@/utils/fetch";
 
 const RecommendWrapper = styled.div`
   margin: 0 auto;
@@ -37,6 +39,12 @@ export default function RecommendSection() {
   const { isSuwon } = useURLParse();
   const matches_1024 = useMediaQuery("(max-width:1024px)");
   const matches_950 = useMediaQuery("(max-width:950px)");
+
+  const { data } = useQuery({
+    queryFn: () => getClubRecommendation("명륜", "평면예술"),
+    queryKey: ["club-recommendation"],
+    onSuccess: (data) => console.log(data),
+  });
 
   return (
     <RecommendWrapper>
