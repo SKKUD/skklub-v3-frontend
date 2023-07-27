@@ -38,9 +38,8 @@ export default function MobileRecommendSection() {
   const { isSuwon } = useURLParse();
 
   const { data } = useQuery({
-    queryFn: () => getClubRecommendation("명륜", "평면예술"),
+    queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", "평면예술"),
     queryKey: ["club-recommendation"],
-    onSuccess: (data) => console.log(data),
   });
 
   return (

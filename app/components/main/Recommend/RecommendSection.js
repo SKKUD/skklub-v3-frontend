@@ -42,9 +42,8 @@ export default function RecommendSection() {
   const matches_950 = useMediaQuery("(max-width:950px)");
 
   const { data } = useQuery({
-    queryFn: () => getClubRecommendation("명륜", "평면예술"),
+    queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", "평면예술"),
     queryKey: ["club-recommendation"],
-    onSuccess: (data) => console.log(data),
   });
 
   return (
@@ -71,20 +70,6 @@ export default function RecommendSection() {
         {data?.slice(0, matches_1024 ? 2 : 3).map((club) => (
           <RecommendationClubCard key={club.id} clubData={club} />
         ))}
-        {/* <RecommendationClub isSuwon={isSuwon}>
-          <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-          <ClubType>평면예술/서예</ClubType>
-        </RecommendationClub>
-        <RecommendationClub isSuwon={isSuwon}>
-          <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-          <ClubType>평면예술/서예</ClubType>
-        </RecommendationClub>
-        {!matches_1024 && (
-          <RecommendationClub isSuwon={isSuwon}>
-            <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-            <ClubType>평면예술/서예</ClubType>
-          </RecommendationClub>
-        )} */}
       </RecommendationContent>
     </RecommendWrapper>
   );
