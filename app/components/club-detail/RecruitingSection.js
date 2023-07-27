@@ -80,8 +80,8 @@ export default function RecruitingSection({ clubData }) {
         <tbody>
           <RTr>
             <RTd>
-              {clubData.recruit.recruitStartAt.slice(0, 10)} ~{" "}
-              {clubData.recruit.recruitEndAt.slice(0, 10)}
+              {clubData.recruit.recruitStartAt?.slice(0, 10)} ~{" "}
+              {clubData.recruit.recruitEndAt?.slice(0, 10)}
             </RTd>
             <RTd>{clubData.recruit.recruitQuota}</RTd>
             <RTd>{clubData.recruit.recruitProcessDescription}</RTd>

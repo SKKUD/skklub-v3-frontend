@@ -87,8 +87,12 @@ export default function InfoSection({ clubData }) {
           <Label>{clubData.presidentName}</Label>
           <Label>{clubData.presidentContact}</Label>
           <Label>
-            <Link href={clubData.webLink1}>
-              {clubData.webLink1.slice(0, 10)}...
+            <Link
+              href={
+                clubData.webLink1 || "https://skklub-vercel.vercel.app/seoul"
+              }
+            >
+              {clubData.webLink1?.slice(0, 10)}...
             </Link>
           </Label>
         </LabelContainer>

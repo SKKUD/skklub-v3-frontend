@@ -199,7 +199,14 @@ export default function ClubDetailBanner({ clubData }) {
                 되어있을 거에요!
               </BannerSubContent>
               <ClubPageNaviagateBtn>
-                <Link href={clubData.webLink1}>동아리 페이지 바로가기</Link>
+                <Link
+                  href={
+                    clubData.webLink1 ||
+                    "https://skklub-vercel.vercel.app/seoul"
+                  }
+                >
+                  동아리 페이지 바로가기
+                </Link>
               </ClubPageNaviagateBtn>
             </>
           )}
@@ -213,7 +220,13 @@ export default function ClubDetailBanner({ clubData }) {
             되어있을 거에요!
           </BannerSubContent>
           <ClubPageNaviagateBtn>
-            <Link href={clubData.webLink1}>동아리 페이지 바로가기</Link>
+            <Link
+              href={
+                clubData.webLink1 || "https://skklub-vercel.vercel.app/seoul"
+              }
+            >
+              동아리 페이지 바로가기
+            </Link>
           </ClubPageNaviagateBtn>
         </>
       )}
