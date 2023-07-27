@@ -20,6 +20,10 @@ const ClubDetailContent = styled.div`
   @media (max-width: 1200px) {
     padding: 0 1rem;
   }
+  @media (max-width: 425px) {
+    gap: 24px;
+    margin-top: 24px;
+  }
 `;
 
 export default function ClubDetailLayout({ clubId }) {

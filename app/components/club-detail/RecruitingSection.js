@@ -1,37 +1,7 @@
 import styled from "@emotion/styled";
 import SectionWrapper from "./SectionWrapper";
-import { SectionDivider, SectionTitle } from "./common";
-
-const RecruitContentWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  margin-top: 1.875rem;
-  gap: 15px;
-  @media (max-width: 760px) {
-    flex-direction: column;
-  }
-`;
-
-const RecruitContent = styled.div`
-  flex: 1;
-`;
-
-const RecruitSubTitle = styled.div`
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 160%;
-  margin-bottom: 0.25rem;
-`;
-
-const RecruitInfoBox = styled.div`
-  height: 112px;
-  width: 100%;
-  border: 1px solid white;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import { SectionTitle } from "./common";
+import { useMediaQuery } from "@mui/material";
 
 const RTable = styled.table`
   padding-top: 4px;
@@ -88,12 +58,13 @@ const RTd = styled.td`
 `;
 
 export default function RecruitingSection({ clubData }) {
+  const match425 = useMediaQuery("(max-width:425px)");
   return (
     <SectionWrapper
       style={{
         gridColumnStart: 1,
         gridColumnEnd: 4,
-        height: "307px",
+        height: match425 ? "auto" : "307px",
       }}
     >
       <SectionTitle>모집 정보</SectionTitle>
@@ -118,25 +89,6 @@ export default function RecruitingSection({ clubData }) {
           </RTr>
         </tbody>
       </RTable>
-      {/* <SectionDivider /> */}
-      {/* <RecruitContentWrapper>
-        <RecruitContent>
-          <RecruitSubTitle>모집 시기</RecruitSubTitle>
-          <RecruitInfoBox>3.13(월) ~ 3.27(월)</RecruitInfoBox>
-        </RecruitContent>
-        <RecruitContent>
-          <RecruitSubTitle>모집 시기</RecruitSubTitle>
-          <RecruitInfoBox>3.13(월) ~ 3.27(월)</RecruitInfoBox>
-        </RecruitContent>
-        <RecruitContent>
-          <RecruitSubTitle>모집 시기</RecruitSubTitle>
-          <RecruitInfoBox>3.13(월) ~ 3.27(월)</RecruitInfoBox>
-        </RecruitContent>
-        <RecruitContent>
-          <RecruitSubTitle>모집 시기</RecruitSubTitle>
-          <RecruitInfoBox>3.13(월) ~ 3.27(월)</RecruitInfoBox>
-        </RecruitContent>
-      </RecruitContentWrapper> */}
     </SectionWrapper>
   );
 }
