@@ -7,8 +7,15 @@ const BannerWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("/assets/images/banner_suwon.jpg");
-  background-position: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    ${(props) =>
+      props.isSuwon
+        ? `url("/assets/images/banner_suwon.jpg")`
+        : `url("/assets/images/banner_seoul.jpg")`};
+  background-position: ${(props) => (props.isSuwon ? "center" : "50% 60%")};
+  background-size: cover;
+  opacity: 0.5;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 const SubTitle = styled.div`
@@ -50,7 +57,7 @@ export default function UpperBanner() {
     }
   };
   return (
-    <BannerWrapper>
+    <BannerWrapper isSuwon={isSuwon}>
       <div>
         <SubTitle>{isSuwon ? "율전" : "명륜"} 캠퍼스</SubTitle>
         <Title>{convertEngTypeToKo(type)}</Title>
