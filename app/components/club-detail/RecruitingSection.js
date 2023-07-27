@@ -61,13 +61,7 @@ const RTd = styled.td`
 export default function RecruitingSection({ clubData }) {
   const match620 = useMediaQuery("(max-width:620px)");
   return (
-    <SectionWrapper
-      style={{
-        gridColumnStart: 1,
-        gridColumnEnd: 4,
-        height: "auto",
-      }}
-    >
+    <SectionWrapper>
       <SectionTitle>모집 정보</SectionTitle>
       {match620 ? (
         <MobileRecruitingTabel clubData={clubData} />

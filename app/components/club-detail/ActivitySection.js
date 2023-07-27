@@ -11,21 +11,14 @@ const DetailContent = styled.div`
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 160%; /* 25.6px */
+  line-height: 26px;
+  word-break: keep-all;
 `;
 
 export default function ActivitySection({ clubData }) {
   const match950 = useMediaQuery("(max-width:950px)");
   return (
-    <SectionWrapper
-      style={{
-        gridColumnStart: match950 ? 1 : 2,
-        gridColumnEnd: 4,
-        flex: 1,
-        height: match950 ? "auto" : "443px",
-        overflowX: "scroll",
-      }}
-    >
+    <SectionWrapper>
       <SectionTitle>활동 내용</SectionTitle>
 
       <DetailContent>{clubData.activityDescription}</DetailContent>
