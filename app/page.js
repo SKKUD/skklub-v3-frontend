@@ -18,8 +18,6 @@ const StartPageWrapper = styled.div`
   @media (max-width: 425px) {
     background-image: url("/assets/animations/mobile-loading.gif");
   } */
-  background-color: ${({ theme }) => theme.palette.background.default};
-  z-index: -2;
   overflow: hidden;
 `;
 
