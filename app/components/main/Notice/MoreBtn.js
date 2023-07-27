@@ -9,6 +9,7 @@ const MoreBtn = styled.button`
   height: 39px;
   font-size: 16px;
   border-radius: 99px;
+  cursor: pointer;
 
   @media (max-width: 680px) {
     width: 73px;

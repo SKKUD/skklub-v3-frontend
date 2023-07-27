@@ -11,6 +11,9 @@ import RecommendationClub from "./RecommendationClub";
 import SectionDesc from "../Common/SectionDesc";
 import ClubTitle from "./ClubTitle";
 import ClubType from "./ClubType";
+import { useQuery } from "@tanstack/react-query";
+import { getClubRecommendation } from "@/utils/fetch";
+import RecommendationClubCard from "./RecommendationClub";
 
 const RecommendWrapper = styled.div`
   margin: 0 auto;
@@ -38,6 +41,11 @@ export default function RecommendSection() {
   const matches_1024 = useMediaQuery("(max-width:1024px)");
   const matches_950 = useMediaQuery("(max-width:950px)");
 
+  const { data } = useQuery({
+    queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", "평면예술"),
+    queryKey: ["club-recommendation"],
+  });
+
   return (
     <RecommendWrapper>
       <SectionTitle>오늘의 추천동아리</SectionTitle>
@@ -59,20 +67,9 @@ export default function RecommendSection() {
             {!matches_950 && <Hashtag>#사회공헌</Hashtag>}
           </HashtagWrapper>
         </RecommendationTheme>
-        <RecommendationClub isSuwon={isSuwon}>
-          <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-          <ClubType>평면예술/서예</ClubType>
-        </RecommendationClub>
-        <RecommendationClub isSuwon={isSuwon}>
-          <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-          <ClubType>평면예술/서예</ClubType>
-        </RecommendationClub>
-        {!matches_1024 && (
-          <RecommendationClub isSuwon={isSuwon}>
-            <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-            <ClubType>평면예술/서예</ClubType>
-          </RecommendationClub>
-        )}
+        {data?.slice(0, matches_1024 ? 2 : 3).map((club) => (
+          <RecommendationClubCard key={club.id} clubData={club} />
+        ))}
       </RecommendationContent>
     </RecommendWrapper>
   );
