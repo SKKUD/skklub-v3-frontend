@@ -30,6 +30,15 @@ export const getClubsFromPartialKeyword = async ({ keyword }) =>
     res.json()
   );
 
+export const getClubRecommendation = async (
+  campus = "명륜",
+  clubType = "",
+  belongs = ""
+) =>
+  await fetch(`${BASE_URL}/club/random?campus=${campus}`).then((res) =>
+    res.json()
+  );
+
 export const getNoticeDetail = async (noticeId) => {
   const response = await fetch(`${BASE_URL}/notice/${noticeId}`);
   return await response.json();

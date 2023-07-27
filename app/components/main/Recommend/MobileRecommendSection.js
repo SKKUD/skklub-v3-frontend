@@ -9,6 +9,9 @@ import { RecommendationContent } from "./RecommendationContent";
 import RecommendationClub from "./RecommendationClub";
 import ClubType from "./ClubType";
 import ClubTitle from "./ClubTitle";
+import { getClubRecommendation } from "@/utils/fetch";
+import { useQuery } from "@tanstack/react-query";
+import RecommendationClubCard from "./RecommendationClub";
 
 const MobileRecommendWrapper = styled.div`
   width: 100%;
@@ -34,6 +37,12 @@ const SmallContentContainer = styled.div`
 export default function MobileRecommendSection() {
   const { isSuwon } = useURLParse();
 
+  const { data } = useQuery({
+    queryFn: () => getClubRecommendation("명륜", "평면예술"),
+    queryKey: ["club-recommendation"],
+    onSuccess: (data) => console.log(data),
+  });
+
   return (
     <MobileRecommendWrapper>
       <SectionTitle>오늘의 추천동아리</SectionTitle>
@@ -49,18 +58,9 @@ export default function MobileRecommendSection() {
           <Hashtag>#사회공헌</Hashtag>
         </HashtagWrapper>
         <RecommendationContent>
-          <RecommendationClub campus={isSuwon}>
-            <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-            <ClubType>평면예술 / 서예</ClubType>
-          </RecommendationClub>
-          <RecommendationClub campus={isSuwon}>
-            <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-            <ClubType>평면예술 / 서예</ClubType>
-          </RecommendationClub>
-          <RecommendationClub campus={isSuwon}>
-            <ClubTitle>성균 민속 연구반 탈</ClubTitle>
-            <ClubType>평면예술 / 서예</ClubType>
-          </RecommendationClub>
+          {data?.map((club) => (
+            <RecommendationClubCard key={club.id} clubData={club} />
+          ))}
         </RecommendationContent>
       </SmallContentContainer>
     </MobileRecommendWrapper>

@@ -1,4 +1,9 @@
 import styled from "@emotion/styled";
+import ClubTitle from "./ClubTitle";
+import ClubType from "./ClubType";
+
+import useURLParse from "@/hooks/useURLParse";
+import { useRouter } from "next/navigation";
 
 const RecommendationClub = styled.div`
   position: relative;
@@ -10,6 +15,7 @@ const RecommendationClub = styled.div`
   font-weight: 500;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 
   @media (max-width: 768px) {
     background-color: #fff;
@@ -32,4 +38,16 @@ const RecommendationClub = styled.div`
   }
 `;
 
-export default RecommendationClub;
+export default function RecommendationClubCard({ clubData }) {
+  const router = useRouter();
+  const { location } = useURLParse();
+  const handleCardClick = () => {
+    router.push(`${location}/${clubData.id}`);
+  };
+  return (
+    <RecommendationClub onClick={handleCardClick}>
+      <ClubTitle>{clubData.name}</ClubTitle>
+      <ClubType>{clubData.campus} / 사실 분과 들어갸야함</ClubType>
+    </RecommendationClub>
+  );
+}

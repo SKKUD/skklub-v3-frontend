@@ -13,6 +13,7 @@ import ClubTitle from "./ClubTitle";
 import ClubType from "./ClubType";
 import { useQuery } from "@tanstack/react-query";
 import { getClubRecommendation } from "@/utils/fetch";
+import RecommendationClubCard from "./RecommendationClub";
 
 const RecommendWrapper = styled.div`
   margin: 0 auto;
@@ -67,7 +68,10 @@ export default function RecommendSection() {
             {!matches_950 && <Hashtag>#사회공헌</Hashtag>}
           </HashtagWrapper>
         </RecommendationTheme>
-        <RecommendationClub isSuwon={isSuwon}>
+        {data?.slice(0, matches_1024 ? 2 : 3).map((club) => (
+          <RecommendationClubCard key={club.id} clubData={club} />
+        ))}
+        {/* <RecommendationClub isSuwon={isSuwon}>
           <ClubTitle>성균 민속 연구반 탈</ClubTitle>
           <ClubType>평면예술/서예</ClubType>
         </RecommendationClub>
@@ -80,7 +84,7 @@ export default function RecommendSection() {
             <ClubTitle>성균 민속 연구반 탈</ClubTitle>
             <ClubType>평면예술/서예</ClubType>
           </RecommendationClub>
-        )}
+        )} */}
       </RecommendationContent>
     </RecommendWrapper>
   );
