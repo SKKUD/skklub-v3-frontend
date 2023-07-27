@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
 
 import ClubCard from "./ClubCard";
+import useClubLike from "@/hooks/useClubLike";
 
 const BoardWrapper = styled.div`
   max-width: 990px;
@@ -37,15 +38,18 @@ const CardGrid = styled.div`
 
 export default function CardBoard({ cardsData }) {
   const category = useRecoilValue(categoryState);
-
+  const [likedClubs, modifyLikedClubs] = useClubLike();
+  // console.log(likedClubs);
   const filteredClubs = (category) => {
     if (category === "전체보기") {
       return cardsData;
+    } else if (category === "하트") {
+      return cardsData.filter((card) => likedClubs.includes(card.name));
     } else {
       return cardsData.filter((card) => card.belongs === category);
     }
   };
-  console.log(category);
+
   return (
     <BoardWrapper>
       <CardGrid>

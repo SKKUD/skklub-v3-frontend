@@ -3,7 +3,6 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { usePathname, useRouter } from "next/navigation";
 import useClubLike from "@/hooks/useClubLike";
 import Image from "next/image";
-import noticeExample from "@/public/assets/images/notice_example.png";
 import { useMediaQuery } from "@mui/material";
 
 const CustomCard = styled.div`
@@ -65,7 +64,7 @@ const CardType = styled.div`
 export default function ClubCard({ club }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [likedClubs, modifyLikedClubs] = useClubLike();
+  const [likedClubs, addClubToList, deleteClubInList] = useClubLike();
   const match425 = useMediaQuery("(max-width:425px)");
 
   const [_, location, a] = pathname.split("/");
@@ -76,12 +75,11 @@ export default function ClubCard({ club }) {
 
   const handleHeartClick = (event, clubName) => {
     event.stopPropagation();
+
     if (likedClubs.includes(clubName)) {
-      const newLikedClubs = likedClubs.filter((item) => item !== clubName);
-      modifyLikedClubs(newLikedClubs);
+      deleteClubInList(clubName);
     } else {
-      const newLikedClubs = [...likedClubs, clubName];
-      modifyLikedClubs(newLikedClubs);
+      addClubToList(clubName);
     }
   };
 
@@ -92,6 +90,9 @@ export default function ClubCard({ club }) {
         width={match425 ? 164 : 174}
         height={match425 ? 164 : 174}
         alt="notice thumbnail"
+        style={{
+          borderRadius: "10px",
+        }}
       />
       <CardHeader>
         <ClubName>{club.name}</ClubName>
@@ -103,11 +104,6 @@ export default function ClubCard({ club }) {
         </Heart>
       </CardHeader>
       <CardType>{`${club.belongs}/${club.briefActivityDescription}`}</CardType>
-
-      {/* <CardFooter>
-        
-        
-      </CardFooter> */}
     </CustomCard>
   );
 }
