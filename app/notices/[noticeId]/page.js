@@ -7,21 +7,24 @@ import styled from "@emotion/styled";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { getNoticeDetail } from "@/utils/fetch";
+import { useMediaQuery } from "@mui/material";
+import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 
 const PageWrapper = styled.div`
   max-width: 1050px;
-  width: 100%;
+  width: 95%;
   margin: 1rem auto;
   margin-top: 32px;
   margin-bottom: 100px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 3rem;
-  background-color: ${({ theme }) => theme.palette.background.paper};
+  background-color: ${(props) => (props.isDarkMode ? "#2A3133" : "#E5E4DA")};
   border-radius: 10px;
-  padding-top: 44px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 48px 30px 44px;
+  @media (max-width: 425px) {
+    padding: 26px 16px;
+    margin-bottom: 44px;
+  }
 `;
 
 const TitleBox = styled.div`
@@ -29,33 +32,55 @@ const TitleBox = styled.div`
   border-radius: 10px;
   position: relative;
   padding-bottom: 64px;
+  @media (max-width: 425px) {
+    padding-bottom: 24px;
+  }
 `;
 
 const Title = styled.div`
-  font-family: GmarketSansMedium;
-  font-size: 1.75rem;
+  font-family: GmarketSansBold;
+  font-size: 28px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 100%; /* 28px */
+  font-weight: 500;
+  line-height: 28px;
   letter-spacing: -0.56px;
   margin-bottom: 1rem;
+  word-break: keep-all;
+
+  @media (max-width: 425px) {
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.4px;
+    margin-bottom: 0;
+  }
 `;
 
 const SubTitleWrapper = styled.div`
   display: flex;
+  @media (max-width: 425px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const SubTitle = styled.div`
   text-align: center;
   font-family: Pretendard;
-  font-size: 0.875rem;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 160%; /* 22.4px */
+  line-height: 22.4px;
   padding-right: 47px;
-  border-right: 1px solid #fff;
+  border-right: 1px solid ${(props) => (props.isDarkMode ? "#fff" : "#242422")};
   margin-right: 20px;
   margin-left: 5px;
+  @media (max-width: 425px) {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 14px;
+    margin-top: 10px;
+  }
 `;
 
 const Divider = styled.hr`
@@ -64,6 +89,9 @@ const Divider = styled.hr`
   border: none;
   margin-top: 22px;
   width: 100%;
+  @media (max-width: 425px) {
+    height: 1px;
+  }
 `;
 
 const Attachment = styled.div`
@@ -87,21 +115,31 @@ const ContentBox = styled.div`
   line-height: 160%; /* 25.6px */
   min-height: 760px;
   white-space: pre-line;
+  word-break: keep-all;
+  @media (max-width: 425px) {
+    padding: 0 5px;
+  }
 `;
 
 const NavWrapper = styled.div`
   margin-top: 56px;
   margin-bottom: 22px;
+  @media (max-width: 425px) {
+    margin-top: 32px;
+  }
 `;
 
 const Navigator = styled.div`
   position: relative;
   height: 73px;
-  padding-right: 25px;
-  padding-left: 25px;
+  padding: 0 25px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  @media (max-width: 425px) {
+    height: 46px;
+    padding: 0;
+  }
 `;
 
 const NavLabel = styled.div`
@@ -109,18 +147,27 @@ const NavLabel = styled.div`
   margin-right: 30px;
   font-family: Pretendard;
   font-size: 1.125rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: 160%; /* 28.8px */
+  line-height: 29px;
+  word-break: keep-all;
+  @media (max-width: 425px) {
+    font-size: 14px;
+    line-height: 20px;
+    margin-right: 22px;
+  }
 `;
 
 const NextTitle = styled.div`
+  width: 100%;
   text-align: left;
   font-family: Pretendard;
   font-size: 1rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 160%; /* 25.6px */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const NavWriter = styled.div`
@@ -178,14 +225,20 @@ export default function NoticePage() {
   const pushToNotice = (id) => {
     router.push(`/notices/${id}`);
   };
+
+  const isDarkMode = useThemeModeDetect();
+
+  const match425 = useMediaQuery("(max-width:425px)");
   return (
     <>
       <NoticeBanner />
-      <PageWrapper>
+      <PageWrapper isDarkMode={isDarkMode}>
         <TitleBox>
           <Title>{data && data.title}</Title>
           <SubTitleWrapper>
-            <SubTitle>{data && data.writerName}</SubTitle>
+            <SubTitle isDarkMode={isDarkMode}>
+              {data && data.writerName}
+            </SubTitle>
             <SubTitle
               style={{
                 border: "none",

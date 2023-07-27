@@ -6,11 +6,15 @@ import { getNoticeListwithRole } from "@/utils/fetch";
 import NoticeTableHeader from "./NoticeTableHeader";
 import NoticeTablePagination from "./NoticeTablePagination";
 import { useRouter } from "next/navigation";
+import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 
 const TableWrapper = styled.div`
   width: 100%;
   padding: 27px 44px;
-  background-color: ${({ theme }) => theme.palette.background.paper};
+  background-color: ${(props) =>
+    props.isDarkMode
+      ? "#2A3133"
+      : ({ theme }) => theme.palette.background.paper};
   margin-top: 18px;
   border-radius: 12px;
   display: flex;
@@ -18,7 +22,8 @@ const TableWrapper = styled.div`
   gap: 44px;
   @media (max-width: 768px) {
     padding: 19px 13px;
-    margin-top: 0;
+    margin-top: 10px;
+    gap: 10px;
   }
 `;
 
@@ -29,9 +34,10 @@ const NoticeRow = styled.div`
   height: 40px;
   gap: 20px;
   @media (max-width: 768px) {
+    height: 80px;
     flex-direction: column;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 5px;
   }
 `;
 const NoticeRowItem = styled.div`
@@ -44,14 +50,10 @@ const NoticeRowItem = styled.div`
   align-items: center;
   font-family: pretendard;
 
-  @media (max-width: 768px) {
-    font-size: 1.125rem;
-    line-height: 21px;
-  }
-
   &.first-row {
     flex: 0.5;
     justify-content: center;
+    color: ${(props) => (props.isDarkMode ? "#DFE3E4" : "#585858")};
   }
   &.second-row {
     cursor: pointer;
@@ -71,17 +73,47 @@ const NoticeRowItem = styled.div`
     flex: 1.2;
     font-size: 16px;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1.125rem;
+    /* line-height: 21px; */
+
+    &.second-row {
+      padding-left: 0px;
+    }
+  }
 `;
 
 const MobileItemWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
+`;
+
+const MobileContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+`;
+
+const MobileInfoWrapper = styled.div`
+  display: flex;
   gap: 0.25rem;
+  @media (max-width: 768px) {
+    gap: 20px;
+    margin: 10px 0px;
+  }
 `;
 
 const MobileItem = styled.div`
   font-weight: 400;
   font-size: 0.75px;
   line-height: 14px;
+`;
+
+const MobileDivider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${(props) => (props.isDarkMode ? "#fff" : "#242422")};
 `;
 
 export default function NoticeTableBody({ role }) {
@@ -100,9 +132,10 @@ export default function NoticeTableBody({ role }) {
     e.preventDefault();
     setPage(value);
   };
+  const isDarkMode = useThemeModeDetect();
 
   return (
-    <TableWrapper>
+    <TableWrapper isDarkMode={isDarkMode}>
       {!match768 && <NoticeTableHeader />}
       {data &&
         data.content.map((item) => (
@@ -111,19 +144,36 @@ export default function NoticeTableBody({ role }) {
             onClick={() => pushToNoticeDetail(`/notices/${item.noticeId}`)}
           >
             <NoticeRow>
-              {!match768 && (
-                <NoticeRowItem className="first-row">
-                  {item.noticeId}
-                </NoticeRowItem>
-              )}
-              <NoticeRowItem className="second-row">{item.title}</NoticeRowItem>
               {match768 ? (
-                <MobileItemWrapper>
-                  <MobileItem>{item.writerName}</MobileItem>
-                  <MobileItem>{item.createdAt.substr(0, 10)}</MobileItem>
-                </MobileItemWrapper>
+                <>
+                  <MobileItemWrapper>
+                    <NoticeRowItem
+                      isDarkMode={isDarkMode}
+                      className="first-row"
+                    >
+                      {item.noticeId}
+                    </NoticeRowItem>
+                    <MobileContentWrapper>
+                      <NoticeRowItem className="second-row">
+                        {item.title}
+                      </NoticeRowItem>
+                      <MobileInfoWrapper>
+                        <MobileItem>{item.writerName}</MobileItem>
+                        <MobileItem>{item.createdAt.substr(0, 10)}</MobileItem>
+                      </MobileInfoWrapper>
+                    </MobileContentWrapper>
+                  </MobileItemWrapper>
+
+                  <MobileDivider isDarkMode={isDarkMode} />
+                </>
               ) : (
                 <>
+                  <NoticeRowItem className="first-row">
+                    {item.noticeId}
+                  </NoticeRowItem>
+                  <NoticeRowItem className="second-row">
+                    {item.title}
+                  </NoticeRowItem>
                   <NoticeRowItem className="third-row">
                     {item.writerName}
                   </NoticeRowItem>
