@@ -88,7 +88,7 @@ export default function ClubCard({ club }) {
   return (
     <CustomCard key={club.name} onClick={() => handleCardClick(club.id)}>
       <Image
-        src={noticeExample}
+        src={`data:image/png;base64,${club.logo.bytes}`}
         width={match425 ? 164 : 174}
         height={match425 ? 164 : 174}
         alt="notice thumbnail"
