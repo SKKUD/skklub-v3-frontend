@@ -139,7 +139,6 @@ const BannerSubContent = styled.div`
 
 const ClubPageNaviagateBtn = styled.button`
   position: absolute;
-  /* bottom: 24px; */
   right: 0;
   width: 188px;
   height: 39px;
@@ -158,6 +157,12 @@ const ClubPageNaviagateBtn = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  @media (max-width: 913px) {
+    top: 0;
+  }
+  @media (max-width: 640px) {
+    display: none;
+  }
   @media (max-width: 425px) {
     position: relative;
     margin-top: 16px;
@@ -199,7 +204,14 @@ export default function ClubDetailBanner({ clubData }) {
                 되어있을 거에요!
               </BannerSubContent>
               <ClubPageNaviagateBtn>
-                <Link href={clubData.webLink1}>동아리 페이지 바로가기</Link>
+                <Link
+                  href={
+                    clubData.webLink1 ||
+                    "https://skklub-vercel.vercel.app/seoul"
+                  }
+                >
+                  동아리 페이지 바로가기
+                </Link>
               </ClubPageNaviagateBtn>
             </>
           )}
@@ -213,7 +225,13 @@ export default function ClubDetailBanner({ clubData }) {
             되어있을 거에요!
           </BannerSubContent>
           <ClubPageNaviagateBtn>
-            <Link href={clubData.webLink1}>동아리 페이지 바로가기</Link>
+            <Link
+              href={
+                clubData.webLink1 || "https://skklub-vercel.vercel.app/seoul"
+              }
+            >
+              동아리 페이지 바로가기
+            </Link>
           </ClubPageNaviagateBtn>
         </>
       )}

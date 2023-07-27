@@ -15,14 +15,14 @@ const DetailContent = styled.div`
 `;
 
 export default function ActivitySection({ clubData }) {
-  const match760 = useMediaQuery("(max-width:760px)");
+  const match950 = useMediaQuery("(max-width:950px)");
   return (
     <SectionWrapper
       style={{
-        gridColumnStart: match760 ? 1 : 2,
+        gridColumnStart: match950 ? 1 : 2,
         gridColumnEnd: 4,
         flex: 1,
-        height: match760 ? "auto" : "443px",
+        height: match950 ? "auto" : "443px",
         overflowX: "scroll",
       }}
     >

@@ -1,29 +1,30 @@
 import useURLParse from "@/hooks/useURLParse";
 import styled from "@emotion/styled";
-import { usePathname } from "next/navigation";
 
 const BannerWrapper = styled.div`
   width: 100vw;
   height: 236px;
-  background-color: green;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url("/assets/images/banner_suwon.jpg");
+  background-position: center;
 `;
 
 const SubTitle = styled.div`
   text-align: center;
-
   color: #fff;
   text-align: center;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 1rem;
 `;
 
 const Title = styled.div`
   color: #fff;
+  font-family: GmarketSansBold;
   font-size: 2rem;
   font-style: normal;
   font-weight: 500;

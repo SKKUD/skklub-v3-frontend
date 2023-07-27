@@ -1,13 +1,9 @@
 "use client";
 
 import styled from "@emotion/styled";
-import Carousel from "react-material-ui-carousel";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useMediaQuery } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../Common/SectionTitle";
-// import NoticeCard from "./NoticeCard";
 import MoreBtn from "./MoreBtn";
 import SectionDesc from "../Common/SectionDesc";
 import { getNoticeThumbnailCard } from "@/utils/fetch";
@@ -25,6 +21,9 @@ const NoticeCardsContainer = styled.div`
   display: flex;
   gap: 30px;
   margin-top: 1rem;
+  @media (max-width: 812px) {
+    gap: 20px;
+  }
 `;
 
 const NoticeDescWrap = styled.div`
@@ -40,6 +39,9 @@ export default function NoticeSection() {
     queryFn: () => getNoticeThumbnailCard(),
     // onSuccess: (data) => console.log(data),
   });
+  const match1024 = useMediaQuery("(max-width:1024px)");
+  const match768 = useMediaQuery("(max-width:768px)");
+
   const pushToNotices = () => {
     router.push(`/notices`);
   };
@@ -57,7 +59,7 @@ export default function NoticeSection() {
       <NoticeCardsContainer>
         {data &&
           data.content
-            .slice(0, 5)
+            .slice(0, match768 ? 3 : match1024 ? 4 : 5)
             .map((item) => <NoticeCard key={item.noticeId} item={item} />)}
       </NoticeCardsContainer>
     </NoticeWrapper>

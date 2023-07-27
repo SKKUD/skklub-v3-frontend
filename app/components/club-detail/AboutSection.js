@@ -4,16 +4,14 @@ import { useMediaQuery } from "@mui/material";
 import { SectionDivider, SectionTitle } from "./common";
 
 const AboutContent = styled.div`
-  height: 226px;
+  min-height: 226px;
   word-break: keep-all;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 160%; /* 25.6px */
-  @media (max-width: 425px) {
-    height: auto;
-  }
+  height: auto;
 `;
 
 export default function AboutSection({ clubData }) {

@@ -11,21 +11,24 @@ const RecommendationClub = styled.div`
   display: flex;
   flex-direction: column;
 
-  /* @media (max-width: 768px) {
-    width: 180px;
-    height: 180px;
-    border-radius: 90px;
-    font-size: 14px;
-    line-height: 120%;
-  } */
-  @media (max-width: 425px) {
-    width: 96px;
-    height: 96px;
-    border-radius: 10px;
+  @media (max-width: 768px) {
     background-color: #fff;
+    flex: 1;
+    /* aspect-ratio: 1 / 1; */
+  }
+
+  @media (max-width: 425px) {
+    flex: none;
+    width: 106px;
+    height: 106px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  @media (max-width: 375px) {
+    width: 96px;
+    height: 96px;
   }
 `;
 

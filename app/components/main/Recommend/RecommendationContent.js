@@ -17,5 +17,6 @@ export const RecommendationContent = styled.div`
   @media (max-width: 425px) {
     justify-content: space-around;
     margin-top: 1.5rem;
+    gap: 0;
   }
 `;

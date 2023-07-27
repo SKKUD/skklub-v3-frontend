@@ -8,15 +8,15 @@ const Wrapper = styled.div`
   padding-left: 32px;
   padding-right: 30px;
   position: relative;
+  padding-bottom: 2rem;
 
-  @media (max-width: 760px) {
+  @media (max-width: 950px) {
     grid-column-start: 1;
     grid-column-end: 4;
     height: auto;
-    padding-bottom: 2rem;
   }
 `;
 
-export default function SectionWrapper({ children, style }) {
+export default function dSectionWrapper({ children, style }) {
   return <Wrapper style={{ ...style }}>{children}</Wrapper>;
 }

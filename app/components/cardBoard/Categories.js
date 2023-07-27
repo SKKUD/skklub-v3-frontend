@@ -6,7 +6,6 @@ import { useRecoilState } from "recoil";
 
 const CategoryWrapper = styled.div`
   max-width: 1200px;
-  /* width: auto; */
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -15,7 +14,7 @@ const CategoryWrapper = styled.div`
   overflow-x: scroll;
   gap: 20px;
 
-  @media (max-width: 425px) {
+  @media (max-width: 976px) {
     justify-content: flex-start;
   }
 `;

@@ -37,27 +37,6 @@ const Label = styled.div`
   align-items: center;
 `;
 
-const InfoContentRow = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-`;
-
-const InfoCategory = styled.div`
-  color: #fff;
-  font-family: Pretendard;
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 160%; /* 28.8px */
-`;
-
-const Info = styled.div`
-  font-weight: 300;
-  font-size: 1rem;
-`;
-
 export default function InfoSection({ clubData }) {
   return (
     <SectionWrapper
@@ -87,8 +66,12 @@ export default function InfoSection({ clubData }) {
           <Label>{clubData.presidentName}</Label>
           <Label>{clubData.presidentContact}</Label>
           <Label>
-            <Link href={clubData.webLink1}>
-              {clubData.webLink1.slice(0, 10)}...
+            <Link
+              href={
+                clubData.webLink1 || "https://skklub-vercel.vercel.app/seoul"
+              }
+            >
+              {clubData.webLink1?.slice(0, 10)}...
             </Link>
           </Label>
         </LabelContainer>
