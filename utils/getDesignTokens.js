@@ -16,7 +16,7 @@ const getDesignTokens = (mode) => ({
             default: "#FFFEF4",
           },
           text: {
-            primary: "rgba(36, 36, 34, 1)",
+            primary: "#242422",
             secondary: "#585858",
           },
           //라이트 카라우셀
@@ -38,7 +38,7 @@ const getDesignTokens = (mode) => ({
             default: "#151717",
           },
           text: {
-            primary: "rgba(255,255,255,0.87)",
+            primary: "#fff",
             secondary: "#DFE3E4",
           },
           //다크 카라우셀

@@ -1,4 +1,5 @@
 import useThemeModeDetect from "@/hooks/useThemeModeDetect";
+import useURLParse from "@/hooks/useURLParse";
 import styled from "@emotion/styled";
 
 const FooterWrap = styled.div`
@@ -25,9 +26,13 @@ const FooterWrap = styled.div`
 
 export default function Footer() {
   const isDarkMode = useThemeModeDetect();
+  const { location } = useURLParse();
+
   return (
-    <FooterWrap isDarkMode={isDarkMode}>
-      SKKLUB - Created and Maintained by 기술지원위원회
-    </FooterWrap>
+    location && (
+      <FooterWrap isDarkMode={isDarkMode}>
+        SKKLUB - Created and Maintained by 기술지원위원회
+      </FooterWrap>
+    )
   );
 }
