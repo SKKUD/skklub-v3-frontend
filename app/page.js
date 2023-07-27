@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import styled from "@emotion/styled";
-import logoImg from "@/public/assets/images/skklub_logo_m.png";
+import darkLogo from "@/public/assets/images/skklub_logo_dark.png";
+import lightLogo from "@/public/assets/images/skklub_logo_light.png";
 import LocationSelectBtn from "./components/start/LocationSelectBtn";
+import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
@@ -16,6 +18,8 @@ const StartPageWrapper = styled.div`
   @media (max-width: 425px) {
     background-image: url("/assets/animations/mobile-loading.gif");
   } */
+  background-color: ${({ theme }) => theme.palette.background.default};
+  z-index: -2;
   overflow: hidden;
 `;
 
@@ -54,21 +58,34 @@ const PhraseBtnWrapper = styled.div`
 `;
 
 const Phrase = styled.h2`
-  display: inline-block;
   text-align: center;
+  font-family: GmarketSansBold;
   font-size: 2rem;
-  word-break: keep-all;
-  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+  margin-bottom: 20px;
   @media (max-width: 425px) {
     font-size: 1.25rem;
   }
 `;
 
+const Intro = styled.div`
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 16px;
+`;
+
 const BtnContainer = styled.div`
-  width: 100%;
+  width: 80%;
   display: flex;
-  justify-content: space-around;
-  gap: 8%;
+  gap: 40px;
+  margin-top: 65px;
+  justify-content: center;
   @media (max-width: 375px) {
     flex-direction: column;
     align-items: center;
@@ -77,13 +94,7 @@ const BtnContainer = styled.div`
 `;
 
 export default function Home() {
-  // const { data, isLoading, isFetching, error } = useQuery({
-  //   queryKey: ["hydrate-users"],
-  //   queryFn: getUsers,
-  //   onSuccess: (data) => console.log(data),
-  //   onError: (error) => console.log(error),
-  // });
-
+  const isDarkMode = useThemeModeDetect();
   return (
     <StartPageWrapper>
       <VideoWrapper>
@@ -93,8 +104,9 @@ export default function Home() {
         </BgVideo>
       </VideoWrapper>
       <MainContents>
+        <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
         <Image
-          src={logoImg}
+          src={isDarkMode ? darkLogo : lightLogo}
           alt="SKKLUB LOGO"
           placeholder="blur"
           style={{
@@ -104,21 +116,20 @@ export default function Home() {
             minWidth: "310px",
           }}
         />
-        <PhraseBtnWrapper>
-          <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
-          <BtnContainer>
-            <LocationSelectBtn
-              label="명륜"
-              nextLocation="seoul"
-              hoverColor="#50CFB1"
-            />
-            <LocationSelectBtn
-              label="율전"
-              nextLocation="suwon"
-              hoverColor="#80A4FF"
-            />
-          </BtnContainer>
-        </PhraseBtnWrapper>
+        <Intro>동아리 안내 서비스 '스클럽'</Intro>
+
+        <BtnContainer>
+          <LocationSelectBtn
+            label="명륜"
+            nextLocation="seoul"
+            hoverColor="#50CFB1"
+          />
+          <LocationSelectBtn
+            label="율전"
+            nextLocation="suwon"
+            hoverColor="#80A4FF"
+          />
+        </BtnContainer>
       </MainContents>
     </StartPageWrapper>
   );

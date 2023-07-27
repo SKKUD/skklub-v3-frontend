@@ -6,11 +6,18 @@ const LocationBtn = styled.button`
   border: none;
   color: #434c4f;
   width: 100%;
-  background-color: white;
-  font-size: 1.5rem;
+  background-color: ${({ theme }) => theme.palette.text.primary};
+
   height: 68px;
-  border-radius: 3rem;
-  font-weight: 900;
+  border-radius: 5px;
+
+  text-align: center;
+  font-family: GmarketSansBold;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  max-width: 300px;
 
   @media (max-width: 375px) {
     width: 115px;
