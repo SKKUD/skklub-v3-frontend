@@ -3,6 +3,7 @@ import { categoryState } from "@/utils/atoms";
 import { CATEGORIES_SEOUL, CATEGORIES_SUWON } from "@/utils/constants";
 import styled from "@emotion/styled";
 import { useRecoilState } from "recoil";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 const CategoryWrapper = styled.div`
   max-width: 1200px;
@@ -66,6 +67,16 @@ const Category = styled.button`
   }
 `;
 
+const Heart = styled.div`
+  width: 24px;
+  height: 24px;
+  color: ${(props) => (props.isLiked ? "#da5d65" : "#b7b7b7")};
+  transition: color 0.5s;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
 export default function Categories() {
   const [category, setCategory] = useRecoilState(categoryState);
   const { isSuwon } = useURLParse();
@@ -84,6 +95,16 @@ export default function Categories() {
           {c}
         </Category>
       ))}
+      <Category
+        isClicked={category === "하트"}
+        onClick={() => onCategoryClick("하트")}
+        style={{
+          width: "auto",
+          height: "auto",
+        }}
+      >
+        <FavoriteIcon />
+      </Category>
     </CategoryWrapper>
   );
 }

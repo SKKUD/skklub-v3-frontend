@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { likedClubState } from "@/utils/atoms";
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
 
 export default function useClubLike() {
-  const [likedClubs, setLikedClubs] = useState([]);
+  const [likedClubs, setLikedClubs] = useRecoilState(likedClubState);
 
   useEffect(() => {
     setLikedClubs(
@@ -9,10 +11,26 @@ export default function useClubLike() {
     );
   }, []);
 
-  const modifyLikedClubs = (newLikedClubs) => {
-    window.localStorage.setItem("likedClubs", JSON.stringify(newLikedClubs));
-    setLikedClubs(newLikedClubs);
+  const addClubToList = (newClub) => {
+    setLikedClubs((likedClubs) => {
+      window.localStorage.setItem(
+        "likedClubs",
+        JSON.stringify([...likedClubs, newClub])
+      );
+      return [...likedClubs, newClub];
+    });
   };
 
-  return [likedClubs, modifyLikedClubs];
+  const deleteClubInList = (deletedClub) => {
+    setLikedClubs((likedClubs) => {
+      console.log;
+      window.localStorage.setItem(
+        "likedClubs",
+        JSON.stringify(likedClubs.filter((item) => item !== deletedClub))
+      );
+      return likedClubs.filter((item) => item !== deletedClub);
+    });
+  };
+
+  return [likedClubs, addClubToList, deleteClubInList];
 }
