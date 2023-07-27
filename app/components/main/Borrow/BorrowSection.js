@@ -19,7 +19,7 @@ const BorrowWrapper = styled.div`
     gap: 13px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 411px) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -36,11 +36,13 @@ const BorrowPhrase = styled.div`
   letter-spacing: -1.14px;
   font-family: GmarketSansBold;
 
+  @media (max-width: 550px) {
+    font-size: 1.75rem;
+  }
+
   @media (max-width: 425px) {
     text-align: center;
     font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 500;
     line-height: normal;
   }
 `;
