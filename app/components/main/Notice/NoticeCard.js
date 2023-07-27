@@ -5,31 +5,9 @@ import Image from "next/image";
 import { useMediaQuery } from "@mui/material";
 import { useRouter } from "next/navigation";
 
-// const NoticeCard = styled.div`
-//   width: 244px;
-//   height: 346px;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-//     url(${(props) => props.imageUrl});
-//   border-radius: 1rem;
-//   box-shadow: inset 0 1em 40px rgba(0, 0, 0, 0.5),
-//     inset 0 -1em 40px rgba(0, 0, 0, 0.5);
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: end;
-//   padding-left: 0.75rem;
-//   align-items: start;
-
-//   @media (max-width: 680px) {
-//     width: 164px;
-//     height: 164px;
-//   }
-// `;
-
 const CardWrapper = styled.div`
   width: 174px;
+  cursor: pointer;
 
   @media (max-width: 425px) {
     width: 164px;
