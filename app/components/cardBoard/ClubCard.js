@@ -92,6 +92,9 @@ export default function ClubCard({ club }) {
         width={match425 ? 164 : 174}
         height={match425 ? 164 : 174}
         alt="notice thumbnail"
+        style={{
+          borderRadius: "10px",
+        }}
       />
       <CardHeader>
         <ClubName>{club.name}</ClubName>
