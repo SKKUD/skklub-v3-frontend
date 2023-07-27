@@ -17,6 +17,10 @@ const LocationBtn = styled.button`
   line-height: normal;
   max-width: 300px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    height: 50px;
+  }
   @media (max-width: 375px) {
     width: 115px;
     font-size: 1.25rem;
@@ -38,7 +42,7 @@ export default function LocationSelectBtn({
 }) {
   const pushToNextLocation = useLocationPush(nextLocation);
   return (
-    <LocationBtn hoverColor={hoverColor} onClick={() => console.log("hi")}>
+    <LocationBtn hoverColor={hoverColor} onClick={pushToNextLocation}>
       {label}
     </LocationBtn>
   );

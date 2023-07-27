@@ -45,14 +45,7 @@ const MainContents = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background: transparent;
-  background-color: transparent; */
-`;
-
-const PhraseBtnWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100%;
 `;
 
 const Phrase = styled.h2`
@@ -65,7 +58,11 @@ const Phrase = styled.h2`
   margin: 0;
   margin-bottom: 20px;
   @media (max-width: 425px) {
-    font-size: 1.25rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
   }
 `;
 
@@ -76,6 +73,13 @@ const Intro = styled.div`
   font-weight: 400;
   line-height: normal;
   margin-top: 16px;
+  @media (max-width: 425px) {
+    text-align: center;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 `;
 
 const BtnContainer = styled.div`
@@ -84,10 +88,14 @@ const BtnContainer = styled.div`
   gap: 40px;
   margin-top: 65px;
   justify-content: center;
+  @media (max-width: 768px) {
+    margin-top: 40px;
+  }
   @media (max-width: 375px) {
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    gap: 10px;
+    margin-top: 30px;
   }
 `;
 
