@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { useMediaQuery } from "@mui/material";
 import SectionTitle from "../Common/SectionTitle";
 import NoticeCard from "./NoticeCard";
 import MoreBtn from "./MoreBtn";
@@ -12,16 +11,11 @@ const MobileNoticeWrapper = styled.div`
   margin-top: 5.2rem;
 `;
 
-const SmallCardContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-`;
-
 const NoticeCardsContainer = styled.div`
   width: 100%;
   display: flex;
   margin-top: 1rem;
+  justify-content: space-around;
   gap: 16px;
 `;
 
