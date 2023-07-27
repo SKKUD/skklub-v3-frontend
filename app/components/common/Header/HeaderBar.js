@@ -144,7 +144,7 @@ function NavButton({ item, isDarkMode, isSuwon, type }) {
   const setCategory = useSetRecoilState(categoryState);
 
   const onLinkClick = () => {
-    setCategory("전체");
+    setCategory("전체보기");
   };
   return (
     <Link href={`/${item.path}`}>

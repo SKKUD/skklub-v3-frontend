@@ -9,7 +9,7 @@ export default function CentralClubs() {
   const { data, isLoading } = useQuery({
     queryKey: ["seoul-central"],
     queryFn: () => getClubs("명륜", "중앙동아리"),
-    onSuccess: (data) => console.log(data),
+    // onSuccess: (data) => console.log(data),
   });
 
   return isLoading ? <LoadingLayout /> : <CardBoard cardsData={data.content} />;

@@ -45,7 +45,7 @@ export default function CardBoard({ cardsData }) {
       return cardsData.filter((card) => card.belongs === category);
     }
   };
-
+  console.log(category);
   return (
     <BoardWrapper>
       <CardGrid>
