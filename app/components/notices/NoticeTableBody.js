@@ -76,8 +76,6 @@ const NoticeRowItem = styled.div`
 
   @media (max-width: 768px) {
     font-size: 1.125rem;
-    /* line-height: 21px; */
-
     &.second-row {
       padding-left: 0px;
     }
