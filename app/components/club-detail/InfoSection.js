@@ -8,7 +8,7 @@ const InfoContentWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 12px;
 `;
 
 const InfoContentRow = styled.div`
@@ -33,7 +33,6 @@ const Label = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 25px;
-  word-break: keep-all;
 `;
 
 export default function InfoSection({ clubData }) {
@@ -77,6 +76,7 @@ export default function InfoSection({ clubData }) {
               href={
                 clubData.webLink1 || "https://skklub-vercel.vercel.app/seoul"
               }
+              style={{ width: "100%", wordBreak: "break-all" }}
             >
               {clubData.webLink1}
             </Link>
