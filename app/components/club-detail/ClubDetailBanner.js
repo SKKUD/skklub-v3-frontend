@@ -157,6 +157,9 @@ const ClubPageNaviagateBtn = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  &:disabled {
+    opacity: 0.3;
+  }
   @media (max-width: 913px) {
     top: 0;
   }
@@ -203,16 +206,15 @@ export default function ClubDetailBanner({ clubData }) {
                 <br />잘 모르던 분야도 함께 활동하다보면 어느새 즐거운 동료가
                 되어있을 거에요!
               </BannerSubContent>
-              <ClubPageNaviagateBtn>
-                <Link
-                  href={
-                    clubData.webLink1 ||
-                    "https://skklub-vercel.vercel.app/seoul"
-                  }
-                >
+              <Link
+                href={
+                  clubData.webLink1 || "https://skklub-vercel.vercel.app/seoul"
+                }
+              >
+                <ClubPageNaviagateBtn disabled>
                   동아리 페이지 바로가기
-                </Link>
-              </ClubPageNaviagateBtn>
+                </ClubPageNaviagateBtn>
+              </Link>
             </>
           )}
         </InfoWrapper>
