@@ -53,8 +53,6 @@ export default function ClubDetailLayout({ clubId }) {
   const { data, isLoading } = useQuery({
     queryKey: ["club-detail", clubId],
     queryFn: () => getClubDetail(clubId),
-    onSuccess: (data) => console.log(data),
-    onError: (error) => console.log(error),
   });
   return isLoading ? (
     <LoadingLayout />

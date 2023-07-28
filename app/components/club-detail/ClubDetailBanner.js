@@ -177,7 +177,7 @@ const ClubPageNaviagateBtn = styled.button`
 
 export default function ClubDetailBanner({ clubData }) {
   const match425 = useMediaQuery("(max-width:425px)");
-  console.log(clubData);
+
   return (
     <BannerWrapper>
       <BannerContent>

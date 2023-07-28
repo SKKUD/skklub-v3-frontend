@@ -39,7 +39,7 @@ const CardGrid = styled.div`
 export default function CardBoard({ cardsData }) {
   const category = useRecoilValue(categoryState);
   const [likedClubs, modifyLikedClubs] = useClubLike();
-  // console.log(likedClubs);
+
   const filteredClubs = (category) => {
     if (category === "전체보기") {
       return cardsData;
