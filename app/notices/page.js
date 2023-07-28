@@ -1,6 +1,5 @@
 "use client";
 import styled from "@emotion/styled";
-import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import NoticeRadioBtns from "@/app/components/notices/NoticeRadioBtns";
 import NoticeTableBody from "@/app/components/notices/NoticeTableBody";
@@ -55,7 +54,6 @@ const NoticesContentWrapper = styled.div`
 `;
 
 export default function Notices() {
-  const match768 = useMediaQuery("(max-width:768px)");
   const [role, setRole] = useState("");
 
   return (

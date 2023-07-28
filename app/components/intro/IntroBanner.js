@@ -16,18 +16,25 @@ const BannerWrap = styled.div`
 `;
 
 const Detail = styled.div`
-  font-size: 16px;
+  font-size: 1rem;
   word-break: keep-all;
-
+  color: #fff;
+  text-align: center;
+  font-family: Gmarket Sans;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   @media (max-width: 768px) {
     font-size: 1.3rem;
   }
 `;
 const Name = styled.div`
   margin-top: 5px;
+  font-family: GmarketSansBold;
   font-size: 32px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 
   @media (max-width: 768px) {
     font-size: 2.5rem;

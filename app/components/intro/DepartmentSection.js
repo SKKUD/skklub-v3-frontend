@@ -28,8 +28,9 @@ const DeptWrap = styled.div`
   display: flex;
   width: 100%;
   margin-bottom: 15px;
-  padding: 0 2rem;
-
+  @media (max-width: 1024px) {
+    padding: 0 2rem;
+  }
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 0;
@@ -37,7 +38,7 @@ const DeptWrap = styled.div`
 `;
 
 const DeptLeftSection = styled.div`
-  width: 25%;
+  width: 20%;
   display: flex;
   align-items: center;
 
@@ -71,7 +72,7 @@ const DeptName = styled.div`
 
 const DeptDescription = styled.div`
   background-color: ${({ theme }) => theme.palette.background.paper};
-  width: 70%;
+  width: 75%;
   margin: 8px;
   padding: 21px 38px;
   font-family: pretendard;
@@ -117,16 +118,3 @@ export default function DepartmentSection({ data }) {
     </>
   );
 }
-
-// DepartmentCard.propTypes = {
-//   emoji: PropTypes.string,
-//   name: PropTypes.string.isRequired,
-//   description: PropTypes.string.isRequired,
-// };
-
-// DepartmentCard.defaultProps = {
-//   emoji: "✏️",
-//   name: "사무국",
-//   description:
-//     "사무국은 전체적인 동아리 활동에 필요한 상시서류를 작성하고, 신규등록 및 재등록 관련 업무를 진행합니다. 징계 및 경고 동아리를 관리하고, 동아리연합회 집행부회의, 전체동아리대표자회의 및 운영위원회의에 참석하여 회의록을 작성하고 관리합니다.",
-// };

@@ -26,7 +26,6 @@ export default function MobileNoticeSection() {
   const { isLoading, data } = useQuery({
     queryKey: ["notice-thumbnail"],
     queryFn: () => getNoticeThumbnailCard(),
-    // onSuccess: (data) => console.log(data),
   });
 
   return (

@@ -23,7 +23,6 @@ export default function useClubLike() {
 
   const deleteClubInList = (deletedClub) => {
     setLikedClubs((likedClubs) => {
-      console.log;
       window.localStorage.setItem(
         "likedClubs",
         JSON.stringify(likedClubs.filter((item) => item !== deletedClub))
