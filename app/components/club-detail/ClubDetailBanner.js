@@ -4,6 +4,8 @@ import Image from "next/image";
 import clubLogoImg from "@/public/assets/images/club_logo.png";
 import { useMediaQuery } from "@mui/material";
 import Link from "next/link";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import useClubLike from "@/hooks/useClubLike";
 
 const BannerWrapper = styled.div`
   width: 100%;
@@ -100,22 +102,44 @@ const PlaceInfo = styled.div`
   }
 `;
 
+const NameWrapper = styled.div`
+  display: flex;
+  gap: 24px;
+  align-items: end;
+  margin-top: 18px;
+  @media (max-width: 425px) {
+    margin-top: 8px;
+  }
+`;
+
+const Heart = styled.div`
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 99px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(196, 203, 205, 1);
+  color: ${(props) => (props.isLiked ? "#da5d65" : "#b7b7b7")};
+  transition: color 0.5s;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
 const ClubName = styled.div`
   color: #fff;
   font-family: GmarketSansBold;
-
   font-size: 2.375rem;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  margin-top: 18px;
 
   @media (max-width: 425px) {
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin-top: 8px;
   }
 `;
 
@@ -178,6 +202,18 @@ const ClubPageNaviagateBtn = styled.button`
 export default function ClubDetailBanner({ clubData }) {
   const match425 = useMediaQuery("(max-width:425px)");
 
+  const [likedClubs, addClubToList, deleteClubInList] = useClubLike();
+
+  const handleHeartClick = (event) => {
+    event.stopPropagation();
+
+    if (likedClubs.includes(clubData.name)) {
+      deleteClubInList(clubData.name);
+    } else {
+      addClubToList(clubData.name);
+    }
+  };
+
   return (
     <BannerWrapper>
       <BannerContent>
@@ -197,8 +233,15 @@ export default function ClubDetailBanner({ clubData }) {
             </RecruitStatus>
             <PlaceInfo>{clubData.campus} 캠퍼스</PlaceInfo>
           </StatusWrapper>
-
-          <ClubName>{clubData.name}</ClubName>
+          <NameWrapper>
+            <ClubName>{clubData.name}</ClubName>
+            <Heart
+              isLiked={likedClubs.includes(clubData.name)}
+              onClick={handleHeartClick}
+            >
+              <FavoriteIcon />
+            </Heart>
+          </NameWrapper>
 
           {!match425 && (
             <>
