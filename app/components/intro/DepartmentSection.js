@@ -48,6 +48,7 @@ const DeptLeftSection = styled.div`
     padding-top: 15px;
   }
 `;
+
 const DeptEmoji = styled.div`
   font-size: 24px;
   line-height: 32px;
@@ -57,6 +58,7 @@ const DeptEmoji = styled.div`
     margin: 0 20px;
   }
 `;
+
 const DeptName = styled.div`
   width: 100px;
   font-size: 20px;

@@ -14,15 +14,11 @@ const BorrowWrapper = styled.div`
   gap: 2rem;
 
   @media (max-width: 1100px) {
-    align-items: center;
-    justify-content: center;
     gap: 13px;
   }
 
   @media (max-width: 411px) {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 13px;
   }
 `;
@@ -41,7 +37,6 @@ const BorrowPhrase = styled.div`
   }
 
   @media (max-width: 425px) {
-    text-align: center;
     font-size: 1.5rem;
     line-height: normal;
   }
@@ -64,12 +59,8 @@ const ComingSoon = styled.div`
   @media (max-width: 425px) {
     width: 145px;
     height: 28px;
-    color: #fff;
-    text-align: center;
     font-size: 0.875rem;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;
   }
 `;
 
