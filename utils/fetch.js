@@ -69,3 +69,21 @@ export const getNoticeFiles = async ({ filename }) => {
   );
   return await response.json();
 };
+
+
+export const getPartiallyMatchedSearchResults = async ({
+  searchTerm,
+  isSuwon,
+}) => {
+  const response = await fetch(
+    `${BASE_URL}/club/search/prevs?keyword=${searchTerm}&sort=campus,${
+      isSuwon ? "desc" : "asc"
+    }`
+  );
+  return await response.json();
+};
+
+export const getFullyMatchedSearchResults = async (keyword) => {
+  const response = await fetch(`${BASE_URL}/club/search?name=${keyword}`);
+  return await response.json();
+};
