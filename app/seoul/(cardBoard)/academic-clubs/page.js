@@ -2,7 +2,6 @@
 
 import CardBoard from "@/app/components/cardBoard/CardBoard";
 import LoadingLayout from "@/app/layouts/loading/LoadingLayout";
-import { CLUBS_DUMMY_DATA } from "@/utils/constants";
 import { getClubs } from "@/utils/fetch";
 import { useQuery } from "@tanstack/react-query";
 
