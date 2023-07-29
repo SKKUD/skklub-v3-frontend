@@ -52,7 +52,9 @@ const NoticeRowItem = styled.div`
   &.first-row {
     flex: 0.5;
     justify-content: center;
-    color: ${(props) => (props.isDarkMode ? "#DFE3E4" : "#585858")};
+    @media (max-width: 768px) {
+      color: ${(props) => (props.isDarkMode ? "#DFE3E4" : "#585858")};
+    }
   }
   &.second-row {
     cursor: pointer;

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import SectionWrapper from "./SectionWrapper";
-import { SectionDivider, SectionTitle } from "./common";
+import { SectionTitle } from "./common";
 import Link from "next/link";
 
 const InfoContentWrapper = styled.div`

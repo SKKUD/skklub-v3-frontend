@@ -7,8 +7,6 @@ const RTable = styled.table`
   width: 100%;
 `;
 
-const RThead = styled.thead``;
-
 const RTr = styled.tr`
   &:first-of-type {
     border-bottom-left-radius: 10px;
@@ -34,12 +32,10 @@ const RTh = styled.th`
   height: 76px;
   &:first-of-type {
     border-top-left-radius: 10px;
-    font-style: normal;
     font-weight: 600;
   }
   &:last-of-type {
     border-top-right-radius: 10px;
-    font-style: normal;
     font-weight: 400;
   }
 `;
@@ -55,12 +51,10 @@ const RTd = styled.td`
   font-size: 14px;
 
   &:first-of-type {
-    font-style: normal;
     font-weight: 600;
     /* 22.4px */
   }
   &:last-of-type {
-    font-style: normal;
     font-weight: 400;
   }
 `;
@@ -68,7 +62,7 @@ const RTd = styled.td`
 export default function MobileRecruitingTabel({ clubData }) {
   return (
     <RTable>
-      <RThead>
+      <thead>
         <RTr>
           <RTh>모집 시기</RTh>
           <RTh>
@@ -76,7 +70,7 @@ export default function MobileRecruitingTabel({ clubData }) {
             {clubData.recruit.recruitEndAt?.slice(0, 10)}
           </RTh>
         </RTr>
-      </RThead>
+      </thead>
       <tbody>
         <RTr>
           <RTd>모집 인원</RTd>
