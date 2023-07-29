@@ -1,7 +1,6 @@
 "use client";
 import styled from "@emotion/styled";
 import Image from "next/image";
-import clubLogoImg from "@/public/assets/images/club_logo.png";
 import { useMediaQuery } from "@mui/material";
 import Link from "next/link";
 import FavoriteIcon from "@mui/icons-material/Favorite";
