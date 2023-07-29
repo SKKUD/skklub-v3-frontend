@@ -216,7 +216,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
           </NavWrap>
 
           <IconButtonsWrap>
-            {type !== "notices" && !match760 && <CampusSwitch />}
+            {type !== "notices" && !match760 && isNaN(type) && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
                 <CloseIcon
