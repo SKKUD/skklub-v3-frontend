@@ -11,8 +11,6 @@ const RTable = styled.table`
   width: 100%;
 `;
 
-const RThead = styled.thead``;
-
 const RTr = styled.tr`
   &:first-of-type {
     border-bottom-left-radius: 10px;
@@ -67,14 +65,14 @@ export default function RecruitingSection({ clubData }) {
         <MobileRecruitingTabel clubData={clubData} />
       ) : (
         <RTable>
-          <RThead>
+          <thead>
             <RTr>
               <RTh>모집 시기</RTh>
               <RTh>모집 인원</RTh>
               <RTh>모집 방식</RTh>
               <RTh>활동 기간</RTh>
             </RTr>
-          </RThead>
+          </thead>
           <tbody>
             <RTr>
               <RTd>

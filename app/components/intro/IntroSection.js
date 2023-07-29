@@ -13,8 +13,6 @@ const IntroSectionLayout = styled.div`
   word-break: keep-all;
 
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
     margin-bottom: 5px;
     width: 100%;
@@ -32,7 +30,7 @@ const IntroPill = styled.div`
   padding: 18px 20px;
   border-radius: 16px;
   margin: 20px 0px;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
   min-width: 20%;
   text-align: center;
@@ -40,7 +38,7 @@ const IntroPill = styled.div`
 
   @media (max-width: 768px) {
     min-width: 50%;
-    font-size: 16px;
+    font-size: 1rem;
     padding: 0.7rem 1rem;
   }
 `;
@@ -83,12 +81,12 @@ const RedSpan = styled.span`
 
 const Body = styled.div`
   font-family: pretendard;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 24px;
   font-weight: 500;
 
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 22px;
   }
 `;

@@ -12,7 +12,6 @@ const ThemeSubtitle = styled.div`
   }
   @media (max-width: 425px) {
     font-size: 0.875rem;
-    font-style: normal;
     font-weight: 600;
     line-height: 151.5%; /* 21.21px */
     margin-bottom: 9px;

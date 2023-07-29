@@ -1,9 +1,46 @@
 import styled from "@emotion/styled";
-import ClubTitle from "./ClubTitle";
-import ClubType from "./ClubType";
-
 import useURLParse from "@/hooks/useURLParse";
 import { useRouter } from "next/navigation";
+
+const ClubTitle = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  color: #303030;
+  font-family: GmarketSansBold;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 32px */
+  letter-spacing: -0.4px;
+
+  @media (max-width: 425px) {
+    font-size: 0.875rem;
+    line-height: 120%; /* 16.8px */
+  }
+`;
+
+const ClubType = styled.div`
+  margin-bottom: 20px;
+  color: #303030;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 180%; /* 25.2px */
+  letter-spacing: -0.14px;
+
+  @media (max-width: 425px) {
+    font-family: Pretendard;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 151.5%; /* 18.18px */
+    margin-bottom: 0;
+    padding-bottom: 9px;
+  }
+`;
 
 const RecommendationClub = styled.div`
   position: relative;
@@ -20,14 +57,12 @@ const RecommendationClub = styled.div`
   @media (max-width: 768px) {
     background-color: #fff;
     flex: 1;
-    /* aspect-ratio: 1 / 1; */
   }
 
   @media (max-width: 425px) {
     flex: none;
     width: 106px;
     height: 106px;
-    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;

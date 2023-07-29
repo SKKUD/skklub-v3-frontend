@@ -18,11 +18,7 @@ const Hashtag = styled.div`
   @media (max-width: 768px) {
     height: 23px;
     padding: 1px 12px;
-    color: #303030;
-    font-family: Pretendard;
     font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 600;
     line-height: 151.5%; /* 21.21px */
     background-color: rgba(255, 229, 234, 1);
   }

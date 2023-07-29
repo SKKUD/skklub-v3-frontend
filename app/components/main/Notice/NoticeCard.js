@@ -33,13 +33,8 @@ const NoticeThumbnail = styled.div`
   color: ${({ theme }) => theme.palette.text.secondary};
 
   @media (max-width: 425px) {
-    text-overflow: ellipsis;
     whitespace: nowrap;
-    font-family: Pretendard;
     font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 140%; /* 16.8px */
     letter-spacing: -0.12px;
   }
 `;
@@ -57,8 +52,8 @@ export default function NoticeCard({ item }) {
     >
       <NoticeImg
         src={`data:image/png;base64,${item.thumbnail.bytes}`}
-        width={matches_425 ? 174 : 164}
-        height={matches_425 ? 174 : 164}
+        width={matches_425 ? 164 : 174}
+        height={matches_425 ? 164 : 174}
         alt="notice thumbnail"
       />
       <NoticeDate>{item.createdAt.substr(0, 10)}</NoticeDate>

@@ -16,7 +16,7 @@ const LoadingBanner = styled.div`
 `;
 
 const LoadingLabel = styled.div`
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: 700;
   @media (max-width: 425px) {
     font-size: 1.5rem;

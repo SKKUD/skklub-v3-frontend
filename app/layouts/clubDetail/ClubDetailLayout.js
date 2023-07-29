@@ -60,10 +60,10 @@ export default function ClubDetailLayout({ clubId }) {
     <>
       <ClubDetailBanner clubData={data} />
       <ClubDetailContent>
-        <AboutSection clubData={data} />
+        <AboutSection description={data.clubDescription} />
         <InfoNActivityWrap>
           <InfoSection clubData={data} />
-          <ActivitySection clubData={data} />
+          <ActivitySection activityDescription={data.activityDescription} />
         </InfoNActivityWrap>
         <RecruitingSection clubData={data} />
       </ClubDetailContent>

@@ -51,7 +51,9 @@ export const getNoticeThumbnailCard = async () => {
 
 export const getNoticeListwithRole = async ({ role, page }) => {
   const response = await fetch(
-    `${BASE_URL}/notice/prev?role=${role}&size=10&page=${page - 1}`
+    `${BASE_URL}/notice/prev?role=${role}&size=10&page=${
+      page - 1
+    }&sort=createdAt,desc`
   );
   return await response.json();
 };
@@ -69,7 +71,6 @@ export const getNoticeFiles = async ({ filename }) => {
   );
   return await response.json();
 };
-
 
 export const getPartiallyMatchedSearchResults = async ({
   searchTerm,

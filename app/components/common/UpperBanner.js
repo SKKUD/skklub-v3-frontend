@@ -15,7 +15,6 @@ const BannerWrapper = styled.div`
         : `url("/assets/images/banner_seoul.jpg")`};
   background-position: ${(props) => (props.isSuwon ? "center" : "50% 60%")};
   background-size: cover;
-  opacity: 0.5;
   background-color: rgba(0, 0, 0, 0.5);
 `;
 

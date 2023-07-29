@@ -1,5 +1,5 @@
 "use client";
-import IntroBanner from "@/app/components/intro/IntroBanner";
+
 import IntroLayout from "@/app/layouts/intro/IntroLayout";
 import IntroSection from "@/app/components/intro/IntroSection";
 import DepartmentSection from "@/app/components/intro/DepartmentSection";

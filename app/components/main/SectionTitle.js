@@ -13,7 +13,6 @@ const SectionTitle = styled.div`
   @media (max-width: 425px) {
     font-size: 1.25rem;
     font-style: normal;
-    font-weight: 500;
     line-height: normal;
     margin-bottom: 16px;
   }
