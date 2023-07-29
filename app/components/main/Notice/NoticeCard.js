@@ -57,8 +57,8 @@ export default function NoticeCard({ item }) {
     >
       <NoticeImg
         src={`data:image/png;base64,${item.thumbnail.bytes}`}
-        width={matches_425 ? 174 : 164}
-        height={matches_425 ? 174 : 164}
+        width={matches_425 ? 164 : 174}
+        height={matches_425 ? 164 : 174}
         alt="notice thumbnail"
       />
       <NoticeDate>{item.createdAt.substr(0, 10)}</NoticeDate>

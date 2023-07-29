@@ -20,6 +20,7 @@ const NoticeCardsContainer = styled.div`
   width: 100%;
   display: flex;
   gap: 30px;
+  justify-content: space-between;
   margin-top: 1rem;
   @media (max-width: 812px) {
     gap: 20px;
