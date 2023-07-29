@@ -79,15 +79,29 @@ const SuggestionBox = styled.div`
   }
 `;
 
+const BelongsLabel = styled.div`
+  color: #949595;
+  font-weight: 300;
+  font-size: 14px;
+`;
+const CampusChip = styled.div`
+  font-size: 14px;
+  color: ${(props) =>
+    props.campus === "율전"
+      ? props.theme.palette.primary.main
+      : props.theme.palette.secondary.main};
+  margin-left: 10px;
+`;
+
 export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
   const { isSuwon } = useURLParse();
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const { isLoading, data } = useQuery({
-    queryKey: ["keywords", searchTerm],
-    queryFn: () => getPartiallyMatchedSearchResults(searchTerm),
-    onSuccess: (data) => console.log(data),
+    queryKey: ["searchKeywords", searchTerm],
+    queryFn: () => getPartiallyMatchedSearchResults({ searchTerm, isSuwon }),
+    // onSuccess: (data) => console.log(data),
   });
 
   const handleChange = (e) => {
@@ -103,8 +117,11 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
   const [searchAlert, setAlert] = useState(false);
 
   const handleSubmit = () => {
-    if (data.content[0].name === searchTerm) {
-      router.push("/")
+    if (data.content.length === 0) {
+      setAlert(true);
+    } else if (data.content[0].name === searchTerm) {
+      router.push(`/${data.content[0].campus==="율전" ? "suwon" : "seoul"}/${data.content[0].id}`);
+      setIsSearchVisible(false);
     } else {
       setAlert(true);
     }
@@ -157,6 +174,10 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
                 onClick={() => handleSelectSuggestion(suggestion.name)}
               >
                 <ListItemText primary={suggestion.name} />
+                <BelongsLabel>{suggestion.belongs}</BelongsLabel>
+                <CampusChip campus={suggestion.campus}>
+                  {suggestion.campus}
+                </CampusChip>
               </ListItemButton>
             ))}
         </List>
@@ -167,11 +188,13 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
           horizontal: "center",
         }}
         open={searchAlert}
-        autoHideDuration={700}
+        autoHideDuration={2000}
         onClose={handleAlertClose}
       >
-        <Alert severity="error" sx={{ width: "100%" }}>
-          추천 검색어를 클릭하여 정확한 동아리명을 입력해주세요!
+        <Alert severity="error" sx={{ width: "100%", wordBreak: "keep-all" }}>
+          {data && data.content.length === 0
+            ? "입력하신 키워드에 해당하는 동아리가 없습니다."
+            : "추천 검색어를 클릭하여 정확한 동아리명을 입력해주세요!"}
         </Alert>
       </Snackbar>
     </SearchbarWrap>
