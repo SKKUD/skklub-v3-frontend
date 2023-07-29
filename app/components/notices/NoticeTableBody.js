@@ -41,7 +41,6 @@ const NoticeRow = styled.div`
   }
 `;
 const NoticeRowItem = styled.div`
-  font-weight: 400;
   font-size: 18px;
   line-height: 40px;
   font-weight: 500;
@@ -98,7 +97,8 @@ const MobileInfoWrapper = styled.div`
   gap: 0.25rem;
   @media (max-width: 768px) {
     gap: 20px;
-    margin: 10px 0px;
+    margin-top: 8px;
+    margin-bottom: 10px;
   }
 `;
 
@@ -106,6 +106,7 @@ const MobileItem = styled.div`
   font-weight: 400;
   font-size: 0.75px;
   line-height: 14px;
+  color: ${({ theme }) => theme.palette.text.secondary};
 `;
 
 const MobileDivider = styled.div`
@@ -148,6 +149,7 @@ export default function NoticeTableBody({ role }) {
                     <NoticeRowItem
                       isDarkMode={isDarkMode}
                       className="first-row"
+                      style={{ alignItems: "start" }}
                     >
                       {item.noticeId}
                     </NoticeRowItem>
