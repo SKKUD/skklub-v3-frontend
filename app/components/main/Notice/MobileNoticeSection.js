@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import SectionTitle from "../Common/SectionTitle";
+import SectionTitle from "../SectionTitle";
 import NoticeCard from "./NoticeCard";
 import MoreBtn from "./MoreBtn";
 import { useQuery } from "@tanstack/react-query";

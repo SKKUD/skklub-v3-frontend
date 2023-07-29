@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import SectionTitle from "../Common/SectionTitle";
+import SectionTitle from "../SectionTitle";
 import ThemeTitle from "./ThemeTitle";
 import ThemeSubtitle from "./ThemeSubtitle";
 import HashtagWrapper from "./HashtagWrapper";

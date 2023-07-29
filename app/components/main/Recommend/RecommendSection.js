@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
-import SectionTitle from "../Common/SectionTitle";
+import SectionTitle from "../SectionTitle";
 import ThemeTitle from "./ThemeTitle";
 import ThemeSubtitle from "./ThemeSubtitle";
 import Hashtag from "./Hashtag";
 import HashtagWrapper from "./HashtagWrapper";
 import useURLParse from "../../../../hooks/useURLParse";
 import { RecommendationContent } from "./RecommendationContent";
-import SectionDesc from "../Common/SectionDesc";
+import SectionDesc from "../SectionDesc";
 import { useQuery } from "@tanstack/react-query";
 import { getClubRecommendation } from "@/utils/fetch";
 import RecommendationClubCard from "./RecommendationClub";
