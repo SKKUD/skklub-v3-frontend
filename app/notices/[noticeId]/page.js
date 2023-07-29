@@ -4,8 +4,6 @@ import { useRouter, useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import NoticeBanner from "@/app/components/notices/NoticeBanner";
 import styled from "@emotion/styled";
-import ExpandLessIcon from "@mui/icons-material/ExpandLess";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { getNoticeDetail } from "@/utils/fetch";
 import { useMediaQuery } from "@mui/material";
 import useThemeModeDetect from "@/hooks/useThemeModeDetect";
@@ -28,7 +26,6 @@ const PageWrapper = styled.div`
 `;
 
 const TitleBox = styled.div`
-  /* padding: 0 30px; */
   border-radius: 10px;
   position: relative;
   padding-bottom: 64px;
@@ -170,25 +167,6 @@ const NextTitle = styled.div`
   white-space: nowrap;
 `;
 
-const NavWriter = styled.div`
-  color: #949595;
-  text-align: right;
-  font-family: Pretendard;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 160%; /* 25.6px */
-  position: absolute;
-  right: 25px;
-`;
-
-const ArrowBtn = styled.div`
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 const BackToListBtn = styled.div`
   width: 98px;
   height: 39px;
@@ -216,6 +194,7 @@ export default function NoticePage() {
   const { isLoading, data } = useQuery({
     queryKey: ["notice-detail", params],
     queryFn: () => getNoticeDetail(params.noticeId),
+    onSuccess: (data) => console.log(data),
   });
   const router = useRouter();
   const pushToNotices = () => {
@@ -227,7 +206,6 @@ export default function NoticePage() {
 
   const isDarkMode = useThemeModeDetect();
 
-  const match425 = useMediaQuery("(max-width:425px)");
   return (
     <>
       <NoticeBanner />
