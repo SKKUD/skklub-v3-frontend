@@ -124,6 +124,7 @@ export default function NoticeTableBody({ role }) {
   const { isLoading, data } = useQuery({
     queryKey: ["notices", role, page],
     queryFn: () => getNoticeListwithRole({ role, page }),
+    onSuccess: (data) => console.log(data),
   });
   const handlePageChange = (e, value) => {
     e.preventDefault();
