@@ -33,13 +33,8 @@ const NoticeThumbnail = styled.div`
   color: ${({ theme }) => theme.palette.text.secondary};
 
   @media (max-width: 425px) {
-    text-overflow: ellipsis;
     whitespace: nowrap;
-    font-family: Pretendard;
     font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 140%; /* 16.8px */
     letter-spacing: -0.12px;
   }
 `;
