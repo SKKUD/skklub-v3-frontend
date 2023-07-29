@@ -12,18 +12,13 @@ const AboutContent = styled.div`
   font-weight: 500;
   line-height: 160%; /* 25.6px */
   height: auto;
+  white-space: pre-line;
 `;
 
 export default function AboutSection({ clubData }) {
   return (
-    <SectionWrapper
-      style={{
-        gridColumnStart: 1,
-        gridColumnEnd: 4,
-        height: "auto",
-      }}
-    >
-      <SectionTitle>동아리 정보</SectionTitle>
+    <SectionWrapper>
+      <SectionTitle>동아리 설명</SectionTitle>
       <AboutContent>{clubData.clubDescription}</AboutContent>
       {/* <ClubPageNaviagateBtn>동아리 페이지</ClubPageNaviagateBtn> */}
     </SectionWrapper>

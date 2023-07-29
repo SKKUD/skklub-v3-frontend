@@ -10,8 +10,8 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingLayout from "../loading/LoadingLayout";
 
 const ClubDetailContent = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: column;
   max-width: 1050px;
   margin: 0 auto;
   margin-top: 3rem;
@@ -26,12 +26,33 @@ const ClubDetailContent = styled.div`
   }
 `;
 
+const InfoNActivityWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+
+  > div:first-of-type {
+    width: 40%;
+  }
+  > div:last-of-type {
+    width: 60%;
+  }
+  @media (max-width: 900px) {
+    flex-direction: column;
+    justify-content: flex-start;
+    > div:first-of-type {
+      width: 100%;
+    }
+    > div:last-of-type {
+      width: 100%;
+    }
+  }
+`;
+
 export default function ClubDetailLayout({ clubId }) {
   const { data, isLoading } = useQuery({
     queryKey: ["club-detail", clubId],
     queryFn: () => getClubDetail(clubId),
-    onSuccess: (data) => console.log(data),
-    onError: (error) => console.log(error),
   });
   return isLoading ? (
     <LoadingLayout />
@@ -40,8 +61,10 @@ export default function ClubDetailLayout({ clubId }) {
       <ClubDetailBanner clubData={data} />
       <ClubDetailContent>
         <AboutSection clubData={data} />
-        <InfoSection clubData={data} />
-        <ActivitySection clubData={data} />
+        <InfoNActivityWrap>
+          <InfoSection clubData={data} />
+          <ActivitySection clubData={data} />
+        </InfoNActivityWrap>
         <RecruitingSection clubData={data} />
       </ClubDetailContent>
     </>

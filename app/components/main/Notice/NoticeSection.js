@@ -37,7 +37,6 @@ export default function NoticeSection() {
   const { isLoading, data } = useQuery({
     queryKey: ["notice-thumbnail"],
     queryFn: () => getNoticeThumbnailCard(),
-    // onSuccess: (data) => console.log(data),
   });
   const match1024 = useMediaQuery("(max-width:1024px)");
   const match768 = useMediaQuery("(max-width:768px)");

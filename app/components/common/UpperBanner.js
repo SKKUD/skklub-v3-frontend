@@ -1,4 +1,5 @@
 import useURLParse from "@/hooks/useURLParse";
+import { INTRO_DUMMY_DATA } from "@/utils/constants";
 import styled from "@emotion/styled";
 
 const BannerWrapper = styled.div`
@@ -40,7 +41,7 @@ const Title = styled.div`
 
 export default function UpperBanner() {
   const { isSuwon, type } = useURLParse();
-
+  console.log(type);
   const convertEngTypeToKo = (type) => {
     if (type === "central-clubs") {
       return "중앙동아리";
@@ -53,7 +54,7 @@ export default function UpperBanner() {
     } else if (type === "student-org") {
       return "학생단체";
     } else {
-      return "중앙동아리";
+      return `"${INTRO_DUMMY_DATA.name}"`;
     }
   };
   return (

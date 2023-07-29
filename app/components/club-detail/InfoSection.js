@@ -7,106 +7,81 @@ const InfoContentWrapper = styled.div`
   padding-top: 12px;
   width: 100%;
   display: flex;
-`;
-
-const LabelContainer = styled.div`
-  display: flex;
   flex-direction: column;
   gap: 12px;
 `;
 
+const InfoContentRow = styled.div`
+  display: flex;
+  gap: 12px;
+`;
+
 const BoldLabel = styled.div`
-  height: 30px;
+  width: 40%;
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 160%; /* 28.8px */
-  display: flex;
-  align-items: center;
+  line-height: 25px;
+  word-break: keep-all;
 `;
 
 const Label = styled.div`
-  height: 30px;
+  width: 60%;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 160%; /* 25.6px */
-  display: flex;
-  align-items: center;
+  line-height: 25px;
 `;
 
 export default function InfoSection({ clubData }) {
   return (
-    <SectionWrapper
-      style={{
-        height: "443px",
-      }}
-    >
+    <SectionWrapper>
       <SectionTitle>동아리 정보</SectionTitle>
 
       <InfoContentWrapper>
-        <LabelContainer style={{ marginRight: "37px" }}>
+        <InfoContentRow>
           <BoldLabel>중분류</BoldLabel>
-          <BoldLabel>소속 캠퍼스</BoldLabel>
-          <BoldLabel>위치</BoldLabel>
-          <BoldLabel>활동인원</BoldLabel>
-          <BoldLabel>모임시간</BoldLabel>
-          <BoldLabel>대표자 이름</BoldLabel>
-          <BoldLabel>대표자 연락처</BoldLabel>
-          <BoldLabel>동아리 페이지</BoldLabel>
-        </LabelContainer>
-        <LabelContainer>
           <Label>{clubData.clubType}</Label>
+        </InfoContentRow>
+        <InfoContentRow>
+          <BoldLabel>소속 캠퍼스</BoldLabel>
           <Label>{clubData.campus}캠퍼스</Label>
+        </InfoContentRow>
+        <InfoContentRow>
+          <BoldLabel>위치</BoldLabel>
           <Label>{clubData.roomLocation}</Label>
+        </InfoContentRow>
+        <InfoContentRow>
+          <BoldLabel>활동인원</BoldLabel>
           <Label>{clubData.memberAmount}</Label>
+        </InfoContentRow>
+        <InfoContentRow>
+          <BoldLabel>모임시간</BoldLabel>
           <Label>{clubData.regularMeetingTime}</Label>
+        </InfoContentRow>
+        <InfoContentRow>
+          <BoldLabel>대표자 이름</BoldLabel>
           <Label>{clubData.presidentName}</Label>
+        </InfoContentRow>
+        <InfoContentRow>
+          <BoldLabel>대표자 연락처</BoldLabel>
           <Label>{clubData.presidentContact}</Label>
+        </InfoContentRow>
+        <InfoContentRow>
+          <BoldLabel>동아리 페이지</BoldLabel>
           <Label>
             <Link
               href={
                 clubData.webLink1 || "https://skklub-vercel.vercel.app/seoul"
               }
+              style={{ width: "100%", wordBreak: "break-all" }}
             >
-              {clubData.webLink1?.slice(0, 10)}...
+              {clubData.webLink1}
             </Link>
           </Label>
-        </LabelContainer>
-        {/* <InfoContentRow>
-          <InfoCategory>중분류</InfoCategory>
-          <Info>중앙동아리</Info>
         </InfoContentRow>
-        <InfoContentRow>
-          <InfoCategory>중분류</InfoCategory>
-          <Info>중앙동아리</Info>
-        </InfoContentRow>
-        <InfoContentRow>
-          <InfoCategory>중분류</InfoCategory>
-          <Info>중앙동아리</Info>
-        </InfoContentRow>
-        <InfoContentRow>
-          <InfoCategory>중분류</InfoCategory>
-          <Info>중앙동아리</Info>
-        </InfoContentRow>
-        <InfoContentRow>
-          <InfoCategory>중분류</InfoCategory>
-          <Info>중앙동아리</Info>
-        </InfoContentRow>
-        <InfoContentRow>
-          <InfoCategory>중분류</InfoCategory>
-          <Info>중앙동아리</Info>
-        </InfoContentRow>
-        <InfoContentRow>
-          <InfoCategory>중분류</InfoCategory>
-          <Info>중앙동아리</Info>
-        </InfoContentRow>
-        <InfoContentRow>
-          <InfoCategory>중분류</InfoCategory>
-          <Info>중앙동아리</Info>
-        </InfoContentRow> */}
       </InfoContentWrapper>
     </SectionWrapper>
   );
