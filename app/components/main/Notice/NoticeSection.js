@@ -3,9 +3,9 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-import SectionTitle from "../Common/SectionTitle";
+import SectionTitle from "../SectionTitle";
 import MoreBtn from "./MoreBtn";
-import SectionDesc from "../Common/SectionDesc";
+import SectionDesc from "../SectionDesc";
 import { getNoticeThumbnailCard } from "@/utils/fetch";
 import { useRouter } from "next/navigation";
 import NoticeCard from "./NoticeCard";
@@ -20,6 +20,7 @@ const NoticeCardsContainer = styled.div`
   width: 100%;
   display: flex;
   gap: 30px;
+  justify-content: space-between;
   margin-top: 1rem;
   @media (max-width: 812px) {
     gap: 20px;

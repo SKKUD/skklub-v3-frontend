@@ -6,7 +6,6 @@ const Wrapper = styled.div`
   padding-top: 34px;
   padding-left: 32px;
   padding-right: 30px;
-  /* position: relative; */
   padding-bottom: 2rem;
 `;
 

@@ -1,7 +1,6 @@
 "use client";
 import styled from "@emotion/styled";
 import Image from "next/image";
-import clubLogoImg from "@/public/assets/images/club_logo.png";
 import { useMediaQuery } from "@mui/material";
 import Link from "next/link";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -218,12 +217,12 @@ export default function ClubDetailBanner({ clubData }) {
     <BannerWrapper>
       <BannerContent>
         <Image
-          src={clubLogoImg}
+          src={`data:image/png;base64,${clubData.logo.bytes}`}
+          width={match425 ? 100 : 174}
+          height={match425 ? 100 : 174}
           alt="CLUB_LOGO"
-          placeholder="blur"
           style={{
-            height: match425 ? "100px" : "174px",
-            width: match425 ? "100px" : "174px",
+            borderRadius: "10px",
           }}
         />
         <InfoWrapper>

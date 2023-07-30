@@ -1,14 +1,11 @@
 import styled from "@emotion/styled";
-import SectionTitle from "../Common/SectionTitle";
+import SectionTitle from "../SectionTitle";
 import ThemeTitle from "./ThemeTitle";
 import ThemeSubtitle from "./ThemeSubtitle";
 import HashtagWrapper from "./HashtagWrapper";
 import Hashtag from "./Hashtag";
 import useURLParse from "../../../../hooks/useURLParse";
 import { RecommendationContent } from "./RecommendationContent";
-import RecommendationClub from "./RecommendationClub";
-import ClubType from "./ClubType";
-import ClubTitle from "./ClubTitle";
 import { getClubRecommendation } from "@/utils/fetch";
 import { useQuery } from "@tanstack/react-query";
 import RecommendationClubCard from "./RecommendationClub";
