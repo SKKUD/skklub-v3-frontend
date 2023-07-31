@@ -9,6 +9,7 @@ import { RecommendationContent } from "./RecommendationContent";
 import { getClubRecommendation } from "@/utils/fetch";
 import { useQuery } from "@tanstack/react-query";
 import RecommendationClubCard from "./RecommendationClub";
+import useRandomRecommendation from "@/hooks/useRendomRecommendation";
 
 const MobileRecommendWrapper = styled.div`
   width: 100%;
@@ -34,24 +35,23 @@ const SmallContentContainer = styled.div`
 export default function MobileRecommendSection() {
   const { isSuwon } = useURLParse();
 
+  const [category, description, hashtags] = useRandomRecommendation();
+
   const { data } = useQuery({
-    queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", "평면예술"),
-    queryKey: ["club-recommendation"],
+    queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", category),
+    queryKey: ["club-recommendation", category],
   });
 
   return (
     <MobileRecommendWrapper>
       <SectionTitle>오늘의 추천동아리</SectionTitle>
       <SmallContentContainer>
-        <ThemeTitle>인성품과 보람 동시에 잡기</ThemeTitle>
-        <ThemeSubtitle>
-          {`"뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"`}
-        </ThemeSubtitle>
+        <ThemeTitle>{category} 동시에 잡기</ThemeTitle>
+        <ThemeSubtitle>{description}</ThemeSubtitle>
         <HashtagWrapper>
-          <Hashtag>#대학생활</Hashtag>
-          <Hashtag>#봉사</Hashtag>
-          <Hashtag>#친구</Hashtag>
-          <Hashtag>#사회공헌</Hashtag>
+          {hashtags.map((h) => (
+            <Hashtag key={h}>{h}</Hashtag>
+          ))}
         </HashtagWrapper>
         <RecommendationContent>
           {data?.map((club) => (

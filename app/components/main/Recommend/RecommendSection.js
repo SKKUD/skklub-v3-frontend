@@ -1,3 +1,5 @@
+"use client";
+
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import SectionTitle from "../SectionTitle";
@@ -11,6 +13,7 @@ import SectionDesc from "../SectionDesc";
 import { useQuery } from "@tanstack/react-query";
 import { getClubRecommendation } from "@/utils/fetch";
 import RecommendationClubCard from "./RecommendationClub";
+import useRandomRecommendation from "@/hooks/useRendomRecommendation";
 
 const RecommendWrapper = styled.div`
   margin: 0 auto;
@@ -38,9 +41,12 @@ export default function RecommendSection() {
   const matches_1024 = useMediaQuery("(max-width:1024px)");
   const matches_950 = useMediaQuery("(max-width:950px)");
 
+  const [category, description, hashtags] = useRandomRecommendation();
+
   const { data } = useQuery({
-    queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", "평면예술"),
-    queryKey: ["club-recommendation"],
+    queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", category),
+    queryKey: ["club-recommendation", category],
+    refetchOnWindowFocus: false,
   });
 
   return (
@@ -53,15 +59,14 @@ export default function RecommendSection() {
       </SectionDesc>
       <RecommendationContent>
         <RecommendationTheme>
-          <ThemeTitle>인성품과 보람 동시에 잡기</ThemeTitle>
-          <ThemeSubtitle>
-            {`"뜻깊은 봉사활동으로 몸과 마음을 가꿔요!"`}
-          </ThemeSubtitle>
+          <ThemeTitle>{category} 동시에 잡기</ThemeTitle>
+          <ThemeSubtitle>{description}</ThemeSubtitle>
           <HashtagWrapper>
-            <Hashtag>#대학생활</Hashtag>
-            <Hashtag>#봉사</Hashtag>
-            <Hashtag>#친구</Hashtag>
-            {!matches_950 && <Hashtag>#사회공헌</Hashtag>}
+            {hashtags.slice(0, 3).map((h) => (
+              <Hashtag key={h}>{h}</Hashtag>
+            ))}
+
+            {!matches_950 && <Hashtag>{hashtags[3]}</Hashtag>}
           </HashtagWrapper>
         </RecommendationTheme>
         {data?.slice(0, matches_1024 ? 2 : 3).map((club) => (
