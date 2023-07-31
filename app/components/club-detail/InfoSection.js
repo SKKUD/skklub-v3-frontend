@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import SectionWrapper from "./SectionWrapper";
 import { SectionTitle } from "./common";
 import Link from "next/link";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const InfoContentWrapper = styled.div`
   padding-top: 12px;
@@ -35,7 +36,25 @@ const Label = styled.div`
   line-height: 25px;
 `;
 
+const IGAdressContainer = styled.div`
+  display: flex;
+  gap: 4px;
+`;
+
 export default function InfoSection({ clubData }) {
+  console.log(clubData);
+  const isIGUrl = (url) => (url ? url.includes("instagram") : false);
+  const isIGAccount = (url) => (url ? url[0] === "@" : false);
+  const getIGID = (url) => {
+    if (isIGUrl(url)) {
+      return url.split("/")[3];
+    } else if (isIGAccount(url)) {
+      return url;
+    } else {
+      return clubData.name;
+    }
+  };
+
   return (
     <SectionWrapper>
       <SectionTitle>동아리 정보</SectionTitle>
@@ -74,11 +93,24 @@ export default function InfoSection({ clubData }) {
           <Label>
             <Link
               href={
-                clubData.webLink1 || "https://skklub-vercel.vercel.app/seoul"
+                isIGAccount(clubData.webLink1)
+                  ? `https://www.instagram.com/${clubData.webLink1.slice(1)}`
+                  : clubData.webLink1 ||
+                    "https://skklub-vercel.vercel.app/seoul"
               }
               style={{ width: "100%", wordBreak: "break-all" }}
             >
-              {clubData.webLink1}
+              {isIGUrl(clubData.webLink1) ? (
+                <IGAdressContainer>
+                  <InstagramIcon /> {"@" + getIGID(clubData.webLink1)}
+                </IGAdressContainer>
+              ) : isIGAccount(clubData.webLink1) ? (
+                <IGAdressContainer>
+                  <InstagramIcon /> {clubData.webLink1}
+                </IGAdressContainer>
+              ) : (
+                clubData.webLink1
+              )}
             </Link>
           </Label>
         </InfoContentRow>
