@@ -7,4 +7,5 @@ export const SectionTitle = styled.div`
   font-weight: 500;
   line-height: 100%; /* 28px */
   letter-spacing: -0.56px;
+  font-family: GmarketSansBold;
 `;
