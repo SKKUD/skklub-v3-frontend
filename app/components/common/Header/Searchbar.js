@@ -110,8 +110,10 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
   };
 
   const handleSelectSuggestion = (suggestion) => {
-    setSearchTerm(suggestion);
-    setSuggestions([]);
+    router.push(
+      `/${suggestion.campus === "율전" ? "suwon" : "seoul"}/${suggestion.id}`
+    );
+    setIsSearchVisible(false);
   };
 
   const [searchAlert, setAlert] = useState(false);
@@ -120,7 +122,11 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
     if (data.content.length === 0) {
       setAlert(true);
     } else if (data.content[0].name === searchTerm) {
-      router.push(`/${data.content[0].campus==="율전" ? "suwon" : "seoul"}/${data.content[0].id}`);
+      router.push(
+        `/${data.content[0].campus === "율전" ? "suwon" : "seoul"}/${
+          data.content[0].id
+        }`
+      );
       setIsSearchVisible(false);
     } else {
       setAlert(true);
@@ -171,7 +177,7 @@ export default function Searchbar({ setIsSearchVisible, isDarkMode }) {
             data.content.map((suggestion) => (
               <ListItemButton
                 key={suggestion.id}
-                onClick={() => handleSelectSuggestion(suggestion.name)}
+                onClick={() => handleSelectSuggestion(suggestion)}
               >
                 <ListItemText primary={suggestion.name} />
                 <BelongsLabel>{suggestion.belongs}</BelongsLabel>
