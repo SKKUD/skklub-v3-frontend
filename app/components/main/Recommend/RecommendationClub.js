@@ -14,6 +14,8 @@ const ClubTitle = styled.div`
   font-weight: 500;
   line-height: 160%; /* 32px */
   letter-spacing: -0.4px;
+  padding-left: 5px;
+  padding-right: 5px;
 
   @media (max-width: 425px) {
     font-size: 0.875rem;
