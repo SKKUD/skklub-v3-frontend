@@ -11,14 +11,7 @@ const RTable = styled.table`
   width: 100%;
 `;
 
-const RTr = styled.tr`
-  /* &:first-of-type {
-    border-bottom-left-radius: 10px;
-  }
-  &:last-of-type {
-    border-bottom-right-radius: 10px;
-  } */
-`;
+const RTr = styled.tr``;
 
 const RTh = styled.th`
   @media (prefers-color-scheme: light) {
