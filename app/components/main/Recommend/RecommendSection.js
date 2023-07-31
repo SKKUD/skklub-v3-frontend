@@ -33,6 +33,7 @@ const RecommendationTheme = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-left: 24px;
+  padding-right: 24px;
   gap: 0.75rem;
 `;
 
@@ -60,7 +61,7 @@ export default function RecommendSection() {
       <RecommendationContent>
         <RecommendationTheme>
           <ThemeTitle>{category} 동시에 잡기</ThemeTitle>
-          <ThemeSubtitle>{description}</ThemeSubtitle>
+          <ThemeSubtitle>"{description}"</ThemeSubtitle>
           <HashtagWrapper>
             {hashtags.slice(0, 3).map((h) => (
               <Hashtag key={h}>{h}</Hashtag>
