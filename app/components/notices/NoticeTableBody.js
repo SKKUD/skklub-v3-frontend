@@ -33,6 +33,7 @@ const NoticeRow = styled.div`
   justify-content: space-between;
   height: 40px;
   gap: 20px;
+  cursor: pointer;
   @media (max-width: 768px) {
     height: 80px;
     flex-direction: column;
@@ -51,7 +52,6 @@ const NoticeRowItem = styled.div`
 
   &.first-row {
     flex: 0.5;
-    justify-content: center;
     @media (max-width: 768px) {
       color: ${(props) => (props.isDarkMode ? "#DFE3E4" : "#585858")};
     }
@@ -127,7 +127,6 @@ export default function NoticeTableBody({ role }) {
   const { isLoading, data } = useQuery({
     queryKey: ["notices", role, page],
     queryFn: () => getNoticeListwithRole({ role, page }),
-    onSuccess: (data) => console.log(data),
   });
   const handlePageChange = (e, value) => {
     e.preventDefault();
@@ -140,52 +139,50 @@ export default function NoticeTableBody({ role }) {
       {!match768 && <NoticeTableHeader />}
       {data &&
         data.content.map((item) => (
-          <div
+          <NoticeRow
             key={item.noticeId}
             onClick={() => pushToNoticeDetail(`/notices/${item.noticeId}`)}
           >
-            <NoticeRow>
-              {match768 ? (
-                <>
-                  <MobileItemWrapper>
-                    <NoticeRowItem
-                      isDarkMode={isDarkMode}
-                      className="first-row"
-                      style={{ alignItems: "start" }}
-                    >
-                      {item.noticeId}
-                    </NoticeRowItem>
-                    <MobileContentWrapper>
-                      <NoticeRowItem className="second-row">
-                        {item.title}
-                      </NoticeRowItem>
-                      <MobileInfoWrapper>
-                        <MobileItem>{item.writerName}</MobileItem>
-                        <MobileItem>{item.createdAt.substr(0, 10)}</MobileItem>
-                      </MobileInfoWrapper>
-                    </MobileContentWrapper>
-                  </MobileItemWrapper>
-
-                  <MobileDivider isDarkMode={isDarkMode} />
-                </>
-              ) : (
-                <>
-                  <NoticeRowItem className="first-row">
+            {match768 ? (
+              <>
+                <MobileItemWrapper>
+                  <NoticeRowItem
+                    isDarkMode={isDarkMode}
+                    className="first-row"
+                    style={{ alignItems: "start" }}
+                  >
                     {item.noticeId}
                   </NoticeRowItem>
-                  <NoticeRowItem className="second-row">
-                    {item.title}
-                  </NoticeRowItem>
-                  <NoticeRowItem className="third-row">
-                    {item.writerName}
-                  </NoticeRowItem>
-                  <NoticeRowItem className="last-row">
-                    {item.createdAt.substr(0, 10)}
-                  </NoticeRowItem>
-                </>
-              )}
-            </NoticeRow>
-          </div>
+                  <MobileContentWrapper>
+                    <NoticeRowItem className="second-row">
+                      {item.title}
+                    </NoticeRowItem>
+                    <MobileInfoWrapper>
+                      <MobileItem>{item.writerName}</MobileItem>
+                      <MobileItem>{item.createdAt.substr(0, 10)}</MobileItem>
+                    </MobileInfoWrapper>
+                  </MobileContentWrapper>
+                </MobileItemWrapper>
+
+                <MobileDivider isDarkMode={isDarkMode} />
+              </>
+            ) : (
+              <>
+                <NoticeRowItem className="first-row">
+                  {item.noticeId}
+                </NoticeRowItem>
+                <NoticeRowItem className="second-row">
+                  {item.title}
+                </NoticeRowItem>
+                <NoticeRowItem className="third-row">
+                  {item.writerName}
+                </NoticeRowItem>
+                <NoticeRowItem className="last-row">
+                  {item.createdAt.substr(0, 10)}
+                </NoticeRowItem>
+              </>
+            )}
+          </NoticeRow>
         ))}
       <NoticeTablePagination
         totalPages={data && data.totalPages}

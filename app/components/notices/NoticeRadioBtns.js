@@ -1,10 +1,8 @@
-import { useState } from "react";
 import {
   FormControl,
   FormControlLabel,
   Radio,
   RadioGroup,
-  useMediaQuery,
 } from "@mui/material";
 import styled from "@emotion/styled";
 
@@ -22,7 +20,7 @@ const StyledRadioBtn = styled(Radio)`
   }
 `;
 
-export default function xNoticeRadioBtns({ value, setValue }) {
+export default function NoticeRadioBtns({ value, setValue }) {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
