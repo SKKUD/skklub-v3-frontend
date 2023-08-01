@@ -28,7 +28,6 @@ const VideoWrapper = styled.div`
   height: 100%;
   width: 100%;
   z-index: -1;
-  /* opacity: 0.15; */
 `;
 
 const BgVideo = styled.video`
@@ -58,11 +57,7 @@ const Phrase = styled.h2`
   margin: 0;
   margin-bottom: 20px;
   @media (max-width: 425px) {
-    text-align: center;
     font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
   }
 `;
 
@@ -74,11 +69,7 @@ const Intro = styled.div`
   line-height: normal;
   margin-top: 16px;
   @media (max-width: 425px) {
-    text-align: center;
     font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
   }
 `;
 

@@ -1,14 +1,14 @@
 @font-face {
-  font-family: 'GmarketSansBold';
-  src: url('../public/assets/fonts/GmarketSansTTFBold.ttf') format('truetype');
+  font-family: "GmarketSansBold";
+  src: url("../public/assets/fonts/GmarketSansTTFBold.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'GmarketSansLight';
-  src: url('../public/assets/fonts/GmarketSansTTFLight.ttf') format('truetype');
+  font-family: "GmarketSansLight";
+  src: url("../public/assets/fonts/GmarketSansTTFLight.ttf") format("truetype");
 }
 @font-face {
-  font-family: 'GmarketSansMedium';
-  src: url('../public/assets/fonts/GmarketSansTTFMedium.ttf') format('truetype');
+  font-family: "GmarketSansMedium";
+  src: url("../public/assets/fonts/GmarketSansTTFMedium.ttf") format("truetype");
 }
 
 @font-face {
@@ -28,6 +28,24 @@ body {
     Droid Sans, Helvetica Neue, sans-serif;
   overflow-x: hidden;
 }
+
+/* @media (prefers-color-scheme: light) {
+  body {
+    background-color: "#FFFEF4";
+  }
+  div {
+    background-color: "#FFFEF4";
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: "#151717";
+  }
+  div {
+    background-color: "#151717";
+  }
+} */
 
 body::-webkit-scrollbar {
   width: 4px;

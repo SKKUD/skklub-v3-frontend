@@ -3,7 +3,6 @@
 import { categoryState } from "@/utils/atoms";
 import styled from "@emotion/styled";
 import { useRecoilValue } from "recoil";
-
 import ClubCard from "./ClubCard";
 import useClubLike from "@/hooks/useClubLike";
 
@@ -38,7 +37,7 @@ const CardGrid = styled.div`
 
 export default function CardBoard({ cardsData }) {
   const category = useRecoilValue(categoryState);
-  const [likedClubs, modifyLikedClubs] = useClubLike();
+  const [likedClubs, _] = useClubLike();
 
   const filteredClubs = (category) => {
     if (category === "전체보기") {

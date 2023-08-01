@@ -5,8 +5,8 @@ import { useRouter, useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import NoticeBanner from "@/app/components/notices/NoticeBanner";
 import styled from "@emotion/styled";
-import { getNoticeDetail } from "@/utils/fetch";
-import { useMediaQuery, Popover } from "@mui/material";
+import { downloadAttachedFile, getNoticeDetail } from "@/utils/fetch";
+import { useMediaQuery } from "@mui/material";
 import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 import NoticePopover from "@/app/components/notices/NoticePopover";
 
@@ -223,12 +223,21 @@ export default function NoticePage() {
 
   const isDarkMode = useThemeModeDetect();
 
+  const handleAttatchmentClick = (data) => {
+    if (data && data.extraFileNames.length > 0) {
+      for (const file of data.extraFileNames) {
+        downloadAttachedFile(file.originalName, file.savedName);
+      }
+    }
+  };
+
   return (
     <>
       <NoticeBanner />
       <PageWrapper isDarkMode={isDarkMode}>
         <TitleBox>
-          <Title>{data && data.title}</Title>
+          <Title>{data?.title}</Title>
+
           <SubTitleWrapper>
             <SubTitle isDarkMode={isDarkMode}>
               {data && data.writerName}
@@ -242,7 +251,7 @@ export default function NoticePage() {
             </SubTitle>
           </SubTitleWrapper>
           <Divider />
-          <Attachment onClick={handleAttachmentClick}>
+          <Attachment onClick={() => handleAttatchmentClick(data)}>
             {data && data.extraFileNames.length > 0 && (
               <>
                 첨부파일 <span>({data.extraFileNames.length})</span>

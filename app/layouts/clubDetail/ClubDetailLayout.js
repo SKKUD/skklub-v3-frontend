@@ -1,4 +1,5 @@
 "use client";
+
 import styled from "@emotion/styled";
 import RecruitingSection from "../../components/club-detail/RecruitingSection";
 import InfoSection from "../../components/club-detail/InfoSection";
@@ -60,10 +61,10 @@ export default function ClubDetailLayout({ clubId }) {
     <>
       <ClubDetailBanner clubData={data} />
       <ClubDetailContent>
-        <AboutSection description={data.clubDescription} />
+        <AboutSection description={data?.clubDescription} />
         <InfoNActivityWrap>
           <InfoSection clubData={data} />
-          <ActivitySection activityDescription={data.activityDescription} />
+          <ActivitySection activityDescription={data?.activityDescription} />
         </InfoNActivityWrap>
         <RecruitingSection clubData={data} />
       </ClubDetailContent>

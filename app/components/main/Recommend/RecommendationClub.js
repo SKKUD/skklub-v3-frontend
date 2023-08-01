@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 
 const ClubTitle = styled.div`
   display: flex;
-  flex: 1;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex: 1;
   color: #303030;
   font-family: GmarketSansBold;
   font-size: 1.25rem;
@@ -16,6 +16,14 @@ const ClubTitle = styled.div`
   letter-spacing: -0.4px;
   padding-left: 5px;
   padding-right: 5px;
+  width: 100%;
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
+  word-break: break-all;
+  text-align: center;
+  max-height: 70%;
+  /* word-spacing: 100vw; */
 
   @media (max-width: 425px) {
     font-size: 0.875rem;
@@ -35,7 +43,6 @@ const ClubType = styled.div`
   letter-spacing: -0.14px;
 
   @media (max-width: 425px) {
-    font-family: Pretendard;
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 151.5%; /* 18.18px */

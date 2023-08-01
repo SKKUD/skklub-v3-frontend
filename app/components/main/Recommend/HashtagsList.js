@@ -1,4 +1,10 @@
 import styled from "@emotion/styled";
+import { useMediaQuery } from "@mui/material";
+
+const HashtagWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+`;
 
 const Hashtag = styled.div`
   padding: 5px 15px;
@@ -24,4 +30,14 @@ const Hashtag = styled.div`
   }
 `;
 
-export default Hashtag;
+export default function HashtagsList({ hashtags }) {
+  const matches_950 = useMediaQuery("(max-width:950px)");
+  const matches_768 = useMediaQuery("(max-width:768px)");
+  return (
+    <HashtagWrapper>
+      {hashtags.slice(0, matches_768 ? 4 : matches_950 ? 3 : 4).map((h) => (
+        <Hashtag key={h}>{h}</Hashtag>
+      ))}
+    </HashtagWrapper>
+  );
+}

@@ -40,7 +40,6 @@ const HeaderInner = styled.div`
   }
 
   @media (max-width: 480px) {
-    justify-content: space-between;
     width: 100%;
   }
 `;
