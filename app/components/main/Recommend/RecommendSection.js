@@ -3,8 +3,6 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import SectionTitle from "../SectionTitle";
-import ThemeTitle from "./ThemeTitle";
-import ThemeSubtitle from "./ThemeSubtitle";
 import useURLParse from "../../../../hooks/useURLParse";
 import { RecommendationContent } from "./RecommendationContent";
 import SectionDesc from "../SectionDesc";
@@ -12,7 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getClubRecommendation } from "@/utils/fetch";
 import RecommendationClubCard from "./RecommendationClub";
 import useRandomRecommendation from "@/hooks/useRendomRecommendation";
-import HashtagsList from "./HashtagsList";
+import ThemeContent from "./ThemeContent";
 
 const RecommendWrapper = styled.div`
   margin: 0 auto;
@@ -58,9 +56,11 @@ export default function RecommendSection() {
       </SectionDesc>
       <RecommendationContent>
         <RecommendationTheme>
-          <ThemeTitle>{category} 동시에 잡기</ThemeTitle>
-          <ThemeSubtitle>"{description}"</ThemeSubtitle>
-          <HashtagsList hashtags={hashtags} />
+          <ThemeContent
+            category={category}
+            description={description}
+            hashtags={hashtags}
+          />
         </RecommendationTheme>
         {data?.slice(0, matches_1024 ? 2 : 3).map((club) => (
           <RecommendationClubCard key={club.id} clubData={club} />
