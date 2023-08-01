@@ -33,7 +33,6 @@ const Category = styled.button`
     props.isClicked
       ? props.theme.palette.text.primary
       : props.theme.palette.background.paper};
-
   color: ${(props) =>
     props.isClicked
       ? props.theme.palette.background.paper
@@ -64,16 +63,6 @@ const Category = styled.button`
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-  }
-`;
-
-const Heart = styled.div`
-  width: 24px;
-  height: 24px;
-  color: ${(props) => (props.isLiked ? "#da5d65" : "#b7b7b7")};
-  transition: color 0.5s;
-  &:hover {
-    transform: scale(1.2);
   }
 `;
 

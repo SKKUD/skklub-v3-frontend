@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { usePathname, useRouter } from "next/navigation";
-import useClubLike from "@/hooks/useClubLike";
 import Image from "next/image";
 import { useMediaQuery } from "@mui/material";
+import ClubCardHeart from "./ClubCardHeart";
 
 const CustomCard = styled.div`
   width: 174px;
@@ -35,15 +34,7 @@ const ClubName = styled.div`
     font-size: 1.25rem;
   }
 `;
-const Heart = styled.div`
-  width: 24px;
-  height: 24px;
-  color: ${(props) => (props.isLiked ? "#da5d65" : "#b7b7b7")};
-  transition: color 0.5s;
-  &:hover {
-    transform: scale(1.2);
-  }
-`;
+
 const CardType = styled.div`
   font-family: Pretendard;
   font-size: 14px;
@@ -61,23 +52,12 @@ const CardType = styled.div`
 export default function ClubCard({ club }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [likedClubs, addClubToList, deleteClubInList] = useClubLike();
   const match425 = useMediaQuery("(max-width:425px)");
 
   const [_, location, a] = pathname.split("/");
 
   const handleCardClick = (clubId) => {
     router.push(`/${location}/${clubId}`);
-  };
-
-  const handleHeartClick = (event, clubName) => {
-    event.stopPropagation();
-
-    if (likedClubs.includes(clubName)) {
-      deleteClubInList(clubName);
-    } else {
-      addClubToList(clubName);
-    }
   };
 
   return (
@@ -93,12 +73,7 @@ export default function ClubCard({ club }) {
       />
       <CardHeader>
         <ClubName>{club.name}</ClubName>
-        <Heart
-          isLiked={likedClubs.includes(club.name)}
-          onClick={(event) => handleHeartClick(event, club.name)}
-        >
-          <FavoriteIcon />
-        </Heart>
+        <ClubCardHeart clubName={club.name} />
       </CardHeader>
       <CardType>{`${club.belongs}/${club.briefActivityDescription}`}</CardType>
     </CustomCard>
