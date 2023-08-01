@@ -1,29 +1,17 @@
 "use client";
 
 import styled from "@emotion/styled";
-import { useMediaQuery } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../SectionTitle";
 import SectionDesc from "../SectionDesc";
 import { getNoticeThumbnailCard } from "@/utils/fetch";
-import NoticeCard from "./NoticeCard";
 import NoticesRouterBtn from "./MoreBtn";
+import NoticeCardsList from "./NoticeCardsList";
 
 const NoticeWrapper = styled.div`
   position: relative;
   margin: 0 auto;
   margin-top: 10rem;
-`;
-
-const NoticeCardsContainer = styled.div`
-  width: 100%;
-  display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  margin-top: 1rem;
-  @media (max-width: 812px) {
-    gap: 20px;
-  }
 `;
 
 const NoticeDescWrap = styled.div`
@@ -37,8 +25,6 @@ export default function NoticeSection() {
     queryKey: ["notice-thumbnail"],
     queryFn: () => getNoticeThumbnailCard(),
   });
-  const match1024 = useMediaQuery("(max-width:1024px)");
-  const match768 = useMediaQuery("(max-width:768px)");
 
   return (
     <NoticeWrapper>
@@ -50,13 +36,7 @@ export default function NoticeSection() {
         </SectionDesc>
         <NoticesRouterBtn />
       </NoticeDescWrap>
-      <NoticeCardsContainer>
-        {data?.content
-          .slice(0, match768 ? 3 : match1024 ? 4 : 5)
-          .map((item) => (
-            <NoticeCard key={item.noticeId} item={item} />
-          ))}
-      </NoticeCardsContainer>
+      <NoticeCardsList noticesData={data} />
     </NoticeWrapper>
   );
 }
