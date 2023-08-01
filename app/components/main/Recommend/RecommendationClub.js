@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 
 const ClubTitle = styled.div`
   display: flex;
-  flex: 1;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex: 1;
   color: #303030;
   font-family: GmarketSansBold;
   font-size: 1.25rem;
@@ -18,9 +18,12 @@ const ClubTitle = styled.div`
   padding-right: 5px;
   width: 100%;
   overflow: hidden;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   text-overflow: ellipsis;
   word-break: break-all;
+  text-align: center;
+  max-height: 70%;
+  /* word-spacing: 100vw; */
 
   @media (max-width: 425px) {
     font-size: 0.875rem;
@@ -87,7 +90,7 @@ export default function RecommendationClubCard({ clubData }) {
   };
   return (
     <RecommendationClub onClick={handleCardClick}>
-      <ClubTitle>{"성균관대학교 최고의 동아리는 어디일까 젠장"}</ClubTitle>
+      <ClubTitle>{clubData.name}</ClubTitle>
       <ClubType>{clubData.campus} / 사실 분과 들어갸야함</ClubType>
     </RecommendationClub>
   );
