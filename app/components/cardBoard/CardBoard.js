@@ -37,7 +37,7 @@ const CardGrid = styled.div`
 
 export default function CardBoard({ cardsData }) {
   const category = useRecoilValue(categoryState);
-  const [likedClubs, addClubToList, deleteClubInList] = useClubLike();
+  const [likedClubs, _] = useClubLike();
 
   const filteredClubs = (category) => {
     if (category === "전체보기") {

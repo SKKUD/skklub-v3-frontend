@@ -13,17 +13,8 @@ const Heart = styled.div`
 `;
 
 export default function ClubCardHeart({ clubName }) {
-  const [likedClubs, addClubToList, deleteClubInList] = useClubLike();
+  const [likedClubs, handleHeartClick] = useClubLike();
 
-  const handleHeartClick = (event, clubName) => {
-    event.stopPropagation();
-
-    if (likedClubs.includes(clubName)) {
-      deleteClubInList(clubName);
-    } else {
-      addClubToList(clubName);
-    }
-  };
   return (
     <Heart
       isLiked={likedClubs.includes(clubName)}

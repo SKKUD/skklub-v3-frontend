@@ -65,7 +65,6 @@ const RecruitStatus = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   color: #fff;
   font-family: Pretendard;
   font-size: 1rem;
@@ -75,11 +74,7 @@ const RecruitStatus = styled.div`
   @media (max-width: 425px) {
     width: 56px;
     height: 23px;
-    font-family: Pretendard;
     font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 160%; /* 19.2px */
   }
 `;
 
@@ -92,12 +87,7 @@ const PlaceInfo = styled.div`
   line-height: 160%; /* 28.8px */
 
   @media (max-width: 425px) {
-    color: #fff;
-    font-family: Pretendard;
     font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 160%; /* 22.4px */
   }
 `;
 
@@ -119,7 +109,6 @@ const Heart = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgba(196, 203, 205, 1);
   color: ${(props) => (props.isLiked ? "#da5d65" : "#b7b7b7")};
   transition: color 0.5s;
   &:hover {
@@ -136,9 +125,6 @@ const ClubName = styled.div`
 
   @media (max-width: 425px) {
     font-size: 1.5rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
   }
 `;
 
@@ -153,9 +139,6 @@ const BannerSubContent = styled.div`
 
   @media (max-width: 425px) {
     font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 160%; /* 19.2px */
     margin-top: 12px;
   }
 `;
@@ -201,17 +184,7 @@ const ClubPageNaviagateBtn = styled.button`
 export default function ClubDetailBanner({ clubData }) {
   const match425 = useMediaQuery("(max-width:425px)");
 
-  const [likedClubs, addClubToList, deleteClubInList] = useClubLike();
-
-  const handleHeartClick = (event) => {
-    event.stopPropagation();
-
-    if (likedClubs.includes(clubData.name)) {
-      deleteClubInList(clubData.name);
-    } else {
-      addClubToList(clubData.name);
-    }
-  };
+  const [likedClubs, handleHeartClick] = useClubLike();
 
   return (
     <BannerWrapper>
@@ -236,7 +209,7 @@ export default function ClubDetailBanner({ clubData }) {
             <ClubName>{clubData.name}</ClubName>
             <Heart
               isLiked={likedClubs.includes(clubData.name)}
-              onClick={handleHeartClick}
+              onClick={(event) => handleHeartClick(event, clubData.name)}
             >
               <FavoriteIcon />
             </Heart>
