@@ -49,8 +49,8 @@ const Category = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: #303030eb;
-    color: #fff;
+    background-color: ${(props) => props.theme.palette.text.primary};
+    color: ${(props) => props.theme.palette.background.paper};
   }
 
   @media (max-width: 425px) {

@@ -1,3 +1,5 @@
+"use client";
+
 import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 import useURLParse from "@/hooks/useURLParse";
 import styled from "@emotion/styled";
