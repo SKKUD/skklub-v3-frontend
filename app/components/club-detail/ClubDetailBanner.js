@@ -178,6 +178,7 @@ const ClubPageNaviagateBtn = styled.button`
     width: 100%;
     font-size: 0.875rem;
     height: 37px;
+    display: block;
   }
 `;
 
