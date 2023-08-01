@@ -245,11 +245,12 @@ export default function ClubDetailBanner({ clubData }) {
             <br />잘 모르던 분야도 함께 활동하다보면 어느새 즐거운 동료가
             되어있을 거에요!
           </BannerSubContent>
-          <ClubPageNaviagateBtn>
+          <ClubPageNaviagateBtn disabled={clubData.webLink1 ? false : true}>
             <Link
               href={
                 clubData.webLink1 || "https://skklub-vercel.vercel.app/seoul"
               }
+              style={{ pointerEvents: clubData.webLink1 || "none" }}
             >
               동아리 페이지 바로가기
             </Link>
