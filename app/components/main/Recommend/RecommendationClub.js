@@ -16,6 +16,11 @@ const ClubTitle = styled.div`
   letter-spacing: -0.4px;
   padding-left: 5px;
   padding-right: 5px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
 
   @media (max-width: 425px) {
     font-size: 0.875rem;
@@ -35,7 +40,6 @@ const ClubType = styled.div`
   letter-spacing: -0.14px;
 
   @media (max-width: 425px) {
-    font-family: Pretendard;
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 151.5%; /* 18.18px */
@@ -83,7 +87,7 @@ export default function RecommendationClubCard({ clubData }) {
   };
   return (
     <RecommendationClub onClick={handleCardClick}>
-      <ClubTitle>{clubData.name}</ClubTitle>
+      <ClubTitle>{"성균관대학교 최고의 동아리는 어디일까 젠장"}</ClubTitle>
       <ClubType>{clubData.campus} / 사실 분과 들어갸야함</ClubType>
     </RecommendationClub>
   );

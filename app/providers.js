@@ -3,7 +3,7 @@
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline, createTheme } from "@mui/material";
 import getDesignTokens from "@/utils/getDesignTokens";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RecoilRoot } from "recoil";
 import useThemeModeDetect from "@/hooks/useThemeModeDetect";

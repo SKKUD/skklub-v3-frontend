@@ -4,7 +4,6 @@ import IconButton from "@mui/material/IconButton";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import styles from "./hamburger.module.css";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 
 const NavWrap = styled.div`

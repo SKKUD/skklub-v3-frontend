@@ -3,10 +3,6 @@
 import styled from "@emotion/styled";
 import { useMediaQuery } from "@mui/material";
 import SectionTitle from "../SectionTitle";
-import ThemeTitle from "./ThemeTitle";
-import ThemeSubtitle from "./ThemeSubtitle";
-import Hashtag from "./Hashtag";
-import HashtagWrapper from "./HashtagWrapper";
 import useURLParse from "../../../../hooks/useURLParse";
 import { RecommendationContent } from "./RecommendationContent";
 import SectionDesc from "../SectionDesc";
@@ -14,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getClubRecommendation } from "@/utils/fetch";
 import RecommendationClubCard from "./RecommendationClub";
 import useRandomRecommendation from "@/hooks/useRendomRecommendation";
+import ThemeContent from "./ThemeContent";
 
 const RecommendWrapper = styled.div`
   margin: 0 auto;
@@ -40,11 +37,10 @@ const RecommendationTheme = styled.div`
 export default function RecommendSection() {
   const { isSuwon } = useURLParse();
   const matches_1024 = useMediaQuery("(max-width:1024px)");
-  const matches_950 = useMediaQuery("(max-width:950px)");
 
   const [category, description, hashtags] = useRandomRecommendation();
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", category),
     queryKey: ["club-recommendation", category],
     refetchOnWindowFocus: false,
@@ -60,15 +56,11 @@ export default function RecommendSection() {
       </SectionDesc>
       <RecommendationContent>
         <RecommendationTheme>
-          <ThemeTitle>{category} 동시에 잡기</ThemeTitle>
-          <ThemeSubtitle>"{description}"</ThemeSubtitle>
-          <HashtagWrapper>
-            {hashtags.slice(0, 3).map((h) => (
-              <Hashtag key={h}>{h}</Hashtag>
-            ))}
-
-            {!matches_950 && <Hashtag>{hashtags[3]}</Hashtag>}
-          </HashtagWrapper>
+          <ThemeContent
+            category={category}
+            description={description}
+            hashtags={hashtags}
+          />
         </RecommendationTheme>
         {data?.slice(0, matches_1024 ? 2 : 3).map((club) => (
           <RecommendationClubCard key={club.id} clubData={club} />

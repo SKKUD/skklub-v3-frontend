@@ -1,4 +1,5 @@
 "use client";
+
 import styled from "@emotion/styled";
 import RecruitingSection from "../../components/club-detail/RecruitingSection";
 import InfoSection from "../../components/club-detail/InfoSection";

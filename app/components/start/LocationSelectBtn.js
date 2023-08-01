@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 
 const LocationBtn = styled.button`
   border: none;
-  color: #434c4f;
   width: 100%;
+  color: ${({ theme }) => theme.palette.info.main};
   background-color: ${({ theme }) => theme.palette.text.primary};
   height: 68px;
   border-radius: 5px;

@@ -31,5 +31,15 @@ export default function useClubLike() {
     });
   };
 
-  return [likedClubs, addClubToList, deleteClubInList];
+  const handleHeartClick = (event, clubName) => {
+    event.stopPropagation();
+
+    if (likedClubs.includes(clubName)) {
+      deleteClubInList(clubName);
+    } else {
+      addClubToList(clubName);
+    }
+  };
+
+  return [likedClubs, handleHeartClick];
 }

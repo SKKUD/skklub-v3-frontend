@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useRouter } from "next/navigation";
 
 const MoreBtn = styled.button`
   background-color: #f0f0f0;
@@ -22,4 +23,10 @@ const MoreBtn = styled.button`
   }
 `;
 
-export default MoreBtn;
+export default function NoticesRouterBtn() {
+  const router = useRouter();
+  const pushToNotices = () => {
+    router.push(`/notices`);
+  };
+  return <MoreBtn onClick={pushToNotices}>더보기</MoreBtn>;
+}
