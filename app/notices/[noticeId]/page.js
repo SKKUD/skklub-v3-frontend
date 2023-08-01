@@ -1,12 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import NoticeBanner from "@/app/components/notices/NoticeBanner";
 import styled from "@emotion/styled";
 import { getNoticeDetail } from "@/utils/fetch";
-import { useMediaQuery } from "@mui/material";
+import { useMediaQuery, Popover } from "@mui/material";
 import useThemeModeDetect from "@/hooks/useThemeModeDetect";
+import NoticePopover from "@/app/components/notices/NoticePopover";
 
 const PageWrapper = styled.div`
   max-width: 1050px;
@@ -93,13 +95,22 @@ const Divider = styled.hr`
 
 const Attachment = styled.div`
   font-family: Pretendard;
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: 160%; /* 22.4px */
   position: absolute;
   right: 46px;
   bottom: 22px;
+  cursor: pointer;
+  > span {
+    color: #4381fb;
+  }
+  @media (max-width: 425px) {
+    right: 0px;
+    bottom: 55px;
+    font-size: 14px;
+  }
 `;
 
 const ContentBox = styled.div`
@@ -204,6 +215,12 @@ export default function NoticePage() {
     router.push(`/notices/${id}`);
   };
 
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleAttachmentClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
   const isDarkMode = useThemeModeDetect();
 
   return (
@@ -225,11 +242,18 @@ export default function NoticePage() {
             </SubTitle>
           </SubTitleWrapper>
           <Divider />
-          <Attachment>
-            {data &&
-              data.extraFileNames.length > 0 &&
-              `첨부파일(${data.extraFileNames.length})`}
+          <Attachment onClick={handleAttachmentClick}>
+            {data && data.extraFileNames.length > 0 && (
+              <>
+                첨부파일 <span>({data.extraFileNames.length})</span>
+              </>
+            )}
           </Attachment>
+          <NoticePopover
+            anchorEl={anchorEl}
+            setAnchorEl={setAnchorEl}
+            files={data && data.extraFileNames}
+          />
         </TitleBox>
         <ContentBox>{data && data.content}</ContentBox>
         <NavWrapper>
