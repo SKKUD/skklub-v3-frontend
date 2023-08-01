@@ -5,20 +5,12 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  ListItemIcon,
 } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
-import { getNoticeFiles } from "@/utils/fetch";
+import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
+import { downloadAttachedFile } from "@/utils/fetch";
 
 export default function NoticePopover({ anchorEl, setAnchorEl, files }) {
-  const getFile = useMutation(getNoticeFiles, {
-    onSuccess: () => {
-      console.log("onSuccess");
-    },
-    onError: (error) => {
-      console.log("onError");
-    },
-  });
-
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -37,29 +29,9 @@ export default function NoticePopover({ anchorEl, setAnchorEl, files }) {
     };
   }, [open]);
 
-  const handleDownload = (fileName) => {
-    const fileData = getFile.mutate(fileName);
-    downloadFile(fileData, fileName);
+  const handleAttatchmentClick = (file) => {
+    downloadAttachedFile(file.originalName, file.savedName);
   };
-
-  function downloadFile(fileData, fileName) {
-    // Convert the byte array to a Blob
-    const blob = new Blob([fileData], { type: "application/octet-stream" });
-
-    // Create a download link
-    const downloadLink = document.createElement("a");
-    downloadLink.href = URL.createObjectURL(blob);
-    downloadLink.download = fileName;
-
-    // Append the download link to the DOM
-    document.body.appendChild(downloadLink);
-
-    // Programmatically trigger the download
-    downloadLink.click();
-
-    // Remove the download link from the DOM
-    document.body.removeChild(downloadLink);
-  }
 
   return (
     <Popover
@@ -83,9 +55,12 @@ export default function NoticePopover({ anchorEl, setAnchorEl, files }) {
                 <ListItemButton>
                   <ListItemText
                     primary={file.originalName}
-                    onClick={() => handleDownload(file.savedName)}
+                    onClick={() => handleAttatchmentClick(file)}
                   />
                 </ListItemButton>
+                <ListItemIcon>
+                  <DownloadForOfflineIcon />
+                </ListItemIcon>
               </ListItem>
             );
           })}
