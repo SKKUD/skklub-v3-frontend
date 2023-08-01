@@ -18,7 +18,9 @@ export default function ActivitySection({ activityDescription }) {
   return (
     <SectionWrapper>
       <SectionTitle>활동 내용</SectionTitle>
-      <DetailContent>{activityDescription}</DetailContent>
+      <DetailContent>
+        {activityDescription || "활동 내용이 아직 없습니다."}
+      </DetailContent>
     </SectionWrapper>
   );
 }
