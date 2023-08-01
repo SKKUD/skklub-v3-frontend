@@ -88,3 +88,28 @@ export const getFullyMatchedSearchResults = async (keyword) => {
   const response = await fetch(`${BASE_URL}/club/search?name=${keyword}`);
   return await response.json();
 };
+
+export const downloadAttachedFile = (originalName, savedName) =>
+  fetch(`${BASE_URL}/notice/file?fileSavedName=${savedName}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/octet-stream",
+    },
+  })
+    .then((response) => response.blob())
+    .then((blob) => {
+      // Create blob link to download
+      const url = window.URL.createObjectURL(new Blob([blob]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", originalName);
+
+      // Append to html link element page
+      document.body.appendChild(link);
+
+      // Start download
+      link.click();
+
+      // Clean up and remove the link
+      link.parentNode.removeChild(link);
+    });
