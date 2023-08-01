@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import RecommendationClubCard from "./RecommendationClub";
 import useRandomRecommendation from "@/hooks/useRendomRecommendation";
 import ThemeContent from "./ThemeContent";
+import { useMediaQuery } from "@mui/material";
 
 const MobileRecommendWrapper = styled.div`
   width: 100%;
@@ -34,6 +35,8 @@ export default function MobileRecommendSection() {
 
   const [category, description, hashtags] = useRandomRecommendation();
 
+  const matches_640 = useMediaQuery("(max-width:640px)");
+
   const { data } = useQuery({
     queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", category),
     queryKey: ["club-recommendation", category],
@@ -49,7 +52,7 @@ export default function MobileRecommendSection() {
           hashtags={hashtags}
         />
         <RecommendationContent>
-          {data?.map((club) => (
+          {data?.slice(0, matches_640 ? 2 : 3).map((club) => (
             <RecommendationClubCard key={club.id} clubData={club} />
           ))}
         </RecommendationContent>

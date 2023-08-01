@@ -40,7 +40,6 @@ const ClubType = styled.div`
   letter-spacing: -0.14px;
 
   @media (max-width: 425px) {
-    font-family: Pretendard;
     font-size: 0.75rem;
     font-weight: 600;
     line-height: 151.5%; /* 18.18px */

@@ -40,7 +40,7 @@ export default function RecommendSection() {
 
   const [category, description, hashtags] = useRandomRecommendation();
 
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", category),
     queryKey: ["club-recommendation", category],
     refetchOnWindowFocus: false,
