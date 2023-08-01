@@ -4,7 +4,7 @@ import { useRouter, useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import NoticeBanner from "@/app/components/notices/NoticeBanner";
 import styled from "@emotion/styled";
-import { getNoticeDetail } from "@/utils/fetch";
+import { downloadAttachedFile, getNoticeDetail } from "@/utils/fetch";
 import { useMediaQuery } from "@mui/material";
 import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 
@@ -206,6 +206,14 @@ export default function NoticePage() {
 
   const isDarkMode = useThemeModeDetect();
 
+  const handleAttatchmentClick = (data) => {
+    if (data && data.extraFileNames.length > 0) {
+      for (const file of data.extraFileNames) {
+        downloadAttachedFile(file.originalName, file.savedName);
+      }
+    }
+  };
+
   return (
     <>
       <NoticeBanner />
@@ -225,7 +233,7 @@ export default function NoticePage() {
             </SubTitle>
           </SubTitleWrapper>
           <Divider />
-          <Attachment>
+          <Attachment onClick={() => handleAttatchmentClick(data)}>
             {data &&
               data.extraFileNames.length > 0 &&
               `첨부파일(${data.extraFileNames.length})`}
