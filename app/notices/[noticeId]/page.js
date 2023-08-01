@@ -219,7 +219,8 @@ export default function NoticePage() {
       <NoticeBanner />
       <PageWrapper isDarkMode={isDarkMode}>
         <TitleBox>
-          <Title>{data && data.title}</Title>
+          <Title>{data?.title}</Title>
+
           <SubTitleWrapper>
             <SubTitle isDarkMode={isDarkMode}>
               {data && data.writerName}
