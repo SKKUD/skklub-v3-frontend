@@ -29,6 +29,10 @@ const ClubName = styled.div`
   font-weight: 500;
   line-height: normal;
   font-family: GmarketSansBold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
 
   @media (max-width: 425px) {
     font-size: 1.25rem;

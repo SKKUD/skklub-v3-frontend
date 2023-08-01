@@ -17,7 +17,7 @@ export default function AboutSection({ description }) {
   return (
     <SectionWrapper>
       <SectionTitle>동아리 설명</SectionTitle>
-      <AboutContent>{description}</AboutContent>
+      <AboutContent>{description || "설명이 아직 없습니다."}</AboutContent>
     </SectionWrapper>
   );
 }
