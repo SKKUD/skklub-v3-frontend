@@ -113,7 +113,7 @@ export default function Home() {
             minWidth: "310px",
           }}
         />
-        <Intro>동아리 안내 서비스 '스클럽'</Intro>
+        <Intro>{`동아리 안내 서비스 '스클럽'`}</Intro>
 
         <BtnContainer>
           <LocationSelectBtn
