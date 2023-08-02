@@ -109,6 +109,9 @@ const InfoText = styled.div`
   word-break: keep-all;
   font-size: 18px;
   font-family: Pretendard;
+  @media (max-width: 425px) {
+    font-size: 14px;
+  }
 `;
 
 function ClubCarouselCard({ name, content, img }) {
