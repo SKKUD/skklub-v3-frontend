@@ -1,44 +1,41 @@
 "use client";
+
 import styled from "@emotion/styled";
-import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import NoticeRadioBtns from "@/app/components/notices/NoticeRadioBtns";
-import NoticeTableHeader from "@/app/components/notices/NoticeTableHeader";
 import NoticeTableBody from "@/app/components/notices/NoticeTableBody";
-import NoticeTablePagination from "@/app/components/notices/NoticeTablePagination";
 
 const NoticesBanner = styled.div`
   width: 100%;
-  height: 378px;
+  height: 236px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
-  background-color: #262626;
+  background-color: rgba(0, 0, 0, 0.7);
   @media (max-width: 768px) {
-    gap: 30px;
+    height: 150px;
   }
 `;
 
 const SubTitle = styled.div`
+  color: #fff;
   font-weight: 400;
-  font-size: 2rem;
-  line-height: 2rem;
-  @media (max-width: 768px) {
-    font-weight: 400;
-    font-size: 1.25rem;
-    line-height: 72%;
-  }
+  font-size: 16px;
+  font-style: normal;
+  text-align: center;
+  line-height: normal;
 `;
 const Title = styled.div`
+  color: #fff;
   font-weight: 600;
-  font-size: 3rem;
-  line-height: 2rem;
+  font-size: 2rem;
+  font-family: GmarketSansBold;
+  font-style: normal;
+  line-height: normal;
   @media (max-width: 768px) {
-    font-weight: 900;
-    font-size: 2.5rem;
-    line-height: 72%;
+    font-weight: 500;
   }
 `;
 
@@ -46,7 +43,7 @@ const NoticesContentWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 1.5rem;
-  margin-bottom: 300px;
+  margin-bottom: 100px;
   @media (max-width: 1200px) {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -57,12 +54,7 @@ const NoticesContentWrapper = styled.div`
 `;
 
 export default function Notices() {
-  const [page, setPage] = useState(1);
-  const match768 = useMediaQuery("(max-width:768px)");
-  const handlePageChange = (e, value) => {
-    e.preventDefault();
-    setPage(value);
-  };
+  const [role, setRole] = useState("");
 
   return (
     <>
@@ -71,13 +63,8 @@ export default function Notices() {
         <Title>공지사항</Title>
       </NoticesBanner>
       <NoticesContentWrapper>
-        <NoticeRadioBtns />
-        {!match768 && <NoticeTableHeader />}
-        <NoticeTableBody />
-        <NoticeTablePagination
-          page={page}
-          handlePageChange={handlePageChange}
-        />
+        <NoticeRadioBtns value={role} setValue={setRole} />
+        <NoticeTableBody role={role} />
       </NoticesContentWrapper>
     </>
   );

@@ -1,17 +1,26 @@
+import useLocationPush from "../../../hooks/useLocationPush";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
-import useLocationPush from "@/hooks/useLocationPush";
 
 const LocationBtn = styled.button`
   border: none;
-  color: #434c4f;
   width: 100%;
-  background-color: white;
-  font-size: 1.5rem;
+  color: ${({ theme }) => theme.palette.info.main};
+  background-color: ${({ theme }) => theme.palette.text.primary};
   height: 68px;
-  border-radius: 3rem;
-  font-weight: 900;
+  border-radius: 5px;
+  text-align: center;
+  font-family: GmarketSansBold;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  max-width: 300px;
+  cursor: pointer;
 
+  @media (max-width: 768px) {
+    height: 50px;
+  }
   @media (max-width: 375px) {
     width: 115px;
     font-size: 1.25rem;
@@ -27,19 +36,20 @@ const LocationBtn = styled.button`
 `;
 
 export default function LocationSelectBtn({
-  children,
+  label,
   hoverColor = "#80A4FF",
   nextLocation,
 }) {
   const pushToNextLocation = useLocationPush(nextLocation);
   return (
     <LocationBtn hoverColor={hoverColor} onClick={pushToNextLocation}>
-      {children}
+      {label}
     </LocationBtn>
   );
 }
 
 LocationSelectBtn.propTypes = {
+  label: PropTypes.string,
   hoverColor: PropTypes.string,
   nextLocation: PropTypes.string,
 };

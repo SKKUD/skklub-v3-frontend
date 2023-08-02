@@ -1,70 +1,73 @@
 import styled from "@emotion/styled";
-import useCampusDetect from "../../../../hooks/useCampusDetect";
+import useURLParse from "../../../../hooks/useURLParse";
 
 const BorrowWrapper = styled.div`
-  background-color: ${(props) =>
-    props.campus
-      ? ({ theme }) => theme.palette.primary.main
-      : ({ theme }) => theme.palette.secondary.main};
-
+  background-color: #fc7b95;
   width: 100%;
-  max-width: 1182px;
-  height: 160px;
+  height: 120px;
   margin: 0 auto;
   margin-top: 10rem;
-  border-radius: 0.75rem;
+  border-radius: 10px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-left: 4rem;
-  padding-right: 4.7rem;
+  justify-content: center;
+  gap: 2rem;
 
   @media (max-width: 1100px) {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 13px;
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 411px) {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 13px;
   }
 `;
 
 const BorrowPhrase = styled.div`
+  text-align: center;
+  font-size: 2rem;
+  font-style: normal;
   font-weight: 500;
-  font-size: 4rem;
-  line-height: 4rem;
-  color: #ffe195;
+  line-height: 151.5%; /* 57.57px */
+  letter-spacing: -1.14px;
+  font-family: GmarketSansBold;
 
-  @media (max-width: 1100px) {
-    font-weight: 500;
-    font-size: 2rem;
-    line-height: 2rem;
+  @media (max-width: 550px) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 1.5rem;
+    line-height: normal;
   }
 `;
 
 const ComingSoon = styled.div`
-  width: 230px;
-  height: 60px;
-  background-color: #303030;
-  color: white;
-  font-weight: 600;
-  font-size: 1.5rem;
-  line-height: 30px;
+  width: 186px;
+  height: 45px;
+  background-color: #8f1a2f;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 46px;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  @media (max-width: 425px) {
+    width: 145px;
+    height: 28px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
 `;
 
 export default function BorrowSection() {
-  const { isSuwon } = useCampusDetect();
+  const { isSuwon } = useURLParse();
   return (
-    <BorrowWrapper campus={!isSuwon}>
+    <BorrowWrapper campus={isSuwon}>
       <BorrowPhrase>공간대관 필요하세요?</BorrowPhrase>
       <ComingSoon>Coming Soon</ComingSoon>
     </BorrowWrapper>

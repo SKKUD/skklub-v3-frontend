@@ -1,66 +1,97 @@
 import styled from "@emotion/styled";
 import SectionWrapper from "./SectionWrapper";
-import { SectionDivider, SectionTitle } from "./common";
+import { SectionTitle } from "./common";
+import { useMediaQuery } from "@mui/material";
+import MobileRecruitingTabel from "./MobileRecruitingTable";
 
-const RecruitContentWrapper = styled.div`
-  display: flex;
+const RTable = styled.table`
+  padding-top: 4px;
+  border-collapse: separate;
+  border-spacing: 0;
   width: 100%;
-  margin-top: 1.875rem;
-  gap: 15px;
-  @media (max-width: 760px) {
-    flex-direction: column;
+`;
+
+const RTr = styled.tr``;
+
+const RTh = styled.th`
+  @media (prefers-color-scheme: light) {
+    border-color: rgba(116, 116, 116, 1);
+  }
+  border: 1px solid;
+  border-bottom: 0.5px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-family: Pretendard;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160%;
+  &:first-of-type {
+    border-top-left-radius: 10px;
+  }
+  &:last-of-type {
+    border-top-right-radius: 10px;
+  }
+  &:not(:last-child) {
+    border-right: 0.5px;
   }
 `;
 
-const RecruitContent = styled.div`
-  flex: 1;
+const RTd = styled.td`
+  @media (prefers-color-scheme: light) {
+    border-color: rgba(116, 116, 116, 1);
+  }
+  border: 1px solid;
+  padding-top: 33px;
+  padding-bottom: 40px;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%; /* 25.6px */
+
+  &:first-of-type {
+    border-bottom-left-radius: 10px;
+  }
+  &:last-of-type {
+    border-bottom-right-radius: 10px;
+  }
+  &:not(:last-child) {
+    border-right: 0.5px;
+  }
 `;
 
-const RecruitSubTitle = styled.div`
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 160%;
-  margin-bottom: 0.25rem;
-`;
-
-const RecruitInfoBox = styled.div`
-  height: 112px;
-  width: 100%;
-  border: 1px solid white;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export default function RecruitingSection() {
+export default function RecruitingSection({ clubData }) {
+  const match620 = useMediaQuery("(max-width:620px)");
   return (
-    <SectionWrapper
-      style={{
-        gridColumnStart: 1,
-        gridColumnEnd: 4,
-      }}
-    >
-      <SectionTitle>Recruiting</SectionTitle>
-      <SectionDivider />
-      <RecruitContentWrapper>
-        <RecruitContent>
-          <RecruitSubTitle>모집 시기</RecruitSubTitle>
-          <RecruitInfoBox>3.13(월) ~ 3.27(월)</RecruitInfoBox>
-        </RecruitContent>
-        <RecruitContent>
-          <RecruitSubTitle>모집 시기</RecruitSubTitle>
-          <RecruitInfoBox>3.13(월) ~ 3.27(월)</RecruitInfoBox>
-        </RecruitContent>
-        <RecruitContent>
-          <RecruitSubTitle>모집 시기</RecruitSubTitle>
-          <RecruitInfoBox>3.13(월) ~ 3.27(월)</RecruitInfoBox>
-        </RecruitContent>
-        <RecruitContent>
-          <RecruitSubTitle>모집 시기</RecruitSubTitle>
-          <RecruitInfoBox>3.13(월) ~ 3.27(월)</RecruitInfoBox>
-        </RecruitContent>
-      </RecruitContentWrapper>
+    <SectionWrapper>
+      <SectionTitle>모집 정보</SectionTitle>
+      {match620 ? (
+        <MobileRecruitingTabel clubData={clubData} />
+      ) : (
+        <RTable>
+          <thead>
+            <RTr>
+              <RTh>모집 시기</RTh>
+              <RTh>모집 인원</RTh>
+              <RTh>모집 방식</RTh>
+              <RTh>활동 기간</RTh>
+            </RTr>
+          </thead>
+          <tbody>
+            <RTr>
+              <RTd>
+                {clubData.recruit.recruitStartAt?.slice(0, 10)} ~{" "}
+                {clubData.recruit.recruitEndAt?.slice(0, 10)}
+              </RTd>
+              <RTd>{clubData.recruit.recruitQuota}</RTd>
+              <RTd>{clubData.recruit.recruitProcessDescription}</RTd>
+              <RTd>{clubData.mandatoryActivatePeriod}</RTd>
+            </RTr>
+          </tbody>
+        </RTable>
+      )}
     </SectionWrapper>
   );
 }

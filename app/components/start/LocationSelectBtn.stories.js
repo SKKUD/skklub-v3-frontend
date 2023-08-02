@@ -1,21 +1,24 @@
 import LocationSelectBtn from "./LocationSelectBtn";
 
 export default {
-  title: "components/start/LocationSelectBtn",
   component: LocationSelectBtn,
-  argTypes: {
-    hoverColor: { control: "color" },
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+    },
   },
 };
 
-const Template = (args) => <LocationSelectBtn {...args} />;
-
-export const SeoulSelectBtn = Template.bind({});
-SeoulSelectBtn.args = {
-  hoverColor: "#80A4FF",
+export const SeoulSelectBtn = {
+  args: {
+    label: "명륜",
+    hoverColor: "#50CFB1",
+  },
 };
 
-export const SuwonSelectBtn = Template.bind({});
-SuwonSelectBtn.args = {
-  hoverColor: "#50CFB1",
+export const SuwonSelectBtn = {
+  args: {
+    label: "율전",
+    hoverColor: "#80A4FF",
+  },
 };

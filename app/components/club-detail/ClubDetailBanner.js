@@ -1,139 +1,172 @@
 "use client";
 import styled from "@emotion/styled";
 import Image from "next/image";
-import clubLogoImg from "@/public/assets/images/club_logo.png";
 import { useMediaQuery } from "@mui/material";
+import Link from "next/link";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import useClubLike from "@/hooks/useClubLike";
+import BannerSubcontent from "./BannerSubcontent";
 
 const BannerWrapper = styled.div`
   width: 100%;
-  height: 378px;
-  background-color: #a0211d33;
+  height: 360px;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 1rem;
   display: flex;
   justify-content: center;
-  padding-top: 130px;
+  padding-top: 128px;
   @media (max-width: 425px) {
-    height: 160px;
-    padding-top: 35px;
+    height: 258px;
+    padding-top: 16px;
+    flex-direction: column;
   }
 `;
 
 const BannerContent = styled.div`
   width: 100%;
-  max-width: 1200px;
-`;
-
-const BannerMainContent = styled.div`
-  margin-bottom: 1.5rem;
+  max-width: 1050px;
+  height: 174px;
   display: flex;
-
+  gap: 30px;
   @media (max-width: 425px) {
-    margin-bottom: 0.75rem;
+    height: 100px;
+    justify-content: center;
+    gap: 16px;
   }
 `;
 
-const ClubInfoWrapper = styled.div`
+const InfoWrapper = styled.div`
+  position: relative;
+  flex: 1;
+  height: 174px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-left: 1.5rem;
+  justify-content: end;
   @media (max-width: 425px) {
-    margin-left: 0.5rem;
+    height: auto;
+    justify-content: end;
+    padding-bottom: 9px;
   }
 `;
 
-const ClubSubInfoWraper = styled.div`
+const StatusWrapper = styled.div`
   display: flex;
-  margin-bottom: 0.5rem;
-  gap: 1rem;
+  gap: 13px;
+  align-items: center;
+  @media (max-width: 425px) {
+    gap: 8px;
+  }
 `;
 
 const RecruitStatus = styled.div`
-  width: 91px;
-  height: 30px;
-  background: #2fb24c;
-  border-radius: 5px;
+  width: 74px;
+  height: 34px;
+  background: #008564;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
   font-weight: 700;
+  line-height: 160%; /* 25.6px */
   @media (max-width: 425px) {
-    width: 42px;
-    height: 18px;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 107.5%;
-    border-radius: 3px;
+    width: 56px;
+    height: 23px;
+    font-size: 0.75rem;
   }
 `;
 
 const PlaceInfo = styled.div`
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 20px;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 160%; /* 28.8px */
+
+  @media (max-width: 425px) {
+    font-size: 0.875rem;
+  }
+`;
+
+const NameWrapper = styled.div`
   display: flex;
+  gap: 24px;
+  align-items: end;
+  margin-top: 18px;
+  @media (max-width: 425px) {
+    margin-top: 8px;
+  }
+`;
+
+const Heart = styled.div`
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 99px;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  color: #ffffff;
-
-  @media (max-width: 425px) {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 12px;
+  color: ${(props) => (props.isLiked ? "#da5d65" : "#b7b7b7")};
+  transition: color 0.5s;
+  &:hover {
+    transform: scale(1.2);
   }
 `;
-
 const ClubName = styled.div`
+  color: #fff;
+  font-family: GmarketSansBold;
+  font-size: 2.375rem;
+  font-style: normal;
   font-weight: 500;
-  font-size: 64px;
-  line-height: 107.5%;
+  line-height: normal;
 
   @media (max-width: 425px) {
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 107.5%;
+    font-size: 1.5rem;
   }
 `;
 
-const BannerSubContent = styled.div`
-  font-weight: 400;
-  font-size: 1.25rem;
-  line-height: 20px;
-
-  @media (max-width: 425px) {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-  }
-`;
-
-export default function ClubDetailBanner() {
+export default function ClubDetailBanner({ clubData }) {
   const match425 = useMediaQuery("(max-width:425px)");
+
+  const [likedClubs, handleHeartClick] = useClubLike();
+
   return (
     <BannerWrapper>
       <BannerContent>
-        <BannerMainContent>
-          <Image
-            src={clubLogoImg}
-            alt="CLUB_LOGO"
-            placeholder="blur"
-            style={{
-              height: match425 ? "59px" : "124px",
-              width: match425 ? "59px" : "124px",
-            }}
-          />
-          <ClubInfoWrapper>
-            <ClubSubInfoWraper>
-              <RecruitStatus>모집중</RecruitStatus>
-              <PlaceInfo>명륜 캠퍼스</PlaceInfo>
-            </ClubSubInfoWraper>
-            <ClubName>못갖춘 마디</ClubName>
-          </ClubInfoWrapper>
-        </BannerMainContent>
-        <BannerSubContent>
-          어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌구저쩌구어쩌
-        </BannerSubContent>
+        <Image
+          src={`data:image/png;base64,${clubData.logo.bytes}`}
+          width={match425 ? 100 : 174}
+          height={match425 ? 100 : 174}
+          alt="CLUB_LOGO"
+          style={{
+            borderRadius: "10px",
+          }}
+        />
+        <InfoWrapper>
+          <StatusWrapper>
+            <RecruitStatus>
+              {clubData.recruit.recruitEndAt ? "모집중" : ""}
+            </RecruitStatus>
+            <PlaceInfo>{clubData.campus} 캠퍼스</PlaceInfo>
+          </StatusWrapper>
+          <NameWrapper>
+            <ClubName>{clubData.name}</ClubName>
+            <Heart
+              isLiked={likedClubs.includes(clubData.name)}
+              onClick={(event) => handleHeartClick(event, clubData.name)}
+            >
+              <FavoriteIcon />
+            </Heart>
+          </NameWrapper>
+
+          {!match425 && <BannerSubcontent weblink={clubData.webLink1} />}
+        </InfoWrapper>
       </BannerContent>
+      {match425 && <BannerSubcontent weblink={clubData.webLink1} />}
     </BannerWrapper>
   );
 }

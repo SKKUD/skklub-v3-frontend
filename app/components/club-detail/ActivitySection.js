@@ -1,31 +1,25 @@
 import styled from "@emotion/styled";
 import SectionWrapper from "./SectionWrapper";
-import { SectionDivider, SectionTitle } from "./common";
+import { SectionTitle } from "./common";
+import { useMediaQuery } from "@mui/material";
 
 const DetailContent = styled.div`
   margin-top: 1.5rem;
   width: 100%;
-  font-weight: 300;
-  font-size: 1rem;
-  line-height: 130%;
   white-space: pre-line;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 26px;
+  word-break: keep-all;
 `;
 
-export default function ActivitySection() {
+export default function ActivitySection({ activityDescription }) {
   return (
-    <SectionWrapper
-      style={{
-        gridColumnStart: 1,
-        gridColumnEnd: 4,
-      }}
-    >
-      <SectionTitle>Activity</SectionTitle>
-      <SectionDivider />
+    <SectionWrapper>
+      <SectionTitle>활동 내용</SectionTitle>
       <DetailContent>
-        {`3월 - 새내기배움터 및 입학식 공연 
-            5월 - 23기 5월 정기공연 
-            6월 -24기 모집마감 7월 - 방학 중 연습 시작(공식 활동) 
-            9월 - 23, 24기 9월정기공연`}
+        {activityDescription || "활동 내용이 아직 없습니다."}
       </DetailContent>
     </SectionWrapper>
   );
