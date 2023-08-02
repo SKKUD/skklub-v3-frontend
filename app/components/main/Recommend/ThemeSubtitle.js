@@ -7,6 +7,7 @@ const ThemeSubtitle = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 160%; /* 25.6px */
+  word-break: keep-all;
   @media (max-width: 768px) {
     margin-bottom: 12px;
   }

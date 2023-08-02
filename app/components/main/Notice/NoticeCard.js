@@ -12,6 +12,9 @@ const CardWrapper = styled.div`
   @media (max-width: 425px) {
     width: 164px;
   }
+  @media (max-width: 375px) {
+    width: 140px;
+  }
 `;
 const NoticeImg = styled(Image)`
   border-radius: 10px;
@@ -41,6 +44,7 @@ const NoticeThumbnail = styled.div`
 
 export default function NoticeCard({ item }) {
   const matches_425 = useMediaQuery("(max-width:425px)");
+  const matches_375 = useMediaQuery("(max-width:375px)");
   const router = useRouter();
   const pushToNotice = (id) => {
     router.push(`/notices/${id}`);
@@ -52,8 +56,8 @@ export default function NoticeCard({ item }) {
     >
       <NoticeImg
         src={`data:image/png;base64,${item.thumbnail.bytes}`}
-        width={matches_425 ? 164 : 174}
-        height={matches_425 ? 164 : 174}
+        width={matches_425 ? (matches_375 ? 140 : 164) : 174}
+        height={matches_425 ? (matches_375 ? 140 : 164) : 174}
         alt="notice thumbnail"
       />
       <NoticeDate>{item.createdAt.substr(0, 10)}</NoticeDate>

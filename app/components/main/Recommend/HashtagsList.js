@@ -28,6 +28,12 @@ const Hashtag = styled.div`
     line-height: 151.5%; /* 21.21px */
     background-color: rgba(255, 229, 234, 1);
   }
+
+  @media (max-width: 320px) {
+    height: 23px;
+    padding: 1px 7px;
+    font-size: 0.75rem;
+  }
 `;
 
 export default function HashtagsList({ hashtags }) {

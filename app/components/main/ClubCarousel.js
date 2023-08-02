@@ -11,7 +11,10 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/swiper.min.css";
-import { ClubCarouselInfo } from "../../../utils/ClubCarouselInfo";
+import {
+  CAROUSEL_COMMENT_SUWON,
+  CAROUSEL_COMMENT_SEOUL,
+} from "@/utils/constants";
 import { useSetRecoilState } from "recoil";
 import { categoryState } from "@/utils/atoms";
 import Image from "next/image";
@@ -95,7 +98,7 @@ const Name = styled.div`
 const Content = styled.div`
   font-family: Pretendard;
   margin-top: 30px;
-  text-align: left;
+  text-align: center;
 `;
 
 const InfoText = styled.div`
@@ -106,6 +109,9 @@ const InfoText = styled.div`
   word-break: keep-all;
   font-size: 18px;
   font-family: Pretendard;
+  @media (max-width: 425px) {
+    font-size: 14px;
+  }
 `;
 
 function ClubCarouselCard({ name, content, img }) {
@@ -161,7 +167,10 @@ export default function ClubCarousel() {
           modules={[Pagination]} // 모듈추가
           className="mySwiper"
         >
-          {ClubCarouselInfo.map((info) => (
+          {(pathname === "/suwon"
+            ? CAROUSEL_COMMENT_SUWON
+            : CAROUSEL_COMMENT_SEOUL
+          ).map((info) => (
             <SwiperSlide key={info.name}>
               <ClubCarouselCard
                 name={info.name}
@@ -207,7 +216,10 @@ export default function ClubCarousel() {
             modules={[EffectCoverflow, Navigation, Pagination]} // 모듈추가
             className="mySwiper"
           >
-            {ClubCarouselInfo.map((info) => (
+            {(pathname === "/suwon"
+              ? CAROUSEL_COMMENT_SUWON
+              : CAROUSEL_COMMENT_SEOUL
+            ).map((info) => (
               <SwiperSlide
                 key={info.name}
                 onClick={() => handleClickCard("전체보기")}

@@ -17,10 +17,10 @@ const ClubTitle = styled.div`
   padding-left: 5px;
   padding-right: 5px;
   width: 100%;
+  word-break: keep-all;
   overflow: hidden;
   /* white-space: nowrap; */
   text-overflow: ellipsis;
-  word-break: break-all;
   text-align: center;
   max-height: 70%;
   /* word-spacing: 100vw; */
@@ -91,7 +91,7 @@ export default function RecommendationClubCard({ clubData }) {
   return (
     <RecommendationClub onClick={handleCardClick}>
       <ClubTitle>{clubData.name}</ClubTitle>
-      <ClubType>{clubData.campus} / 사실 분과 들어갸야함</ClubType>
+      <ClubType>{clubData.campus} / 분과</ClubType>
     </RecommendationClub>
   );
 }

@@ -11,23 +11,15 @@ import { useMediaQuery } from "@mui/material";
 
 const MobileRecommendWrapper = styled.div`
   width: 100%;
-  height: 500px;
   margin-top: 4rem;
-  @media (max-width: 425px) {
-    height: 278px;
-  }
 `;
 
 const SmallContentContainer = styled.div`
   border-radius: 10px;
   background: #fc7b95;
   width: 100%;
-  height: 400px;
   margin-top: 1rem;
   padding: 1rem;
-  @media (max-width: 425px) {
-    height: 242px;
-  }
 `;
 
 export default function MobileRecommendSection() {
@@ -35,7 +27,7 @@ export default function MobileRecommendSection() {
 
   const [category, description, hashtags] = useRandomRecommendation();
 
-  const matches_640 = useMediaQuery("(max-width:640px)");
+  const matches_360 = useMediaQuery("(max-width:360px)");
 
   const { data } = useQuery({
     queryFn: () => getClubRecommendation(isSuwon ? "율전" : "명륜", category),
@@ -52,7 +44,7 @@ export default function MobileRecommendSection() {
           hashtags={hashtags}
         />
         <RecommendationContent>
-          {data?.slice(0, matches_640 ? 2 : 3).map((club) => (
+          {data?.slice(0, matches_360 ? 2 : 3).map((club) => (
             <RecommendationClubCard key={club.id} clubData={club} />
           ))}
         </RecommendationContent>
