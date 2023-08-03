@@ -71,6 +71,11 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
   const setIsDarkMode = useSetRecoilState(isDarkModeState);
 
   const handleModeSwitchToggle = (event) => {
+    if (event.target.checked) {
+      window.localStorage.setItem("skklubMode", "dark");
+    } else {
+      window.localStorage.setItem("skklubMode", "light");
+    }
     setIsDarkMode(event.target.checked);
   };
 
