@@ -177,6 +177,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
   };
 
   const match760 = useMediaQuery("(max-width:760px)");
+  const match375 = useMediaQuery("(max-width:375px)");
 
   const navItems = [
     { name: "동아리연합회", path: location + "/intro", check: "intro" },
@@ -225,12 +226,13 @@ export default function HeaderBar({ location, isSuwon, type }) {
           </NavWrap>
 
           <IconButtonsWrap>
-            <ModeSwitch
-              sx={{ m: 1 }}
-              checked={isDarkMode}
-              onChange={handleModeSwitchToggle}
-              // defaultChecked
-            />
+            {!match375 && (
+              <ModeSwitch
+                sx={{ m: 1 }}
+                checked={isDarkMode}
+                onChange={handleModeSwitchToggle}
+              />
+            )}
             {type !== "notices" && !match760 && isNaN(type) && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (

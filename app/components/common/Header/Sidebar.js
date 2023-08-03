@@ -4,8 +4,10 @@ import IconButton from "@mui/material/IconButton";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import styles from "./hamburger.module.css";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { isDarkModeState } from "@/utils/atoms";
+import { useMediaQuery } from "@mui/material";
+import ModeSwitch from "./ModeSwitch";
 
 const NavWrap = styled.div`
   display: flex;
@@ -65,6 +67,12 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
   const toggleSide = () => {
     setOpen(false);
   };
+  const match375 = useMediaQuery("(max-width:375px)");
+  const setIsDarkMode = useSetRecoilState(isDarkModeState);
+
+  const handleModeSwitchToggle = (event) => {
+    setIsDarkMode(event.target.checked);
+  };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleOutside);
@@ -123,6 +131,13 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
               </Link>
             )}
           </CampusWrap>
+          {match375 && (
+            <ModeSwitch
+              sx={{ m: 1 }}
+              checked={isDarkMode}
+              onChange={handleModeSwitchToggle}
+            />
+          )}
         </NavWrap>
       </SidebarInner>
     </>
