@@ -5,7 +5,8 @@ import styled from "@emotion/styled";
 import darkLogo from "@/public/assets/images/skklub_logo_dark.png";
 import lightLogo from "@/public/assets/images/skklub_logo_light.png";
 import LocationSelectBtn from "./components/start/LocationSelectBtn";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
+import { useRecoilValue } from "recoil";
+import { isDarkModeState } from "@/utils/atoms";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
@@ -91,7 +92,7 @@ const BtnContainer = styled.div`
 `;
 
 export default function Home() {
-  const isDarkMode = useThemeModeDetect();
+  const isDarkMode = useRecoilValue(isDarkModeState);
   return (
     <StartPageWrapper>
       <VideoWrapper>

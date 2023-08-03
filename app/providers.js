@@ -6,7 +6,6 @@ import getDesignTokens from "@/utils/getDesignTokens";
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RecoilRoot, useRecoilValue } from "recoil";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 import { isDarkModeState } from "@/utils/atoms";
 
 const Providers = ({ children }) => {

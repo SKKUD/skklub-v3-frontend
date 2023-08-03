@@ -4,7 +4,8 @@ import IconButton from "@mui/material/IconButton";
 import styled from "@emotion/styled";
 import Link from "next/link";
 import styles from "./hamburger.module.css";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
+import { useRecoilValue } from "recoil";
+import { isDarkModeState } from "@/utils/atoms";
 
 const NavWrap = styled.div`
   display: flex;
@@ -59,7 +60,7 @@ const CampusWrap = styled.div`
 
 export default function Sidebar({ isOpen, setOpen, navItems }) {
   const { isSuwon, type } = useURLParse();
-  const isDarkMode = useThemeModeDetect();
+  const isDarkMode = useRecoilValue(isDarkModeState);
   const outside = useRef();
   const toggleSide = () => {
     setOpen(false);

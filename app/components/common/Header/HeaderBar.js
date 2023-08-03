@@ -8,10 +8,9 @@ import { useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import styles from "./hamburger.module.css";
 import Link from "next/link";
-import { useSetRecoilState } from "recoil";
-import { categoryState } from "@/utils/atoms";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { categoryState, isDarkModeState } from "@/utils/atoms";
 import CampusSwitch from "../CampusSwitch/CampusSwitch";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch, { SwitchProps } from "@mui/material/Switch";
@@ -169,7 +168,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
   const toggleSide = (e) => {
     setOpen(true);
   };
-  const isDarkMode = useThemeModeDetect();
+  const isDarkMode = useRecoilValue(isDarkModeState);
 
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const handleSearchClick = () => {
