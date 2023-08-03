@@ -67,7 +67,7 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
   const toggleSide = () => {
     setOpen(false);
   };
-  const match375 = useMediaQuery("(max-width:375px)");
+  const match1023 = useMediaQuery("(max-width:1023px)");
   const setIsDarkMode = useSetRecoilState(isDarkModeState);
 
   const handleModeSwitchToggle = (event) => {
@@ -131,7 +131,7 @@ export default function Sidebar({ isOpen, setOpen, navItems }) {
               </Link>
             )}
           </CampusWrap>
-          {match375 && (
+          {match1023 && (
             <ModeSwitch
               sx={{ m: 1 }}
               checked={isDarkMode}
