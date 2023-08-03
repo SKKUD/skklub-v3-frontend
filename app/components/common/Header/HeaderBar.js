@@ -8,10 +8,15 @@ import { useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import styles from "./hamburger.module.css";
 import Link from "next/link";
-import { useSetRecoilState } from "recoil";
-import { categoryState } from "@/utils/atoms";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { categoryState, isDarkModeState } from "@/utils/atoms";
 import CampusSwitch from "../CampusSwitch/CampusSwitch";
-import useThemeModeDetect from "@/hooks/useThemeModeDetect";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch, { SwitchProps } from "@mui/material/Switch";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import ModeSwitch from "./ModeSwitch";
 
 const HeaderWrap = styled.div`
   position: fixed;
@@ -164,7 +169,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
   const toggleSide = (e) => {
     setOpen(true);
   };
-  const isDarkMode = useThemeModeDetect();
+  const [isDarkMode, setIsDarkMode] = useRecoilState(isDarkModeState);
 
   const [isSearchVisible, setIsSearchVisible] = useState(false);
   const handleSearchClick = () => {
@@ -172,6 +177,7 @@ export default function HeaderBar({ location, isSuwon, type }) {
   };
 
   const match760 = useMediaQuery("(max-width:760px)");
+  const match375 = useMediaQuery("(max-width:375px)");
 
   const navItems = [
     { name: "동아리연합회", path: location + "/intro", check: "intro" },
@@ -197,6 +203,11 @@ export default function HeaderBar({ location, isSuwon, type }) {
       check: "student-org",
     },
   ];
+
+  const handleModeSwitchToggle = (event) => {
+    setIsDarkMode(event.target.checked);
+  };
+
   return (
     <>
       <HeaderWrap isDarkMode={isDarkMode}>
@@ -215,6 +226,13 @@ export default function HeaderBar({ location, isSuwon, type }) {
           </NavWrap>
 
           <IconButtonsWrap>
+            {!match375 && (
+              <ModeSwitch
+                sx={{ m: 1 }}
+                checked={isDarkMode}
+                onChange={handleModeSwitchToggle}
+              />
+            )}
             {type !== "notices" && !match760 && isNaN(type) && <CampusSwitch />}
             <IconButton onClick={handleSearchClick}>
               {isSearchVisible ? (
