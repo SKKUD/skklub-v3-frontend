@@ -205,6 +205,11 @@ export default function HeaderBar({ location, isSuwon, type }) {
   ];
 
   const handleModeSwitchToggle = (event) => {
+    if (event.target.checked) {
+      window.localStorage.setItem("skklubMode", "dark");
+    } else {
+      window.localStorage.setItem("skklubMode", "light");
+    }
     setIsDarkMode(event.target.checked);
   };
 
