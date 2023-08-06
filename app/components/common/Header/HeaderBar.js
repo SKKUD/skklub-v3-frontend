@@ -249,9 +249,21 @@ export default function HeaderBar({ location, isSuwon, type }) {
                 }`}
                 onClick={toggleSide}
               >
-                <span></span>
-                <span></span>
-                <span></span>
+                <span
+                  style={{
+                    backgroundColor: isDarkMode ? "#fff" : "#585858",
+                  }}
+                ></span>
+                <span
+                  style={{
+                    backgroundColor: isDarkMode ? "#fff" : "#585858",
+                  }}
+                ></span>
+                <span
+                  style={{
+                    backgroundColor: isDarkMode ? "#fff" : "#585858",
+                  }}
+                ></span>
               </IconButton>
             </HamburgerWrap>
             {!match1023 && <ModeSwitch />}
