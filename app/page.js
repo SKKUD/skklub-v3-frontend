@@ -22,8 +22,8 @@ const StartPageWrapper = styled.div`
   @media (max-width: 425px) {
     background-image: ${(props) =>
       props.isDarkMode
-        ? 'url("/assets/animations/mobile_loading_light.gif")'
-        : 'url("/assets/animations/mobile_loading.gif")'};
+        ? 'url("/assets/animations/mobile_loading.gif")'
+        : 'url("/assets/animations/mobile_loading_light.gif")'};
   }
   overflow: hidden;
 `;
@@ -100,7 +100,6 @@ const BtnContainer = styled.div`
 export default function Home() {
   const isDarkMode = useRecoilValue(isDarkModeState);
 
-  console.log(isDarkMode);
   return (
     <StartPageWrapper isDarkMode={isDarkMode}>
       {/* <VideoWrapper>
