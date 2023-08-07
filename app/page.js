@@ -7,24 +7,34 @@ import lightLogo from "@/public/assets/images/skklub_logo_light.png";
 import LocationSelectBtn from "./components/start/LocationSelectBtn";
 import { useRecoilValue } from "recoil";
 import { isDarkModeState } from "@/utils/atoms";
+import darkWebGif from "@/public/assets/animations/web_loading_dark.gif";
+import darkWebLastframe from "@/public/assets/animations/web_dark_lastframe.png";
+import lightWebGif from "@/public/assets/animations/web_loading_light.gif";
+import lightWebLastframe from "@/public/assets/animations/web_light_lastframe.png";
+import darkMobGif from "@/public/assets/animations/mob_loading_dark.gif";
+import darkMobLastframe from "@/public/assets/animations/mob_dark_lastframe.png";
+import lightMobGif from "@/public/assets/animations/mob_loading_light.gif";
+import lightMobLastframe from "@/public/assets/animations/mob_light_lastframe.png";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "@mui/material";
 
 const StartPageWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-image: ${(props) =>
+  /* background-image: ${(props) =>
     props.isDarkMode
       ? 'url("/assets/animations/web_loading.gif")'
-      : 'url("/assets/animations/web_loading_light.gif")'};
+      : 'url("/assets/animations/web_loading_test.gif")'};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   @media (max-width: 425px) {
     background-image: ${(props) =>
-      props.isDarkMode
-        ? 'url("/assets/animations/mobile_loading.gif")'
-        : 'url("/assets/animations/mobile_loading_light.gif")'};
-  }
+    props.isDarkMode
+      ? 'url("/assets/animations/mobile_loading.gif")'
+      : 'url("/assets/animations/mobile_loading_light.gif")'};
+  } */
   overflow: hidden;
 `;
 
@@ -99,6 +109,16 @@ const BtnContainer = styled.div`
 
 export default function Home() {
   const isDarkMode = useRecoilValue(isDarkModeState);
+  const [playGif, setPlayGif] = useState(true);
+  const match425 = useMediaQuery("(max-width:425px)");
+
+  useEffect(() => {
+    if (playGif) {
+      setTimeout(() => {
+        setPlayGif(false);
+      }, 1000); // 1초 후에 GIF 재생 멈추기
+    }
+  }, [playGif]);
 
   return (
     <StartPageWrapper isDarkMode={isDarkMode}>
@@ -107,14 +127,43 @@ export default function Home() {
           <source
             src={
               isDarkMode
-                ? "/assets/animations/web_loading_light.mkv"
-                : "/assets/animations/web_loading_dark.mkv"
+                ? "/assets/animations/web_loading_dark.mkv"
+                : "/assets/animations/web_loading_light.mkv"
             }
             type="video/mp4"
           />
           Browser not supported
         </BgVideo>
       </VideoWrapper> */}
+      {match425 ? (
+        <Image
+          src={
+            playGif
+              ? isDarkMode
+                ? darkMobGif
+                : lightMobGif
+              : isDarkMode
+              ? darkMobLastframe
+              : lightMobLastframe
+          }
+          alt=""
+          style={{ height: "100vh", width: "100vw" }}
+        />
+      ) : (
+        <Image
+          src={
+            playGif
+              ? isDarkMode
+                ? darkWebGif
+                : lightWebGif
+              : isDarkMode
+              ? darkWebLastframe
+              : lightWebLastframe
+          }
+          alt=""
+          style={{ height: "100vh", width: "100vw" }}
+        />
+      )}
       <MainContents>
         <Phrase>성균관대학교 동아리를 한눈에!</Phrase>
         <Image
