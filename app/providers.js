@@ -18,7 +18,7 @@ const Providers = ({ children }) => {
 
   useEffect(() => {
     const mode = window.localStorage.getItem("skklubMode");
-    console.log(mode);
+
     if (mode === "light") {
       setIsDarkMode(false);
     }
