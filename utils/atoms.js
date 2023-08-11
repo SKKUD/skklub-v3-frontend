@@ -15,7 +15,7 @@ export const isDarkModeState = atom({
   default: true,
 });
 
-export const initialIsLoading = atom({
+export const initialIsLoadingState = atom({
   key: "initialIsLoading",
   default: true,
 });
