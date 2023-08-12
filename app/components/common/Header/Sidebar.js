@@ -21,7 +21,7 @@ const NavWrap = styled.div`
 `;
 
 const NavButtonFont = styled.div`
-  font-family: GmarketSansBold;
+  font-family: GmarketSansMedium;
   color: ${(props) =>
     props.isMatch
       ? props.isSuwon
