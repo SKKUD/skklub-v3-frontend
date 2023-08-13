@@ -33,11 +33,6 @@ const CardGrid = styled.div`
   @media (max-width: 425px) {
     gap: 16px;
   }
-  /* width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: space-around; */
 `;
 
 export default function CardBoard({ cardsData }) {

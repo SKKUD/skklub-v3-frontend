@@ -5,14 +5,11 @@ import { useMediaQuery } from "@mui/material";
 import ClubCardHeart from "./ClubCardHeart";
 
 const CustomCard = styled.div`
-  width: 40%;
-  max-width: 174px;
+  width: 174px;
   border-radius: 1rem;
   position: relative;
-  .img {
-    width: 100%;
-    position: relative;
-    object-fit: cover;
+  @media (max-width: 425px) {
+    width: 164px;
   }
   &:hover {
     cursor: pointer;
@@ -43,7 +40,7 @@ const ClubName = styled.div`
 `;
 
 const CardType = styled.div`
-  font-family: Pretendard-Regular;
+  font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -60,7 +57,6 @@ export default function ClubCard({ club }) {
   const router = useRouter();
   const pathname = usePathname();
   const match425 = useMediaQuery("(max-width:425px)");
-  const match374 = useMediaQuery("(max-width:374px)");
 
   const [_, location, a] = pathname.split("/");
 
@@ -72,7 +68,8 @@ export default function ClubCard({ club }) {
     <CustomCard key={club.name} onClick={() => handleCardClick(club.id)}>
       <Image
         src={`data:image/png;base64,${club.logo.bytes}`}
-        fill
+        width={match425 ? 164 : 174}
+        height={match425 ? 164 : 174}
         alt="notice thumbnail"
         style={{
           borderRadius: "10px",
