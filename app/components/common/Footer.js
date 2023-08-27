@@ -9,7 +9,7 @@ const FooterWrap = styled.div`
   width: 100%;
   height: 120px;
   font-size: 1rem;
-  font-family: pretendard;
+  font-family: Pretendard-Regular;
 
   color: ${(props) =>
     props.isDarkMode ? "rgba(255, 255, 255, 0.5)" : "#949595"};
@@ -34,7 +34,7 @@ export default function Footer() {
   return (
     location && (
       <FooterWrap isDarkMode={isDarkMode}>
-        SKKLUB - Created and Maintained by 기술지원위원회
+        SKKLUB - Created and Maintained by SKKU.D
       </FooterWrap>
     )
   );
