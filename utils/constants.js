@@ -76,6 +76,52 @@ export const INTRO_DUMMY_DATA = {
   ],
 };
 
+export const RECOMMENDATION_COMMENT_SEOUL = [
+  {
+    category: "취미교양",
+    description: "같은 취미를 공유하는 친구들과 대학 생활의 추억을 쌓아보세요!",
+    hashtags: ["새로움", "설레는", "즐거움", "교류"],
+  },
+  {
+    category: "연행예술",
+    description: "넘치는 끼와 에너지를 자유롭게 발산해보세요!",
+    hashtags: ["무대", "공연", "축제", "열정"],
+  },
+  {
+    category: "학술",
+    description:
+      "도움이 필요한 곳에 행복을 나누거나 인문학적 고민을 함께 사색하는 교류의 공간입니다.",
+    hashtags: ["토론", "봉사", "친구", "이야기"],
+  },
+  {
+    category: "평면예술",
+    description: "같은 취미를 공유하는 친구들과 대학 생활의 추억을 쌓아보세요!",
+    hashtags: ["새로움", "설레는", "즐거움", "교류"],
+  },
+  {
+    category: "봉사",
+    description:
+      "도움이 필요한 곳에 행복을 나누거나 인문학적 고민을 함께 사색하는 교류의 공간입니다.",
+    hashtags: ["토론", "봉사", "친구", "이야기"],
+  },
+  {
+    category: "종교",
+    description: "사랑과 자비로 맞이하는 세상은 생각보다 따스할 지 몰라요!",
+    hashtags: ["사랑", "자비", "평화", "화합"],
+  },
+  {
+    category: "스포츠",
+    description:
+      "낯설게 느껴지는 종목이더라도 함께라면 두려움이 아닌 즐거움으로 다가올 거예요!",
+    hashtags: ["운동", "스포츠", "협동", "경쟁"],
+  },
+  {
+    category: "인문사회",
+    description: "같은 취미를 공유하는 친구들과 대학 생활의 추억을 쌓아보세요!",
+    hashtags: ["새로움", "설레는", "즐거움", "교류"],
+  },
+];
+
 export const RECOMMENDATION_COMMENT_SUWON = [
   {
     category: "연행예술",
@@ -154,7 +200,7 @@ export const CAROUSEL_COMMENT_SEOUL = [
   },
   {
     img: "인문사회.gif",
-    name: "사회",
+    name: "인문사회",
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
