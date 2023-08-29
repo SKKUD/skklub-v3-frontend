@@ -5,10 +5,10 @@ export const getUsers = async () =>
 		res.json()
 	);
 
-export const getClubs = async (campus = 'seoul', clubType = '', belongs = '') =>
-	await fetch(
-		`${BASE_URL}/club/prev?campus=${campus}&clubType=${clubType}&belongs=${belongs}&size=1000`
-	).then((res) => res.json());
+export const getClubs = async (campus = "seoul", clubType = "", belongs = "") =>
+  await fetch(
+    `${BASE_URL}/club/prev?campus=${campus}&clubType=${clubType}&size=1000`
+  ).then((res) => res.json());
 
 export const getDailyRecommendation = async (
 	campus = 'seoul',
@@ -30,14 +30,12 @@ export const getClubsFromPartialKeyword = async ({ keyword }) =>
 		res.json()
 	);
 
-export const getClubRecommendation = async (
-	campus = '명륜',
-	clubType = '',
-	belongs = ''
-) =>
-	await fetch(`${BASE_URL}/club/random?campus=${campus}`).then((res) =>
-		res.json()
-	);
+export const getClubRecommendation = async (campus, belongs) => {
+  const response = await fetch(
+    `${BASE_URL}/club/random?campus=${campus}&clubType=중앙동아리&belongs=${belongs}`
+  );
+  return await response.json();
+};
 
 export const getNoticeDetail = async (noticeId) => {
 	const response = await fetch(`${BASE_URL}/notice/${noticeId}`);
