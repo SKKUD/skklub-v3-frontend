@@ -129,12 +129,6 @@ export const CAROUSEL_COMMENT_SEOUL = [
       "옆으로 넘기면서 성균관대학교에는\n어떤 동아리들이 있는지 살펴보세요.",
   },
   {
-    img: "과학기술.gif",
-    name: "과학기술",
-    content:
-      "과학기술분과는 자연과학, 공학, 기술 등 관심 분야를 탐구하는 지식의 바다입니다. 아무리 어려운 것이라도, 함께라면 막힘없이 풀 수 있을 거예요!",
-  },
-  {
     img: "스포츠.gif",
     name: "스포츠",
     content:
@@ -160,7 +154,7 @@ export const CAROUSEL_COMMENT_SEOUL = [
   },
   {
     img: "인문사회.gif",
-    name: "인문사회",
+    name: "사회",
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
