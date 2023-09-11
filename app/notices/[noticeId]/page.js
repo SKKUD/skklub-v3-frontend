@@ -243,16 +243,16 @@ export default function NoticePage() {
           </SubTitleWrapper>
           <Divider />
           <Attachment onClick={(e) => handleAttachmentClick(e)}>
-            {data && data.extraFileNames.length > 0 && (
+            {data && data.extraFileDownloadDtos.length > 0 && (
               <>
-                첨부파일 <span>({data.extraFileNames.length})</span>
+                첨부파일 <span>({data.extraFileDownloadDtos.length})</span>
               </>
             )}
           </Attachment>
           <NoticePopover
             anchorEl={anchorEl}
             setAnchorEl={setAnchorEl}
-            files={data && data.extraFileNames}
+            files={data && data.extraFileDownloadDtos}
           />
         </TitleBox>
         <ContentBox>{data && data.content}</ContentBox>
