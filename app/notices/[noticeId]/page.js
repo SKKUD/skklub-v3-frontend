@@ -41,7 +41,7 @@ const Title = styled.div`
   font-size: 28px;
   font-style: normal;
   font-weight: 500;
-  line-height: 28px;
+  line-height: 35px;
   letter-spacing: -0.56px;
   margin-bottom: 1rem;
   word-break: keep-all;
