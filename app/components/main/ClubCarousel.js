@@ -117,7 +117,11 @@ export default function ClubCarousel() {
   const IsDarkMode = useRecoilValue(isDarkModeState);
 
   const handleClickCard = (clickedCategory) => {
-    setCategory(clickedCategory);
+    if (clickedCategory === "나에게는\n어떤 동아리가\n어울릴까") {
+      setCategory("전체보기");
+    } else {
+      setCategory(clickedCategory);
+    }
     const newPath = `${pathname}/central-clubs`;
     router.push(newPath);
   };
@@ -224,7 +228,7 @@ export default function ClubCarousel() {
             ).map((info) => (
               <SwiperSlide
                 key={info.name}
-                onClick={() => handleClickCard("전체")}
+                onClick={() => handleClickCard(info.name)}
               >
                 <ClubCarouselCard
                   name={info.name}
