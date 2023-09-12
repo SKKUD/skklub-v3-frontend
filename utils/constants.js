@@ -184,7 +184,7 @@ export const CAROUSEL_COMMENT_SEOUL = [
     img: "service",
     name: "봉사",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "봉사분과에 대한 소개글은 아직 준비 중입니다! 조금만 기다려주세요 :)",
   },
   {
     img: "performing_art",
@@ -202,7 +202,7 @@ export const CAROUSEL_COMMENT_SEOUL = [
     img: "humanities",
     name: "인문사회",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "인문사회분과에 대한 소개글은 아직 준비 중입니다! 조금만 기다려주세요 :)",
   },
   {
     img: "hobby",
