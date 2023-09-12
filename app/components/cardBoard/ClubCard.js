@@ -66,7 +66,7 @@ export default function ClubCard({ club }) {
     router.push(`/${location}/${clubId}`);
   };
 
-  console.log(club);
+
   return (
     <CustomCard key={club.name} onClick={() => handleCardClick(club.id)}>
       <Image
