@@ -72,6 +72,12 @@ const SuggestionBox = styled.div`
   padding: 0 10px;
   z-index: 60;
 
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   @media (max-width: 480px) {
     top: 150px;
     width: 100%;
