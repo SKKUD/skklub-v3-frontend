@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
+import { decode } from 'html-entities';
 
 const BannerSubContent = styled.div`
   color: #fff;
@@ -58,7 +59,9 @@ const ClubPageNaviagateBtn = styled.button`
 export default function BannerSubcontent({ headLine }) {
   return (
     <>
-      <BannerSubContent>{headLine}</BannerSubContent>
+      <BannerSubContent>
+        <span>{decode(headLine)}</span>
+      </BannerSubContent>
     </>
   );
 }
