@@ -55,13 +55,11 @@ const ClubPageNaviagateBtn = styled.button`
   }
 `;
 
-export default function BannerSubcontent({ weblink }) {
+export default function BannerSubcontent({ headLine }) {
   return (
     <>
       <BannerSubContent>
-        스클럽이 추천하는 동아리를 잘 살펴보세요!
-        <br />잘 모르던 분야도 함께 활동하다보면 어느새 즐거운 동료가 되어있을
-        거에요!
+        <p>{headLine}</p>
       </BannerSubContent>
     </>
   );

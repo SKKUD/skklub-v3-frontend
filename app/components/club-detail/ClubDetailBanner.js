@@ -168,7 +168,7 @@ export default function ClubDetailBanner({ clubData }) {
             </Heart>
           </NameWrapper>
 
-          {!match425 && <BannerSubcontent weblink={clubData.webLink1} />}
+          {!match425 && <BannerSubcontent headLine={clubData.headLine} />}
         </InfoWrapper>
       </BannerContent>
       {match425 && <BannerSubcontent weblink={clubData.webLink1} />}
