@@ -58,9 +58,7 @@ const ClubPageNaviagateBtn = styled.button`
 export default function BannerSubcontent({ headLine }) {
   return (
     <>
-      <BannerSubContent>
-        <p>{headLine}</p>
-      </BannerSubContent>
+      <BannerSubContent>{headLine}</BannerSubContent>
     </>
   );
 }
