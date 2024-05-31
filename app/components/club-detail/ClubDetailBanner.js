@@ -144,7 +144,7 @@ export default function ClubDetailBanner({ clubData }) {
     <BannerWrapper>
       <BannerContent>
         <Image
-          src={clubData.logo.url}
+          src={clubData?.logo?.url}
           width={match425 ? 100 : 174}
           height={match425 ? 100 : 174}
           alt="CLUB_LOGO"
