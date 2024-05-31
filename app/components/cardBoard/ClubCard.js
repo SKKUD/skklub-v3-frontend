@@ -45,7 +45,7 @@ const ClubName = styled.div`
 
 const CardType = styled.div`
 	font-family: Pretendard;
-	font-size: 14px;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 500;
 	line-height: 160%; /* 22.4px */
@@ -79,13 +79,14 @@ export default function ClubCard({ club }) {
 				alt="notice thumbnail"
 				style={{
 					borderRadius: '10px',
+					backgroundColor: 'white',
 				}}
 			/>
 			<CardHeader>
 				<ClubName>{club.name}</ClubName>
 				<ClubCardHeart clubName={club.name} />
 			</CardHeader>
-			<CardType>{`${club.belongs}/${club.briefActivityDescription}`}</CardType>
+			<CardType>{`${club.briefActivityDescription}`}</CardType>
 		</CustomCard>
 	);
 }
