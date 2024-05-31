@@ -9,11 +9,14 @@ const CustomCard = styled.div`
   width: 174px;
   border-radius: 1rem;
   position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
   @media (max-width: 425px) {
     width: 164px;
   }
   &:hover {
     cursor: pointer;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
   }
 `;
 
